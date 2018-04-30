@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?b4c4998e548a16b827d4ffe9dbe2b47b"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>如何使用GitHubPages搭建个人博客 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="环境搭建">
+    <meta name="description" content="我对个人博客的要求我对个人博客有如下几点要求，因此最终选定通过Hexo+GitHubPages来搭建。  存在独立域名，别人能通过互联网访问 通过Git进行管理，支持MarkDown语法 不需要自己购买主机维护环境 支持评论分享等功能  配置GitHubPages 前提： 您需要有一个GitHub的账号，请将下文中的ruanxinyu替换为您的用户名。   点击https://github.com">
+<meta name="keywords" content="环境搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用GitHubPages搭建个人博客">
+<meta property="og:url" content="http://ruanxinyu.github.io/2018/04/30/如何使用GitHubPages搭建个人博客/index.html">
+<meta property="og:site_name" content="RuanXinYu&#39;s Blog">
+<meta property="og:description" content="我对个人博客的要求我对个人博客有如下几点要求，因此最终选定通过Hexo+GitHubPages来搭建。  存在独立域名，别人能通过互联网访问 通过Git进行管理，支持MarkDown语法 不需要自己购买主机维护环境 支持评论分享等功能  配置GitHubPages 前提： 您需要有一个GitHub的账号，请将下文中的ruanxinyu替换为您的用户名。   点击https://github.com">
+<meta property="og:locale" content="ZH">
+<meta property="og:image" content="http://ruanxinyu.github.io/2018/04/30/如何使用GitHubPages搭建个人博客/创建GitHub仓库.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/2018/04/30/如何使用GitHubPages搭建个人博客/Git仓库初始提交记录.png">
+<meta property="og:updated_time" content="2018-04-30T12:43:56.590Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何使用GitHubPages搭建个人博客">
+<meta name="twitter:description" content="我对个人博客的要求我对个人博客有如下几点要求，因此最终选定通过Hexo+GitHubPages来搭建。  存在独立域名，别人能通过互联网访问 通过Git进行管理，支持MarkDown语法 不需要自己购买主机维护环境 支持评论分享等功能  配置GitHubPages 前提： 您需要有一个GitHub的账号，请将下文中的ruanxinyu替换为您的用户名。   点击https://github.com">
+<meta name="twitter:image" content="http://ruanxinyu.github.io/2018/04/30/如何使用GitHubPages搭建个人博客/创建GitHub仓库.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">阮新宇</h5>
+          <a href="mailto:1096421257@qq.com" title="1096421257@qq.com" class="mail">1096421257@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/RuanXinyu" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">如何使用GitHubPages搭建个人博客</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">如何使用GitHubPages搭建个人博客</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-04-30T12:07:11.000Z" itemprop="datePublished" class="page-time">
+  2018-04-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/环境搭建/">环境搭建</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#我对个人博客的要求"><span class="post-toc-number">1.</span> <span class="post-toc-text">我对个人博客的要求</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置GitHubPages"><span class="post-toc-number">2.</span> <span class="post-toc-text">配置GitHubPages</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置Hexo"><span class="post-toc-number">3.</span> <span class="post-toc-text">配置Hexo</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装Hexo"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">安装Hexo</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装Hexo主题"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">安装Hexo主题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置Hexo-1"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">配置Hexo</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#发表文章"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">发表文章</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-如何使用GitHubPages搭建个人博客"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">如何使用GitHubPages搭建个人博客</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-04-30 20:07:11" datetime="2018-04-30T12:07:11.000Z"  itemprop="datePublished">2018-04-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/环境搭建/">环境搭建</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="我对个人博客的要求"><a href="#我对个人博客的要求" class="headerlink" title="我对个人博客的要求"></a>我对个人博客的要求</h1><p>我对个人博客有如下几点要求，因此最终选定通过Hexo+GitHubPages来搭建。</p>
+<ol>
+<li>存在独立域名，别人能通过互联网访问</li>
+<li>通过Git进行管理，支持MarkDown语法</li>
+<li>不需要自己购买主机维护环境</li>
+<li>支持评论分享等功能</li>
+</ol>
+<h1 id="配置GitHubPages"><a href="#配置GitHubPages" class="headerlink" title="配置GitHubPages"></a>配置GitHubPages</h1><blockquote>
+<p>前提： 您需要有一个GitHub的账号，请将下文中的<code>ruanxinyu</code>替换为您的用户名。</p>
+</blockquote>
+<ol>
+<li><p>点击<a href="https://github.com/new，" target="_blank" rel="external">https://github.com/new，</a> 创建一个仓库， 一般GitHub Pages对应的仓库名称规则为： <code>ruanxinyu.github.io</code>， 如下图所示：</p>
+<img src="/2018/04/30/如何使用GitHubPages搭建个人博客/创建GitHub仓库.png" alt="[创建GitHub仓库]" title="[创建GitHub仓库]">
+</li>
+<li><p>现在仓库有了，那么我们往仓库中放一个<code>index.html</code>页面来充当我们的博客，操作命令如下（Windows下可以使用git bash终端运行如下命令）:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:RuanXinyu/ruanxinyu.github.io.git</div><div class="line">cd ruanxinyu.github.io</div><div class="line">echo "Hello World" &gt; index.html</div><div class="line">git add --all</div><div class="line">git commit -m "Initial commit"</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<img src="/2018/04/30/如何使用GitHubPages搭建个人博客/Git仓库初始提交记录.png" alt="[Git仓库初始提交记录]" title="[Git仓库初始提交记录]">
+<h1 id="配置Hexo"><a href="#配置Hexo" class="headerlink" title="配置Hexo"></a>配置Hexo</h1><h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><h2 id="安装Hexo主题"><a href="#安装Hexo主题" class="headerlink" title="安装Hexo主题"></a>安装Hexo主题</h2><h2 id="配置Hexo-1"><a href="#配置Hexo-1" class="headerlink" title="配置Hexo"></a>配置Hexo</h2><h2 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h2>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-04-30T12:43:56.590Z" itemprop="dateUpdated">2018-04-30 20:43:56</time>
+</span><br>
+
+
+        
+        原始链接：<a href="/2018/04/30/如何使用GitHubPages搭建个人博客/" target="_blank" rel="external">http://ruanxinyu.github.io/2018/04/30/如何使用GitHubPages搭建个人博客/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://ruanxinyu.github.io">
+            <img src="/img/avatar.png" alt="阮新宇">
+            阮新宇
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/环境搭建/">环境搭建</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/2018/04/30/如何使用GitHubPages搭建个人博客/&title=《如何使用GitHubPages搭建个人博客》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/2018/04/30/如何使用GitHubPages搭建个人博客/&title=《如何使用GitHubPages搭建个人博客》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/2018/04/30/如何使用GitHubPages搭建个人博客/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《如何使用GitHubPages搭建个人博客》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/2018/04/30/如何使用GitHubPages搭建个人博客/&via=http://ruanxinyu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/2018/04/30/如何使用GitHubPages搭建个人博客/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/04/15/JDK安装教程/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JDK安装教程</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: 'Mon Apr 30 2018 20:07:11 GMT+0800',
+            owner: 'RuanXinyu',
+            repo: 'ruanxinyu.github.com',
+            oauth: {
+                client_id: '2a6e23cf2e29e54ef316',
+                client_secret: 'f237d3eb9fc94607a0354f894b143efe52eb8aca',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢您的打赏
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>阮新宇 &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/2018/04/30/如何使用GitHubPages搭建个人博客/&title=《如何使用GitHubPages搭建个人博客》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/2018/04/30/如何使用GitHubPages搭建个人博客/&title=《如何使用GitHubPages搭建个人博客》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/2018/04/30/如何使用GitHubPages搭建个人博客/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《如何使用GitHubPages搭建个人博客》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/2018/04/30/如何使用GitHubPages搭建个人博客/&via=http://ruanxinyu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/2018/04/30/如何使用GitHubPages搭建个人博客/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrElEQVR42u3a0a4aMQwFwPv/P02lvrbAsU9CUTX7hGA3mwlSYtn++Ymvx+/r2efXv/45zrOn8vsPX3h4eHirqT+78te/Ju2QybK+WQI8PDy8a7z+MMhhrxcoeTaZMx4eHt438F5v6NPp5m/Ew8PD+z94ydA5cpqMwMPDw/sGXr7155PLlyk5Tq7nWvDw8PBiXl8A+/znj9b38PDw8OIjYVoSy0PevGD2KC48PDy8G7xp0iH5dTpO074Qhf54eHh4R3m79qbm/mnaomomwMPDw7vAG5wew9RtHxDnB8+gAIaHh4d3iDd9oE9h7EbOG7Oi/xAPDw+v4DUHw6nmrV3SYdwZgYeHh3eIl2zTeQKib0SYHlHRHPDw8PAO8XZDN8Wt5uCZBuV4eHh4N3i7TfxU6mF3wDTvwsPDw+t5+TbapANOpXFfL1CUwMXDw8M7xEtesDs8kjGb4PvN3PDw8PAu8HYlriaYbpqupklhPDw8vHu8aVkrL1DlIXUSaudluTdlMDw8PLyatytrNWWq5PtpES46HvDw8PBq3jSBeyo4zktc0xAfDw8P7zO8pE0qT9E2B0PTyPWXkfHw8PCu8XZTb0r704lOw308PDy827y+OeBsyjXPoLxZaDw8PLzLvHzjzrfpXWp4mnp4+hQeHh7eBV6eQm3KVE0H1G5B8fDw8O7x8kGT6e4OmzwFPH07Hh4e3g3e7mCYlrua1PBPfEX34+Hh4dW8x/BqNu4mETxN7+Lh4eHd4+223aootRqhWUo8PDy8G7ymDLZLLuy2+2U4joeHh3eN17dPTY+Zs2Hx0zAdDw8P7wt4p5oGkvJV8k0UUuPh4eH9I15eT0uC5qQJ4EBPGR4eHt413rRN6lT4m7y9Cf3x8PDwbvB2LU3ThG/eVtXcs1x6PDw8vJT3C3WDp6zMlnTZAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '您还会回来吗？';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来！';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

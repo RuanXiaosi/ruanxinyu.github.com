@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ruanxinyu.github.io/"/>
-  <updated>2018-04-30T08:36:15.999Z</updated>
+  <updated>2018-04-30T12:43:56.590Z</updated>
   <id>http://ruanxinyu.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>如何使用GitHubPages搭建个人博客</title>
+    <link href="http://ruanxinyu.github.io/2018/04/30/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8GitHubPages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://ruanxinyu.github.io/2018/04/30/如何使用GitHubPages搭建个人博客/</id>
+    <published>2018-04-30T12:07:11.000Z</published>
+    <updated>2018-04-30T12:43:56.590Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="我对个人博客的要求"><a href="#我对个人博客的要求" class="headerlink" title="我对个人博客的要求"></a>我对个人博客的要求</h1><p>我对个人博客有如下几点要求，因此最终选定通过Hexo+GitHubPages来搭建。</p><ol><li>存在独立域名，别人能通过互联网访问</li><li>通过Git进行管理，支持MarkDown语法</li><li>不需要自己购买主机维护环境</li><li>支持评论分享等功能</li></ol><h1 id="配置GitHubPages"><a href="#配置GitHubPages" class="headerlink" title="配置GitHubPages"></a>配置GitHubPages</h1><blockquote><p>前提： 您需要有一个GitHub的账号，请将下文中的<code>ruanxinyu</code>替换为您的用户名。</p></blockquote><ol><li><p>点击<a href="https://github.com/new，" target="_blank" rel="external">https://github.com/new，</a> 创建一个仓库， 一般GitHub Pages对应的仓库名称规则为： <code>ruanxinyu.github.io</code>， 如下图所示：</p><img src="/2018/04/30/如何使用GitHubPages搭建个人博客/创建GitHub仓库.png" alt="[创建GitHub仓库]" title="[创建GitHub仓库]"></li><li><p>现在仓库有了，那么我们往仓库中放一个<code>index.html</code>页面来充当我们的博客，操作命令如下（Windows下可以使用git bash终端运行如下命令）:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:RuanXinyu/ruanxinyu.github.io.git</div><div class="line">cd ruanxinyu.github.io</div><div class="line">echo "Hello World" &gt; index.html</div><div class="line">git add --all</div><div class="line">git commit -m "Initial commit"</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure></li></ol><img src="/2018/04/30/如何使用GitHubPages搭建个人博客/Git仓库初始提交记录.png" alt="[Git仓库初始提交记录]" title="[Git仓库初始提交记录]"><h1 id="配置Hexo"><a href="#配置Hexo" class="headerlink" title="配置Hexo"></a>配置Hexo</h1><h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><h2 id="安装Hexo主题"><a href="#安装Hexo主题" class="headerlink" title="安装Hexo主题"></a>安装Hexo主题</h2><h2 id="配置Hexo-1"><a href="#配置Hexo-1" class="headerlink" title="配置Hexo"></a>配置Hexo</h2><h2 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;我对个人博客的要求&quot;&gt;&lt;a href=&quot;#我对个人博客的要求&quot; class=&quot;headerlink&quot; title=&quot;我对个人博客的要求&quot;&gt;&lt;/a&gt;我对个人博客的要求&lt;/h1&gt;&lt;p&gt;我对个人博客有如下几点要求，因此最终选定通过Hexo+GitHubPages来搭建。
+      
+    
+    </summary>
+    
+      <category term="环境搭建" scheme="http://ruanxinyu.github.io/categories/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    
+    
+      <category term="环境搭建" scheme="http://ruanxinyu.github.io/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JDK安装教程</title>
     <link href="http://ruanxinyu.github.io/2018/04/15/JDK%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
     <id>http://ruanxinyu.github.io/2018/04/15/JDK安装教程/</id>
     <published>2018-04-15T06:53:32.000Z</published>
-    <updated>2018-04-30T08:36:15.999Z</updated>
+    <updated>2018-04-30T12:09:40.545Z</updated>
     
     <content type="html"><![CDATA[<p>学习Java，首先得安装JDK(Java Development Kit)，那么下面就说一下如何在Windows和Linux下安装并验证JDK。</p><h1 id="JDK的下载"><a href="#JDK的下载" class="headerlink" title="JDK的下载"></a>JDK的下载</h1><p>JDK的官方下载地址为： <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html，" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/downloads/index.html，</a> 请根据需要下载对应操作系统的安装包。</p><blockquote><p>官方下载速度比较慢，因此可以从华为开源镜像站下载，地址为：<a href="https://mirrors.huaweicloud.com/repository/toolkit/java/jdk/" target="_blank" rel="external">https://mirrors.huaweicloud.com/repository/toolkit/java/jdk/</a></p></blockquote><h1 id="Windows下安装JDK"><a href="#Windows下安装JDK" class="headerlink" title="Windows下安装JDK"></a>Windows下安装JDK</h1><ol><li>以<code>jdk-8u151</code>为例，双击上一步下载下来的exe文件，默认安装即可。（备注：路径可以选择其他盘符，但是不建议路径中包含中文及特殊字符）</li><li>进入到系统环境变量的管理界面：<code>右键计算机图标=&gt;属性=&gt;高级系统设置=&gt;环境变量</code><img src="/2018/04/15/JDK安装教程/windows_install_01.png" alt="[设置Windows环境变量]" title="[设置Windows环境变量]"></li><li><code>新建</code>变量<code>JAVA_HOME</code>，值为：<code>C:\Program Files\Java\jdk1.8.0_151</code></li><li><code>编辑</code>变量<code>PATH</code>，追加：<code>%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</code></li><li><code>新建</code>变量<code>CLASSPATH</code>，值为：<code>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar</code><img src="/2018/04/15/JDK安装教程/windows_install_02.png" alt="[设置Windows环境变量]" title="[设置Windows环境变量]"></li></ol><h1 id="Linux下安装JDK"><a href="#Linux下安装JDK" class="headerlink" title="Linux下安装JDK"></a>Linux下安装JDK</h1><ol><li><p>以<code>jdk-8u151</code>为例，下载JDK后，将压缩包解压至特定的目录，一般解压至/usr/local目录，下载和解压命令可以参考如下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget https://mirrors.huaweicloud.com/repository/toolkit/java/jdk/8u151-b12/jdk-8u151-linux-x64.tar.gz</div><div class="line">tar -zxvf -C /usr/local/ jdk-8u151-linux-x64.tar.gz</div></pre></td></tr></table></figure></li><li><p>经JDK的路径加入到环境变量中，在命令行中输入<code>vim /etc/profile</code>，编辑文件，在文件末尾增加如下的内容，然后执行<code>source /etc/profile</code>使环境变量生效。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/usr/local/jdk-8u151</div><div class="line">export JRE_HOME=/usr/local/jdk-8u151/jre</div><div class="line">export CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib</div><div class="line">export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</div></pre></td></tr></table></figure></li></ol><h1 id="JDK的验证"><a href="#JDK的验证" class="headerlink" title="JDK的验证"></a>JDK的验证</h1><p>windows打开<code>CMD</code>命令窗口，Linux打开终端端口，输入<code>java -version</code>命令，如果出现如下提示则Java安装成功。<br><img src="/2018/04/15/JDK安装教程/jave_version.png" alt="[Java的验证]" title="[Java的验证]"></p>]]></content>
     
@@ -35,14 +60,12 @@
     
     </summary>
     
-      <category term="技术分享" scheme="http://ruanxinyu.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+      <category term="环境搭建" scheme="http://ruanxinyu.github.io/categories/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     
-      <category term="工具安装" scheme="http://ruanxinyu.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/"/>
     
+      <category term="环境搭建" scheme="http://ruanxinyu.github.io/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     
       <category term="Java" scheme="http://ruanxinyu.github.io/tags/Java/"/>
-    
-      <category term="工具安装" scheme="http://ruanxinyu.github.io/tags/%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/"/>
     
   </entry>
   
