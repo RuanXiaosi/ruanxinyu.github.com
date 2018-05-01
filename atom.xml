@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ruanxinyu.github.io/"/>
-  <updated>2018-05-01T10:27:00.220Z</updated>
+  <updated>2018-05-01T10:28:32.494Z</updated>
   <id>http://ruanxinyu.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://ruanxinyu.github.io/2018/05/01/%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%AALinux%E5%91%BD%E4%BB%A4%EF%BC%882%EF%BC%89%EF%BC%9Acd%E5%91%BD%E4%BB%A4/"/>
     <id>http://ruanxinyu.github.io/2018/05/01/每天学习一个Linux命令（2）：cd命令/</id>
     <published>2018-05-01T10:00:58.000Z</published>
-    <updated>2018-05-01T10:27:00.220Z</updated>
+    <updated>2018-05-01T10:28:32.494Z</updated>
     
-    <content type="html"><![CDATA[<p><code>cd</code>命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。</p><h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd [dir]</div></pre></td></tr></table></figure><h1 id="使用小技巧"><a href="#使用小技巧" class="headerlink" title="使用小技巧"></a>使用小技巧</h1><ol><li>切换至用户所示在的目录可以使用<code>cd ~</code> 或者 <code>cd</code>(不带参数)</li><li><code>&quot;.&quot;</code> 则是表示目前所在的目录，<code>&quot;..&quot;</code> 则表示目前目录位置的上一层目录</li><li>通过<code>pwd</code>命令可以打印当前所在的目录</li><li><code>cd -</code>表示切换至上一次所在的目录</li></ol><h1 id="常用范例"><a href="#常用范例" class="headerlink" title="常用范例"></a>常用范例</h1><p><strong>范例1： 切换至根目录下的var目录下</strong><br>命令： <code>cd /var</code>(绝对路径)</p><hr><p><strong>范例2： 切换至当前目录下的var目录下</strong><br>命令： <code>cd var</code>(相对目录)</p><hr><p><strong>范例3： 切换至上两级的目录</strong><br>命令： <code>cd ../../</code></p><hr><p><strong>范例4： 切换至包含空格的目录</strong><br>命令： <code>cd &#39;aa aa&#39;</code>或者<code>cd aa\ aa</code></p><hr><p><strong>范例5： 切换至当前用户的home目录</strong><br>命令： <code>cd ~</code>或者<code>cd</code></p><hr><p><strong>范例6： 打印当前所在的目录</strong><br>命令： <code>pwd</code></p><hr><p><strong>范例6： 切换到上一次所在的目录</strong><br>命令： <code>cd -</code></p>]]></content>
+    <content type="html"><![CDATA[<p><code>cd</code>命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。</p><h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd [dir]</div></pre></td></tr></table></figure><h1 id="使用小技巧"><a href="#使用小技巧" class="headerlink" title="使用小技巧"></a>使用小技巧</h1><ol><li>切换至用户所示在的目录可以使用<code>cd ~</code> 或者 <code>cd</code>(不带参数)</li><li><code>&quot;.&quot;</code> 则是表示目前所在的目录，<code>&quot;..&quot;</code> 则表示目前目录位置的上一层目录</li><li>通过<code>pwd</code>命令可以打印当前所在的目录</li><li><code>cd -</code>表示切换至上一次所在的目录</li></ol><h1 id="常用范例"><a href="#常用范例" class="headerlink" title="常用范例"></a>常用范例</h1><p><strong>范例1： 切换至根目录下的var目录下</strong><br>命令： <code>cd /var</code>(绝对路径)</p><hr><p><strong>范例2： 切换至当前目录下的var目录下</strong><br>命令： <code>cd var</code>(相对目录)</p><hr><p><strong>范例3： 切换至上两级的目录</strong><br>命令： <code>cd ../../</code></p><hr><p><strong>范例4： 切换至包含空格的目录</strong><br>命令： <code>cd &#39;aa aa&#39;</code>或者<code>cd aa\ aa</code></p><hr><p><strong>范例5： 切换至当前用户的home目录</strong><br>命令： <code>cd ~</code>或者<code>cd</code></p><hr><p><strong>范例6： 打印当前所在的目录</strong><br>命令： <code>pwd</code></p><hr><p><strong>范例7： 切换到上一次所在的目录</strong><br>命令： <code>cd -</code></p>]]></content>
     
     <summary type="html">
     
