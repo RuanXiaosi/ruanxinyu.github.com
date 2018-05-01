@@ -26,18 +26,18 @@
     
     
     <meta name="keywords" content="Linux">
-    <meta name="description" content="cd命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。 语法1cd [dir] 使用小技巧 切换至用户所示在的目录可以使用cd ~ 或者 cd(不带参数) &amp;quot;.&amp;quot; 则是表示目前所在的目录，&amp;quot;..&amp;quot; 则表示目前目录位置的上一层目录 通过pwd命令可以打印当前所在的目录  常用范例范例1： 切换至根目录下的var目录下命令： cd /var(绝对路">
+    <meta name="description" content="cd命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。 语法1cd [dir] 使用小技巧 切换至用户所示在的目录可以使用cd ~ 或者 cd(不带参数) &amp;quot;.&amp;quot; 则是表示目前所在的目录，&amp;quot;..&amp;quot; 则表示目前目录位置的上一层目录 通过pwd命令可以打印当前所在的目录 cd -表示切换至上一次所在的目录  常用范例范例1： 切换至根目录下的var">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每天学习一个Linux命令（2）：cd命令">
 <meta property="og:url" content="http://ruanxinyu.github.io/2018/05/01/每天学习一个Linux命令（2）：cd命令/index.html">
 <meta property="og:site_name" content="RuanXinYu&#39;s Blog">
-<meta property="og:description" content="cd命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。 语法1cd [dir] 使用小技巧 切换至用户所示在的目录可以使用cd ~ 或者 cd(不带参数) &amp;quot;.&amp;quot; 则是表示目前所在的目录，&amp;quot;..&amp;quot; 则表示目前目录位置的上一层目录 通过pwd命令可以打印当前所在的目录  常用范例范例1： 切换至根目录下的var目录下命令： cd /var(绝对路">
+<meta property="og:description" content="cd命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。 语法1cd [dir] 使用小技巧 切换至用户所示在的目录可以使用cd ~ 或者 cd(不带参数) &amp;quot;.&amp;quot; 则是表示目前所在的目录，&amp;quot;..&amp;quot; 则表示目前目录位置的上一层目录 通过pwd命令可以打印当前所在的目录 cd -表示切换至上一次所在的目录  常用范例范例1： 切换至根目录下的var">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-01T10:03:33.519Z">
+<meta property="og:updated_time" content="2018-05-01T10:27:00.220Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每天学习一个Linux命令（2）：cd命令">
-<meta name="twitter:description" content="cd命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。 语法1cd [dir] 使用小技巧 切换至用户所示在的目录可以使用cd ~ 或者 cd(不带参数) &amp;quot;.&amp;quot; 则是表示目前所在的目录，&amp;quot;..&amp;quot; 则表示目前目录位置的上一层目录 通过pwd命令可以打印当前所在的目录  常用范例范例1： 切换至根目录下的var目录下命令： cd /var(绝对路">
+<meta name="twitter:description" content="cd命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。 语法1cd [dir] 使用小技巧 切换至用户所示在的目录可以使用cd ~ 或者 cd(不带参数) &amp;quot;.&amp;quot; 则是表示目前所在的目录，&amp;quot;..&amp;quot; 则表示目前目录位置的上一层目录 通过pwd命令可以打印当前所在的目录 cd -表示切换至上一次所在的目录  常用范例范例1： 切换至根目录下的var">
     
         <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
     
@@ -197,6 +197,7 @@
 <li>切换至用户所示在的目录可以使用<code>cd ~</code> 或者 <code>cd</code>(不带参数)</li>
 <li><code>&quot;.&quot;</code> 则是表示目前所在的目录，<code>&quot;..&quot;</code> 则表示目前目录位置的上一层目录</li>
 <li>通过<code>pwd</code>命令可以打印当前所在的目录</li>
+<li><code>cd -</code>表示切换至上一次所在的目录</li>
 </ol>
 <h1 id="常用范例"><a href="#常用范例" class="headerlink" title="常用范例"></a>常用范例</h1><p><strong>范例1： 切换至根目录下的var目录下</strong><br>命令： <code>cd /var</code>(绝对路径)</p>
 <hr>
@@ -208,7 +209,9 @@
 <hr>
 <p><strong>范例5： 切换至当前用户的home目录</strong><br>命令： <code>cd ~</code>或者<code>cd</code></p>
 <hr>
-<p><strong>范例5： 打印当前所在的目录</strong><br>命令： <code>pwd</code></p>
+<p><strong>范例6： 打印当前所在的目录</strong><br>命令： <code>pwd</code></p>
+<hr>
+<p><strong>范例6： 切换到上一次所在的目录</strong><br>命令： <code>cd -</code></p>
 
         </div>
 
@@ -217,7 +220,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-01T10:03:33.519Z" itemprop="dateUpdated">2018-05-01 18:03:33</time>
+    最后更新时间：<time datetime="2018-05-01T10:27:00.220Z" itemprop="dateUpdated">2018-05-01 18:27:00</time>
 </span><br>
 
 
