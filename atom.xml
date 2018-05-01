@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ruanxinyu.github.io/"/>
-  <updated>2018-05-01T10:28:32.494Z</updated>
+  <updated>2018-05-01T13:29:33.014Z</updated>
   <id>http://ruanxinyu.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>每天学习一个Linux命令（3）：echo命令</title>
+    <link href="http://ruanxinyu.github.io/2018/05/02/%E6%AF%8F%E5%A4%A9%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%AALinux%E5%91%BD%E4%BB%A4%EF%BC%883%EF%BC%89%EF%BC%9Aecho%E5%91%BD%E4%BB%A4/"/>
+    <id>http://ruanxinyu.github.io/2018/05/02/每天学习一个Linux命令（3）：echo命令/</id>
+    <published>2018-05-02T11:20:58.000Z</published>
+    <updated>2018-05-01T13:29:33.014Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>echo</code>命令用于输出字符串，可以通过参数和转义等来控制输出格式。</p><h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo [-neE] [arg ...]</div></pre></td></tr></table></figure><h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><ul><li><code>-n</code> 打印不添加换行符</li><li><code>-e</code> 使能转义字符</li></ul><h1 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h1><ul><li><code>\b</code> 退格键，即删除一个字符</li><li><code>\c</code> 抑制后续的输出</li><li><code>\n</code> 换行</li><li><code>\t</code> tab键</li><li><code>\\</code> 斜杠</li></ul><h1 id="使用小技巧"><a href="#使用小技巧" class="headerlink" title="使用小技巧"></a>使用小技巧</h1><ol><li><code>echo</code>是shell的内部命令，因此查看帮助需要使用<code>help echo</code></li><li><code>echo</code>后的字符串如果使用单引号括起来，则转义和变量都失效<code>(重要)</code></li><li>通过<code>-e</code>参数和<code>\c</code>转义可以控制换行的输出</li></ol><h1 id="常用范例"><a href="#常用范例" class="headerlink" title="常用范例"></a>常用范例</h1><p><strong>范例1： 显示普通字符串</strong><br>命令： <code>echo &quot;this is a text&quot;</code> # 也可以不加引号<br>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">this is a text</div></pre></td></tr></table></figure></p><p><strong>范例2： 显示转义字符</strong><br>命令： <code>echo &quot;\&quot;this is a text\&quot;&quot;</code><br>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&quot;this is a text&quot;</div></pre></td></tr></table></figure></p><p><strong>范例3： 显示变量</strong><br>命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">text=<span class="string">"ffff"</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"this is a <span class="variable">$&#123;text&#125;</span>"</span></div></pre></td></tr></table></figure></p><p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">this is a ffff</div></pre></td></tr></table></figure></p><p><strong>范例4： 输出换行</strong><br>命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> -e <span class="string">"this \n"</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"is a text"</span></div></pre></td></tr></table></figure></p><p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">this </div><div class="line"></div><div class="line">is a text</div></pre></td></tr></table></figure></p><p><strong>范例5： 不输出换行</strong><br>命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> -e <span class="string">"this \c"</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"is a text"</span></div></pre></td></tr></table></figure></p><p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">this is a text （注：相比于上面的命令，少了两个换行）</div></pre></td></tr></table></figure></p><p><strong>范例6： 禁止显示转义和变量（使用单引号）</strong><br>命令： <code>echo &#39;$name\&quot;&#39;</code> # 这个很重要<br>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$name\&quot;</div></pre></td></tr></table></figure></p><p><strong>范例7： 显示命令执行的结果</strong><br>命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> `date`</div><div class="line"><span class="built_in">echo</span> $(date)</div></pre></td></tr></table></figure></p><p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Tue May 1 21:16:57 CST 2018</div><div class="line">Tue May 1 21:16:57 CST 2018</div></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;code&gt;echo&lt;/code&gt;命令用于输出字符串，可以通过参数和转义等来控制输出格式。&lt;/p&gt;
+&lt;h1 id=&quot;语法&quot;&gt;&lt;a href=&quot;#语法&quot; class=&quot;headerlink&quot; title=&quot;语法&quot;&gt;&lt;/a&gt;语法&lt;/h1&gt;&lt;figure class=&quot;highl
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://ruanxinyu.github.io/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://ruanxinyu.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>每天学习一个Linux命令（2）：cd命令</title>
