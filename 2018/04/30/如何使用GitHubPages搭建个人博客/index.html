@@ -46,7 +46,8 @@
 <meta property="og:image" content="http://ruanxinyu.github.io/2018/04/30/如何使用GitHubPages搭建个人博客/GitHub配置域名设置入口.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/2018/04/30/如何使用GitHubPages搭建个人博客/GitHub配置域名.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/2018/04/30/如何使用GitHubPages搭建个人博客/华为云创建仓库.png">
-<meta property="og:updated_time" content="2018-05-01T06:31:58.971Z">
+<meta property="og:image" content="http://ruanxinyu.github.io/2018/04/30/如何使用GitHubPages搭建个人博客/百度统计检查状态.png">
+<meta property="og:updated_time" content="2018-05-01T06:55:04.621Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何使用GitHubPages搭建个人博客">
 <meta name="twitter:description" content="我对个人博客的要求我对个人博客有如下几点要求，因此最终选定通过Hexo+GitHub Pages来搭建。  存在独立域名，别人能通过互联网访问 通过Git进行管理，支持MarkDown语法 不需要自己购买主机维护环境 支持评论分享等功能  配置GitHub Pages 前提： 您需要有一个GitHub的账号，请将下文中的ruanxinyu替换为您的用户名。   点击此处，创建一个仓库， 一般Git">
@@ -178,7 +179,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#我对个人博客的要求"><span class="post-toc-number">1.</span> <span class="post-toc-text">我对个人博客的要求</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置GitHub-Pages"><span class="post-toc-number">2.</span> <span class="post-toc-text">配置GitHub Pages</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装并体验Hexo"><span class="post-toc-number">3.</span> <span class="post-toc-text">安装并体验Hexo</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#切换到Indigo主题"><span class="post-toc-number">4.</span> <span class="post-toc-text">切换到Indigo主题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置Hexo和Indigo主题"><span class="post-toc-number">5.</span> <span class="post-toc-text">配置Hexo和Indigo主题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Hexo配置文件样例"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">Hexo配置文件样例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Indigo配置文件样例"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">Indigo配置文件样例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置百度统计"><span class="post-toc-number">6.</span> <span class="post-toc-text">配置百度统计</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置评论功能"><span class="post-toc-number">7.</span> <span class="post-toc-text">配置评论功能</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用个人独立域名"><span class="post-toc-number">8.</span> <span class="post-toc-text">使用个人独立域名</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置域名解析DNS"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">配置域名解析DNS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置GitHub仓库"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">配置GitHub仓库</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#通过Git的子模块功能管理主题"><span class="post-toc-number">9.</span> <span class="post-toc-text">通过Git的子模块功能管理主题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在华为DevCloud上建立私有代码仓"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">在华为DevCloud上建立私有代码仓</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何添加Git的子模块功能"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">如何添加Git的子模块功能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何修改indigo主题的内容"><span class="post-toc-number">9.3.</span> <span class="post-toc-text">如何修改indigo主题的内容</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何同步indigo主题官方仓库的更新"><span class="post-toc-number">9.4.</span> <span class="post-toc-text">如何同步indigo主题官方仓库的更新</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何修改Hexo工程代码的内容"><span class="post-toc-number">9.5.</span> <span class="post-toc-text">如何修改Hexo工程代码的内容</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#克隆已经添加子模块功能的hexo工程"><span class="post-toc-number">9.6.</span> <span class="post-toc-text">克隆已经添加子模块功能的hexo工程</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#我对个人博客的要求"><span class="post-toc-number">1.</span> <span class="post-toc-text">我对个人博客的要求</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置GitHub-Pages"><span class="post-toc-number">2.</span> <span class="post-toc-text">配置GitHub Pages</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装并体验Hexo"><span class="post-toc-number">3.</span> <span class="post-toc-text">安装并体验Hexo</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#切换到Indigo主题"><span class="post-toc-number">4.</span> <span class="post-toc-text">切换到Indigo主题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置Hexo和Indigo主题"><span class="post-toc-number">5.</span> <span class="post-toc-text">配置Hexo和Indigo主题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Hexo配置文件样例"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">Hexo配置文件样例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Indigo配置文件样例"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">Indigo配置文件样例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置百度统计"><span class="post-toc-number">6.</span> <span class="post-toc-text">配置百度统计</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置评论功能"><span class="post-toc-number">7.</span> <span class="post-toc-text">配置评论功能</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用个人独立域名"><span class="post-toc-number">8.</span> <span class="post-toc-text">使用个人独立域名</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置域名解析DNS"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">配置域名解析DNS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置GitHub仓库"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">配置GitHub仓库</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#通过Git的子模块功能管理主题"><span class="post-toc-number">9.</span> <span class="post-toc-text">通过Git的子模块功能管理主题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在华为DevCloud上建立私有代码仓"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">在华为DevCloud上建立私有代码仓</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何添加Git的子模块功能"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">如何添加Git的子模块功能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何修改indigo主题的内容"><span class="post-toc-number">9.3.</span> <span class="post-toc-text">如何修改indigo主题的内容</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何同步indigo主题官方仓库的更新"><span class="post-toc-number">9.4.</span> <span class="post-toc-text">如何同步indigo主题官方仓库的更新</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何修改Hexo工程代码的内容"><span class="post-toc-number">9.5.</span> <span class="post-toc-text">如何修改Hexo工程代码的内容</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#克隆已经添加子模块功能的hexo工程"><span class="post-toc-number">9.6.</span> <span class="post-toc-text">克隆已经添加子模块功能的hexo工程</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#你可能会遇到的坑"><span class="post-toc-number">10.</span> <span class="post-toc-text">你可能会遇到的坑</span></a></li></ol>
         </nav>
     </aside>
 
@@ -255,7 +256,7 @@
 </ol>
 <h1 id="切换到Indigo主题"><a href="#切换到Indigo主题" class="headerlink" title="切换到Indigo主题"></a>切换到Indigo主题</h1><p>Hexo默认使用的是<code>landscape</code>主题，如果不符合自己的审美，可以在<a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a>查找自己喜欢的主题。我比较喜欢<code>indigo</code>主题，该主题有平铺和卡片两种显示方式，卡片模式的代码是在<code>card</code>分支下，下面以此主题为例。</p>
 <ol>
-<li><p>进入到<code>themes</code>目录，克隆该主题的代码仓库，如下：</p>
+<li><p>克隆该主题的代码仓库，如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone -b card https://github.com/yscoder/hexo-theme-indigo.git themes/indigo</div></pre></td></tr></table></figure>
 </li>
 <li><p>安装Indigo主题依赖的插件</p>
@@ -266,7 +267,7 @@
 </ol>
 <h1 id="配置Hexo和Indigo主题"><a href="#配置Hexo和Indigo主题" class="headerlink" title="配置Hexo和Indigo主题"></a>配置Hexo和Indigo主题</h1><p>Hexo的配置文件为<code>_config.yml</code>，Indigo主题的配置文件在<code>themes/indigo/_config.yml</code>。</p>
 <p>Hexo的配置说明文档地址为： <a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="external">https://hexo.io/zh-cn/docs/configuration.html</a><br>Indigo主题的配置说明文档地址为： <a href="https://github.com/yscoder/hexo-theme-indigo/wiki/%E9%85%8D%E7%BD%AE" target="_blank" rel="external">https://github.com/yscoder/hexo-theme-indigo/wiki/%E9%85%8D%E7%BD%AE</a></p>
-<p>官方文档已经描述很清楚，因此在此我贡献出我的配置，然后对几个点做一下说明，您可以在此基础上进行修改。</p>
+<p>官方文档已经描述很清楚，当然，最简单的方式是基于别人的进行修改，因此在此我贡献出我的配置，然后对几个点做一下说明。</p>
 <h2 id="Hexo配置文件样例"><a href="#Hexo配置文件样例" class="headerlink" title="Hexo配置文件样例"></a>Hexo配置文件样例</h2><blockquote>
 <ol>
 <li><code>language: zh-CN</code>: 语言的种类可以参考<code>themes/indigo/languages</code>目录下的文件</li>
@@ -349,6 +350,35 @@
 <p>之后通过<code>git pull office</code>即可将官方的仓库合并到本地。</p>
 <h2 id="如何修改Hexo工程代码的内容"><a href="#如何修改Hexo工程代码的内容" class="headerlink" title="如何修改Hexo工程代码的内容"></a>如何修改Hexo工程代码的内容</h2><p>Hexo工程就跟普通仓库一样维护即可，与子模块是相互独立的，当前两个仓库分开维护即可。Hexo工程代码并不会管理indigo主题的文件，而只是维护一个子模块的commit id。</p>
 <h2 id="克隆已经添加子模块功能的hexo工程"><a href="#克隆已经添加子模块功能的hexo工程" class="headerlink" title="克隆已经添加子模块功能的hexo工程"></a>克隆已经添加子模块功能的hexo工程</h2><p>使用子模块之后，克隆Hexo工程代码可以加上<code>--recursive</code>参数，将子模组的内容一起克隆下来，如果没有加该参数，则需要手动执行一下<code>git submodule update</code>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone --recursive git@codehub.devcloud.huaweicloud.com:55d03e8e8ec445bfb3fffbc66b1001dd/Blog.git</div></pre></td></tr></table></figure></p>
+<h1 id="你可能会遇到的坑"><a href="#你可能会遇到的坑" class="headerlink" title="你可能会遇到的坑"></a>你可能会遇到的坑</h1><ol>
+<li><p>执行<code>hexo deploy</code>时报<code>error deployer not found:github</code>错误</p>
+<blockquote>
+<p>您没有安装安装<code>hexo-deployer-git</code>造成的，通过 <code>npm install hexo-deployer-git --save</code>进行安装</p>
+</blockquote>
+</li>
+<li><p>执行<code>hexo deploy</code>时报<code>Permission denied (publickey)</code>错误</p>
+<blockquote>
+<p>您的Github没有配置你的SSH key，配置方法参照上文的“配置GitHub Pages”章节</p>
+</blockquote>
+</li>
+<li><p>执行<code>hexo deploy</code>时报<code>fatal: could not read Username for &#39;https://github.com&#39;: Invalid argument</code>错误</p>
+<blockquote>
+<p>在GitHub上设置SSH Key，同时将配置文件<code>deploy</code>配置下的git地址改为<code>git@</code>开头的ssh地址，如下所示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:RuanXinyu/ruanxinyu.github.com.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>百度统计没有数据</p>
+<blockquote>
+<p>百度统计在初次添加后会有一定的延迟，可以手动检查是否添加成功，如下所示:</p>
+<img src="/2018/04/30/如何使用GitHubPages搭建个人博客/百度统计检查状态.png" alt="[百度统计检查状态]" title="[百度统计检查状态]">
+</blockquote>
+</li>
+<li><p>gitment初始化评论时出现<code>Error：validation failed</code></p>
+<blockquote>
+<p>这是由于你的网址超过50个字符导致的，解决方式请参照上文“配置评论功能”中的第5条</p>
+</blockquote>
+</li>
+</ol>
 
         </div>
 
@@ -357,7 +387,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-01T06:31:58.971Z" itemprop="dateUpdated">2018-05-01 14:31:58</time>
+    最后更新时间：<time datetime="2018-05-01T06:55:04.621Z" itemprop="dateUpdated">2018-05-01 14:55:04</time>
 </span><br>
 
 
