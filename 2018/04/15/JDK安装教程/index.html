@@ -37,7 +37,7 @@
 <meta property="og:image" content="http://ruanxinyu.github.io/2018/04/15/JDK安装教程/windows_install_01.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/2018/04/15/JDK安装教程/windows_install_02.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/2018/04/15/JDK安装教程/jave_version.png">
-<meta property="og:updated_time" content="2018-04-30T12:09:40.545Z">
+<meta property="og:updated_time" content="2018-08-12T13:13:07.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDK安装教程">
 <meta name="twitter:description" content="学习Java，首先得安装JDK(Java Development Kit)，那么下面就说一下如何在Windows和Linux下安装并验证JDK。 JDK的下载JDK的官方下载地址为： http://www.oracle.com/technetwork/java/javase/downloads/index.html， 请根据需要下载对应操作系统的安装包。  官方下载速度比较慢，因此可以从华为开源镜">
@@ -196,27 +196,27 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>学习Java，首先得安装JDK(Java Development Kit)，那么下面就说一下如何在Windows和Linux下安装并验证JDK。</p>
-<h1 id="JDK的下载"><a href="#JDK的下载" class="headerlink" title="JDK的下载"></a>JDK的下载</h1><p>JDK的官方下载地址为： <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html，" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/downloads/index.html，</a> 请根据需要下载对应操作系统的安装包。</p>
+<h1 id="JDK的下载"><a href="#JDK的下载" class="headerlink" title="JDK的下载"></a>JDK的下载</h1><p>JDK的官方下载地址为： <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html，" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/index.html，</a> 请根据需要下载对应操作系统的安装包。</p>
 <blockquote>
-<p>官方下载速度比较慢，因此可以从华为开源镜像站下载，地址为：<a href="https://mirrors.huaweicloud.com/repository/toolkit/java/jdk/" target="_blank" rel="external">https://mirrors.huaweicloud.com/repository/toolkit/java/jdk/</a></p>
+<p>官方下载速度比较慢，因此可以从华为开源镜像站下载，地址为：<a href="https://mirrors.huaweicloud.com/repository/toolkit/java/jdk/" target="_blank" rel="noopener">https://mirrors.huaweicloud.com/repository/toolkit/java/jdk/</a></p>
 </blockquote>
 <h1 id="Windows下安装JDK"><a href="#Windows下安装JDK" class="headerlink" title="Windows下安装JDK"></a>Windows下安装JDK</h1><ol>
 <li>以<code>jdk-8u151</code>为例，双击上一步下载下来的exe文件，默认安装即可。（备注：路径可以选择其他盘符，但是不建议路径中包含中文及特殊字符）</li>
-<li>进入到系统环境变量的管理界面：<code>右键计算机图标=&gt;属性=&gt;高级系统设置=&gt;环境变量</code><img src="/2018/04/15/JDK安装教程/windows_install_01.png" alt="[设置Windows环境变量]" title="[设置Windows环境变量]"></li>
+<li>进入到系统环境变量的管理界面：<code>右键计算机图标=&gt;属性=&gt;高级系统设置=&gt;环境变量</code><img src="/2018/04/15/JDK安装教程/windows_install_01.png" title="[设置Windows环境变量]"></li>
 <li><code>新建</code>变量<code>JAVA_HOME</code>，值为：<code>C:\Program Files\Java\jdk1.8.0_151</code></li>
 <li><code>编辑</code>变量<code>PATH</code>，追加：<code>%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</code></li>
-<li><code>新建</code>变量<code>CLASSPATH</code>，值为：<code>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar</code><img src="/2018/04/15/JDK安装教程/windows_install_02.png" alt="[设置Windows环境变量]" title="[设置Windows环境变量]">
+<li><code>新建</code>变量<code>CLASSPATH</code>，值为：<code>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar</code><img src="/2018/04/15/JDK安装教程/windows_install_02.png" title="[设置Windows环境变量]">
 </li>
 </ol>
 <h1 id="Linux下安装JDK"><a href="#Linux下安装JDK" class="headerlink" title="Linux下安装JDK"></a>Linux下安装JDK</h1><ol>
 <li><p>以<code>jdk-8u151</code>为例，下载JDK后，将压缩包解压至特定的目录，一般解压至/usr/local目录，下载和解压命令可以参考如下命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget https://mirrors.huaweicloud.com/repository/toolkit/java/jdk/8u151-b12/jdk-8u151-linux-x64.tar.gz</div><div class="line">tar -zxvf -C /usr/local/ jdk-8u151-linux-x64.tar.gz</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.huaweicloud.com/repository/toolkit/java/jdk/8u151-b12/jdk-8u151-linux-x64.tar.gz</span><br><span class="line">tar -zxvf -C /usr/local/ jdk-8u151-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>经JDK的路径加入到环境变量中，在命令行中输入<code>vim /etc/profile</code>，编辑文件，在文件末尾增加如下的内容，然后执行<code>source /etc/profile</code>使环境变量生效。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/usr/local/jdk-8u151</div><div class="line">export JRE_HOME=/usr/local/jdk-8u151/jre</div><div class="line">export CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib</div><div class="line">export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/jdk-8u151</span><br><span class="line">export JRE_HOME=/usr/local/jdk-8u151/jre</span><br><span class="line">export CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h1 id="JDK的验证"><a href="#JDK的验证" class="headerlink" title="JDK的验证"></a>JDK的验证</h1><p>windows打开<code>CMD</code>命令窗口，Linux打开终端端口，输入<code>java -version</code>命令，如果出现如下提示则Java安装成功。<br><img src="/2018/04/15/JDK安装教程/jave_version.png" alt="[Java的验证]" title="[Java的验证]"></p>
+<h1 id="JDK的验证"><a href="#JDK的验证" class="headerlink" title="JDK的验证"></a>JDK的验证</h1><p>windows打开<code>CMD</code>命令窗口，Linux打开终端端口，输入<code>java -version</code>命令，如果出现如下提示则Java安装成功。<br><img src="/2018/04/15/JDK安装教程/jave_version.png" title="[Java的验证]"></p>
 
         </div>
 
@@ -225,7 +225,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-04-30T12:09:40.545Z" itemprop="dateUpdated">2018-04-30 20:09:40</time>
+    最后更新时间：<time datetime="2018-08-12T13:13:07.204Z" itemprop="dateUpdated">2018-08-12 21:13:07</time>
 </span><br>
 
 
@@ -326,26 +326,32 @@
 
 
 
-<section class="comments" id="comments">
-    <div id="gitment_thread"></div>
-    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
-    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
     <script>
-        var gitment = new Gitment({
-            id: 'Sun Apr 15 2018 14:53:32 GMT+0800',
-            owner: 'RuanXinyu',
-            repo: 'ruanxinyu.github.com',
-            oauth: {
-                client_id: '2a6e23cf2e29e54ef316',
-                client_secret: 'f237d3eb9fc94607a0354f894b143efe52eb8aca',
-            },
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "6OnUHurDk7brX6HPnIjKMeVb-gzGzoHsz",
+            appKey: "C8w3nGdzmRR4i8LePSnMEjsy",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
         })
-        gitment.render('comments')
     </script>
-</section>
-
-
-
+    <!-- Valine Comments end -->
 
 
 

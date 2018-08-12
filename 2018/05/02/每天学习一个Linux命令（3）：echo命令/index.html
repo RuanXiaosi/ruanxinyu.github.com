@@ -34,7 +34,7 @@
 <meta property="og:site_name" content="RuanXinYu&#39;s Blog">
 <meta property="og:description" content="echo命令用于输出字符串，可以通过参数和转义等来控制输出格式。 语法1echo [-neE] [arg ...] 参数 -n 打印不添加换行符 -e 使能转义字符  转义字符 \b 退格键，即删除一个字符 \c 抑制后续的输出 \n 换行 \t tab键 \\ 斜杠  使用小技巧 echo是shell的内部命令，因此查看帮助需要使用help echo echo后的字符串如果使用单引号括起来，则转">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-01T13:29:33.014Z">
+<meta property="og:updated_time" content="2018-08-12T13:13:07.219Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每天学习一个Linux命令（3）：echo命令">
 <meta name="twitter:description" content="echo命令用于输出字符串，可以通过参数和转义等来控制输出格式。 语法1echo [-neE] [arg ...] 参数 -n 打印不添加换行符 -e 使能转义字符  转义字符 \b 退格键，即删除一个字符 \c 抑制后续的输出 \n 换行 \t tab键 \\ 斜杠  使用小技巧 echo是shell的内部命令，因此查看帮助需要使用help echo echo后的字符串如果使用单引号括起来，则转">
@@ -192,7 +192,7 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <p><code>echo</code>命令用于输出字符串，可以通过参数和转义等来控制输出格式。</p>
-<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo [-neE] [arg ...]</div></pre></td></tr></table></figure>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo [-neE] [arg ...]</span><br></pre></td></tr></table></figure>
 <h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><ul>
 <li><code>-n</code> 打印不添加换行符</li>
 <li><code>-e</code> 使能转义字符</li>
@@ -209,17 +209,17 @@
 <li><code>echo</code>后的字符串如果使用单引号括起来，则转义和变量都失效<code>(重要)</code></li>
 <li>通过<code>-e</code>参数和<code>\c</code>转义可以控制换行的输出</li>
 </ol>
-<h1 id="常用范例"><a href="#常用范例" class="headerlink" title="常用范例"></a>常用范例</h1><p><strong>范例1： 显示普通字符串</strong><br>命令： <code>echo &quot;this is a text&quot;</code> # 也可以不加引号<br>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">this is a text</div></pre></td></tr></table></figure></p>
-<p><strong>范例2： 显示转义字符</strong><br>命令： <code>echo &quot;\&quot;this is a text\&quot;&quot;</code><br>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&quot;this is a text&quot;</div></pre></td></tr></table></figure></p>
-<p><strong>范例3： 显示变量</strong><br>命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">text=<span class="string">"ffff"</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"this is a <span class="variable">$&#123;text&#125;</span>"</span></div></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">this is a ffff</div></pre></td></tr></table></figure></p>
-<p><strong>范例4： 输出换行</strong><br>命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> -e <span class="string">"this \n"</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"is a text"</span></div></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">this </div><div class="line"></div><div class="line">is a text</div></pre></td></tr></table></figure></p>
-<p><strong>范例5： 不输出换行</strong><br>命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> -e <span class="string">"this \c"</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"is a text"</span></div></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">this is a text （注：相比于上面的命令，少了两个换行）</div></pre></td></tr></table></figure></p>
-<p><strong>范例6： 禁止显示转义和变量（使用单引号）</strong><br>命令： <code>echo &#39;$name\&quot;&#39;</code> # 这个很重要<br>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$name\&quot;</div></pre></td></tr></table></figure></p>
-<p><strong>范例7： 显示命令执行的结果</strong><br>命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> `date`</div><div class="line"><span class="built_in">echo</span> $(date)</div></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Tue May 1 21:16:57 CST 2018</div><div class="line">Tue May 1 21:16:57 CST 2018</div></pre></td></tr></table></figure></p>
+<h1 id="常用范例"><a href="#常用范例" class="headerlink" title="常用范例"></a>常用范例</h1><p><strong>范例1： 显示普通字符串</strong><br>命令： <code>echo &quot;this is a text&quot;</code> # 也可以不加引号<br>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this is a text</span><br></pre></td></tr></table></figure></p>
+<p><strong>范例2： 显示转义字符</strong><br>命令： <code>echo &quot;\&quot;this is a text\&quot;&quot;</code><br>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;this is a text&quot;</span><br></pre></td></tr></table></figure></p>
+<p><strong>范例3： 显示变量</strong><br>命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">text=<span class="string">"ffff"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"this is a <span class="variable">$&#123;text&#125;</span>"</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this is a ffff</span><br></pre></td></tr></table></figure></p>
+<p><strong>范例4： 输出换行</strong><br>命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> -e <span class="string">"this \n"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"is a text"</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this </span><br><span class="line"></span><br><span class="line">is a text</span><br></pre></td></tr></table></figure></p>
+<p><strong>范例5： 不输出换行</strong><br>命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> -e <span class="string">"this \c"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"is a text"</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this is a text （注：相比于上面的命令，少了两个换行）</span><br></pre></td></tr></table></figure></p>
+<p><strong>范例6： 禁止显示转义和变量（使用单引号）</strong><br>命令： <code>echo &#39;$name\&quot;&#39;</code> # 这个很重要<br>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$name\&quot;</span><br></pre></td></tr></table></figure></p>
+<p><strong>范例7： 显示命令执行的结果</strong><br>命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> `date`</span><br><span class="line"><span class="built_in">echo</span> $(date)</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Tue May 1 21:16:57 CST 2018</span><br><span class="line">Tue May 1 21:16:57 CST 2018</span><br></pre></td></tr></table></figure></p>
 
         </div>
 
@@ -228,7 +228,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-01T13:29:33.014Z" itemprop="dateUpdated">2018-05-01 21:29:33</time>
+    最后更新时间：<time datetime="2018-08-12T13:13:07.219Z" itemprop="dateUpdated">2018-08-12 21:13:07</time>
 </span><br>
 
 
@@ -329,26 +329,32 @@
 
 
 
-<section class="comments" id="comments">
-    <div id="gitment_thread"></div>
-    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
-    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
     <script>
-        var gitment = new Gitment({
-            id: 'Wed May 02 2018 19:20:58 GMT+0800',
-            owner: 'RuanXinyu',
-            repo: 'ruanxinyu.github.com',
-            oauth: {
-                client_id: '2a6e23cf2e29e54ef316',
-                client_secret: 'f237d3eb9fc94607a0354f894b143efe52eb8aca',
-            },
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "6OnUHurDk7brX6HPnIjKMeVb-gzGzoHsz",
+            appKey: "C8w3nGdzmRR4i8LePSnMEjsy",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
         })
-        gitment.render('comments')
     </script>
-</section>
-
-
-
+    <!-- Valine Comments end -->
 
 
 
