@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?b4c4998e548a16b827d4ffe9dbe2b47b"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Ubuntu下KeepAlived的安装与配置 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="环境搭建">
+    <meta name="description" content="KeepAlived介绍Keepalived是一个基于VRRP协议来实现的服务高可用方案，可以利用其来避免IP单点故障，一般与其它负载均衡技术（如lvs、haproxy、nginx）一起工作来达到集群的高可用。 健康检查和失败切换是keepalived的两大核心功能。 keepalived的健康检查支持tcp三次握手、icmp请求、http请求、udp和echo请求等方式对负载均衡器后面的实际的服">
+<meta name="keywords" content="环境搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu下KeepAlived的安装与配置">
+<meta property="og:url" content="http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/index.html">
+<meta property="og:site_name" content="RuanXinYu&#39;s Blog">
+<meta property="og:description" content="KeepAlived介绍Keepalived是一个基于VRRP协议来实现的服务高可用方案，可以利用其来避免IP单点故障，一般与其它负载均衡技术（如lvs、haproxy、nginx）一起工作来达到集群的高可用。 健康检查和失败切换是keepalived的两大核心功能。 keepalived的健康检查支持tcp三次握手、icmp请求、http请求、udp和echo请求等方式对负载均衡器后面的实际的服">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/2018-09-18-21-19-43.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/2018-09-18-21-54-27.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/2018-09-18-22-03-07.png">
+<meta property="og:updated_time" content="2018-09-19T10:56:50.629Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu下KeepAlived的安装与配置">
+<meta name="twitter:description" content="KeepAlived介绍Keepalived是一个基于VRRP协议来实现的服务高可用方案，可以利用其来避免IP单点故障，一般与其它负载均衡技术（如lvs、haproxy、nginx）一起工作来达到集群的高可用。 健康检查和失败切换是keepalived的两大核心功能。 keepalived的健康检查支持tcp三次握手、icmp请求、http请求、udp和echo请求等方式对负载均衡器后面的实际的服">
+<meta name="twitter:image" content="http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/2018-09-18-21-19-43.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">阮新宇</h5>
+          <a href="mailto:1096421257@qq.com" title="1096421257@qq.com" class="mail">1096421257@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/RuanXinyu" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Ubuntu下KeepAlived的安装与配置</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Ubuntu下KeepAlived的安装与配置</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-18T12:42:46.000Z" itemprop="datePublished" class="page-time">
+  2018-09-18
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/环境搭建/">环境搭建</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#KeepAlived介绍"><span class="post-toc-number">1.</span> <span class="post-toc-text">KeepAlived介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#KeepAlived的安装"><span class="post-toc-number">2.</span> <span class="post-toc-text">KeepAlived的安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#apt-get安装"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">apt-get安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#源码编译安装"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">源码编译安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#KeepAlive的配置"><span class="post-toc-number">3.</span> <span class="post-toc-text">KeepAlive的配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改启动脚本"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">修改启动脚本</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置文件"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">配置文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开机启动"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">开机启动</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#KeepAlived验证"><span class="post-toc-number">4.</span> <span class="post-toc-text">KeepAlived验证</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#KeepAlived的脑裂"><span class="post-toc-number">5.</span> <span class="post-toc-text">KeepAlived的脑裂</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Ubuntu下KeepAlived的安装与配置"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Ubuntu下KeepAlived的安装与配置</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-18 20:42:46" datetime="2018-09-18T12:42:46.000Z"  itemprop="datePublished">2018-09-18</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/环境搭建/">环境搭建</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="KeepAlived介绍"><a href="#KeepAlived介绍" class="headerlink" title="KeepAlived介绍"></a>KeepAlived介绍</h1><p>Keepalived是一个基于VRRP协议来实现的服务高可用方案，可以利用其来避免IP单点故障，一般与其它负载均衡技术（如lvs、haproxy、nginx）一起工作来达到集群的高可用。</p>
+<p>健康检查和失败切换是keepalived的两大核心功能。</p>
+<p>keepalived的健康检查支持tcp三次握手、icmp请求、http请求、udp和echo请求等方式对负载均衡器后面的实际的服务器)进行保活，具体采用哪种检查方式可以根据自己的业务需要进行选择；</p>
+<p>失败切换主要是应用于配置了主备模式的负载均衡器， 由VRRP(虚拟路由冗余协议）协议实现，对外提供一个VIP（虚拟IP），VIP在其中master机器上，当该机器出现故障时,VIP会自动漂移到slave的机器上，从而保证对外的功能是正常的。如果mastr机器功能正常之后，VIP可以继续漂移到master机器上，无需人工干预，只需要人工做修复故障的服务器。</p>
+<h1 id="KeepAlived的安装"><a href="#KeepAlived的安装" class="headerlink" title="KeepAlived的安装"></a>KeepAlived的安装</h1><p>该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参考<a href="https://blog.ruanxinyu.cn/2018/09/16/VirtualBox%E5%AE%89%E8%A3%85Ubuntu%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">VirtualBox安装Ubuntu教程</a>。KeepAlived可以直接通过apt-get安装，也可以通过源码编译安装。</p>
+<h2 id="apt-get安装"><a href="#apt-get安装" class="headerlink" title="apt-get安装"></a>apt-get安装</h2><p>Ubuntu下执行<code>sudo apt-get install keepalived</code>命令即可安装。</p>
+<p>通过<code>which keepalived</code>可以看到KeepAlived是安装在<code>/usr/sbin/keepalived</code>下。</p>
+<p>使用<code>sudo service keepalived start</code>即可启动KeepAlived。</p>
+<h2 id="源码编译安装"><a href="#源码编译安装" class="headerlink" title="源码编译安装"></a>源码编译安装</h2><p>首先安装编译工具和openssl，下载KeepAlived源码并解压，然后配置、编译和安装即可，我们安装的目录为<code>/usr/local/keepalived</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential libssl-dev <span class="comment"># 安装编译工具和openssl依赖</span></span><br><span class="line">wget http://www.keepalived.org/software/keepalived-2.0.7.tar.gz <span class="comment"># 下载源码</span></span><br><span class="line">tar -zxvf keepalived-2.0.7.tar.gz <span class="comment"># 解压源码</span></span><br><span class="line"><span class="built_in">cd</span> keepalived-2.0.7/</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/keepalived <span class="comment"># 配置keepalived的安装目录</span></span><br><span class="line">make <span class="comment"># 编译源码</span></span><br><span class="line">sudo make install <span class="comment"># 安装到安装目录，需要使用root权限</span></span><br></pre></td></tr></table></figure>
+<p>如果在安装过程中提示如下信息，则表示你的系统没有安装openssl，执行<code>sudo apt-get install libssl-dev</code>。<br><img src="/2018/09/18/Ubuntu下KeepAlived的安装与配置/2018-09-18-21-19-43.png" title="[GitHubOAuth]"></p>
+<h1 id="KeepAlive的配置"><a href="#KeepAlive的配置" class="headerlink" title="KeepAlive的配置"></a>KeepAlive的配置</h1><h2 id="修改启动脚本"><a href="#修改启动脚本" class="headerlink" title="修改启动脚本"></a>修改启动脚本</h2><p>KeepAlived的源码中已经提供设置为系统服务的脚本，我们只需要在此基础上修改即可，在源码的目录下，执行下面的命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp -a keepalived/etc/init.d/keepalived /etc/init.d/</span><br></pre></td></tr></table></figure>
+<p>编辑<code>vim /etc/init.d/keepalived</code>文件，做如下修改：</p>
+<ol>
+<li>将<code>. /etc/rc.d/init.d/functions</code>修改为<code>. /lib/lsb/init-functions</code></li>
+<li>将<code>. /etc/sysconfig/keepalived</code>修改为<code>. /usr/local/keepalived/etc/sysconfig/keepalived</code></li>
+</ol>
+<p>如下所示，从脚本中可以看出KeepAlived的配置文件为： <code>/etc/keepalived/keepalived.conf</code>。<br><img src="/2018/09/18/Ubuntu下KeepAlived的安装与配置/2018-09-18-21-54-27.png" title="[GitHubOAuth]"></p>
+<p>也可以通过下面的sed命令直接修改：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo sed -i <span class="string">'s@. /etc/rc.d/init.d/functions@. /lib/lsb/init-functions@g'</span> /etc/init.d/keepalived</span><br><span class="line">sudo sed -i <span class="string">'s@. /etc/sysconfig/keepalived@. /usr/local/keepalived/etc/sysconfig/keepalived@g'</span> /etc/init.d/keepalived</span><br></pre></td></tr></table></figure>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>在KeepAlived的安装目录<code>/usr/local/keepalived/etc/keepalived/</code>下可以找到很多的样例配置，我们通过创建超链接的方式连接到<code>/etc/keepalived/</code>目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /etc/keepalived</span><br><span class="line">sudo ln -s /usr/<span class="built_in">local</span>/keepalived/etc/keepalived/keepalived.conf /etc/keepalived/keepalived.conf</span><br></pre></td></tr></table></figure>
+<img src="/2018/09/18/Ubuntu下KeepAlived的安装与配置/2018-09-18-22-03-07.png" title="[GitHubOAuth]">
+<h2 id="开机启动"><a href="#开机启动" class="headerlink" title="开机启动"></a>开机启动</h2><h1 id="KeepAlived验证"><a href="#KeepAlived验证" class="headerlink" title="KeepAlived验证"></a>KeepAlived验证</h1><h1 id="KeepAlived的脑裂"><a href="#KeepAlived的脑裂" class="headerlink" title="KeepAlived的脑裂"></a>KeepAlived的脑裂</h1>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-09-19T10:56:50.629Z" itemprop="dateUpdated">2018-09-19 18:56:50</time>
+</span><br>
+
+
+        
+        原始链接：<a href="/2018/09/18/Ubuntu下KeepAlived的安装与配置/" target="_blank" rel="external">http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://ruanxinyu.github.io">
+            <img src="/img/avatar.png" alt="阮新宇">
+            阮新宇
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/环境搭建/">环境搭建</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/&title=《Ubuntu下KeepAlived的安装与配置》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/&title=《Ubuntu下KeepAlived的安装与配置》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu下KeepAlived的安装与配置》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/&via=http://ruanxinyu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/09/16/VirtualBox安装Ubuntu教程/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h5 class="title">VirtualBox安装Ubuntu教程</h5>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "6OnUHurDk7brX6HPnIjKMeVb-gzGzoHsz",
+            appKey: "C8w3nGdzmRR4i8LePSnMEjsy",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>阮新宇 &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/&title=《Ubuntu下KeepAlived的安装与配置》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/&title=《Ubuntu下KeepAlived的安装与配置》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu下KeepAlived的安装与配置》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/&via=http://ruanxinyu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsklEQVR42u3a0WojMQwF0Pz/T2ehT7uUTu6VxklZjp9Kwnh8XLAUyY9HPJ5f4/snf4/823yG609uG3h4eHijpf80vk/dvmaD/+mTZM14eHh4p3nXL0h4syAx+zbfFDw8PLzP8q7B1wd9PjMeHh7e/8TLywSzYkSSRuPh4eH9Hl5SjMgDwDMe7QwHay14eHh4kzmLJPizfx/s7+Hh4eEtuurtsT7b3aTkMVwbHh4e3gFeUkhNTt38ZM43ImmJRbPh4eHh3crbXAhIjvJNkNj8A/6Je3h4eHjHeO1r8oM+eaotHCcBAw8PD+/9vFljbHa9YP/e+k4EHh4e3k28ZLq7CrWbNL0o4OLh4eG9kTerheZb1rbN6rfg4eHhHeblDyfJd1sCzltiqyo1Hh4e3jFemxC3F6Fm1xRqKh4eHt5hXpv+5mWF2UGfFGpfbBweHh7eW3ibYm4eDHLY9bMvghAeHh7eAd71oZ8n4ptrW7MUvA5FeHh4eDfx8sM3b03NrgLM5nyxWjw8PLy38GbtqE3DbLOhLzYFDw8P7zBvlv7uA0zehMuvbeHh4eGd480O5TxRzptYOSMp6Q6rLHh4eHgBb3bpKi8oJE/NyrXDyjQeHh7empc34Nty6qaO2uKjSwN4eHh4t/KSpWxeuQlFsxJw9LsBDw8Pb83bpLD5y2ZXu9owNs2+8fDw8Lpssy3Lzg7uWUF2lo7j4eHhnebNAsB+oW35I6/W4uHh4Z3gPcuRJ7t3pcX5huLh4eG9h9ceu7MG1axttikfP9qBh4eHV/LaYJAc5e31rFk4iQIDHh4e3jHe5pWbhtmmFRetFg8PD+8X8PZtsDaorC4Q4OHh4X2UlyeymwQ9wRcXufDw8PCO8fLltp9sDv08uS/uFODh4eGtee1P/bxxdVeoaAMVHh4e3jHeH0XeVLmVJLe0AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
