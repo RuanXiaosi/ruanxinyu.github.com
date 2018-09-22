@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?b4c4998e548a16b827d4ffe9dbe2b47b"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Linux初始化init系统：Sysvinit、Upstart和Systemd | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Linux">
+    <meta name="description" content="init系统介绍Linux操作系统的启动首先从BIOS开始，接下来进入bootloader，由bootloader载入内核，进行内核初始化。内核初始化的最后一步就是启动pid为1的init进程。init以守护进程方式存在，是系统的第一个进程,，是所有其他进程的祖先。 Init系统能够定义、管理和控制 init进程的行为。它负责组织和运行许多独立的或相关的始化工作(因此被称为init系统)，从而让计">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux初始化init系统：Sysvinit、Upstart和Systemd">
+<meta property="og:url" content="http://ruanxinyu.github.io/2018/09/22/Linux初始化init系统/index.html">
+<meta property="og:site_name" content="RuanXinYu&#39;s Blog">
+<meta property="og:description" content="init系统介绍Linux操作系统的启动首先从BIOS开始，接下来进入bootloader，由bootloader载入内核，进行内核初始化。内核初始化的最后一步就是启动pid为1的init进程。init以守护进程方式存在，是系统的第一个进程,，是所有其他进程的祖先。 Init系统能够定义、管理和控制 init进程的行为。它负责组织和运行许多独立的或相关的始化工作(因此被称为init系统)，从而让计">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/22/Linux初始化init系统/2018-09-22-16-29-55.png">
+<meta property="og:updated_time" content="2018-09-22T09:41:05.003Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux初始化init系统：Sysvinit、Upstart和Systemd">
+<meta name="twitter:description" content="init系统介绍Linux操作系统的启动首先从BIOS开始，接下来进入bootloader，由bootloader载入内核，进行内核初始化。内核初始化的最后一步就是启动pid为1的init进程。init以守护进程方式存在，是系统的第一个进程,，是所有其他进程的祖先。 Init系统能够定义、管理和控制 init进程的行为。它负责组织和运行许多独立的或相关的始化工作(因此被称为init系统)，从而让计">
+<meta name="twitter:image" content="http://ruanxinyu.github.io/2018/09/22/Linux初始化init系统/2018-09-22-16-29-55.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">阮新宇</h5>
+          <a href="mailto:1096421257@qq.com" title="1096421257@qq.com" class="mail">1096421257@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/RuanXinyu" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Linux初始化init系统：Sysvinit、Upstart和Systemd</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Linux初始化init系统：Sysvinit、Upstart和Systemd</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-22T07:04:38.000Z" itemprop="datePublished" class="page-time">
+  2018-09-22
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#init系统介绍"><span class="post-toc-number">1.</span> <span class="post-toc-text">init系统介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Sysvinit介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">Sysvinit介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#运行级别"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">运行级别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sysvinit执行顺序"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Sysvinit执行顺序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sysvinit优缺点"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Sysvinit优缺点</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Upstart介绍"><span class="post-toc-number">3.</span> <span class="post-toc-text">Upstart介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开发UpStart的缘由"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">开发UpStart的缘由</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#UpStart的原理"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">UpStart的原理</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Systemd介绍"><span class="post-toc-number">4.</span> <span class="post-toc-text">Systemd介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Systemd的单元概念"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Systemd的单元概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Systemd的Target和运行级别"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Systemd的Target和运行级别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用C-C-开发新的系统服务"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">使用C/C++开发新的系统服务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Unit文件的编写"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">Unit文件的编写</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Unit-参数"><span class="post-toc-number">4.4.1.</span> <span class="post-toc-text">[Unit]参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#install-参数"><span class="post-toc-number">4.4.2.</span> <span class="post-toc-text">[install]参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#service-参数"><span class="post-toc-number">4.4.3.</span> <span class="post-toc-text">[service]参数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#服务生命周期控制相关的参数"><span class="post-toc-number">4.4.3.1.</span> <span class="post-toc-text">服务生命周期控制相关的参数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#服务上下文配置相关的参数"><span class="post-toc-number">4.4.3.2.</span> <span class="post-toc-text">服务上下文配置相关的参数</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Systemd命令行工具的使用"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">Systemd命令行工具的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Systemd命令和sysvinit命令的对照表"><span class="post-toc-number">4.5.1.</span> <span class="post-toc-text">Systemd命令和sysvinit命令的对照表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#systemd电源管理命令"><span class="post-toc-number">4.5.2.</span> <span class="post-toc-text">systemd电源管理命令</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Linux初始化init系统"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Linux初始化init系统：Sysvinit、Upstart和Systemd</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-22 15:04:38" datetime="2018-09-22T07:04:38.000Z"  itemprop="datePublished">2018-09-22</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="init系统介绍"><a href="#init系统介绍" class="headerlink" title="init系统介绍"></a>init系统介绍</h1><p>Linux操作系统的启动首先从BIOS开始，接下来进入bootloader，由bootloader载入内核，进行内核初始化。内核初始化的最后一步就是启动<code>pid</code>为<code>1</code>的<code>init进程</code>。init以守护进程方式存在，是系统的第一个进程,，是所有其他进程的祖先。</p>
+<p>Init系统能够定义、管理和控制 init进程的行为。它负责组织和运行许多独立的或相关的始化工作(因此被称为init系统)，从而让计算机系统进入某种用户预订的运行模式。</p>
+<p>Linux初始化init系统包括：<code>Sysvinit</code>、<code>Upstart</code>和<code>Systemd</code>，它们在Ubuntu系统下的演化如下：</p>
+<ol>
+<li><code>Ubuntu 6.10</code>及以前版本使用Sysvinit。</li>
+<li><code>Ubuntu 14.10</code>及以前版本使用Upstart，通过与Sysvinit并存。</li>
+<li><code>Ubuntu 15.04</code>开始默认使用Systemd，不能与Sysvinit或Upstart并存</li>
+</ol>
+<h1 id="Sysvinit介绍"><a href="#Sysvinit介绍" class="headerlink" title="Sysvinit介绍"></a>Sysvinit介绍</h1><blockquote>
+<p>Sysvinit就是System V风格的init系统，顾名思义，它源于System V系列UNIX。</p>
+</blockquote>
+<h2 id="运行级别"><a href="#运行级别" class="headerlink" title="运行级别"></a>运行级别</h2><p>Sysvinit用术语<code>runlevel</code>来定义”预订的运行模式”，默认的运行模式定义在<code>/etc/inittab</code>文件的<code>initdefault</code>项。如果没有默认的运行模式，那么用户将进入系统控制台，手动决定进入何种运行模式。</p>
+<p>Sysvinit中运行模式描述了系统各种预订的运行模式。通常会有8种运行模式，即运行模式<code>0-6和S</code>。其中<code>0</code>表示关机，<code>1</code>表示单用户模式，<code>3</code>为命令行模式，<code>5</code>为GUI模式，<code>6</code>表示重启，<code>1和S</code>等往往用于系统故障之后的排错和恢复。可以看出每一种运行模式所作的初始化工作是不一样的。</p>
+<h2 id="Sysvinit执行顺序"><a href="#Sysvinit执行顺序" class="headerlink" title="Sysvinit执行顺序"></a>Sysvinit执行顺序</h2><ul>
+<li>/etc/rc.d/rc.sysinit</li>
+<li>/etc/rc.d/rc 和/etc/rc.d/rcX.d/ (X 代表运行级别 0-6)</li>
+<li>/etc/rc.d/rc.local</li>
+<li>X Display Manager（可选）</li>
+</ul>
+<p>首先，运行<code>rc.sysinit</code>以便执行一些重要的系统初始化任务。</p>
+<p>然后，Sysvinit开始运行<code>/etc/rc.d/rc</code>脚本。根据不同的runlevel，rc脚本将执行<code>/etc/rc.d/rcX.d</code>(X就是runlevel)目录下的所有启动脚本。当所有的初始化脚本执行完毕。该目录下有多个脚本，为了保证系统正常关闭，脚本是要按照顺序执行的在该目录下所有以<code>K</code>开头的脚本都将在关闭系统时调用，字母<code>K</code>之后的数字定义了它们的执行顺序。</p>
+<p>然后，Sysvinit运行<code>/etc/rc.d/rc.local</code>脚本。rc.local是Linux 留给用户进行个性化设置的地方。</p>
+<h2 id="Sysvinit优缺点"><a href="#Sysvinit优缺点" class="headerlink" title="Sysvinit优缺点"></a>Sysvinit优缺点</h2><p>Sysvinit的优点：</p>
+<ol>
+<li>是概念简单，开发人员只需要编写启动和停止脚本，概念非常清楚</li>
+<li>确定的执行顺序，脚本严格按照启动数字的大小顺序执行，一个执行完毕再执行下一个，这非常有益于错误排查</li>
+</ol>
+<p>Sysvinit的缺点：</p>
+<ol>
+<li>串行地执行脚本导致Sysvinit运行效率较慢</li>
+<li>对动态设备加载等Linux新特性支持不友好</li>
+</ol>
+<h1 id="Upstart介绍"><a href="#Upstart介绍" class="headerlink" title="Upstart介绍"></a>Upstart介绍</h1><h2 id="开发UpStart的缘由"><a href="#开发UpStart的缘由" class="headerlink" title="开发UpStart的缘由"></a>开发UpStart的缘由</h2><p>当Linux内核进入2.6时代时，系统支持热插拔功能，一旦新外设连接到系统，内核便可以自动实时地发现它们，并初始化这些设备，进而使用它们。这为便携式设备用户提供了很大的灵活性。</p>
+<p>Sysvinit启动时必须一次性把所有可能用到的服务都启动起来，即使该设备没有连接，因此会造成浪费，比如为了管理打印任务，系统需要启动CUPS等服务。</p>
+<p>UpStart基于事件机制，比如U盘插入USB接口后，udev得到内核通知，发现该设备，这就是一个新的事件。UpStart在感知到该事件之后触发相应的等待任务，比如处理/etc/fstab 中存在的挂载点。采用这种事件驱动的模式，upstart 完美地解决了即插即用设备带来的新问题。</p>
+<p>UpStart相对于Sysvinit具有如下的优势：</p>
+<ul>
+<li>更快地启动系统</li>
+<li>当新硬件被发现时动态启动服务</li>
+<li>硬件被拔除时动态停止服务</li>
+</ul>
+<h2 id="UpStart的原理"><a href="#UpStart的原理" class="headerlink" title="UpStart的原理"></a>UpStart的原理</h2><p>Upstart的基本概念和设计清晰明确。UpStart主要的概念是job和event。Job就是一个工作单元，用来完成一件工作，比如启动一个后台服务，或者运行一个配置命令。每个Job都等待一个或多个事件，一旦事件发生，upstart就触发该 job 完成相应的工作。</p>
+<p>Job包括包括<code>TaskJob</code>，<code>SeriveJob</code>和<code>AbstractJob</code>。其中SeriveJob代表后台服务进程，一旦开始运行就成为一个后台进程，由init进程管理。</p>
+<p>事件是个非常抽象的概念，下面我罗列出一些常见的事件，希望可以帮助您进一步了解事件的含义：</p>
+<ul>
+<li>系统上电启动，init 进程会发送”start”事件</li>
+<li>根文件系统可写时，相应 job 会发送文件系统就绪的事件</li>
+<li>一个块设备被发现并初始化完成，发送相应的事件</li>
+<li>某个文件系统被挂载，发送相应的事件</li>
+<li>类似 atd 和 cron，可以在某个时间点，或者周期的时间点发送事件</li>
+<li>另外一个 job 开始或结束时，发送相应的事件</li>
+<li>一个磁盘文件被修改时，可以发出相应的事件</li>
+<li>一个网络设备被发现时，可以发出相应的事件</li>
+<li>缺省路由被添加或删除时，可以发出相应的事件</li>
+</ul>
+<p>系统初始化的过程是在工作和事件的相互协作下完成的，可以大致描述如下:</p>
+<blockquote>
+<p>系统初始化时，init 进程开始运行，init 进程自身会发出不同的事件，这些最初的事件会触发一些工作运行。每个工作运行过程中会释放不同的事件，这些事件又将触发新的工作运行。如此反复，直到整个系统正常运行起来。</p>
+</blockquote>
+<p>UpStart是兼容SysvInit的runlevel的，通过触发执行<code>/etc/init/rc.conf</code>来执行<code>/etc/rc$.d/</code>目录下的所有脚本。</p>
+<h1 id="Systemd介绍"><a href="#Systemd介绍" class="headerlink" title="Systemd介绍"></a>Systemd介绍</h1><p>Systemd提供了和Sysvinit以及LSBinitscripts兼容的特性。系统中已经存在的服务和进程无需修改。这降低了系统向systemd 迁移的成本，使得Systemd替换现有初始化系统成为可能。</p>
+<p>Systemd的启动速度更快，提供了比UpStart更激进的并行启动能力，采用了socket/D-Bus Activation等技术启动服务，提供按需启动的能力，只有在某个服务被真正请求的时候才启动它，当该服务结束，systemd 可以关闭它，等待下次需要时再次启动它。</p>
+<p>Systemd还提供如下等特性:</p>
+<ul>
+<li>和init比起来引导过程简化了很多</li>
+<li>Systemd支持并发引导过程从而可以更快启动</li>
+<li>通过控制组来追踪进程，而不是PID</li>
+<li>优化了处理引导过程和服务之间依赖的方式</li>
+<li>支持系统快照和恢复</li>
+<li>监控已启动的服务；也支持重启已崩溃服务</li>
+<li>包含了systemd-login模块用于控制用户登录</li>
+<li>支持加载和卸载组件</li>
+<li>低内存使用痕迹以及任务调度能力</li>
+<li>记录事件的Journald模块和记录系统日志的syslogd模块</li>
+</ul>
+<h2 id="Systemd的单元概念"><a href="#Systemd的单元概念" class="headerlink" title="Systemd的单元概念"></a>Systemd的单元概念</h2><p>系统初始化需要执行的任务非常多。每一个任务都被Systemd 抽象为一个配置单元，即unit。当前单元类型如下：</p>
+<ul>
+<li><strong>service</strong>：代表一个后台服务进程，比如 mysqld。这是最常用的一类。</li>
+<li><strong>socket</strong>：此类配置单元封装系统和互联网中的一个 套接字 。当下，systemd 支持流式、数据报和连续包的 AF_INET、AF_INET6、AF_UNIX socket 。每一个套接字配置单元都有一个相应的服务配置单元 。相应的服务在第一个”连接”进入套接字时就会启动(例如：nscd.socket 在有新连接后便启动 nscd.service)。</li>
+<li><strong>device</strong>：此类配置单元封装一个存在于 Linux 设备树中的设备。每一个使用 udev 规则标记的设备都将会在 systemd 中作为一个设备配置单元出现。</li>
+<li><strong>mount</strong>：此类配置单元封装文件系统结构层次中的一个挂载点。Systemd 将对这个挂载点进行监控和管理。比如可以在启动时自动将其挂载；可以在某些条件下自动卸载。Systemd 会将/etc/fstab 中的条目都转换为挂载点，并在开机时处理。</li>
+<li><strong>automount</strong>：此类配置单元封装系统结构层次中的一个自挂载点。每一个自挂载配置单元对应一个挂载配置单元 ，当该自动挂载点被访问时，systemd 执行挂载点中定义的挂载行为。</li>
+<li><strong>swap</strong>: 和挂载配置单元类似，交换配置单元用来管理交换分区。用户可以用交换配置单元来定义系统中的交换分区，可以让这些交换分区在启动时被激活。</li>
+<li><strong>target</strong>：此类配置单元为其他配置单元进行逻辑分组。它们本身实际上并不做什么，只是引用其他配置单元而已。这样便可以对配置单元做一个统一的控制。这样就可以实现大家都已经非常熟悉的运行级别概念。比如想让系统进入图形化模式，需要运行许多服务和配置命令，这些操作都由一个个的配置单元表示，将所有这些配置单元组合为一个目标(target)，就表示需要将这些配置单元全部执行一遍以便进入目标所代表的系统运行状态。 (例如：multi-user.target 相当于在传统使用 SysV 的系统中运行级别 5)</li>
+<li><strong>timer</strong>：定时器配置单元用来定时触发用户定义的操作，这类配置单元取代了 atd、crond 等传统的定时服务。</li>
+<li><strong>snapshot</strong>：与 target 配置单元相似，快照是一组配置单元。它保存了系统当前的运行状态。</li>
+</ul>
+<h2 id="Systemd的Target和运行级别"><a href="#Systemd的Target和运行级别" class="headerlink" title="Systemd的Target和运行级别"></a>Systemd的Target和运行级别</h2><p>systemd使用目标（target）替代了运行级别的概念，提供了更大的灵活性，如您可以继承一个已有的目标，并添加其它服务，来创建自己的目标。通过target文件夹的命令也可以看出对应的runlevel：</p>
+<table>
+<thead>
+<tr>
+<th>Sysvinit运行级别</th>
+<th>Systemd目标</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>poweroff.target</td>
+<td>关闭系统</td>
+</tr>
+<tr>
+<td>1,s</td>
+<td>rescue.target</td>
+<td>单用户模式</td>
+</tr>
+<tr>
+<td>2,4</td>
+<td>multi-user.target</td>
+<td>多用户，非图形化</td>
+</tr>
+<tr>
+<td>3</td>
+<td>multi-user.target</td>
+<td>多用户，非图形化</td>
+</tr>
+<tr>
+<td>5</td>
+<td>graphical.target</td>
+<td>多用户，图形化</td>
+</tr>
+<tr>
+<td>6</td>
+<td>reboot.target</td>
+<td>重启</td>
+</tr>
+</tbody>
+</table>
+<img src="/2018/09/22/Linux初始化init系统/2018-09-22-16-29-55.png" title="[GitHubOAuth]">
+<h2 id="使用C-C-开发新的系统服务"><a href="#使用C-C-开发新的系统服务" class="headerlink" title="使用C/C++开发新的系统服务"></a>使用C/C++开发新的系统服务</h2><p>使用C/C++开发新的系统服务可能需要关注如下的内容：</p>
+<ol>
+<li>后台服务进程代码不需要执行两次派生来实现后台精灵进程，只需要实现服务本身的主循环即可。</li>
+<li>不要调用 setsid()，交给 systemd 处理</li>
+<li>不再需要维护 pid 文件。</li>
+<li>Systemd 提供了日志功能，服务进程只需要输出到 stderr 即可，无需使用 syslog。</li>
+<li>处理信号 SIGTERM，这个信号的唯一正确作用就是停止当前服务，不要做其他的事情。</li>
+<li>SIGHUP 信号的作用是重启服务。</li>
+<li>需要套接字的服务，不要自己创建套接字，让 systemd 传入套接字。</li>
+<li>使用 sd_notify()函数通知 systemd 服务自己的状态改变。一般地，当服务初始化结束，进入服务就绪状态时，可以调用它。</li>
+</ol>
+<h2 id="Unit文件的编写"><a href="#Unit文件的编写" class="headerlink" title="Unit文件的编写"></a>Unit文件的编写</h2><p>服务配置单元文件以<code>.service</code>为文件名后缀，默认时存放在<code>/lib/systemd/system/</code>目录下，然后链接到<code>/etc/systemd/system/</code>对应的目录下。下面以sshd的为例<code>/etc/system/system/sshd.service</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=OpenSSH server daemon</span><br><span class="line">[Service]</span><br><span class="line">EnvironmentFile=/etc/sysconfig/sshd <span class="comment">#设置环境变量</span></span><br><span class="line">ExecStartPre=/usr/sbin/sshd-keygen</span><br><span class="line">ExecStart=/usrsbin/sshd –D <span class="variable">$OPTIONS</span></span><br><span class="line">ExecReload=/bin/<span class="built_in">kill</span> –HUP <span class="variable">$MAINPID</span></span><br><span class="line">KillMode=process</span><br><span class="line">Restart=on-failure</span><br><span class="line">RestartSec=42s</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target  <span class="comment">#系统以该形式运行时，服务方可启动</span></span><br></pre></td></tr></table></figure>
+<p>文件分为三个小节，其中<code>[Unit]</code>段和<code>[Install]</code>段是所有Unit文件通用的，用于配置服务的描述、依赖和随系统启动方式，而<code>[Service]</code>断则是服务类型的Unit文件（后缀为.service)特有的，用于定义服务的具体管理和操作方法。</p>
+<p>在/etc/systemd/system 目录下还可以看到诸如*.wants 的目录，放在该目录下的配置单元文件等同于在<code>[Unit]</code>小节中的 wants关键字，即本单元启动时，还需要启动这些单元。比如您可以简单地把您自己写的 foo.service 文件放入 multi-user.target.wants 目录下，这样每次都会被默认启动了。</p>
+<h3 id="Unit-参数"><a href="#Unit-参数" class="headerlink" title="[Unit]参数"></a>[Unit]参数</h3><ul>
+<li><strong>Description</strong>： 一段描述这个Unit文件的文字，通常只是简短的一句话。</li>
+<li><strong>Documentation</strong>：指定服务的文档，可以是一个或多个文档的URL路径。</li>
+<li><strong>Requires</strong>：依赖的其他Unit列表，列在其中的Unit模块会在这个服务启动的同时被启动。</li>
+<li><strong>Wants</strong>：与Requires相似，但只是在被配置的这个Unit启动时，触发启动列出的每个Unit模块，而不去考虑这些模块启动时候是否成功。</li>
+<li><strong>After</strong>：与Requires相似，但是在后面列出的所有模块启动完成以后，才会启动当前的服务。与Requires不同的是，After不会因为依赖程序在运行过程中停止运行，导致当前服务也停止。</li>
+<li><strong>Before</strong>：与After相反，在启动指定的任意一个模块之前，都会首先确保当前服务已经运行。</li>
+<li><strong>BindsTo</strong>：与Requires非常相似，但是一种更强的关联。启动这个服务时会同时启动列出的所有模块，当有模块启动失败时终止当前服务。反之，只要列出的模块全部启动以后，就会自动启动当前服务。并且，这些模块中有任意一个出现意外结束或重启，这个服务会跟着终止或重启。</li>
+<li><strong>PartOf</strong>：这是一个BindsTo作用的子集，仅在列出的任何模块失败或重启时，终止或重启当前服务，而不会随列出模块的启动而启动。</li>
+<li><strong>OnFailure</strong>：当这个模块启动失败时，就自动启动列出的每个模块。</li>
+<li><strong>Conflicts</strong>：与这个模块有冲突的模块，如果列出的模块中有已经在运行的，则会将已启动的冲突模块停止，并启动当前模块；反过来，冲突模块启动时会把当前模块停止。</li>
+</ul>
+<blockquote>
+<p>上面的这些配置，除了Description外，其他都可以被添加多次。比如After参数，可以使用多个After参数，也可以在一行内使用空格分割，写多个依赖模块。</p>
+</blockquote>
+<h3 id="install-参数"><a href="#install-参数" class="headerlink" title="[install]参数"></a>[install]参数</h3><ul>
+<li><strong>WantedBy</strong>：和前面Wants作用相似，但此处表示当前模块被依赖。</li>
+<li><strong>RequiredBy</strong>：和前面的Requires作用相似，但此处表示当前模块被依赖。</li>
+<li><strong>Also</strong>：当这个服务被enable/disable时，将自动enable/disable后面列出的每个模块。</li>
+</ul>
+<h3 id="service-参数"><a href="#service-参数" class="headerlink" title="[service]参数"></a>[service]参数</h3><h4 id="服务生命周期控制相关的参数"><a href="#服务生命周期控制相关的参数" class="headerlink" title="服务生命周期控制相关的参数"></a>服务生命周期控制相关的参数</h4><ul>
+<li><strong>Type</strong>：服务的类型，常用的有simple（默认类型）和forking，默认的simple类型可以适用于绝大多数场景，因此一般可以忽略者这个参数的配置。对于服务进程启动后通过fork系统调用创建子进程，然后关闭应用程序本身进程的情况，则应该将Type的值设置为forking；否则Systemd将不会跟踪子进程的行为，而认为服务已经退出。</li>
+<li><strong>RemainAfterExit</strong>：指为true或false（也可以写yes或no），默认为false。当配置为true时，Systemd只会负责启动服务进程，之后即便服务进程退出了，Systemd也仍然会认为这个服务还在运行中。这个配置主要是提供给一些并非常驻内存，而是启动注册后立即退出，然后等待消息按需启动的特殊类型服务使用的。</li>
+<li><strong>ExecStart</strong>：这个参数是几乎每个“.service”文件都会有的，指定服务启动的主要命令，在每个配置文件中只能使用一次.</li>
+<li><strong>ExecStartPre</strong>：指定在启动执行ExecStart命令前的准备工作，在同一个配置文件中可以有多个，所有命令会按照文件中书写的顺序依次被执行。</li>
+<li><strong>ExecStartPost</strong>：指定在启动执行ExecStart命令后的收尾工作，在同一个配置文件中也可有多个。</li>
+<li><strong>TimeoutSec</strong>：快速设置TimeoutStartSec和TimeoutStopSec参数成指定值。（另外，关于默认时间设定都在systemd配置文件中的DefaultTimeoutStartSec、DefaultTimeoutStopSec和DefaultRestartSec字段进行配置，如果这些字段缺省，DefaultTimeoutStartSec和DefaultTimeoutStopSec的默认指为90s，DefaultRestartSec默认为100ms）</li>
+<li><strong>TimeoutStartSec</strong>：启动服务时的等待秒数，如果超出这个时间服务仍然没有执行完所有的启动命令，则Systemd会认为服务自动失败。这一配置对于使用Docker容器托管的应用十分重要。由于Docker第一次运行时可能会需要从网络上下载服务的镜像文件，因此造成比较严重的延时，容易被Systemd误判断为启动失败而杀死。通常，对于这种服务，需要将TimeoutStartSec设置为0，关闭超时检测。</li>
+<li><strong>ExecStop</strong>：停止服务所需要执行的主要命令，在每个配置文件中只能够有一个。</li>
+<li><strong>ExecStopPost</strong>：指定在ExecStop命令执行后的收尾工作，在同一配置文件中可以有多个。</li>
+<li><strong>TimeoutStopSec</strong>：停止服务时的等待秒数，如果超过这个时间服务仍然没有停止，Systemd会使用SIGKILL信号强行干掉服务进程。</li>
+<li><strong>Restart</strong>：这个值用于指定在什么情况下需要重启服务进程。常用的值有：no、no-success、on-failure、on-abnormal、on-abort和always。默认值为no，即不会自动重启服务。这些不同的值分别表示在哪些情况下，服务会重新启动。</li>
+<li><strong>RestartSec</strong>：如果服务需要被重启，这个参数的值为服务被重启前的等待秒数。默认为100ms。</li>
+<li><strong>ExecReload</strong>：重新加载服务所需执行的主要命令。</li>
+</ul>
+<h4 id="服务上下文配置相关的参数"><a href="#服务上下文配置相关的参数" class="headerlink" title="服务上下文配置相关的参数"></a>服务上下文配置相关的参数</h4><ul>
+<li><strong>Environment</strong>：为服务添加环境变量，格式直接为Environment=“foo=bar”（看了一下Systemd的手册，这个参数所接受的格式有些奇葩，建议是直接“foo=bar”，取的时候使用${foo}进行获取）</li>
+<li><strong>EnvironmentFile</strong>：指定加载一个包含服务所需的环境变量列表的文件，文件中的每一行都是一个环境变量的定义。顺便提一下，建议使用的时候将=换成=-，如EnvironmentFile=-/etc/my.env，和=的区别是，使用=-时，假如/etc/my.env文件不在也不会报错。</li>
+<li><strong>Nice</strong>：服务的进程优先级，指越小优先级越高，默认为0，。其中-20为最高优先级，19为最低优先级。</li>
+<li><strong>WorkingDirectory</strong>：指定当前服务的工作目录。</li>
+<li><strong>RootDirectory</strong>：指定当前服务进程的根目录（/目录）。如果配置了这个参数，服务将无法访问指定目录外的任何文件。</li>
+<li><strong>User</strong>：指定运行服务的用户，会影响服务对本地文件系统的访问权限。</li>
+<li><strong>Group</strong>：指定运行服务的用户组，会影响服务对本地文件系统的访问权限。</li>
+<li><strong>MountFlags</strong>：这个值其实是服务的Mount Namespace的配置，会影响服务进程上下文中挂载点的信息，即服务是否会继承主机上已有的挂载点，以及如果服务运行时执行了挂载或卸载设备的操作，是否会真实地在主机上产生效果。可选值为shared、slave和private，具体作用如下表所示：</li>
+<li><strong>LimitCPU/LimitSTACK/LimitNOFILE/LimitNPROC等</strong>：限定服务可用的系统资源量，CPU、程序堆栈、文件句柄数量、子进程数量等</li>
+</ul>
+<h2 id="Systemd命令行工具的使用"><a href="#Systemd命令行工具的使用" class="headerlink" title="Systemd命令行工具的使用"></a>Systemd命令行工具的使用</h2><p>systemd 的主要命令行工具是<code>systemctl</code>，可以替换<code>service</code>、<code>chkconfig</code>以及<code>telinit</code>命令的使用。</p>
+<h3 id="Systemd命令和sysvinit命令的对照表"><a href="#Systemd命令和sysvinit命令的对照表" class="headerlink" title="Systemd命令和sysvinit命令的对照表"></a>Systemd命令和sysvinit命令的对照表</h3><table>
+<thead>
+<tr>
+<th>Sysvinit命令</th>
+<th>Systemd命令</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>service foo start</td>
+<td>systemctl start foo.service</td>
+<td>用来启动一个服务 (并不会重启现有的)</td>
+</tr>
+<tr>
+<td>service foo stop</td>
+<td>systemctl stop foo.service</td>
+<td>用来停止一个服务 (并不会重启现有的)</td>
+</tr>
+<tr>
+<td>service foo restart</td>
+<td>systemctl restart foo.service</td>
+<td>用来停止并启动一个服务</td>
+</tr>
+<tr>
+<td>service foo reload</td>
+<td>systemctl reload foo.service</td>
+<td>当支持时，重新装载配置文件而不中断等待操作</td>
+</tr>
+<tr>
+<td>service foo condrestart</td>
+<td>systemctl condrestart foo.service</td>
+<td>如果服务正在运行那么重启它</td>
+</tr>
+<tr>
+<td>service foo status</td>
+<td>systemctl status foo.service</td>
+<td>汇报服务是否正在运行</td>
+</tr>
+<tr>
+<td>ls /etc/rc.d/init.d/</td>
+<td>systemctl list-unit-files –type=service</td>
+<td>用来列出可以启动或停止的服务列表</td>
+</tr>
+<tr>
+<td>chkconfig foo on</td>
+<td>systemctl enable foo.service</td>
+<td>在下次启动时或满足其他触发条件时设置服务为启用</td>
+</tr>
+<tr>
+<td>chkconfig foo off</td>
+<td>systemctl disable foo.service</td>
+<td>在下次启动时或满足其他触发条件时设置服务为禁用</td>
+</tr>
+<tr>
+<td>chkconfig foo</td>
+<td>systemctl is-enabled foo.service</td>
+<td>用来检查一个服务在当前环境下被配置为启用还是禁用</td>
+</tr>
+<tr>
+<td>chkconfig –list</td>
+<td>systemctl list-unit-files –type=service</td>
+<td>输出在各个运行级别下服务的启用和禁用情况</td>
+</tr>
+<tr>
+<td>chkconfig foo –list</td>
+<td>ls /etc/systemd/system/*.wants/foo.service</td>
+<td>用来列出该服务在哪些运行级别下启用和禁用</td>
+</tr>
+<tr>
+<td>chkconfig foo –add</td>
+<td>systemctl daemon-reload</td>
+<td>当您创建新服务文件或者变更设置时使用</td>
+</tr>
+<tr>
+<td>telinit 3</td>
+<td>systemctl isolate multi-user.target (OR systemctl isolate runlevel3.target OR telinit 3)</td>
+<td>改变至多用户运行级别</td>
+</tr>
+</tbody>
+</table>
+<h3 id="systemd电源管理命令"><a href="#systemd电源管理命令" class="headerlink" title="systemd电源管理命令"></a>systemd电源管理命令</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>systemctl reboot</td>
+<td>重启机器</td>
+</tr>
+<tr>
+<td>systemctl poweroff</td>
+<td>关机</td>
+</tr>
+<tr>
+<td>systemctl suspend</td>
+<td>待机</td>
+</tr>
+<tr>
+<td>systemctl hibernate</td>
+<td>休眠</td>
+</tr>
+<tr>
+<td>systemctl hybrid-sleep</td>
+<td>混合休眠模式（同时休眠到硬盘并待机）</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-09-22T09:41:05.003Z" itemprop="dateUpdated">2018-09-22 17:41:05</time>
+</span><br>
+
+
+        
+        原始链接：<a href="/2018/09/22/Linux初始化init系统/" target="_blank" rel="external">http://ruanxinyu.github.io/2018/09/22/Linux初始化init系统/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://ruanxinyu.github.io">
+            <img src="/img/avatar.png" alt="阮新宇">
+            阮新宇
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/2018/09/22/Linux初始化init系统/&title=《Linux初始化init系统：Sysvinit、Upstart和Systemd》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/2018/09/22/Linux初始化init系统/&title=《Linux初始化init系统：Sysvinit、Upstart和Systemd》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/2018/09/22/Linux初始化init系统/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux初始化init系统：Sysvinit、Upstart和Systemd》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/2018/09/22/Linux初始化init系统/&via=http://ruanxinyu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/2018/09/22/Linux初始化init系统/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/09/18/Ubuntu下KeepAlived的安装与配置/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h5 class="title">Ubuntu下KeepAlived的安装与配置</h5>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "6OnUHurDk7brX6HPnIjKMeVb-gzGzoHsz",
+            appKey: "C8w3nGdzmRR4i8LePSnMEjsy",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>阮新宇 &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/2018/09/22/Linux初始化init系统/&title=《Linux初始化init系统：Sysvinit、Upstart和Systemd》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/2018/09/22/Linux初始化init系统/&title=《Linux初始化init系统：Sysvinit、Upstart和Systemd》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/2018/09/22/Linux初始化init系统/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux初始化init系统：Sysvinit、Upstart和Systemd》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/2018/09/22/Linux初始化init系统/&via=http://ruanxinyu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/2018/09/22/Linux初始化init系统/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACqElEQVR42u3aQW5CMQwFwN7/0u2mO1p4z04Qi/mrSkDIpFJsbH99xc/3w/P4ar5O+/d/33vswcPDw1tv/XG557Dn4OTV59+bf+qPI8DDw8O7xmsv8eR5fgSz78r3jIeHh/f5vCQkzIJHvjIeHh7e5/M2CXdyNO3B4eHh4b2Tt7nu80s8T5FnJQw8PDy89/DuNa7u/X2lv4eHh4e37qrnF26eHOfhZ7PP33Xw8PDwLvDyCzdPWPOCwiYgFfvEw8PDu8BrSwZ5WXZ2uSdr5q01PDw8vHu8vFw7O4hZkEgOqwg5eHh4eId4s1ZTcunnK7TvHEY8PDw8vDVv9uF9Yt0WOA4UIPDw8PAO8ZLwkA9UzT6VH9Mm5ODh4eHd4CWX7Kzln5eA21u9DUt4eHh4p3htErxqQY3S5byFNvyP4eHh4cW8vCWfJ8pt62szOjD8lYCHh4e34G3iSfuePMzMDuJFGwwPDw/vEG82BlqcXLlOGwCOpdR4eHh469LtLDxshgPyMkd73Hh4eHi3eW1qm5cqkvrAvij8ogGGh4eHt+bNLv1NEWFWFB6Wg/Hw8PCu8WapcHtZb5pkwxEHPDw8vGu8tgG2afBvmm0Hfivg4eHhrXltSz4f2yqGosoja9N3PDw8vBu8UynsrGg7C0L1geLh4eEd5W0Gp2ZJdr7dNhQVsQsPDw9vzWu32zI2Q1qrUQM8PDy8a7w2YOSJcjscMGuz4eHh4b2HN2tN7bc1a3TVgQEPDw/vAq+9ak+1tVajVIuAgYeHh3eKlweDzbXeptqbAjEeHh7ee3inWlyzssWBtHiTv+Ph4eFd5u3b/G3yvSoH4+Hh4X0Mbx8qZmWOOszg4eHhXeNtml6zwaz9MUWv4uHh4V3gzX7Rt2NVbeurDRur4gUeHh5eyvsB+baHXEl2EW8AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
