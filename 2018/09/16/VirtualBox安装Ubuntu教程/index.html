@@ -54,7 +54,7 @@
 <meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-26-23.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-29-57.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-34-53.png">
-<meta property="og:updated_time" content="2018-09-16T13:53:18.642Z">
+<meta property="og:updated_time" content="2018-09-25T00:23:20.298Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VirtualBox安装Ubuntu教程">
 <meta name="twitter:description" content="基础准备工作本教程使用的VirtualBox版本为5.2.18，Ubuntu版本为server 18.04.1。 首先，下载Ubuntu Server镜像，本文以ubuntu-18.04.1为例，可以从华为开源镜像站提供加速下载，地址为： http://mirrors.huaweicloud.com/repository/ubuntu-releases/18.04.1/ubuntu-18.04.1">
@@ -216,17 +216,23 @@
 <p>首先，下载Ubuntu Server镜像，本文以ubuntu-18.04.1为例，可以从华为开源镜像站提供加速下载，地址为： <a href="http://mirrors.huaweicloud.com/repository/ubuntu-releases/18.04.1/ubuntu-18.04.1-live-server-amd64.iso" target="_blank" rel="noopener">http://mirrors.huaweicloud.com/repository/ubuntu-releases/18.04.1/ubuntu-18.04.1-live-server-amd64.iso</a></p>
 <p>下载并安装VirtualBox，下载地址为: <a href="https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-Win.exe" target="_blank" rel="noopener">https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-Win.exe</a></p>
 <h1 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h1><ol>
-<li>打开VirtualBox，点击<code>新建</code>, 输入名称，比如叫做<code>UbuntuTemplate</code>，之所以叫这个名称是因为如果后续需要多个Ubuntu虚拟机的话，可以直接复制该虚拟机，这样每次都可以有一个全新的虚拟机。操作系统版本选择<code>Ubuntu(64bit)</code>, 点击下一步，内存选择512M或者1024M都可以，因为我们下载的镜像是没有桌面的，因此对内存要求没有那么大。<img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-11-35.png" title="[GitHubOAuth]">
-</li>
+<li>打开VirtualBox，点击<code>新建</code>, 输入名称，比如叫做<code>UbuntuTemplate</code>，之所以叫这个名称是因为如果后续需要多个Ubuntu虚拟机的话，可以直接复制该虚拟机，这样每次都可以有一个全新的虚拟机。操作系统版本选择<code>Ubuntu(64bit)</code>, 点击下一步，内存选择512M或者1024M都可以，因为我们下载的镜像是没有桌面的，因此对内存要求没有那么大。</li>
 </ol>
+<img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-11-35.png" title="[GitHubOAuth]">
 <ol start="2">
-<li>选择<code>现在创建虚拟磁盘</code>，当然，如果也可以使用已经存在的磁盘，下一步，磁盘类型我更愿意用<code>VMDK(虚拟机磁盘)</code>，因此该磁盘VMWare也是可以使用的，磁盘大小选择<code>动态分配大小</code>。<img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-14-32.png" title="[GitHubOAuth]">
+<li><p>选择<code>现在创建虚拟磁盘</code>，当然，如果也可以使用已经存在的磁盘，下一步，磁盘类型我更愿意用<code>VMDK(虚拟机磁盘)</code>，因此该磁盘VMWare也是可以使用的，磁盘大小选择<code>动态分配大小</code>。</p>
+<img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-14-32.png" title="[GitHubOAuth]">
 </li>
+<li><p>此处有两个地方需要注意一下：</p>
+<blockquote>
+<ol>
+<li>选择磁盘的保存位置默认为虚拟机名称，这个时候是保存在用户目录下的，也就是C盘，因此<strong>最好是自己选择路径保存到其他目录</strong>，以免占用过多的C盘空间。</li>
 </ol>
-<ol start="3">
-<li>选择磁盘的保存位置默认为虚拟机名称，这个时候是保存在用户目录下的，也就是C盘，因此最好是自己选择路径保存到其他目录。<br>另外这个地方设置的其实是磁盘的最大大小，默认的10G肯定是太小了，可以直接改成<code>100G</code>, 这个是最大值，不是立即分配这么大的磁盘空间。<img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-18-22.png" title="[GitHubOAuth]">
+</blockquote>
 </li>
+<li>此处设置的其实是磁盘的最大大小，默认的10G肯定是太小了，可以直接改成<code>100G</code>, 这个是最大值，不是立即分配这么大的磁盘空间。</li>
 </ol>
+<img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-18-22.png" title="[GitHubOAuth]">
 <h1 id="设置虚拟机"><a href="#设置虚拟机" class="headerlink" title="设置虚拟机"></a>设置虚拟机</h1><h2 id="设置粘贴板"><a href="#设置粘贴板" class="headerlink" title="设置粘贴板"></a>设置粘贴板</h2><img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-26-02.png" title="[GitHubOAuth]">
 <h2 id="导入操作系统镜像"><a href="#导入操作系统镜像" class="headerlink" title="导入操作系统镜像"></a>导入操作系统镜像</h2><p>从设置的系统标签页中可以看出系统的启动顺序是“软驱”-&gt;”光驱”-&gt;”硬盘”，因此只要在光驱中导入刚刚下载的操作系统镜像，启动的虚拟机的时候就会开始安装操作系统。<br><img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-30-36.png" title="[GitHubOAuth]"></p>
 <h2 id="设置虚拟机网络"><a href="#设置虚拟机网络" class="headerlink" title="设置虚拟机网络"></a>设置虚拟机网络</h2><p>虚拟机的网络连接方式有很多中，因为涉及到很多网络知识，总结起来就是一张表，如下所示：<br><img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-22-53.png" title="[GitHubOAuth]"></p>
@@ -261,7 +267,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-09-16T13:53:18.642Z" itemprop="dateUpdated">2018-09-16 21:53:18</time>
+    最后更新时间：<time datetime="2018-09-25T00:23:20.298Z" itemprop="dateUpdated">2018-09-25 08:23:20</time>
 </span><br>
 
 
