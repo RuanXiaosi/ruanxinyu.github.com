@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?b4c4998e548a16b827d4ffe9dbe2b47b"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Ubuntu下HAProxy的安装与配置 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="环境搭建">
+    <meta name="description" content="HAProxy的简介HAProxy是一款提供高可用性、负载均衡以及基于TCP（第四层）和HTTP（第七层）应用的代理软件，支持虚拟主机，它是免费、快速并且可靠的一种解决方案。 HAProxy实现了一种事件驱动、单一进程模型，此模型支持非常大的并发连接数，特别适用于那些负载特大的web站点，完全可以支持数以万计的并发连接，根据官方文档，haproxy可以跑满10Gbps。并且它的运行模式使得它可以很">
+<meta name="keywords" content="环境搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu下HAProxy的安装与配置">
+<meta property="og:url" content="http://ruanxinyu.github.io/2018/09/25/Ubuntu下HAProxy的安装与配置/index.html">
+<meta property="og:site_name" content="RuanXinYu&#39;s Blog">
+<meta property="og:description" content="HAProxy的简介HAProxy是一款提供高可用性、负载均衡以及基于TCP（第四层）和HTTP（第七层）应用的代理软件，支持虚拟主机，它是免费、快速并且可靠的一种解决方案。 HAProxy实现了一种事件驱动、单一进程模型，此模型支持非常大的并发连接数，特别适用于那些负载特大的web站点，完全可以支持数以万计的并发连接，根据官方文档，haproxy可以跑满10Gbps。并且它的运行模式使得它可以很">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-25T00:18:06.937Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu下HAProxy的安装与配置">
+<meta name="twitter:description" content="HAProxy的简介HAProxy是一款提供高可用性、负载均衡以及基于TCP（第四层）和HTTP（第七层）应用的代理软件，支持虚拟主机，它是免费、快速并且可靠的一种解决方案。 HAProxy实现了一种事件驱动、单一进程模型，此模型支持非常大的并发连接数，特别适用于那些负载特大的web站点，完全可以支持数以万计的并发连接，根据官方文档，haproxy可以跑满10Gbps。并且它的运行模式使得它可以很">
+    
+        <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">阮新宇</h5>
+          <a href="mailto:1096421257@qq.com" title="1096421257@qq.com" class="mail">1096421257@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/RuanXinyu" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Ubuntu下HAProxy的安装与配置</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Ubuntu下HAProxy的安装与配置</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-24T23:07:50.000Z" itemprop="datePublished" class="page-time">
+  2018-09-25
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/环境搭建/">环境搭建</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HAProxy的简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">HAProxy的简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HAProxy的安装"><span class="post-toc-number">2.</span> <span class="post-toc-text">HAProxy的安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#apt-get安装"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">apt-get安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#源码编译安装"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">源码编译安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HAProxy的配置"><span class="post-toc-number">3.</span> <span class="post-toc-text">HAProxy的配置</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Ubuntu下HAProxy的安装与配置"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Ubuntu下HAProxy的安装与配置</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-25 07:07:50" datetime="2018-09-24T23:07:50.000Z"  itemprop="datePublished">2018-09-25</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/环境搭建/">环境搭建</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="HAProxy的简介"><a href="#HAProxy的简介" class="headerlink" title="HAProxy的简介"></a>HAProxy的简介</h1><p>HAProxy是一款提供高可用性、负载均衡以及基于TCP（第四层）和HTTP（第七层）应用的代理软件，支持虚拟主机，它是免费、快速并且可靠的一种解决方案。</p>
+<p>HAProxy实现了一种事件驱动、单一进程模型，此模型支持非常大的并发连接数，特别适用于那些负载特大的web站点，完全可以支持数以万计的并发连接，根据官方文档，haproxy可以跑满10Gbps。并且它的运行模式使得它可以很简单安全的整合进您当前的架构中，同时可以保护你的web服务器不被暴露到网络上。</p>
+<p>HAProxy支持全透明代理，可以用客户端IP地址或者任何其他地址来连接后端服务器，同时提供连接拒绝功能，可以有效的限制攻击蠕虫。</p>
+<h1 id="HAProxy的安装"><a href="#HAProxy的安装" class="headerlink" title="HAProxy的安装"></a>HAProxy的安装</h1><p>该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参考<a href="https://blog.ruanxinyu.cn/2018/09/16/VirtualBox%E5%AE%89%E8%A3%85Ubuntu%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">VirtualBox安装Ubuntu教程</a>。HAProxy可以直接通过apt-get安装，也可以通过源码编译安装。</p>
+<h2 id="apt-get安装"><a href="#apt-get安装" class="headerlink" title="apt-get安装"></a>apt-get安装</h2><p>Ubuntu下执行<code>sudo apt-get install haproxy</code>命令即可安装。</p>
+<p>通过<code>which haproxy</code>可以看到KeepAlived是安装在<code>/usr/sbin/haproxy</code>下，HAProxy的配置文件路径为：<code>/etc/haproxy/haproxy.cfg</code></p>
+<p>使用<code>sudo haproxy -f /etc/haproxy/haproxy.cfg</code>即可启动HAProxy。</p>
+<h2 id="源码编译安装"><a href="#源码编译安装" class="headerlink" title="源码编译安装"></a>源码编译安装</h2><p>一般源码安装目录为<code>/usr/local/haproxy</code>，在源码目录中的<code>README</code>文件有安装说明，下面罗列出几点内容：</p>
+<ol>
+<li>在执行make命令之前是不需要执行<code>./configure</code>命令的，因此执行的参数都在make命令中指定</li>
+<li>我们操作系统为Ubuntu 18.04.1，不涉及嵌入式编译，因此使用<code>TARGET=linux26 ARCH=x86_64</code>参数</li>
+<li>PCRE(Perl Compatible Regular Expressions)的速度是其他的2-10倍，因此添加<code>USE_PCRE=1</code>选项，但是前提需要安装<code>libpcre3 libpcre3-dev</code></li>
+<li>为支持HTTPS协议，我们需要添加<code>USE_OPENSSL=1</code>选项，但是前提需要安装<code>libssl-dev</code></li>
+<li>为支持HTTP的压缩功能，我们需要添加<code>USE_ZLIB=1</code>，但是前提需要安装<code>zlib1g-dev</code></li>
+<li>为了保证安装目录为<code>/usr/local/haproxy</code>，我们需要在<code>make install</code>命令中指定<code>PREFIX</code>参数</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential libssl-dev <span class="comment"># 安装编译工具和openssl依赖</span></span><br><span class="line">sudo apt-get install zlib1g-dev</span><br><span class="line">sudo apt-get install libpcre3 libpcre3-dev</span><br><span class="line">wget https://www.haproxy.org/download/1.8/src/haproxy-1.8.8.tar.gz <span class="comment"># 下载源码</span></span><br><span class="line">tar -zxvf haproxy-1.8.8.tar.gz <span class="comment"># 解压源码</span></span><br><span class="line"><span class="built_in">cd</span> haproxy-1.8.8/</span><br><span class="line">make TARGET=linux26 ARCH=x86_64 USE_PCRE=1 USE_OPENSSL=1 USE_ZLIB=1 <span class="comment"># 编译源码，从README中可以看出如何编译</span></span><br><span class="line">sudo make install PREFIX=/usr/<span class="built_in">local</span>/haproxy <span class="comment"># 安装到安装目录，需要使用root权限</span></span><br></pre></td></tr></table></figure>
+<p>启动HAProxy: <code>sudo /usr/local/haproxy/sbin/haproxy -f /etc/haproxy/haproxy.cfg</code></p>
+<p><strong>可能遇到的问题</strong></p>
+<ol>
+<li><p>提示<code>make is not found</code></p>
+<blockquote>
+<p>源码安装需要安装编译器将源码转换为二进制可执行文件，因此执行<code>sudo apt-get install build-essential</code>安装编译器即可</p>
+</blockquote>
+</li>
+<li><p>启动时提示<code>parsing [/etc/haproxy/haproxy.cfg:12] : unknown keyword &#39;ca-base&#39; in &#39;global&#39; section</code></p>
+<blockquote>
+<p>编译haproxy时没有使能openssl的支持，安装<code>libssl-dev</code>并在编译时指定<code>USE_OPENSSL=1</code>选项即可</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="HAProxy的配置"><a href="#HAProxy的配置" class="headerlink" title="HAProxy的配置"></a>HAProxy的配置</h1><p>由于HAProxy一般需要是高可用的，因此常常与KeepAlived联合使用，由KeepAlived自动启动HAProxy，因此一般不将HAProxy添加到守护进程和开机启动中。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-09-25T00:18:06.937Z" itemprop="dateUpdated">2018-09-25 08:18:06</time>
+</span><br>
+
+
+        
+        原始链接：<a href="/2018/09/25/Ubuntu下HAProxy的安装与配置/" target="_blank" rel="external">http://ruanxinyu.github.io/2018/09/25/Ubuntu下HAProxy的安装与配置/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://ruanxinyu.github.io">
+            <img src="/img/avatar.png" alt="阮新宇">
+            阮新宇
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/环境搭建/">环境搭建</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/2018/09/25/Ubuntu下HAProxy的安装与配置/&title=《Ubuntu下HAProxy的安装与配置》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/2018/09/25/Ubuntu下HAProxy的安装与配置/&title=《Ubuntu下HAProxy的安装与配置》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/2018/09/25/Ubuntu下HAProxy的安装与配置/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu下HAProxy的安装与配置》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/2018/09/25/Ubuntu下HAProxy的安装与配置/&via=http://ruanxinyu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/2018/09/25/Ubuntu下HAProxy的安装与配置/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/09/22/Linux初始化init系统/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h5 class="title">Linux初始化init系统：Sysvinit、Upstart和Systemd</h5>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "6OnUHurDk7brX6HPnIjKMeVb-gzGzoHsz",
+            appKey: "C8w3nGdzmRR4i8LePSnMEjsy",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>阮新宇 &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/2018/09/25/Ubuntu下HAProxy的安装与配置/&title=《Ubuntu下HAProxy的安装与配置》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/2018/09/25/Ubuntu下HAProxy的安装与配置/&title=《Ubuntu下HAProxy的安装与配置》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/2018/09/25/Ubuntu下HAProxy的安装与配置/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu下HAProxy的安装与配置》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/2018/09/25/Ubuntu下HAProxy的安装与配置/&via=http://ruanxinyu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/2018/09/25/Ubuntu下HAProxy的安装与配置/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtUlEQVR42u3aQW4bMQwFUN//0u62QGr5kxQdF3izCpyBpKeFyKH4eMTP86/n/M7Pv8/v/Bz5eXweGw8eHh7eYOnJlNUtOP9yniV5880W4OHh4a3x8oP+HAB6x3ovqJzfwcPDw/s2Xn6IJ6Tkv3h4eHj/L69XDeiFnOr24eHh4X2SlxQjeod+UtTojXm51oKHh4e3cIv0PX+v3O/h4eHhjW/VkwM3SZfzMXvXXS9HxsPDw1vgVdPZc6pdLSjcvUJ7mbLj4eHhXeXlpYekDStvyarOm/zyj3Hw8PDwFnjzS6w8te0tIi/7jioxeHh4eEVe8tmfT5Yc3+fSRpJAFy7S8PDw8K7yNlLkyUbcClp4eHh427zqR36vMSsZ/3z05+uJai14eHh4LV5+0PeWmCTB1RBVbTvAw8PDu8urAu6myPmmNBsL8PDw8NZ4+XHfizmTy7C8pBvFIjw8PLwxb14syA/xfJa8zJGvDQ8PD2+Dl5ylty6xeiWMeQsXHh4e3pxXLZjOr6x6W9lL7vHw8PA+w+t90feKs3mhoTkmHh4e3lZ2+pgf2UkzVrWIsFGkwMPDw5vz8lQ1KQ1MLtjyNoVmZRoPDw/vEq/XLlBtDpgHj1HyjYeHh7fGq5ZNJ0d5D9wsVeDh4eEt8JLjftKVkGzEpHGhHB7w8PDwxrxk4nnAyI/+JNiU4x4eHh7eAm9Sru2l6UnY6G0cHh4e3u/yHsUnT517qXZ5Xjw8PLyrvGfxSQ7ranli3rjwMhbg4eHhLfDmx30OS5aetyxMQggeHh7enFcNBpOL/Or4SRCKvhjw8PDwFnj55f3kOn/SqlUNY3h4eHjfw6u2EfRGzjf3ze94eHh4X8mrtm1VN26SlOPh4eHt8fLW0ryM22NXU+03s+Dh4eEt8Mqf9x9cVr7c0Y0fHh4eXrrCPy7a7gMzcasEAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
