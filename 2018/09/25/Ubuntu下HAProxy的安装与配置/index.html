@@ -41,7 +41,7 @@
 <meta property="og:image" content="http://ruanxinyu.github.io/2018/09/25/Ubuntu下HAProxy的安装与配置/2018-09-27-22-18-00.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/2018/09/25/Ubuntu下HAProxy的安装与配置/2018-09-27-22-19-32.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/2018/09/25/Ubuntu下HAProxy的安装与配置/2018-09-27-22-20-09.png">
-<meta property="og:updated_time" content="2018-09-27T14:20:23.451Z">
+<meta property="og:updated_time" content="2018-09-27T14:26:49.150Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu下HAProxy的安装与配置">
 <meta name="twitter:description" content="HAProxy的简介HAProxy是一款提供高可用性、负载均衡以及基于TCP（第四层）和HTTP（第七层）应用的代理软件，支持虚拟主机，它是免费、快速并且可靠的一种解决方案。 HAProxy实现了一种事件驱动、单一进程模型，此模型支持非常大的并发连接数，特别适用于那些负载特大的web站点，完全可以支持数以万计的并发连接，根据官方文档，haproxy可以跑满10Gbps。并且它的运行模式使得它可以很">
@@ -252,7 +252,7 @@
 </blockquote>
 </li>
 </ol>
-<h2 id="搭建Apache服务器"><a href="#搭建Apache服务器" class="headerlink" title="搭建Apache服务器"></a>搭建Apache服务器</h2><p>我们使用Apache服务器来模拟HAProxy后端的服务器，首先分别在<code>192.168.1.106</code>和<code>192.168.1.107</code>两台机器上执行<code>sudo apt-get install apache2</code>，完成后就会Apache会自动启动并监听80端口，此时在浏览器中访问对应机器，既可以看到Apache2的首页，默认使用的首页为<code>/var/www/html/index.html</code>。</p>
+<h2 id="搭建Apache服务器"><a href="#搭建Apache服务器" class="headerlink" title="搭建Apache服务器"></a>搭建Apache服务器</h2><p>我们使用Apache服务器来模拟HAProxy后端的服务器，首先分别在<code>192.168.1.106</code>和<code>192.168.1.107</code>两台机器上执行<code>sudo apt-get install apache2</code>，完成后Apache会自动启动并监听80端口，此时在浏览器中访问对应机器，既可以看到Apache2的首页，默认使用的首页文件路径为<code>/var/www/html/index.html</code>。</p>
 <p>为了对两台机器做一下区分，我们做如下操作：</p>
 <ol>
 <li>在<code>192.168.1.106</code>执行<code>sudo sh -c &#39;echo &quot;This is apache server 01&quot; &gt; /var/www/html/index.html&#39;</code></li>
@@ -269,7 +269,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-09-27T14:20:23.451Z" itemprop="dateUpdated">2018-09-27 22:20:23</time>
+    最后更新时间：<time datetime="2018-09-27T14:26:49.150Z" itemprop="dateUpdated">2018-09-27 22:26:49</time>
 </span><br>
 
 
