@@ -30,18 +30,18 @@
 <meta name="keywords" content="环境搭建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu下KeepAlived的安装与配置">
-<meta property="og:url" content="http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/index.html">
+<meta property="og:url" content="http://ruanxinyu.github.io/posts/Ubuntu下KeepAlived的安装与配置/index.html">
 <meta property="og:site_name" content="RuanXinYu&#39;s Blog">
 <meta property="og:description" content="KeepAlived介绍Keepalived是一个基于VRRP协议来实现的服务高可用方案，可以利用其来避免IP单点故障，一般与其它负载均衡技术（如lvs、haproxy、nginx）一起工作来达到集群的高可用。 健康检查和失败切换是keepalived的两大核心功能。 keepalived的健康检查支持tcp三次握手、icmp请求、http请求、udp和echo请求等方式对负载均衡器后面的实际的服">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/2018-09-24-16-41-22.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/2018-09-24-16-53-52.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/2018-09-24-16-58-02.png">
-<meta property="og:updated_time" content="2018-09-28T02:49:20.931Z">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/Ubuntu下KeepAlived的安装与配置/2018-09-24-16-41-22.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/Ubuntu下KeepAlived的安装与配置/2018-09-24-16-53-52.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/Ubuntu下KeepAlived的安装与配置/2018-09-24-16-58-02.png">
+<meta property="og:updated_time" content="2018-10-01T04:55:08.305Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu下KeepAlived的安装与配置">
 <meta name="twitter:description" content="KeepAlived介绍Keepalived是一个基于VRRP协议来实现的服务高可用方案，可以利用其来避免IP单点故障，一般与其它负载均衡技术（如lvs、haproxy、nginx）一起工作来达到集群的高可用。 健康检查和失败切换是keepalived的两大核心功能。 keepalived的健康检查支持tcp三次握手、icmp请求、http请求、udp和echo请求等方式对负载均衡器后面的实际的服">
-<meta name="twitter:image" content="http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/2018-09-24-16-41-22.png">
+<meta name="twitter:image" content="http://ruanxinyu.github.io/posts/Ubuntu下KeepAlived的安装与配置/2018-09-24-16-41-22.png">
     
         <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
     
@@ -228,7 +228,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Keepalive Daemon (LVS and VRRP)</span><br><span class="line">After=syslog.target network-online.target</span><br><span class="line">Wants=network-online.target</span><br><span class="line"><span class="comment"># Only start if there is a configuration file</span></span><br><span class="line">ConditionFileNotEmpty=/etc/keepalived/keepalived.conf</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">KillMode=process</span><br><span class="line"><span class="comment"># Read configuration variable file if it is present</span></span><br><span class="line">EnvironmentFile=-/etc/default/keepalived</span><br><span class="line">ExecStart=/usr/sbin/keepalived <span class="variable">$KEEPALIVED_OPTIONS</span></span><br><span class="line">ExecReload=/bin/<span class="built_in">kill</span> -HUP <span class="variable">$MAINPID</span></span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
 <p>启动keepalived进程，并设置为开机启动，通过<code>sudo systemctl status keepalived</code>查看状态：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start keepalived</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> keepalived</span><br></pre></td></tr></table></figure>
-<img src="/2018/09/18/Ubuntu下KeepAlived的安装与配置/2018-09-24-16-41-22.png" title="[GitHubOAuth]">
+<img src="/posts/Ubuntu下KeepAlived的安装与配置/2018-09-24-16-41-22.png" title="[blog.ruanxinyu.cn]">
 <h2 id="keepalived-conf"><a href="#keepalived-conf" class="headerlink" title="keepalived.conf"></a>keepalived.conf</h2><p>在keepalived的安装目录<code>/usr/local/keepalived/etc/keepalived/samples/</code>有很多样例配置，每一种配置对应的都是一种使用场景，后续会做详细说明，因此在此处不做过多的分析。</p>
 <p>此处使用最简单的配置入门，假设我们以<code>/tmp/</code>目录下是否存在<code>service_ok</code>这个文件来判断服务是否可用。可参考样例<code>/usr/local/keepalived/etc/keepalived/samples/keepalived.conf.vrrp.localcheck</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">vrrp_script chk_service_ok &#123;</span><br><span class="line">       script <span class="string">"ls /tmp/service_ok"</span>    <span class="comment"># 检查文件是否存在</span></span><br><span class="line">       interval 2                     <span class="comment"># 每两秒钟检查一次</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    interface enp0s3                  <span class="comment"># 指定网卡</span></span><br><span class="line">    state MASTER                      <span class="comment"># 角色，主机为MASTER，备机为BACKUP</span></span><br><span class="line">    virtual_router_id 51              <span class="comment"># 虚拟路由Id，相同的ID表示在相同的组</span></span><br><span class="line">    priority 100                      <span class="comment"># 优先级，MASTER的优先级要比BACKUP的大</span></span><br><span class="line"></span><br><span class="line">    virtual_ipaddress &#123;               <span class="comment"># 虚拟IP地址，即VIP</span></span><br><span class="line">        192.168.42.23/25</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    track_script &#123;                    <span class="comment"># 设置vrrp检查脚本的名称</span></span><br><span class="line">       chk_service_ok</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -243,9 +243,9 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">vrrp_script chk_service_ok &#123;</span><br><span class="line">       script <span class="string">"ls /tmp/service_ok"</span></span><br><span class="line">       interval 2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    interface enp0s3</span><br><span class="line">    state BACKUP</span><br><span class="line">    virtual_router_id 51</span><br><span class="line">    priority 80</span><br><span class="line"></span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        192.168.42.23/25</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    track_script &#123;</span><br><span class="line">       chk_service_ok</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>首先，我们在两台机器上都创建一个system_ok文件，表示机器是OK的，<code>touch /tmp/service_ok</code>。然后执行<code>sudo systemctl restart keepalived</code>重新启动两台机器的keepalived。</p>
 <p>分别在两台机器上执行<code>ip a</code>查看机器的网络信息，可以发现VIP（<code>192.168.42.23</code>）已经在主机vm01上，我们通过<code>ssh ruan@192.168.42.23</code>登陆到的也是主机vm01。</p>
-<img src="/2018/09/18/Ubuntu下KeepAlived的安装与配置/2018-09-24-16-53-52.png" title="[GitHubOAuth]">
+<img src="/posts/Ubuntu下KeepAlived的安装与配置/2018-09-24-16-53-52.png" title="[blog.ruanxinyu.cn]">
 <p>我们删除主机vm01上的<code>/tmp/service_ok</code>文件，然后重新执行<code>ip a</code>，发现VIP（<code>192.168.42.23</code>）已经漂移到备机vm02上，此时我们通过<code>ssh ruan@192.168.42.23</code>登陆则是备机vm02。即当主机故障时，业务可以自动切换至备机。</p>
-<img src="/2018/09/18/Ubuntu下KeepAlived的安装与配置/2018-09-24-16-58-02.png" title="[GitHubOAuth]">
+<img src="/posts/Ubuntu下KeepAlived的安装与配置/2018-09-24-16-58-02.png" title="[blog.ruanxinyu.cn]">
 <p>我们重新创建主机vm01上的<code>/tmp/service_ok</code>文件，，然后重新执行<code>ip a</code>，发现VIP（<code>192.168.42.23</code>）已经重新漂移到备机vm01上，此时我们通过<code>ssh ruan@192.168.42.23</code>登陆重新回到主机vm01。即当主机恢复时，可以自动将该主机加入到服务器群提供服务。</p>
 
         </div>
@@ -255,12 +255,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-09-28T02:49:20.931Z" itemprop="dateUpdated">2018-09-28 10:49:20</time>
+    最后更新时间：<time datetime="2018-10-01T04:55:08.305Z" itemprop="dateUpdated">2018-10-01 12:55:08</time>
 </span><br>
 
 
         
-        原始链接：<a href="/2018/09/18/Ubuntu下KeepAlived的安装与配置/" target="_blank" rel="external">http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/</a>
+        原始链接：<a href="/posts/Ubuntu下KeepAlived的安装与配置/" target="_blank" rel="external">http://ruanxinyu.github.io/posts/Ubuntu下KeepAlived的安装与配置/</a>
         
     </div>
     
@@ -287,7 +287,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/&title=《Ubuntu下KeepAlived的安装与配置》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/posts/Ubuntu下KeepAlived的安装与配置/&title=《Ubuntu下KeepAlived的安装与配置》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -297,22 +297,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/&title=《Ubuntu下KeepAlived的安装与配置》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/posts/Ubuntu下KeepAlived的安装与配置/&title=《Ubuntu下KeepAlived的安装与配置》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/posts/Ubuntu下KeepAlived的安装与配置/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu下KeepAlived的安装与配置》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/&via=http://ruanxinyu.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu下KeepAlived的安装与配置》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/posts/Ubuntu下KeepAlived的安装与配置/&via=http://ruanxinyu.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/posts/Ubuntu下KeepAlived的安装与配置/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -335,7 +335,7 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2018/09/22/Linux初始化init系统/" id="post-prev" class="post-nav-link">
+      <a href="/posts/Linux初始化init系统/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h5 class="title">Linux初始化init系统：Sysvinit、Upstart和Systemd</h5>
       </a>
@@ -344,7 +344,7 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/09/16/VirtualBox安装Ubuntu教程/" id="post-next" class="post-nav-link">
+      <a href="/posts/VirtualBox安装Ubuntu教程/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h5 class="title">VirtualBox安装Ubuntu教程</h5>
       </a>
@@ -441,7 +441,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/&title=《Ubuntu下KeepAlived的安装与配置》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/posts/Ubuntu下KeepAlived的安装与配置/&title=《Ubuntu下KeepAlived的安装与配置》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -451,22 +451,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/&title=《Ubuntu下KeepAlived的安装与配置》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/posts/Ubuntu下KeepAlived的安装与配置/&title=《Ubuntu下KeepAlived的安装与配置》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/posts/Ubuntu下KeepAlived的安装与配置/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu下KeepAlived的安装与配置》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/&via=http://ruanxinyu.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu下KeepAlived的安装与配置》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/posts/Ubuntu下KeepAlived的安装与配置/&via=http://ruanxinyu.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/2018/09/18/Ubuntu下KeepAlived的安装与配置/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/posts/Ubuntu下KeepAlived的安装与配置/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -477,7 +477,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsklEQVR42u3a0WojMQwF0Pz/T2ehT7uUTu6VxklZjp9Kwnh8XLAUyY9HPJ5f4/snf4/823yG609uG3h4eHijpf80vk/dvmaD/+mTZM14eHh4p3nXL0h4syAx+zbfFDw8PLzP8q7B1wd9PjMeHh7e/8TLywSzYkSSRuPh4eH9Hl5SjMgDwDMe7QwHay14eHh4kzmLJPizfx/s7+Hh4eEtuurtsT7b3aTkMVwbHh4e3gFeUkhNTt38ZM43ImmJRbPh4eHh3crbXAhIjvJNkNj8A/6Je3h4eHjHeO1r8oM+eaotHCcBAw8PD+/9vFljbHa9YP/e+k4EHh4e3k28ZLq7CrWbNL0o4OLh4eG9kTerheZb1rbN6rfg4eHhHeblDyfJd1sCzltiqyo1Hh4e3jFemxC3F6Fm1xRqKh4eHt5hXpv+5mWF2UGfFGpfbBweHh7eW3ibYm4eDHLY9bMvghAeHh7eAd71oZ8n4ptrW7MUvA5FeHh4eDfx8sM3b03NrgLM5nyxWjw8PLy38GbtqE3DbLOhLzYFDw8P7zBvlv7uA0zehMuvbeHh4eGd480O5TxRzptYOSMp6Q6rLHh4eHgBb3bpKi8oJE/NyrXDyjQeHh7empc34Nty6qaO2uKjSwN4eHh4t/KSpWxeuQlFsxJw9LsBDw8Pb83bpLD5y2ZXu9owNs2+8fDw8Lpssy3Lzg7uWUF2lo7j4eHhnebNAsB+oW35I6/W4uHh4Z3gPcuRJ7t3pcX5huLh4eG9h9ceu7MG1axttikfP9qBh4eHV/LaYJAc5e31rFk4iQIDHh4e3jHe5pWbhtmmFRetFg8PD+8X8PZtsDaorC4Q4OHh4X2UlyeymwQ9wRcXufDw8PCO8fLltp9sDv08uS/uFODh4eGtee1P/bxxdVeoaAMVHh4e3jHeH0XeVLmVJLe0AAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACu0lEQVR42u3aS27jQAwFQN//0sl2AEPye00R8QClleDo06VFkyH5esXHz9vx7+/v17zfm1z/c3G83/vwgYeHhzde+v2Lr5aePP8MfH/l1Zrx8PDwtnlXy7o/T365fHEQeBL2BwseHh7eV/LyJeZBJQ8SeHh4eP8jL4fNSxV4eHh438PLS6j3RYH808zLwQ/XWvDw8PBiXt5F+p7zlf4eHh4e3rir3m64k41+0u66XC0eHh7eAu+s/d+Ck7Lv4hvx8PDwdt8Y/dvfDge0xY52DflgAR4eHt4GL3lQ3qyaNMPOPlxdnsDDw8Mree1AwJxxf32bRhdlCDw8PLyHePl23DafkvQ3YbTl4+jPeHh4eANeO96UA9qG1iStj/p7eHh4eA/x2oGnScuqDQBnZYvRvBgeHh5ewJsMObXBoG7wH60QDw8P72957UY8+Vj50utBATw8PLxlXpJGJ02pduBgEpYuz/Hw8PAWeG0625YMJiNZ89CFh4eHt8F7augqf0JbdMgHFIrWFx4eHt6A91RxoQ0zZ4yWioeHh7fBy4ef8jJEvlnnoeiwtIGHh4e3zMtLt+1rzkq3r/K4jHV4eHh4a7x8+z4bKUjCT7KG4ho8PDy8Bd7ZDW0Lf1LUSBL0D601PDw8vAVeW/fNRwTap7ULHSXleHh4eANezmgLvpNBq7Ys8mFoAA8PD2+Zlyey8+0+DwZnjTE8PDy8PV5ewM23+2IR5RjWrDOGh4eHN4W1gSEZFGhT50lguHwLHh4e3gLvbI89W2KbdufnD4cQPDw8vHHmeTb21Cbx7YdLBgjw8PDwtnmToaunGlrz5HhlpgwPDw/vId7Zy5KNPg8b0drw8PDwvobXJruT0JIPEBz29/Dw8PCOeEnimzeoEkY+jtCOf+Hh4eFt89rCa1FCLUu3Z024x/p7eHh4eJ+PX4N0VLkq0ZpiAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

@@ -30,36 +30,36 @@
 <meta name="keywords" content="环境搭建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VirtualBox安装Ubuntu教程">
-<meta property="og:url" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/index.html">
+<meta property="og:url" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/index.html">
 <meta property="og:site_name" content="RuanXinYu&#39;s Blog">
 <meta property="og:description" content="基础准备工作本教程使用的VirtualBox版本为5.2.18，Ubuntu版本为server 18.04.1。 首先，下载Ubuntu Server镜像，本文以ubuntu-18.04.1为例，可以从华为开源镜像站提供加速下载，地址为： http://mirrors.huaweicloud.com/repository/ubuntu-releases/18.04.1/ubuntu-18.04.1">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-11-35.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-14-32.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-18-22.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-26-02.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-30-36.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-22-53.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-35-30.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-55-08.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-55-47.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-58-24.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-02-30.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-03-45.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-06-02.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-08-19.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-09-27.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-15-58.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-17-37.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-26-23.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-29-57.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-34-53.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-26-15-33-38.png">
-<meta property="og:updated_time" content="2018-09-26T07:34:45.754Z">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-20-11-35.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-20-14-32.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-20-18-22.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-20-26-02.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-20-30-36.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-22-53.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-20-35-30.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-20-55-08.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-20-55-47.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-20-58-24.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-02-30.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-03-45.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-06-02.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-08-19.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-09-27.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-15-58.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-17-37.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-26-23.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-29-57.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-34-53.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-26-15-33-38.png">
+<meta property="og:updated_time" content="2018-10-01T04:55:08.232Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VirtualBox安装Ubuntu教程">
 <meta name="twitter:description" content="基础准备工作本教程使用的VirtualBox版本为5.2.18，Ubuntu版本为server 18.04.1。 首先，下载Ubuntu Server镜像，本文以ubuntu-18.04.1为例，可以从华为开源镜像站提供加速下载，地址为： http://mirrors.huaweicloud.com/repository/ubuntu-releases/18.04.1/ubuntu-18.04.1">
-<meta name="twitter:image" content="http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-11-35.png">
+<meta name="twitter:image" content="http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/2018-09-16-20-11-35.png">
     
         <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
     
@@ -218,10 +218,10 @@
 <p>下载并安装VirtualBox，下载地址为: <a href="https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-Win.exe" target="_blank" rel="noopener">https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-Win.exe</a></p>
 <h1 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h1><ol>
 <li><p>打开VirtualBox，点击<code>新建</code>, 输入名称，比如叫做<code>UbuntuTemplate</code>，之所以叫这个名称是因为如果后续需要多个Ubuntu虚拟机的话，可以直接复制该虚拟机，这样每次都可以有一个全新的虚拟机。操作系统版本选择<code>Ubuntu(64bit)</code>, 点击下一步，内存选择512M或者1024M都可以，因为我们下载的镜像是没有桌面的，因此对内存要求没有那么大。</p>
-<img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-11-35.png" title="[GitHubOAuth]">
+<img src="/posts/VirtualBox安装Ubuntu教程/2018-09-16-20-11-35.png" title="[blog.ruanxinyu.cn]">
 </li>
 <li><p>选择<code>现在创建虚拟磁盘</code>，当然，如果也可以使用已经存在的磁盘，下一步，磁盘类型我更愿意用<code>VMDK(虚拟机磁盘)</code>，因此该磁盘VMWare也是可以使用的，磁盘大小选择<code>动态分配大小</code>。</p>
-<img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-14-32.png" title="[GitHubOAuth]">
+<img src="/posts/VirtualBox安装Ubuntu教程/2018-09-16-20-14-32.png" title="[blog.ruanxinyu.cn]">
 </li>
 <li><p>此处有两个地方需要注意一下：</p>
 </li>
@@ -232,33 +232,33 @@
 <li>此处设置的其实是磁盘的最大大小，默认的10G肯定是太小了，可以直接改成<code>100G</code>, 这个是最大值，不是立即分配这么大的磁盘空间。</li>
 </ol>
 </blockquote>
-<img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-18-22.png" title="[GitHubOAuth]">
-<h1 id="设置虚拟机"><a href="#设置虚拟机" class="headerlink" title="设置虚拟机"></a>设置虚拟机</h1><h2 id="设置粘贴板"><a href="#设置粘贴板" class="headerlink" title="设置粘贴板"></a>设置粘贴板</h2><img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-26-02.png" title="[GitHubOAuth]">
-<h2 id="导入操作系统镜像"><a href="#导入操作系统镜像" class="headerlink" title="导入操作系统镜像"></a>导入操作系统镜像</h2><p>从设置的系统标签页中可以看出系统的启动顺序是“软驱”-&gt;”光驱”-&gt;”硬盘”，因此只要在光驱中导入刚刚下载的操作系统镜像，启动的虚拟机的时候就会开始安装操作系统。<br><img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-30-36.png" title="[GitHubOAuth]"></p>
-<h2 id="设置虚拟机网络"><a href="#设置虚拟机网络" class="headerlink" title="设置虚拟机网络"></a>设置虚拟机网络</h2><p>虚拟机的网络连接方式有很多中，因为涉及到很多网络知识，总结起来就是一张表，如下所示：<br><img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-22-53.png" title="[GitHubOAuth]"></p>
-<p>因为在做实验的情况下，默认都是希望虚拟机能够访问外网，虚拟机与虚拟机之间，虚拟机与宿主机之间也是可以相互访问的，因此选择桥接模式，网卡选择你当前正在使用的网卡，这样你的虚拟机就相当于是另外与宿主机相同的电脑。<br><img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-35-30.png" title="[GitHubOAuth]"></p>
+<img src="/posts/VirtualBox安装Ubuntu教程/2018-09-16-20-18-22.png" title="[blog.ruanxinyu.cn]">
+<h1 id="设置虚拟机"><a href="#设置虚拟机" class="headerlink" title="设置虚拟机"></a>设置虚拟机</h1><h2 id="设置粘贴板"><a href="#设置粘贴板" class="headerlink" title="设置粘贴板"></a>设置粘贴板</h2><img src="/posts/VirtualBox安装Ubuntu教程/2018-09-16-20-26-02.png" title="[blog.ruanxinyu.cn]">
+<h2 id="导入操作系统镜像"><a href="#导入操作系统镜像" class="headerlink" title="导入操作系统镜像"></a>导入操作系统镜像</h2><p>从设置的系统标签页中可以看出系统的启动顺序是“软驱”-&gt;”光驱”-&gt;”硬盘”，因此只要在光驱中导入刚刚下载的操作系统镜像，启动的虚拟机的时候就会开始安装操作系统。<br><img src="/posts/VirtualBox安装Ubuntu教程/2018-09-16-20-30-36.png" title="[blog.ruanxinyu.cn]"></p>
+<h2 id="设置虚拟机网络"><a href="#设置虚拟机网络" class="headerlink" title="设置虚拟机网络"></a>设置虚拟机网络</h2><p>虚拟机的网络连接方式有很多中，因为涉及到很多网络知识，总结起来就是一张表，如下所示：<br><img src="/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-22-53.png" title="[blog.ruanxinyu.cn]"></p>
+<p>因为在做实验的情况下，默认都是希望虚拟机能够访问外网，虚拟机与虚拟机之间，虚拟机与宿主机之间也是可以相互访问的，因此选择桥接模式，网卡选择你当前正在使用的网卡，这样你的虚拟机就相当于是另外与宿主机相同的电脑。<br><img src="/posts/VirtualBox安装Ubuntu教程/2018-09-16-20-35-30.png" title="[blog.ruanxinyu.cn]"></p>
 <h1 id="安装Ubuntu"><a href="#安装Ubuntu" class="headerlink" title="安装Ubuntu"></a>安装Ubuntu</h1><blockquote>
 <p>通过方向键移动，回车确认，如果发现鼠标在虚拟机捕获出不来了，可以按键盘右边的<code>CTRL</code>键</p>
 </blockquote>
-<p>启动虚拟机，语言选择英文，然后选择<code>Install Ubuntu</code>。<br><img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-55-08.png" title="[GitHubOAuth]"></p>
-<p>如果你的宿主机连接的是路由器，那么一般都是通过DHCP自动分配的IP地址，这样的话虚拟机也能通过DHCP自动获取IP地址，从下图中可以看出对应的IP。<br><img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-55-47.png" title="[GitHubOAuth]"></p>
-<p>如果你的宿主机能够正常上网就不需要配置proxy，直接回车确认下一步就可以。<br><img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-20-58-24.png" title="[GitHubOAuth]"></p>
-<p>配置Ubuntu的源，也就是安装软件的默认下载地址，为了提高下载速度，我一般使用华为开源镜像站的源：<a href="https://mirrors.huaweicloud.com/ubuntu/" target="_blank" rel="noopener">https://mirrors.huaweicloud.com/ubuntu/</a><br><img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-02-30.png" title="[GitHubOAuth]"></p>
-<p>我们可以手动对磁盘进行分区，但是这个需要对Linux很熟悉，因此此处我们直接选择<code>Use An Entre Disk</code>，让操作系统自动分区。<br><img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-03-45.png" title="[GitHubOAuth]"></p>
-<p>接下来会让你确认磁盘和分区信息，我们继续就可以。<br><img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-06-02.png" title="[GitHubOAuth]"></p>
-<p>然后输入你的主机名和密码等信息，<code>ssh identify</code>是用于免密码登陆linux的，一般不需要设置。<br><img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-08-19.png" title="[GitHubOAuth]"></p>
-<p>接下来会让你安装一些默认的应用程序，也可以什么都不装，保持一个最纯净的系统。<br><img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-09-27.png" title="[GitHubOAuth]"></p>
-<p>等待安装完毕，就可以开开心心重启了，<br><img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-15-58.png" title="[GitHubOAuth]"></p>
-<p>重启的过程中VirtualBox会提示你是否将光驱中的镜像移除掉，直接回车就可以移除就剋有了，这样就可以直接从磁盘启动你刚刚安装的系统，否则还是会从光驱中启动。<br><img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-17-37.png" title="[GitHubOAuth]"></p>
+<p>启动虚拟机，语言选择英文，然后选择<code>Install Ubuntu</code>。<br><img src="/posts/VirtualBox安装Ubuntu教程/2018-09-16-20-55-08.png" title="[blog.ruanxinyu.cn]"></p>
+<p>如果你的宿主机连接的是路由器，那么一般都是通过DHCP自动分配的IP地址，这样的话虚拟机也能通过DHCP自动获取IP地址，从下图中可以看出对应的IP。<br><img src="/posts/VirtualBox安装Ubuntu教程/2018-09-16-20-55-47.png" title="[blog.ruanxinyu.cn]"></p>
+<p>如果你的宿主机能够正常上网就不需要配置proxy，直接回车确认下一步就可以。<br><img src="/posts/VirtualBox安装Ubuntu教程/2018-09-16-20-58-24.png" title="[blog.ruanxinyu.cn]"></p>
+<p>配置Ubuntu的源，也就是安装软件的默认下载地址，为了提高下载速度，我一般使用华为开源镜像站的源：<a href="https://mirrors.huaweicloud.com/ubuntu/" target="_blank" rel="noopener">https://mirrors.huaweicloud.com/ubuntu/</a><br><img src="/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-02-30.png" title="[blog.ruanxinyu.cn]"></p>
+<p>我们可以手动对磁盘进行分区，但是这个需要对Linux很熟悉，因此此处我们直接选择<code>Use An Entre Disk</code>，让操作系统自动分区。<br><img src="/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-03-45.png" title="[blog.ruanxinyu.cn]"></p>
+<p>接下来会让你确认磁盘和分区信息，我们继续就可以。<br><img src="/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-06-02.png" title="[blog.ruanxinyu.cn]"></p>
+<p>然后输入你的主机名和密码等信息，<code>ssh identify</code>是用于免密码登陆linux的，一般不需要设置。<br><img src="/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-08-19.png" title="[blog.ruanxinyu.cn]"></p>
+<p>接下来会让你安装一些默认的应用程序，也可以什么都不装，保持一个最纯净的系统。<br><img src="/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-09-27.png" title="[blog.ruanxinyu.cn]"></p>
+<p>等待安装完毕，就可以开开心心重启了，<br><img src="/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-15-58.png" title="[blog.ruanxinyu.cn]"></p>
+<p>重启的过程中VirtualBox会提示你是否将光驱中的镜像移除掉，直接回车就可以移除就剋有了，这样就可以直接从磁盘启动你刚刚安装的系统，否则还是会从光驱中启动。<br><img src="/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-17-37.png" title="[blog.ruanxinyu.cn]"></p>
 <p>启动后输入用户名密码，输入<code>ip a</code>命令可以看到虚拟机的IP地址:</p>
 <blockquote>
 <p>由于Ubuntu自带的控制台使用不是很方便，因此可以直接通过xshell连接该虚拟机</p>
 </blockquote>
-<img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-26-23.png" title="[GitHubOAuth]">
+<img src="/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-26-23.png" title="[blog.ruanxinyu.cn]">
 <h1 id="VirtualBox的使用说明"><a href="#VirtualBox的使用说明" class="headerlink" title="VirtualBox的使用说明"></a>VirtualBox的使用说明</h1><h2 id="鼠标捕获"><a href="#鼠标捕获" class="headerlink" title="鼠标捕获"></a>鼠标捕获</h2><p>如果发现鼠标在虚拟机捕获出不来了，可以按键盘右边的<code>CTRL</code>键</p>
-<h2 id="保存快照"><a href="#保存快照" class="headerlink" title="保存快照"></a>保存快照</h2><p>如下所示，一般第一次安装的时候都做一次快照，因此这样即使后续做了破坏性的操作也可以快速还原。<br><img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-29-57.png" title="[GitHubOAuth]"></p>
-<h2 id="快速保存并恢复"><a href="#快速保存并恢复" class="headerlink" title="快速保存并恢复"></a>快速保存并恢复</h2><p>关闭虚拟机时可以选择<code>快速休眠</code>，下次启动的时候就可以快速从将虚拟机从当前状态恢复。<br><img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-16-21-34-53.png" title="[GitHubOAuth]"></p>
-<h2 id="复制虚拟机"><a href="#复制虚拟机" class="headerlink" title="复制虚拟机"></a>复制虚拟机</h2><p>在做实验的时候需要使用多个虚拟机，不用重新安装，直接复制虚拟机即可，在对应的虚拟机上右键就可以，需要在关机的状态下才能复制。但是在复制虚拟机之后最后刷新一下网卡的MAC地址，否则可能会出现相同MAC地址的情况。<br><img src="/2018/09/16/VirtualBox安装Ubuntu教程/2018-09-26-15-33-38.png" title="[GitHubOAuth]"></p>
+<h2 id="保存快照"><a href="#保存快照" class="headerlink" title="保存快照"></a>保存快照</h2><p>如下所示，一般第一次安装的时候都做一次快照，因此这样即使后续做了破坏性的操作也可以快速还原。<br><img src="/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-29-57.png" title="[blog.ruanxinyu.cn]"></p>
+<h2 id="快速保存并恢复"><a href="#快速保存并恢复" class="headerlink" title="快速保存并恢复"></a>快速保存并恢复</h2><p>关闭虚拟机时可以选择<code>快速休眠</code>，下次启动的时候就可以快速从将虚拟机从当前状态恢复。<br><img src="/posts/VirtualBox安装Ubuntu教程/2018-09-16-21-34-53.png" title="[blog.ruanxinyu.cn]"></p>
+<h2 id="复制虚拟机"><a href="#复制虚拟机" class="headerlink" title="复制虚拟机"></a>复制虚拟机</h2><p>在做实验的时候需要使用多个虚拟机，不用重新安装，直接复制虚拟机即可，在对应的虚拟机上右键就可以，需要在关机的状态下才能复制。但是在复制虚拟机之后最后刷新一下网卡的MAC地址，否则可能会出现相同MAC地址的情况。<br><img src="/posts/VirtualBox安装Ubuntu教程/2018-09-26-15-33-38.png" title="[blog.ruanxinyu.cn]"></p>
 
         </div>
 
@@ -267,12 +267,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-09-26T07:34:45.754Z" itemprop="dateUpdated">2018-09-26 15:34:45</time>
+    最后更新时间：<time datetime="2018-10-01T04:55:08.232Z" itemprop="dateUpdated">2018-10-01 12:55:08</time>
 </span><br>
 
 
         
-        原始链接：<a href="/2018/09/16/VirtualBox安装Ubuntu教程/" target="_blank" rel="external">http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/</a>
+        原始链接：<a href="/posts/VirtualBox安装Ubuntu教程/" target="_blank" rel="external">http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/</a>
         
     </div>
     
@@ -299,7 +299,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/&title=《VirtualBox安装Ubuntu教程》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/&title=《VirtualBox安装Ubuntu教程》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -309,22 +309,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/&title=《VirtualBox安装Ubuntu教程》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/&title=《VirtualBox安装Ubuntu教程》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《VirtualBox安装Ubuntu教程》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/&via=http://ruanxinyu.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《VirtualBox安装Ubuntu教程》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/&via=http://ruanxinyu.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -347,7 +347,7 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2018/09/18/Ubuntu下KeepAlived的安装与配置/" id="post-prev" class="post-nav-link">
+      <a href="/posts/Ubuntu下KeepAlived的安装与配置/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h5 class="title">Ubuntu下KeepAlived的安装与配置</h5>
       </a>
@@ -356,7 +356,7 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/05/02/每天学习一个Linux命令（3）：echo命令/" id="post-next" class="post-nav-link">
+      <a href="/posts/每天学习一个Linux命令（3）：echo命令/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h5 class="title">每天学习一个Linux命令（3）：echo命令</h5>
       </a>
@@ -453,7 +453,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/&title=《VirtualBox安装Ubuntu教程》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/&title=《VirtualBox安装Ubuntu教程》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -463,22 +463,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/&title=《VirtualBox安装Ubuntu教程》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/&title=《VirtualBox安装Ubuntu教程》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《VirtualBox安装Ubuntu教程》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/&via=http://ruanxinyu.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《VirtualBox安装Ubuntu教程》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/&via=http://ruanxinyu.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/2018/09/16/VirtualBox安装Ubuntu教程/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/posts/VirtualBox安装Ubuntu教程/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -489,7 +489,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuklEQVR42u3aQY4iMQwF0L7/pRlpVr2g6f/tBGakVysEpaq8LGJj++srvh5/r++fv18/3dM+7ad7kmeuLjw8PLzR0n+68kXkz3l9/+bXJ1uAh4eHd413Oxgk5/bsvb9Y8PDw8D7Ke72sJNjk9+QBBg8PD+9/4eXFhWSbZm/Bw8PD+yyvLSLkafTsnlkhAw8PD+89vFkD7LOfr/f38PDw8EZd9baU0B73yaG/Wi0eHh7eBd6+ydQ2rtoScJuUR/8Y8PDw8Na8Nhdti7Nt4XXWMCvKH3h4eHgL3usHbdLZNni0J3m0NXh4eHiXeacWkR/ubRBqkXh4eHj3ePng1KyY245P5UlzNBOBh4eHd4H3ell5sbW9f7YpxUbj4eHhvYWXv6xtaCXPn6XvRa0FDw8Pb83L21Gbg7tNjmfFCzw8PLx38trG0qbR1X5/oLaAh4eH90Ze3nDKt2ATftoNwsPDw7vHS8LDJiTkT5sho7YZHh4e3iFe/ud/X3jNxwja8a9o6AoPDw/vKG92NG8aVMk39aDA6/4eHh4e3iFem6S2R3aUy8cbl5eD8fDw8O7x2kJtcpQn6fImFBUpPh4eHt41XpvO5uXas0GiLvLi4eHhXea1zf5kEatmf5xM1xViPDw8vAVv87d/NnbQDgFsSsB4eHh4N3htMDhFTT637yrKuHh4eHhHeXnf7FQynZQzktbakzvx8PDwLvDyAmvy+lkJ4xFcbZ0BDw8P7x7vUV5FPWM0BHCqBPxLSo2Hh4e34G2WNRsCKEamygGFTTjBw8PDa3mbYNAWMnJAO9wwTKzx8PDwFrzZgZ4vejbFkESwaA4CDw8P70O8vLz7eun509rnPLkTDw8P7x/gnWXMGmxFsMHDw8O7xmsHsNpgkBeLNwWRA7UWPDw8vDjznLX82+CRN/4vdvPw8PDw5rw/D4Ir8E44f0sAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3aQW7DMAwEwP7/0+61h0bdpZIClkenwHBsjQ8ESfHrK17Xi7W+P7ny83ry5K2FgYFxW8a1XOsXJFeSD5Fff0nFwMB4AGMdNFtS8t/11vO9YWBgYOSMJHQmG8XAwMDYZ8yK0uR+DAwMjDUjT9eSTbzrmR+pxTEwMG7IyLvu///7I+cbGBgYt2Jc5Uqe0x58XtsLAwPjbEYe4PIjzDbJmwVcDAyMpzHa5n4eRtuWWV4qR2AMDIwjGO0L2vJyNnDWtucwMDDOZuQpXZve5U9774fDwMA4m/He0Yr1J0jy062sFgMD4zhGUii2r2+PBPIrww4cBgbGEYw2LZuVl21CWSSjGBgYRzNmZW1+8pAnmklCOSxxMTAwbsuYFZn7QxIt5o/Ph4GBcTRj9rh2bGJn2KK4EwMD41BGXmrWRWMcKGcp5svUEAMD4zjGLF7N0sR2RGxYbWNgYBzNyA8Oc14+XjZrtP0ScDEwMA5l7ITF/PV5yM5XkY1iYGDcnNE2+tvQOQvidcMOAwPjYYx2nCJPMduSuGj8YWBgPIyx055LSMOG2nqHGBgYhzJ2isa2xT/r50efGAMD42jGzsBE+7L8+KE9FsXAwHgCo91cG0B3hjzqsTAMDIyjGfvF7azFv3/kiYGBgZGkZfsNuPzg4Q1dQAwMjMcwZoMX7e/iUAEDA+MBjHZotaW2Bwx1qYyBgXE0YzbiMGvrzwbO9ktrDAyM2zK+Ab5K5POqeC6hAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

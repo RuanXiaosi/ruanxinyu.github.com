@@ -19,28 +19,25 @@
     
     
     
-    <title>每天学习一个Linux命令（1）：ls命令 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+    <title>每天学习一个Linux命令（2）：cd命令 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="Linux">
-    <meta name="description" content="ls命令是linux下最常用的命令。ls命令就是list的缩写，用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。 语法1ls [OPTION]... [FILE]... 参数 -a 显示所有文件及目录，包括以.开头的隐藏文件 -A 同 -a ，但不列出 “.” (目前目录) 及 “..” (父目录) -l 除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出 -h">
+    <meta name="description" content="cd命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。 语法1cd [dir] 使用小技巧 切换至用户所示在的目录可以使用cd ~ 或者 cd(不带参数) &amp;quot;.&amp;quot; 则是表示目前所在的目录，&amp;quot;..&amp;quot; 则表示目前目录位置的上一层目录 通过pwd命令可以打印当前所在的目录 cd -表示切换至上一次所在的目录  常用范例范例1： 切换至根目录下的var">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="每天学习一个Linux命令（1）：ls命令">
-<meta property="og:url" content="http://ruanxinyu.github.io/2018/05/01/每天学习一个Linux命令（1）：ls命令/index.html">
+<meta property="og:title" content="每天学习一个Linux命令（2）：cd命令">
+<meta property="og:url" content="http://ruanxinyu.github.io/posts/每天学习一个Linux命令（2）：cd命令/index.html">
 <meta property="og:site_name" content="RuanXinYu&#39;s Blog">
-<meta property="og:description" content="ls命令是linux下最常用的命令。ls命令就是list的缩写，用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。 语法1ls [OPTION]... [FILE]... 参数 -a 显示所有文件及目录，包括以.开头的隐藏文件 -A 同 -a ，但不列出 “.” (目前目录) 及 “..” (父目录) -l 除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出 -h">
+<meta property="og:description" content="cd命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。 语法1cd [dir] 使用小技巧 切换至用户所示在的目录可以使用cd ~ 或者 cd(不带参数) &amp;quot;.&amp;quot; 则是表示目前所在的目录，&amp;quot;..&amp;quot; 则表示目前目录位置的上一层目录 通过pwd命令可以打印当前所在的目录 cd -表示切换至上一次所在的目录  常用范例范例1： 切换至根目录下的var">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/05/01/每天学习一个Linux命令（1）：ls命令/1.png">
-<meta property="og:image" content="http://ruanxinyu.github.io/2018/05/01/每天学习一个Linux命令（1）：ls命令/2.png">
-<meta property="og:updated_time" content="2018-08-12T13:13:07.217Z">
+<meta property="og:updated_time" content="2018-08-12T13:13:07.219Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="每天学习一个Linux命令（1）：ls命令">
-<meta name="twitter:description" content="ls命令是linux下最常用的命令。ls命令就是list的缩写，用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。 语法1ls [OPTION]... [FILE]... 参数 -a 显示所有文件及目录，包括以.开头的隐藏文件 -A 同 -a ，但不列出 “.” (目前目录) 及 “..” (父目录) -l 除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出 -h">
-<meta name="twitter:image" content="http://ruanxinyu.github.io/2018/05/01/每天学习一个Linux命令（1）：ls命令/1.png">
+<meta name="twitter:title" content="每天学习一个Linux命令（2）：cd命令">
+<meta name="twitter:description" content="cd命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。 语法1cd [dir] 使用小技巧 切换至用户所示在的目录可以使用cd ~ 或者 cd(不带参数) &amp;quot;.&amp;quot; 则是表示目前所在的目录，&amp;quot;..&amp;quot; 则表示目前目录位置的上一层目录 通过pwd命令可以打印当前所在的目录 cd -表示切换至上一次所在的目录  常用范例范例1： 切换至根目录下的var">
     
         <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
     
@@ -121,7 +118,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">每天学习一个Linux命令（1）：ls命令</div>
+        <div class="flex-col header-title ellipsis">每天学习一个Linux命令（2）：cd命令</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -143,10 +140,10 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">每天学习一个Linux命令（1）：ls命令</h1>
+        <h1 class="title">每天学习一个Linux命令（2）：cd命令</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-05-01T08:18:02.000Z" itemprop="datePublished" class="page-time">
+                <time datetime="2018-05-01T10:00:58.000Z" itemprop="datePublished" class="page-time">
   2018-05-01
 </time>
 
@@ -168,18 +165,18 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#语法"><span class="post-toc-number">1.</span> <span class="post-toc-text">语法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参数"><span class="post-toc-number">2.</span> <span class="post-toc-text">参数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用小技巧"><span class="post-toc-number">3.</span> <span class="post-toc-text">使用小技巧</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#常用范例"><span class="post-toc-number">4.</span> <span class="post-toc-text">常用范例</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#语法"><span class="post-toc-number">1.</span> <span class="post-toc-text">语法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用小技巧"><span class="post-toc-number">2.</span> <span class="post-toc-text">使用小技巧</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#常用范例"><span class="post-toc-number">3.</span> <span class="post-toc-text">常用范例</span></a></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-每天学习一个Linux命令（1）：ls命令"
+<article id="post-每天学习一个Linux命令（2）：cd命令"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">每天学习一个Linux命令（1）：ls命令</h1>
+        <h1 class="post-card-title">每天学习一个Linux命令（2）：cd命令</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-05-01 16:18:02" datetime="2018-05-01T08:18:02.000Z"  itemprop="datePublished">2018-05-01</time>
+            <time class="post-time" title="2018-05-01 18:00:58" datetime="2018-05-01T10:00:58.000Z"  itemprop="datePublished">2018-05-01</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
@@ -194,27 +191,27 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p><code>ls</code>命令是linux下最常用的命令。<code>ls</code>命令就是<code>list</code>的缩写，用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。</p>
-<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls [OPTION]... [FILE]...</span><br></pre></td></tr></table></figure>
-<h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><ul>
-<li><code>-a</code> 显示所有文件及目录，包括以.开头的隐藏文件</li>
-<li><code>-A</code> 同 -a ，但不列出 “.” (目前目录) 及 “..” (父目录)</li>
-<li><code>-l</code> 除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出</li>
-<li><code>-h</code> human-readable，默认-l参数显示出来的文件大小是字节大小，-h参数可以按照KB/MB/GB来显示</li>
-<li><code>-r</code> reverse，将文件以相反次序显示(原定依英文字母次序)</li>
-<li><code>-t</code> 将文件依建立时间之先后次序列出</li>
-<li><code>-F</code> 在列出的文件名称后加一符号；例如可执行档则加 “*”, 目录则加 “/“</li>
-<li><code>-R</code> recursive，若目录下有文件，则以下之文件亦皆依序列出</li>
-</ul>
+            <p><code>cd</code>命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。</p>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd [dir]</span><br></pre></td></tr></table></figure>
 <h1 id="使用小技巧"><a href="#使用小技巧" class="headerlink" title="使用小技巧"></a>使用小技巧</h1><ol>
-<li>一般Linux操作系统都会存在一个<code>ll</code>的命令，相当于<code>ls -l --color=auto</code></li>
-<li>ls命令使支持<code>*</code>通配符的</li>
+<li>切换至用户所示在的目录可以使用<code>cd ~</code> 或者 <code>cd</code>(不带参数)</li>
+<li><code>&quot;.&quot;</code> 则是表示目前所在的目录，<code>&quot;..&quot;</code> 则表示目前目录位置的上一层目录</li>
+<li>通过<code>pwd</code>命令可以打印当前所在的目录</li>
+<li><code>cd -</code>表示切换至上一次所在的目录</li>
 </ol>
-<h1 id="常用范例"><a href="#常用范例" class="headerlink" title="常用范例"></a>常用范例</h1><p><strong>范例1： 列出<code>/var</code>目录下的文件</strong><br>命令： <code>ls /var</code><br>结果：<br><img src="/2018/05/01/每天学习一个Linux命令（1）：ls命令/1.png" title="[1]"></p>
+<h1 id="常用范例"><a href="#常用范例" class="headerlink" title="常用范例"></a>常用范例</h1><p><strong>范例1： 切换至根目录下的var目录下</strong><br>命令： <code>cd /var</code>(绝对路径)</p>
 <hr>
-<p><strong>范例2： 列出目前工作目录下所有名称是<code>s</code>开头的文件，越新的排越后面</strong><br>命令： <code>ls -ltr s*</code><br>结果：<br><img src="/2018/05/01/每天学习一个Linux命令（1）：ls命令/2.png" title="[2]"></p>
+<p><strong>范例2： 切换至当前目录下的var目录下</strong><br>命令： <code>cd var</code>(相对目录)</p>
 <hr>
-<p><strong>范例3： 将<code>/bin</code>目录以下所有目录及文件详细资料列出</strong><br>命令： <code>ls -lR /bin</code></p>
+<p><strong>范例3： 切换至上两级的目录</strong><br>命令： <code>cd ../../</code></p>
+<hr>
+<p><strong>范例4： 切换至包含空格的目录</strong><br>命令： <code>cd &#39;aa aa&#39;</code>或者<code>cd aa\ aa</code></p>
+<hr>
+<p><strong>范例5： 切换至当前用户的home目录</strong><br>命令： <code>cd ~</code>或者<code>cd</code></p>
+<hr>
+<p><strong>范例6： 打印当前所在的目录</strong><br>命令： <code>pwd</code></p>
+<hr>
+<p><strong>范例7： 切换到上一次所在的目录</strong><br>命令： <code>cd -</code></p>
 
         </div>
 
@@ -223,12 +220,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-08-12T13:13:07.217Z" itemprop="dateUpdated">2018-08-12 21:13:07</time>
+    最后更新时间：<time datetime="2018-08-12T13:13:07.219Z" itemprop="dateUpdated">2018-08-12 21:13:07</time>
 </span><br>
 
 
         
-        原始链接：<a href="/2018/05/01/每天学习一个Linux命令（1）：ls命令/" target="_blank" rel="external">http://ruanxinyu.github.io/2018/05/01/每天学习一个Linux命令（1）：ls命令/</a>
+        原始链接：<a href="/posts/每天学习一个Linux命令（2）：cd命令/" target="_blank" rel="external">http://ruanxinyu.github.io/posts/每天学习一个Linux命令（2）：cd命令/</a>
         
     </div>
     
@@ -255,7 +252,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/2018/05/01/每天学习一个Linux命令（1）：ls命令/&title=《每天学习一个Linux命令（1）：ls命令》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/posts/每天学习一个Linux命令（2）：cd命令/&title=《每天学习一个Linux命令（2）：cd命令》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -265,22 +262,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/2018/05/01/每天学习一个Linux命令（1）：ls命令/&title=《每天学习一个Linux命令（1）：ls命令》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/posts/每天学习一个Linux命令（2）：cd命令/&title=《每天学习一个Linux命令（2）：cd命令》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/2018/05/01/每天学习一个Linux命令（1）：ls命令/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/posts/每天学习一个Linux命令（2）：cd命令/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《每天学习一个Linux命令（1）：ls命令》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/2018/05/01/每天学习一个Linux命令（1）：ls命令/&via=http://ruanxinyu.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《每天学习一个Linux命令（2）：cd命令》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/posts/每天学习一个Linux命令（2）：cd命令/&via=http://ruanxinyu.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/2018/05/01/每天学习一个Linux命令（1）：ls命令/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/posts/每天学习一个Linux命令（2）：cd命令/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -303,18 +300,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2018/05/01/每天学习一个Linux命令（2）：cd命令/" id="post-prev" class="post-nav-link">
+      <a href="/posts/每天学习一个Linux命令（3）：echo命令/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h5 class="title">每天学习一个Linux命令（2）：cd命令</h5>
+        <h5 class="title">每天学习一个Linux命令（3）：echo命令</h5>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/04/30/如何使用GitHubPages搭建个人博客/" id="post-next" class="post-nav-link">
+      <a href="/posts/每天学习一个Linux命令（1）：ls命令/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h5 class="title">如何使用GitHubPages搭建个人博客</h5>
+        <h5 class="title">每天学习一个Linux命令（1）：ls命令</h5>
       </a>
     </div>
   
@@ -409,7 +406,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/2018/05/01/每天学习一个Linux命令（1）：ls命令/&title=《每天学习一个Linux命令（1）：ls命令》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/posts/每天学习一个Linux命令（2）：cd命令/&title=《每天学习一个Linux命令（2）：cd命令》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -419,22 +416,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/2018/05/01/每天学习一个Linux命令（1）：ls命令/&title=《每天学习一个Linux命令（1）：ls命令》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/posts/每天学习一个Linux命令（2）：cd命令/&title=《每天学习一个Linux命令（2）：cd命令》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/2018/05/01/每天学习一个Linux命令（1）：ls命令/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/posts/每天学习一个Linux命令（2）：cd命令/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《每天学习一个Linux命令（1）：ls命令》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/2018/05/01/每天学习一个Linux命令（1）：ls命令/&via=http://ruanxinyu.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《每天学习一个Linux命令（2）：cd命令》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/posts/每天学习一个Linux命令（2）：cd命令/&via=http://ruanxinyu.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/2018/05/01/每天学习一个Linux命令（1）：ls命令/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/posts/每天学习一个Linux命令（2）：cd命令/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -445,7 +442,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADPklEQVR42u3aSY7CMBAFUO5/aVrqbXfg/3KQEvOyQgyxn7Moang84uv5e+XfOXqd3PP553r9abK34YWNjY19E/bz5XW0xb+fJt9PjiD/7dG60dFgY2Njb8dOtpIvk2yrjTL5A4iCJTY2NvZXsmdH8HqjOTUJrtjY2NjYbQDLt7seGi8Ut7GxsbEvyZ4lFbMt5gWmWUHq5FoaNjY29uXZbaP3yq8/2N/GxsbGviT7WV55wJgV+lvGc3RhY2Nj78ROyjQrYzp5OGzThuQxvNkVNjY29kbsNjwkwWnl/bb03x4NNjY29n7svDU7K/fPGOs7wcbGxv4Gdtt2zROA9WbwrImb7AobGxt7J/Ys5Xi93TwsJeu2SUsxDISNjY29ETsPMMlQZtLczYdvPvcAsLGxsfdgJ6lC2+idjfjkozxtOemf32JjY2NvxG5DRT7u0zLy1XNe3RvBxsbGviE7uUWb07ThZHZAeejFxsbG/h52vq3k/dk4zqyQVLc3sLGxsTdirxRl1odp2vbAyq6wsbGxd2Xnf/FnyUZ+KG1hqx0MGmY22NjY2JdnJ+Wh/J3k4NojTo47KUsln2JjY2Pfl70+QDMrKrVTke2xRk8VGxsb++bs9fQjLwPlVa42sakHjLCxsbG3Y894eRqTl/WTYJmXkA7vj42Njb0duw0DOS8vP7WrLCUt2NjY2Bux22BTh4pyo3m4ykPjm/YANjY29nbs9dRitpV29KdNSN4EMGxsbOwt2G3pJyk5zUZ8Vo6maCdgY2Njb8pOEozPBaqkLDULn4epCDY2NvbN2etjN20p6hNDOW0BCxsbG3sndt6snY3stJvOE5L1kImNjY29Bzsvqeet2ZWy0Xo5KTogbGxs7O3YK83d9bB3LrioomFjY2NvxG7DVRIq1gv6yep5e+ORLICNjY19Q3ZbJGpvl7cT2uGhfJX8+LCxsbHvy87LRitJxVng00pa2NjY2Nuxk+22paVZtMzbFfl93vS3sbGxsb+GPfvr35aE2oSkXQsbGxsbu8XnQShvGOeJ05veCDY2NvZG7Nl4ZT5GM2vr5oWtpBA2rKVhY2NjX549a9m2Aaxt2Z7V0F0a4sHGxsa+OvsHohzecq8doywAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACvElEQVR42u3awU7DMBAEUP7/p0HiCklmvHYp0supaoniZySvM+uPj/j6/L5+fr769eqbn/fmT8zvrS88PDy8paFfXfmg7x+fP6WdxIcx4OHh4R3jtUvzZAqSu9ridPk9Hh4e3p/ykgU6LwZtkcDDw8P7v7x86Pcb6zZ0wMPDw3s33toyPb+S6XtR1oKHh4fXrdiLDbC/+vyi/h4eHh5e2ZRq21TJ4t5ukUejxcPDwzvAu49i28bYrk3w2ua4eGPAw8PDG/PaZb0NaifHUre1x/Dw8PA28e4BUXupLA/5XWtx7eUbAx4eHt5WXr5Mt4WhbXTd35X8+kthwMPDw3shb/G1v/zLfBudBCjRWwIeHh7egNfmFnsPTrUHAtrNNx4eHt453mjbujSItULSHjXAw8PDO8Frt7zJcPP2VRtA1P8GPDw8vGO8STtqQ0UalJOHTTweHh7eAd6Gl/ytx6faoUdTjIeHh7eVt6vBn0cYLbWd7ss3Bjw8PLytvJbRlo0cMDkuUBy6wsPDwxvwJlvntfh1rQ0WhQ73E4SHh4e3lddukdcCgnbpzwvDwzjx8PDwtvLaze7k0EC+Td/VVMPDw8M7wZs3nNoYN48e2rLxcNQADw8PbytvLa6dBLJt9DCh4uHh4Z3mtY9vQ9tJyJsXnsvCgIeHhzfmtcPa1f6fNNWKBhgeHh7eC3n5Y/IYN0HmkXH0RDw8PLwDvLzt1Lav8mG1kUd+pAAPDw/vBG+twd8u921LLNlGR3fh4eHhHeBNziy1g1gLMtpAZPF4Fh4eHl7Ja4tBFKGW5WFSGBZPRuDh4eGNeXkwMQlk26KShxF4eHh478lrm/ptCy2ZgjqfxsPDw3sDXhsurG3f8xLyMB14eHh4x3jtgp5vl9uWVXtM4WFseHh4eAd4bRaaB7hrXbgWvNjTw8PDw1vhfQGlUqesrE1/uQAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
