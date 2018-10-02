@@ -40,7 +40,7 @@
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/Ubuntu下HAProxy的安装与配置/2018-09-27-22-18-00.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/Ubuntu下HAProxy的安装与配置/2018-09-27-22-19-32.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/Ubuntu下HAProxy的安装与配置/2018-09-27-22-20-09.png">
-<meta property="og:updated_time" content="2018-10-01T14:21:03.579Z">
+<meta property="og:updated_time" content="2018-10-02T08:09:39.800Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu下HAProxy的安装与配置">
 <meta name="twitter:description" content="HAProxy的简介HAProxy是一款提供高可用性、负载均衡以及基于TCP（第四层）和HTTP（第七层）应用的代理软件，支持虚拟主机，它是免费、快速并且可靠的一种解决方案。 HAProxy实现了一种事件驱动、单一进程模型，此模型支持非常大的并发连接数，特别适用于那些负载特大的web站点，完全可以支持数以万计的并发连接，根据官方文档，haproxy可以跑满10Gbps。并且它的运行模式使得它可以很">
@@ -201,7 +201,7 @@
             <h1 id="HAProxy的简介"><a href="#HAProxy的简介" class="headerlink" title="HAProxy的简介"></a>HAProxy的简介</h1><p>HAProxy是一款提供高可用性、负载均衡以及基于TCP（第四层）和HTTP（第七层）应用的代理软件，支持虚拟主机，它是免费、快速并且可靠的一种解决方案。</p>
 <p>HAProxy实现了一种事件驱动、单一进程模型，此模型支持非常大的并发连接数，特别适用于那些负载特大的web站点，完全可以支持数以万计的并发连接，根据官方文档，haproxy可以跑满10Gbps。并且它的运行模式使得它可以很简单安全的整合进您当前的架构中，同时可以保护你的web服务器不被暴露到网络上。</p>
 <p>HAProxy支持全透明代理，可以用客户端IP地址或者任何其他地址来连接后端服务器，同时提供连接拒绝功能，可以有效的限制攻击蠕虫。</p>
-<h1 id="HAProxy的安装"><a href="#HAProxy的安装" class="headerlink" title="HAProxy的安装"></a>HAProxy的安装</h1><p>该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参考<a href="https://blog.ruanxinyu.cn/2018/09/16/VirtualBox%E5%AE%89%E8%A3%85Ubuntu%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">VirtualBox安装Ubuntu教程</a>。HAProxy可以直接通过apt-get安装，也可以通过源码编译安装。</p>
+<h1 id="HAProxy的安装"><a href="#HAProxy的安装" class="headerlink" title="HAProxy的安装"></a>HAProxy的安装</h1><p>该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参考<a href="/posts/VirtualBox安装Ubuntu教程/" title="VirtualBox安装Ubuntu教程">VirtualBox安装Ubuntu教程</a>。HAProxy可以直接通过apt-get安装，也可以通过源码编译安装。</p>
 <h2 id="apt-get安装"><a href="#apt-get安装" class="headerlink" title="apt-get安装"></a>apt-get安装</h2><p>Ubuntu下执行<code>sudo apt-get install haproxy</code>命令即可安装。</p>
 <p>通过<code>which haproxy</code>可以看到KeepAlived是安装在<code>/usr/sbin/haproxy</code>下，HAProxy的配置文件路径为：<code>/etc/haproxy/haproxy.cfg</code></p>
 <p>使用<code>sudo haproxy -f /etc/haproxy/haproxy.cfg</code>即可启动HAProxy。</p>
@@ -271,7 +271,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-01T14:21:03.579Z" itemprop="dateUpdated">2018-10-01 22:21:03</time>
+    最后更新时间：<time datetime="2018-10-02T08:09:39.800Z" itemprop="dateUpdated">2018-10-02 16:09:39</time>
 </span><br>
 
 

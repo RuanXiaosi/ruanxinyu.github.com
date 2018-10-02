@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?b4c4998e548a16b827d4ffe9dbe2b47b"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="架构设计">
+    <meta name="description" content="该系统给尚未完成，还在建设中…">
+<meta name="keywords" content="架构设计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统">
+<meta property="og:url" content="http://ruanxinyu.github.io/posts/Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统/index.html">
+<meta property="og:site_name" content="RuanXinYu&#39;s Blog">
+<meta property="og:description" content="该系统给尚未完成，还在建设中…">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-02T09:31:20.231Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统">
+<meta name="twitter:description" content="该系统给尚未完成，还在建设中…">
+    
+        <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">阮新宇</h5>
+          <a href="mailto:1096421257@qq.com" title="1096421257@qq.com" class="mail">1096421257@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/RuanXinyu" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-10-02T09:21:06.000Z" itemprop="datePublished" class="page-time">
+  2018-10-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术分享/">技术分享</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-10-02 17:21:06" datetime="2018-10-02T09:21:06.000Z"  itemprop="datePublished">2018-10-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术分享/">技术分享</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>该系统给尚未完成，还在建设中…</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-02T09:31:20.231Z" itemprop="dateUpdated">2018-10-02 17:31:20</time>
+</span><br>
+
+
+        
+        原始链接：<a href="/posts/Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统/" target="_blank" rel="external">http://ruanxinyu.github.io/posts/Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://ruanxinyu.github.io">
+            <img src="/img/avatar.png" alt="阮新宇">
+            阮新宇
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/架构设计/">架构设计</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/posts/Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统/&title=《Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/posts/Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统/&title=《Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/posts/Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/posts/Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统/&via=http://ruanxinyu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/posts/Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/我的博客规划路线图/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h5 class="title">我的博客规划路线图</h5>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "6OnUHurDk7brX6HPnIjKMeVb-gzGzoHsz",
+            appKey: "C8w3nGdzmRR4i8LePSnMEjsy",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>阮新宇 &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/posts/Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统/&title=《Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/posts/Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统/&title=《Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/posts/Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/posts/Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统/&via=http://ruanxinyu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/posts/Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD/0lEQVR42u3aS27bQBAFQN//0grglYNI1HvdI0sBiivBJoec4qLZn6+v+Lh9Hz9//zwe/f3Rf/M1/z0zearrqw4cOHDgwIEj2Gq+mevHTR4xWe2aIMfN94gDBw4cOM5ytGEsecTruySrtUG6Dbo4cODAgeO9HPk2ittfYuUpWR7+ceDAgQPH/8KRbGxfv4zSMBw4cODA8QEcSXEwD4H5X/LV2sbVy2ulOHDgwIFjEemSoPvJv18+34EDBw4cOILwkw+9zQJwPtaQhNjZjv5aGQcOHDhwrDnaVKpN5059BWwSwiSqRt0zHDhw4MARcOShrm35PHkDo62eGnd4+Dpx4MCBA8dRjiS45k2dTcMpWWEfjO+ciQMHDhw41hxtkjNLyZKULwneyWY2ZUQcOHDgwHGW41SZLw+6m/XzJlP7mnHgwIEDx55jlpjlM2YbxOR5NmXNeqABBw4cOHAEo3JJqJvdfpPU5a8kD7RRiMWBAwcOHC/jaFtNs8QpaTvNBhRyFBw4cODAcYojL+rl4w55I2oz0NA2n9okEAcOHDhwzDjay/ZRadZ2OgtUDDHgwIEDB46Sow1USXEwbz7l6Vzeako+C6IPCBw4cODAMeJog9NmG5uyYFLs24RYHDhw4MBxlmNW2mvPzK/KE7w6Mbu+CgcOHDhwHOXIA+1+6CFvPp0aoYhKljhw4MCB4yhHkgglDaS84NiGz1lamKd5OHDgwIHjFMd+oG0W8GYtpbwlVod/HDhw4MCx5tiU8HKUTYkw55gVH6PJDhw4cODAEXP8TnGwHU34HbInGS0OHDhw4FhwtONot/Ux2+Sm+Bgx4cCBAweONUeSjO2bQ/lWZyF2llI+yWhx4MCBA8eCI186bynN0rZ3vZInKDhw4MCBI+ZIkpzkBnlxcJZ6bUp+RTkSBw4cOHCsOfLLNm2eDd+srXUso8WBAwcOHAuOPASeGlOY3TdJ6tqAfSfQ4sCBAweOBUebViVMp9Kt2YDFJh3FgQMHDhwbjjZVawcCZilZstVTaz6cHMSBAwcOHAuOWamuDbH5uFuyznXoTbDu7BoHDhw4cBziSMbI2u3lD7caPihnAJ/g4sCBAweONUdeyGvHEfLg3SZ+p0YxnnThcODAgQPHiONWHnn6tCFrE7DNh0KU0eLAgQMHjm2mUyQ/7TnJcEM79JYPYbTr48CBAweO2fp5cG2H52ap4PUKeUkx30sR23HgwIEDR8xxNhDOBhraFHFzLxw4cODA8QkcyWPlTaw2xLblyLYRhQMHDhw43sWRB7m2aZSnYbNxhyThxIEDBw4cpzjaQtssjLXBO9pAjJKUFHHgwIEDx55jP3yQ3HhWqtuE3rZNhQMHDhw41hx/AIGIphj4Jss9AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
