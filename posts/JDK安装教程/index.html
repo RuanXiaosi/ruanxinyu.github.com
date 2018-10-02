@@ -37,7 +37,7 @@
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/JDK安装教程/windows_install_01.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/JDK安装教程/windows_install_02.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/JDK安装教程/java_version.png">
-<meta property="og:updated_time" content="2018-10-01T04:55:58.833Z">
+<meta property="og:updated_time" content="2018-10-02T13:02:16.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDK安装教程">
 <meta name="twitter:description" content="学习Java，首先得安装JDK(Java Development Kit)，那么下面就说一下如何在Windows和Linux下安装并验证JDK。 JDK的下载JDK的官方下载地址为： http://www.oracle.com/technetwork/java/javase/downloads/index.html， 请根据需要下载对应操作系统的安装包。  官方下载速度比较慢，因此可以从华为开源镜">
@@ -210,10 +210,10 @@
 </ol>
 <h1 id="Linux下安装JDK"><a href="#Linux下安装JDK" class="headerlink" title="Linux下安装JDK"></a>Linux下安装JDK</h1><ol>
 <li><p>以<code>jdk-8u151</code>为例，下载JDK后，将压缩包解压至特定的目录，一般解压至/usr/local目录，下载和解压命令可以参考如下命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.huaweicloud.com/repository/toolkit/java/jdk/8u151-b12/jdk-8u151-linux-x64.tar.gz</span><br><span class="line">tar -zxvf -C /usr/local/ jdk-8u151-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.huaweicloud.com/repository/toolkit/java/jdk/8u151-b12/jdk-8u151-linux-x64.tar.gz</span><br><span class="line">sudo tar -zxvf jdk-8u151-linux-x64.tar.gz -C /usr/local/</span><br><span class="line">sudo chown -R $(whoami):$(whoami) /usr/local/jdk1.8.0_151</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>经JDK的路径加入到环境变量中，在命令行中输入<code>vim /etc/profile</code>，编辑文件，在文件末尾增加如下的内容，然后执行<code>source /etc/profile</code>使环境变量生效。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/jdk-8u151</span><br><span class="line">export JRE_HOME=/usr/local/jdk-8u151/jre</span><br><span class="line">export CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br></pre></td></tr></table></figure>
+<li><p>经JDK的路径加入到环境变量中，在命令行中输入<code>sudo vim /etc/profile</code>，编辑文件，在文件末尾增加如下的内容，然后执行<code>source /etc/profile</code>使环境变量生效。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/jdk1.8.0_151</span><br><span class="line">export JRE_HOME=/usr/local/jdk1.8.0_151/jre</span><br><span class="line">export CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h1 id="JDK的验证"><a href="#JDK的验证" class="headerlink" title="JDK的验证"></a>JDK的验证</h1><p>windows打开<code>CMD</code>命令窗口，Linux打开终端端口，输入<code>java -version</code>命令，如果出现如下提示则Java安装成功。<br><img src="/posts/JDK安装教程/java_version.png" title="[Java的验证]"></p>
@@ -225,7 +225,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-01T04:55:58.833Z" itemprop="dateUpdated">2018-10-01 12:55:58</time>
+    最后更新时间：<time datetime="2018-10-02T13:02:16.734Z" itemprop="dateUpdated">2018-10-02 21:02:16</time>
 </span><br>
 
 

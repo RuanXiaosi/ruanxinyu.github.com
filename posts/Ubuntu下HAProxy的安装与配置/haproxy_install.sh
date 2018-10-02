@@ -38,4 +38,5 @@ sudo ln -s /lib/systemd/system/haproxy.service /etc/systemd/system/multi-user.ta
 
 # 设置开机启动
 sudo systemctl start haproxy
+sudo systemctl status haproxy
 sudo systemctl enable haproxy

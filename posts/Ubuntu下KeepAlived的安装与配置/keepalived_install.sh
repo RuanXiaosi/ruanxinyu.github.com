@@ -44,4 +44,5 @@ sudo ln -s /lib/systemd/system/keepalived.service /etc/systemd/system/multi-user
 
 # 设置开机启动
 sudo systemctl start keepalived
+sudo systemctl status keepalived
 sudo systemctl enable keepalived

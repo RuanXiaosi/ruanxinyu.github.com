@@ -37,4 +37,5 @@ sudo ln -s /lib/systemd/system/nginx.service /etc/systemd/system/multi-user.targ
 
 # 设置开机启动
 sudo systemctl start nginx
+sudo systemctl status nginx
 sudo systemctl enable nginx
