@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ruanxinyu.github.io/"/>
-  <updated>2018-10-02T09:31:20.231Z</updated>
+  <updated>2018-10-02T11:00:22.946Z</updated>
   <id>http://ruanxinyu.github.io/</id>
   
   <author>
@@ -17,41 +17,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</title>
-    <link href="http://ruanxinyu.github.io/posts/Ubuntu%E4%B8%8B%E4%BD%BF%E7%94%A8Nginx-HAProxy-KeepAlived-Tomcat-MySQL%E7%AD%89%E6%90%AD%E5%BB%BA%E9%AB%98%E5%8F%AF%E7%94%A8%E7%B3%BB%E7%BB%9F/"/>
-    <id>http://ruanxinyu.github.io/posts/Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统/</id>
-    <published>2018-10-02T09:21:06.000Z</published>
-    <updated>2018-10-02T09:31:20.231Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>该系统给尚未完成，还在建设中…</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;该系统给尚未完成，还在建设中…&lt;/p&gt;
-&lt;/blockquote&gt;
-
-      
-    
-    </summary>
-    
-      <category term="技术分享" scheme="http://ruanxinyu.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
-    
-    
-      <category term="架构设计" scheme="http://ruanxinyu.github.io/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
     <title>我的博客规划路线图</title>
     <link href="http://ruanxinyu.github.io/posts/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E8%A7%84%E5%88%92%E8%B7%AF%E7%BA%BF%E5%9B%BE/"/>
     <id>http://ruanxinyu.github.io/posts/我的博客规划路线图/</id>
     <published>2018-10-02T07:56:46.000Z</published>
-    <updated>2018-10-02T09:45:20.755Z</updated>
+    <updated>2018-10-02T11:00:22.946Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="我对于博客建设的思考"><a href="#我对于博客建设的思考" class="headerlink" title="我对于博客建设的思考"></a>我对于博客建设的思考</h1><h2 id="为什么要写博客？"><a href="#为什么要写博客？" class="headerlink" title="为什么要写博客？"></a>为什么要写博客？</h2><p>写博客有两个目的，一个是<code>促进知识的内化</code>，二是<code>提升自己的影响力</code>。</p><p>以教为学是一个很好的学习方式，而且现在信息太多，如果不经过自己整理归纳，那就很容易成为知识收藏者，而不是知识的产生者和传播者，显然我是希望成为后者的，我希望通过将知识体系化从而提升自己的核心竞争力。</p><p>影响力有两个很重要的作用，一个是提升收入，一个是提升满足感，这对我都很重要。如何建立影响力？建立品牌并服务他人，对于身边的人，还可以通过行为来影响，但是对于陌生人只能通过分享，因此内容建设很重要，博客是其中一个途径。</p><h2 id="如何选择博客内容？"><a href="#如何选择博客内容？" class="headerlink" title="如何选择博客内容？"></a>如何选择博客内容？</h2><p>博客内容选择需要考虑三个点：<code>独特性</code>，<code>体系化</code>，<code>刚需</code>。</p><p>独特性有两个方面，对于自己，因为要建立T型或者E型人才，所以要确定哪些内容需要深度，哪些内容需要广度；对于外部读者，如果博文是网上没有的，这样用户搜索肯定就会搜到你的，这肯是独特的，但是这样的主题能找到，但是可能不多，这个依赖于自己的观察，比如说Nexus的源码分析。</p><p>更多的时候博文内容网上通篇都是，那么用户为什么要看你的，那么这个地方就需要考虑体系化和刚需。内容不能太分散，需要成体系化，这样才能让博文之间产生关联性，提高点击率，产生用户粘性。谈到刚需，那么必然要谈到用户群体，我针对的是初级用户，比如未出学校的大学生和刚入职场的信任，因为他们可能缺少实际的项目经验，因此他们缺少体系化的认识，那么我就正好可以以我自己为例，为用户构建一个成长为T型人才的路径，这也和我自己的目标是一致的。所以<code>博客的文章是可以零散的，但是文章之间的关系必须是体系化，场景化</code>的。</p><p>博客不仅限于技术的分享，因为我的目标是让自己过得更好，那么在心理学，历史学，经济学，个人成长等领域也是可以总结和分享，<code>以一个点为起点，逐步向周边辐射，扩展维度，这样才能保持自己的独特性</code>。用20%的时间学习一个领域的80%内容，而不是用80%的时间将一个维度提升至90%，这样才能实现跨学科之间的创新性，当然，在这个过程中，在某一个核心领域还是要长期保持深入学习的。</p><p>对于心理学，历史学，经济学，个人成长其实更多的是以<code>读书笔记</code>为重点，通过<code>得到App课程</code>和<code>主题阅读</code>将内容体系化。</p><h1 id="技术规划路线"><a href="#技术规划路线" class="headerlink" title="技术规划路线"></a>技术规划路线</h1><p>我是搞软件开发的，因此技术规划也就是软件行业的。因为代码能力需要多写，而且内容更零散的，而架构能力更能体现出体系化，因此<code>我分享更多的是架构能力，基于不同场景使用不同架构</code>，通过一步一步的搭建系统架构来帮助用户提升整体认识。每一个主题都有一个总体的架构图作为目标，为了达到这个目标，我们会分解目标逐步完成，分步验证。</p><ul><li>【进行中】 Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</li><li>【等待中】 搭建基于SpringCloud的高可用生产系统</li><li>【等待中】 如何从头开始搭建持续交付系统</li></ul><h2 id="Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统"><a href="#Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统" class="headerlink" title="Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统"></a>Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</h2><ul><li>详情请点击： <a href="/posts/Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统/" title="Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统">Ubuntu下使用Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</a></li></ul><img src="/posts/我的博客规划路线图/2018-10-02-17-11-54.png" title="[blog.ruanxinyu.cn]">]]></content>
+    <content type="html"><![CDATA[<h1 id="我对于博客建设的思考"><a href="#我对于博客建设的思考" class="headerlink" title="我对于博客建设的思考"></a>我对于博客建设的思考</h1><h2 id="为什么要写博客？"><a href="#为什么要写博客？" class="headerlink" title="为什么要写博客？"></a>为什么要写博客？</h2><p>写博客有两个目的，一个是<code>促进知识的内化</code>，二是<code>提升自己的影响力</code>。</p><p>以教为学是一个很好的学习方式，而且现在信息太多，如果不经过自己整理归纳，那就很容易成为知识收藏者，而不是知识的产生者和传播者，显然我是希望成为后者的，我希望通过将知识体系化从而提升自己的核心竞争力。</p><p>影响力有两个很重要的作用，一个是提升收入，一个是提升满足感，这对我都很重要。如何建立影响力？建立品牌并服务他人，对于身边的人，还可以通过行为来影响，但是对于陌生人只能通过分享，因此内容建设很重要，博客是其中一个途径。</p><h2 id="如何选择博客内容？"><a href="#如何选择博客内容？" class="headerlink" title="如何选择博客内容？"></a>如何选择博客内容？</h2><p>博客内容选择需要考虑三个点：<code>独特性</code>，<code>体系化</code>，<code>刚需</code>。</p><p>独特性有两个方面，对于自己，因为要建立T型或者E型人才，所以要确定哪些内容需要深度，哪些内容需要广度；对于外部读者，如果博文是网上没有的，这样用户搜索肯定就会搜到你的，这肯是独特的，但是这样的主题能找到，但是可能不多，这个依赖于自己的观察，比如说Nexus的源码分析。</p><p>更多的时候博文内容网上通篇都是，那么用户为什么要看你的，那么这个地方就需要考虑体系化和刚需。内容不能太分散，需要成体系化，这样才能让博文之间产生关联性，提高点击率，产生用户粘性。谈到刚需，那么必然要谈到用户群体，我针对的是初级用户，比如未出学校的大学生和刚入职场的信任，因为他们可能缺少实际的项目经验，因此他们缺少体系化的认识，那么我就正好可以以我自己为例，为用户构建一个成长为T型人才的路径，这也和我自己的目标是一致的。所以<code>博客的文章是可以零散的，但是文章之间的关系必须是体系化，场景化</code>的。</p><p>博客不仅限于技术的分享，因为我的目标是让自己过得更好，那么在心理学，历史学，经济学，个人成长等领域也是可以总结和分享，<code>以一个点为起点，逐步向周边辐射，扩展维度，这样才能保持自己的独特性</code>。用20%的时间学习一个领域的80%内容，而不是用80%的时间将一个维度提升至90%，这样才能实现跨学科之间的创新性，当然，在这个过程中，在某一个核心领域还是要长期保持深入学习的。</p><p>对于心理学，历史学，经济学，个人成长其实更多的是以<code>读书笔记</code>为重点，通过<code>得到App课程</code>和<code>主题阅读</code>将内容体系化。</p><h1 id="技术规划路线"><a href="#技术规划路线" class="headerlink" title="技术规划路线"></a>技术规划路线</h1><p>我是搞软件开发的，因此技术规划也就是软件行业的。因为代码能力需要多写，而且内容更零散的，而架构能力更能体现出体系化，因此<code>我分享更多的是架构能力，基于不同场景使用不同架构</code>，通过一步一步的搭建系统架构来帮助用户提升整体认识。每一个主题都有一个总体的架构图作为目标，为了达到这个目标，我们会分解目标逐步完成，分步验证。</p><ul><li>【进行中】 Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</li><li>【等待中】 搭建基于SpringCloud的高可用生产系统</li><li>【等待中】 如何从头开始搭建持续交付系统</li></ul><h2 id="Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统"><a href="#Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统" class="headerlink" title="Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统"></a>Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</h2><img src="/posts/我的博客规划路线图/2018-10-02-17-11-54.png" title="[blog.ruanxinyu.cn]">]]></content>
     
     <summary type="html">
     
