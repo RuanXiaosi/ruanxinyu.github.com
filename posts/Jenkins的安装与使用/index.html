@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?b4c4998e548a16b827d4ffe9dbe2b47b"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Jenkins的安装与使用 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="环境搭建">
+    <meta name="description" content="Jenkins的介绍官方地址为：https://jenkins.io/。Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。 Jenkins的安装 在启动之前需要先安装java环境，具体可以参考教程：JDK安装教程。该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参考Vir">
+<meta name="keywords" content="环境搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jenkins的安装与使用">
+<meta property="og:url" content="http://ruanxinyu.github.io/posts/Jenkins的安装与使用/index.html">
+<meta property="og:site_name" content="RuanXinYu&#39;s Blog">
+<meta property="og:description" content="Jenkins的介绍官方地址为：https://jenkins.io/。Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。 Jenkins的安装 在启动之前需要先安装java环境，具体可以参考教程：JDK安装教程。该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参考Vir">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/Jenkins的安装与使用/2018-10-03-17-27-12.png">
+<meta property="og:updated_time" content="2018-10-03T09:39:57.541Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jenkins的安装与使用">
+<meta name="twitter:description" content="Jenkins的介绍官方地址为：https://jenkins.io/。Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。 Jenkins的安装 在启动之前需要先安装java环境，具体可以参考教程：JDK安装教程。该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参考Vir">
+<meta name="twitter:image" content="http://ruanxinyu.github.io/posts/Jenkins的安装与使用/2018-10-03-17-27-12.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">阮新宇</h5>
+          <a href="mailto:1096421257@qq.com" title="1096421257@qq.com" class="mail">1096421257@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/RuanXinyu" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Jenkins的安装与使用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Jenkins的安装与使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-10-03T09:01:53.000Z" itemprop="datePublished" class="page-time">
+  2018-10-03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/环境搭建/">环境搭建</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Jenkins的介绍"><span class="post-toc-number">1.</span> <span class="post-toc-text">Jenkins的介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Jenkins的安装"><span class="post-toc-number">2.</span> <span class="post-toc-text">Jenkins的安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#修改Jenkins的主目录"><span class="post-toc-number">3.</span> <span class="post-toc-text">修改Jenkins的主目录</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#系统服务与开机启动"><span class="post-toc-number">4.</span> <span class="post-toc-text">系统服务与开机启动</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Jenkins的安装与使用"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Jenkins的安装与使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-10-03 17:01:53" datetime="2018-10-03T09:01:53.000Z"  itemprop="datePublished">2018-10-03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/环境搭建/">环境搭建</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Jenkins的介绍"><a href="#Jenkins的介绍" class="headerlink" title="Jenkins的介绍"></a>Jenkins的介绍</h1><p>官方地址为：<a href="https://jenkins.io/" target="_blank" rel="noopener">https://jenkins.io/</a>。Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。</p>
+<h1 id="Jenkins的安装"><a href="#Jenkins的安装" class="headerlink" title="Jenkins的安装"></a>Jenkins的安装</h1><blockquote>
+<p>在启动之前需要先安装java环境，具体可以参考教程：<a href="/posts/JDK安装教程/" title="JDK安装教程">JDK安装教程</a>。该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参考<a href="/posts/VirtualBox安装Ubuntu教程/" title="VirtualBox安装Ubuntu教程">VirtualBox安装Ubuntu教程</a>。</p>
+</blockquote>
+<p>具体的安装文档可以参考：<a href="https://jenkins.io/doc/book/installing/" target="_blank" rel="noopener">https://jenkins.io/doc/book/installing/</a>。</p>
+<blockquote>
+<p>文档中直接通过<code>sudo apt-get install jenkins</code>的方式安装会报错，不兼容最新版本的Ubuntu系统，因此下文采用直接下载软件包安装的过程。</p>
+</blockquote>
+<ul>
+<li><p>首先下载<code>http://mirrors.jenkins.io/war-stable/latest/jenkins.war</code>软件包，然后执行<code>java -jar jenkins.war</code>即可启动Jenkins。默认情况下Jenkins会监听<code>8080</code>端口，我们可以通过如下命令修改端口号<code>java -jar jenkins.war --httpPort=9090</code>。</p>
+</li>
+<li><p>访问<code>http://192.168.1.108:8080/</code>，可以看到如下的页面，提示输入密码，可以从界面中找到密码所在的文件路径，或者从启动日志中也可以看到。</p>
+<img src="/posts/Jenkins的安装与使用/2018-10-03-17-27-12.png" title="[blog.ruanxinyu.cn]">
+</li>
+</ul>
+<h1 id="修改Jenkins的主目录"><a href="#修改Jenkins的主目录" class="headerlink" title="修改Jenkins的主目录"></a>修改Jenkins的主目录</h1><p>从Jenkins的启动日志中可以看出Jenkins默认的主目录为<code>$user.home/.jenkins</code>，我们在此将其主目录更改至<code>/usr/local/jenkins/.jenkins</code>，只需要导出环境<code>JENKINS_HOME</code>环境变量<code>exprot JENKINS_HOME=/usr/local/jenkins/.jenkins</code>，然后启动Jenkins即可。</p>
+<h1 id="系统服务与开机启动"><a href="#系统服务与开机启动" class="headerlink" title="系统服务与开机启动"></a>系统服务与开机启动</h1>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-03T09:39:57.541Z" itemprop="dateUpdated">2018-10-03 17:39:57</time>
+</span><br>
+
+
+        
+        原始链接：<a href="/posts/Jenkins的安装与使用/" target="_blank" rel="external">http://ruanxinyu.github.io/posts/Jenkins的安装与使用/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://ruanxinyu.github.io">
+            <img src="/img/avatar.png" alt="阮新宇">
+            阮新宇
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/环境搭建/">环境搭建</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/posts/Jenkins的安装与使用/&title=《Jenkins的安装与使用》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/posts/Jenkins的安装与使用/&title=《Jenkins的安装与使用》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/posts/Jenkins的安装与使用/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Jenkins的安装与使用》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/posts/Jenkins的安装与使用/&via=http://ruanxinyu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/posts/Jenkins的安装与使用/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/TypeScript学习记录-1/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h5 class="title">TypeScript学习记录-1</h5>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/SonatypeNexus的安装与使用/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h5 class="title">SonatypeNexus的安装与使用</h5>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "6OnUHurDk7brX6HPnIjKMeVb-gzGzoHsz",
+            appKey: "C8w3nGdzmRR4i8LePSnMEjsy",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>阮新宇 &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/posts/Jenkins的安装与使用/&title=《Jenkins的安装与使用》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/posts/Jenkins的安装与使用/&title=《Jenkins的安装与使用》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/posts/Jenkins的安装与使用/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Jenkins的安装与使用》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/posts/Jenkins的安装与使用/&via=http://ruanxinyu.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/posts/Jenkins的安装与使用/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIUlEQVR42u3aQY7DMAgF0Ln/pTsHqOL5QDJS7OdVFbmpXxcIAz8/8fp8reT5956rd6533rYwMDBey/gs1/on18fqvX/9/JKKgYFxAOMqgq33VPfnpPxsGBgYGOvwmhxx8mYMDAyMecDND11NJTEwMDAm6VpeMsuvxJO3YWBgnMDIq+7///mR/gYGBsarGJ/i6qV0eeLYWxgYGHszqkX//EpZHb/oNSEwMDBOYEwGIPJUMt/TG+DAwMDYm9Er8VcDcS/R7LVRMTAw9mPcFWrzItojpTcMDIytGfm1M8fnAXp9xMKYBQYGxtaM5EW9ZLFa9M/ZGBgYpzHmgxeTsn716L3CHwYGxn6MaKxhfFmdpIxJkQ4DA2M/RrVYlvB6YbcaiEc1PwwMjBcy5uuJYYtRDxYDA2NTRvVJtTCXBOjkynqZGmJgYGzKmAS7POBOGgOjWiAGBsbLGZNW4qToVr3u/nESDAyMrRl5Q7E6AJGPaEwaCeW+KAYGxhaMPMxVh8Z6AxnJ4BoGBsaZjOpBJwli9VJd7jNgYGBsxyh/uVhKy/+gwvUVAwNja8Zd4xS9xHHSwhxNi2BgYLyKMS/HV0e7qqW0R/q0GBgYL2TMxyDydkIV3Jxuw8DA2JRRLevnP5MU4HplOAwMDIxJ03E+FlZ9joGBgVFNE+8dxYgKeRgYGAcweg3IJBznDYa8IoiBgXEao3d1TMJl9Y/oNTsxMDC2ZvwCRhnbGVevcEUAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
