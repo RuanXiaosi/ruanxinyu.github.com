@@ -171,7 +171,7 @@
     
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
+            <h4>目录</h4>
             <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HAProxy的简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">HAProxy的简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HAProxy的安装"><span class="post-toc-number">2.</span> <span class="post-toc-text">HAProxy的安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#apt-get安装"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">apt-get安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#源码编译安装"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">源码编译安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开机启动"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">开机启动</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方式1：rc-local"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">方式1：rc.local</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方式2：systemctl"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">方式2：systemctl</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HAProxy的配置"><span class="post-toc-number">3.</span> <span class="post-toc-text">HAProxy的配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置HAProxy"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">配置HAProxy</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#搭建Apache服务器"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">搭建Apache服务器</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HAProxy的验证"><span class="post-toc-number">4.</span> <span class="post-toc-text">HAProxy的验证</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HAProxy详细配置说明（高级）"><span class="post-toc-number">5.</span> <span class="post-toc-text">HAProxy详细配置说明（高级）</span></a></li></ol>
         </nav>
     </aside>
@@ -198,6 +198,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
+            
             <h1 id="HAProxy的简介"><a href="#HAProxy的简介" class="headerlink" title="HAProxy的简介"></a>HAProxy的简介</h1><p>HAProxy是一款提供高可用性、负载均衡以及基于TCP（第四层）和HTTP（第七层）应用的代理软件，支持虚拟主机，它是免费、快速并且可靠的一种解决方案。</p>
 <p>HAProxy实现了一种事件驱动、单一进程模型，此模型支持非常大的并发连接数，特别适用于那些负载特大的web站点，完全可以支持数以万计的并发连接，根据官方文档，haproxy可以跑满10Gbps。并且它的运行模式使得它可以很简单安全的整合进您当前的架构中，同时可以保护你的web服务器不被暴露到网络上。</p>
 <p>HAProxy支持全透明代理，可以用客户端IP地址或者任何其他地址来连接后端服务器，同时提供连接拒绝功能，可以有效的限制攻击蠕虫。</p>

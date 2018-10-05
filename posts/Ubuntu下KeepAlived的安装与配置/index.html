@@ -37,7 +37,7 @@
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/Ubuntu下KeepAlived的安装与配置/2018-09-24-16-41-22.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/Ubuntu下KeepAlived的安装与配置/2018-09-24-16-53-52.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/Ubuntu下KeepAlived的安装与配置/2018-09-24-16-58-02.png">
-<meta property="og:updated_time" content="2018-10-02T13:17:05.904Z">
+<meta property="og:updated_time" content="2018-10-05T12:20:45.257Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu下KeepAlived的安装与配置">
 <meta name="twitter:description" content="KeepAlived介绍Keepalived是一个基于VRRP协议来实现的服务高可用方案，可以利用其来避免IP单点故障，一般与其它负载均衡技术（如lvs、haproxy、nginx）一起工作来达到集群的高可用。 健康检查和失败切换是keepalived的两大核心功能。 keepalived的健康检查支持tcp三次握手、icmp请求、http请求、udp和echo请求等方式对负载均衡器后面的实际的服">
@@ -168,7 +168,7 @@
     
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
+            <h4>目录</h4>
             <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#KeepAlived介绍"><span class="post-toc-number">1.</span> <span class="post-toc-text">KeepAlived介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#VRRP协议介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">VRRP协议介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#KeepAlived的安装"><span class="post-toc-number">3.</span> <span class="post-toc-text">KeepAlived的安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#apt-get安装"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">apt-get安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#源码编译安装"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">源码编译安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#守护进程和开机启动"><span class="post-toc-number">4.</span> <span class="post-toc-text">守护进程和开机启动</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#KeepAlive的配置"><span class="post-toc-number">5.</span> <span class="post-toc-text">KeepAlive的配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#keepalived-conf"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">keepalived.conf</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#KeepAlived的验证"><span class="post-toc-number">6.</span> <span class="post-toc-text">KeepAlived的验证</span></a></li></ol>
         </nav>
     </aside>
@@ -195,6 +195,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
+            
             <h1 id="KeepAlived介绍"><a href="#KeepAlived介绍" class="headerlink" title="KeepAlived介绍"></a>KeepAlived介绍</h1><p>Keepalived是一个基于VRRP协议来实现的服务高可用方案，可以利用其来避免IP单点故障，一般与其它负载均衡技术（如lvs、haproxy、nginx）一起工作来达到集群的高可用。</p>
 <p>健康检查和失败切换是keepalived的两大核心功能。</p>
 <p>keepalived的健康检查支持tcp三次握手、icmp请求、http请求、udp和echo请求等方式对负载均衡器后面的实际的服务器)进行保活，具体采用哪种检查方式可以根据自己的业务需要进行选择；</p>
@@ -256,7 +257,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-02T13:17:05.904Z" itemprop="dateUpdated">2018-10-02 21:17:05</time>
+    最后更新时间：<time datetime="2018-10-05T12:20:45.257Z" itemprop="dateUpdated">2018-10-05 20:20:45</time>
 </span><br>
 
 
