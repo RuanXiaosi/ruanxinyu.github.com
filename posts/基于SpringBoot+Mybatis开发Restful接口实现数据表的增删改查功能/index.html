@@ -26,13 +26,13 @@
     
     
     <meta name="keywords" content="Java">
-    <meta name="description" content="基础环境说明本教程使用Maven管理依赖，使用IDEA进行开发，在开始之前，请按照下面教程安装好JDK和Mysql:  JDK的安装请参考：JDK安装教程 Mysql的安装请参考： Ubuntu下Mysql的安装与验证  初始化数据库首先创建一个数据库和一个用户，并分配相应的权限： 1234567-- 创建数据库create database mall;-- 创建用户并分配权限，8.0版本需要采用">
+    <meta name="description" content="基础环境说明本教程使用Maven管理依赖，使用IDEA进行开发，在开始之前，请按照下面教程安装好JDK和Mysql:  JDK的安装请参考：JDK安装教程 Mysql的安装请参考： Ubuntu下Mysql的安装与验证  本教程的代码地址为：https://github.com/RuanXinyu/springcloud-demo/tree/master/productionservice 初始化">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能">
 <meta property="og:url" content="http://ruanxinyu.github.io/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/index.html">
 <meta property="og:site_name" content="RuanXinYu&#39;s Blog">
-<meta property="og:description" content="基础环境说明本教程使用Maven管理依赖，使用IDEA进行开发，在开始之前，请按照下面教程安装好JDK和Mysql:  JDK的安装请参考：JDK安装教程 Mysql的安装请参考： Ubuntu下Mysql的安装与验证  初始化数据库首先创建一个数据库和一个用户，并分配相应的权限： 1234567-- 创建数据库create database mall;-- 创建用户并分配权限，8.0版本需要采用">
+<meta property="og:description" content="基础环境说明本教程使用Maven管理依赖，使用IDEA进行开发，在开始之前，请按照下面教程安装好JDK和Mysql:  JDK的安装请参考：JDK安装教程 Mysql的安装请参考： Ubuntu下Mysql的安装与验证  本教程的代码地址为：https://github.com/RuanXinyu/springcloud-demo/tree/master/productionservice 初始化">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-16-37-05.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-20-10-48.png">
@@ -50,10 +50,10 @@
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-21-02-17.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-21-04-18.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-21-05-33.png">
-<meta property="og:updated_time" content="2018-10-06T13:26:07.979Z">
+<meta property="og:updated_time" content="2018-10-06T13:50:42.119Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能">
-<meta name="twitter:description" content="基础环境说明本教程使用Maven管理依赖，使用IDEA进行开发，在开始之前，请按照下面教程安装好JDK和Mysql:  JDK的安装请参考：JDK安装教程 Mysql的安装请参考： Ubuntu下Mysql的安装与验证  初始化数据库首先创建一个数据库和一个用户，并分配相应的权限： 1234567-- 创建数据库create database mall;-- 创建用户并分配权限，8.0版本需要采用">
+<meta name="twitter:description" content="基础环境说明本教程使用Maven管理依赖，使用IDEA进行开发，在开始之前，请按照下面教程安装好JDK和Mysql:  JDK的安装请参考：JDK安装教程 Mysql的安装请参考： Ubuntu下Mysql的安装与验证  本教程的代码地址为：https://github.com/RuanXinyu/springcloud-demo/tree/master/productionservice 初始化">
 <meta name="twitter:image" content="http://ruanxinyu.github.io/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-16-37-05.png">
     
         <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
@@ -214,6 +214,7 @@
 <li>JDK的安装请参考：<a href="/posts/JDK安装教程/" title="JDK安装教程">JDK安装教程</a></li>
 <li>Mysql的安装请参考： <a href="/posts/Ubuntu下Mysql的安装与验证/" title="Ubuntu下Mysql的安装与验证">Ubuntu下Mysql的安装与验证</a></li>
 </ul>
+<p>本教程的代码地址为：<a href="https://github.com/RuanXinyu/springcloud-demo/tree/master/productionservice" target="_blank" rel="noopener">https://github.com/RuanXinyu/springcloud-demo/tree/master/productionservice</a></p>
 <h1 id="初始化数据库"><a href="#初始化数据库" class="headerlink" title="初始化数据库"></a>初始化数据库</h1><p>首先创建一个数据库和一个用户，并分配相应的权限：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建数据库</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> mall;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建用户并分配权限，8.0版本需要采用该方式</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> malluser@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'mall@123'</span>;</span><br><span class="line"><span class="keyword">grant</span> all <span class="keyword">privileges</span> <span class="keyword">on</span> mall.* <span class="keyword">to</span> <span class="string">'malluser'</span>@<span class="string">'%'</span> <span class="keyword">with</span> <span class="keyword">grant</span> <span class="keyword">option</span>;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
 <p>然后在<code>mall</code>数据库中创建一张表：</p>
@@ -274,7 +275,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-06T13:26:07.979Z" itemprop="dateUpdated">2018-10-06 21:26:07</time>
+    最后更新时间：<time datetime="2018-10-06T13:50:42.119Z" itemprop="dateUpdated">2018-10-06 21:50:42</time>
 </span><br>
 
 
