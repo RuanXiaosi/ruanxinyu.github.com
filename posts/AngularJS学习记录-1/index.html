@@ -35,7 +35,7 @@
 <meta property="og:description" content="前言AngularJS的学习地址为：https://angular.cns/guide/quickstart ng命令介绍 安装@angular/cli: npm install -g @angular/cli 创建工程： ng new angular-tour-of-heroes 开启调试： ng serve --open 创建组件： ng generate component xxx 创建服务">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/AngularJS学习记录-1/2018-10-07-20-56-50.png">
-<meta property="og:updated_time" content="2018-10-07T14:11:13.056Z">
+<meta property="og:updated_time" content="2018-10-07T14:12:08.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJS学习记录-1">
 <meta name="twitter:description" content="前言AngularJS的学习地址为：https://angular.cns/guide/quickstart ng命令介绍 安装@angular/cli: npm install -g @angular/cli 创建工程： ng new angular-tour-of-heroes 开启调试： ng serve --open 创建组件： ng generate component xxx 创建服务">
@@ -167,7 +167,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>目录</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ng命令介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">ng命令介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#核心知识"><span class="post-toc-number">3.</span> <span class="post-toc-text">核心知识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#架构"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组件"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务与依赖注入"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">服务与依赖注入</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#组件与模板"><span class="post-toc-number">4.</span> <span class="post-toc-text">组件与模板</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#显示数据"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">显示数据</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ng命令介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">ng命令介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#核心知识"><span class="post-toc-number">3.</span> <span class="post-toc-text">核心知识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#架构"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组件"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务与依赖注入"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">服务与依赖注入</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#组件与模板"><span class="post-toc-number">4.</span> <span class="post-toc-text">组件与模板</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#显示数据"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">显示数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模板语法"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">模板语法</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -243,6 +243,22 @@
 <li><code>*ngFor</code> 是 Angular 的“迭代”指令</li>
 <li><code>*ngIf</code> 指令会根据一个布尔条件来显示或移除一个元素</li>
 </ul>
+<h2 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h2><p>JavaScript 中那些具有或可能引发副作用的表达式是被禁止的，包括：</p>
+<ul>
+<li>赋值 <code>(=, +=, -=, ...)</code></li>
+<li><code>new</code> 运算符</li>
+<li>使用 <code>;</code> 或 <code>,</code> 的链式表达式</li>
+<li>自增和自减运算符：<code>++</code> 和<code>--</code></li>
+</ul>
+<p>和 JavaScript 语 法的其它显著不同包括：</p>
+<ul>
+<li>不支持位运算 <code>|</code> 和 <code>&amp;</code></li>
+<li>具有新的模板表达式运算符，比如 <code>|、?. 和 !</code>。</li>
+</ul>
+<p>表达式中的上下文变量是由模板变量、指令的上下文变量（如果有）和组件的成员叠加而成的。 如果你要引用的变量名存在于一个以上的命名空间中，那么，模板变量是最优先的，其次是指令的上下文变量，最后是组件的成员。</p>
+<p>模板表达式不能引用全局命名空间中的任何东西，比如 window 或 document。它们也不能调用 console.log 或 Math.max。 它们只能引用表达式上下文中的成员。</p>
+<p>模板表达式能成就或毁掉一个应用。请遵循下列指南：<code>没有可见的副作用</code>,<code>执行迅速</code>,<code>非常简单</code>,<code>幂等性</code></p>
+<p>模板语句用来响应由绑定目标（如 HTML 元素、组件或指令）触发的事件。 模板语句将在事件绑定一节看到，它出现在 = 号右侧的引号中，就像这样：(event)=”statement”。</p>
 
         </div>
 
@@ -251,7 +267,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-07T14:11:13.056Z" itemprop="dateUpdated">2018-10-07 22:11:13</time>
+    最后更新时间：<time datetime="2018-10-07T14:12:08.366Z" itemprop="dateUpdated">2018-10-07 22:12:08</time>
 </span><br>
 
 
