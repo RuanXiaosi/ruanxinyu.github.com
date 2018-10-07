@@ -35,7 +35,8 @@
 <meta property="og:description" content="前言AngularJS的学习地址为：https://angular.cns/guide/quickstart ng命令介绍 安装@angular/cli: npm install -g @angular/cli 创建工程： ng new angular-tour-of-heroes 开启调试： ng serve --open 创建组件： ng generate component xxx 创建服务">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/AngularJS学习记录-1/2018-10-07-20-56-50.png">
-<meta property="og:updated_time" content="2018-10-07T14:12:08.366Z">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/AngularJS学习记录-1/2018-10-07-21-38-11.png">
+<meta property="og:updated_time" content="2018-10-07T14:12:45.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJS学习记录-1">
 <meta name="twitter:description" content="前言AngularJS的学习地址为：https://angular.cns/guide/quickstart ng命令介绍 安装@angular/cli: npm install -g @angular/cli 创建工程： ng new angular-tour-of-heroes 开启调试： ng serve --open 创建组件： ng generate component xxx 创建服务">
@@ -167,7 +168,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>目录</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ng命令介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">ng命令介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#核心知识"><span class="post-toc-number">3.</span> <span class="post-toc-text">核心知识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#架构"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组件"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务与依赖注入"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">服务与依赖注入</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#组件与模板"><span class="post-toc-number">4.</span> <span class="post-toc-text">组件与模板</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#显示数据"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">显示数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模板语法"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">模板语法</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ng命令介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">ng命令介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#核心知识"><span class="post-toc-number">3.</span> <span class="post-toc-text">核心知识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#架构"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组件"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务与依赖注入"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">服务与依赖注入</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#组件与模板"><span class="post-toc-number">4.</span> <span class="post-toc-text">组件与模板</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#显示数据"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">显示数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模板语法"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">模板语法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#生命钩子"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">生命钩子</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组件交互"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">组件交互</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组件样式"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">组件样式</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#表单"><span class="post-toc-number">5.</span> <span class="post-toc-text">表单</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用户输入"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">用户输入</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -259,6 +260,32 @@
 <p>模板表达式不能引用全局命名空间中的任何东西，比如 window 或 document。它们也不能调用 console.log 或 Math.max。 它们只能引用表达式上下文中的成员。</p>
 <p>模板表达式能成就或毁掉一个应用。请遵循下列指南：<code>没有可见的副作用</code>,<code>执行迅速</code>,<code>非常简单</code>,<code>幂等性</code></p>
 <p>模板语句用来响应由绑定目标（如 HTML 元素、组件或指令）触发的事件。 模板语句将在事件绑定一节看到，它出现在 = 号右侧的引号中，就像这样：(event)=”statement”。</p>
+<p>绑定方式：</p>
+<h2 id="生命钩子"><a href="#生命钩子" class="headerlink" title="生命钩子"></a>生命钩子</h2><p>执行顺序<br><img src="/posts/AngularJS学习记录-1/2018-10-07-21-38-11.png" title="[blog.ruanxinyu.cn]"></p>
+<h2 id="组件交互"><a href="#组件交互" class="headerlink" title="组件交互"></a>组件交互</h2><p><a href="https://angular.cn/guide/component-interaction" target="_blank" rel="noopener">https://angular.cn/guide/component-interaction</a></p>
+<ul>
+<li>通过输入型绑定把数据从父组件传到子组件</li>
+<li>通过 setter 截听输入属性值的变化</li>
+<li>通过ngOnChanges()来截听输入属性值的变化</li>
+<li>父组件监听子组件的事件</li>
+<li>父组件与子组件通过本地变量互动</li>
+<li>父组件调用<code>@ViewChild()</code></li>
+<li>父组件和子组件通过服务来通讯</li>
+</ul>
+<h2 id="组件样式"><a href="#组件样式" class="headerlink" title="组件样式"></a>组件样式</h2><ul>
+<li>使用 <code>:host</code> 伪类选择器，用来选择组件宿主元素中的元素</li>
+<li>使用 <code>:host-context()</code> 伪类选择器。它也以类似 <code>:host()</code> 形式使用。它在当前组件宿主元素的祖先节点中查找 CSS 类， 直到文档的根节点为止</li>
+<li>可以在组件的 HTML 模板中写 <code>&lt;link&gt;</code> 标签</li>
+<li>可以利用标准的 CSS <code>@import</code> 规则来把其它 CSS 文件导入到 CSS 文件中。</li>
+<li>如果使用 CLI 进行构建，那么你可以用 sass、less 或 stylus 来编写样式，并使用相应的扩展名（.scss、.less、.styl）把它们指定到 @Component.styleUrls 元数据中。</li>
+</ul>
+<h1 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h1><h2 id="用户输入"><a href="#用户输入" class="headerlink" title="用户输入"></a>用户输入</h2><p><a href="https://angular.cn/guide/user-input" target="_blank" rel="noopener">https://angular.cn/guide/user-input</a></p>
+<ul>
+<li>绑定到用户输入事件<code>&lt;button (click)=&quot;onClickMe()&quot;&gt;Click me!&lt;/button&gt;</code></li>
+<li>通过 <code>$event</code> 对象取得用户输入<code>&lt;input (keyup)=&quot;onKey($event)&quot;&gt;</code></li>
+<li>从一个模板引用变量中获得用户输入,在标识符前加上井号 (#) 就能声明一个模板引用变量，<code>&lt;input #box (keyup)=&quot;0&quot;&gt; &lt;p&gt;&lt;/p&gt;</code></li>
+<li>按键事件过滤（通过 <code>key.enter</code>）: <code>&lt;input #box (keyup.enter)=&quot;onEnter(box.value)&quot;&gt; &lt;p&gt;&lt;/p&gt;</code></li>
+</ul>
 
         </div>
 
@@ -267,7 +294,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-07T14:12:08.366Z" itemprop="dateUpdated">2018-10-07 22:12:08</time>
+    最后更新时间：<time datetime="2018-10-07T14:12:45.039Z" itemprop="dateUpdated">2018-10-07 22:12:45</time>
 </span><br>
 
 
