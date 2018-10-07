@@ -35,7 +35,7 @@
 <meta property="og:description" content="前言AngularJS的学习地址为：https://angular.cns/guide/quickstart ng命令介绍 安装@angular/cli: npm install -g @angular/cli 创建工程： ng new angular-tour-of-heroes 开启调试： ng serve --open 创建组件： ng generate component xxx 创建服务">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/AngularJS学习记录-1/2018-10-07-20-56-50.png">
-<meta property="og:updated_time" content="2018-10-07T14:10:40.608Z">
+<meta property="og:updated_time" content="2018-10-07T14:11:13.056Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJS学习记录-1">
 <meta name="twitter:description" content="前言AngularJS的学习地址为：https://angular.cns/guide/quickstart ng命令介绍 安装@angular/cli: npm install -g @angular/cli 创建工程： ng new angular-tour-of-heroes 开启调试： ng serve --open 创建组件： ng generate component xxx 创建服务">
@@ -167,7 +167,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>目录</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ng命令介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">ng命令介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#核心知识"><span class="post-toc-number">3.</span> <span class="post-toc-text">核心知识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#架构"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组件"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">组件</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ng命令介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">ng命令介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#核心知识"><span class="post-toc-number">3.</span> <span class="post-toc-text">核心知识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#架构"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组件"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务与依赖注入"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">服务与依赖注入</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#组件与模板"><span class="post-toc-number">4.</span> <span class="post-toc-text">组件与模板</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#显示数据"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">显示数据</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -226,6 +226,23 @@
 <li><strong>providers:</strong> 是当前组件所需的依赖注入提供商的一个数组</li>
 </ul>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector:    <span class="string">'app-hero-list'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./hero-list.component.html'</span>,</span><br><span class="line">  providers:  [ HeroService ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> HeroListComponent <span class="keyword">implements</span> OnInit &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>指令：结构型指令和属性型指令。</p>
+<h2 id="服务与依赖注入"><a href="#服务与依赖注入" class="headerlink" title="服务与依赖注入"></a>服务与依赖注入</h2><p>服务是一个广义的概念，它包括应用所需的任何值、函数或特性。狭义的服务是一个明确定义了用途的类。它应该做一些具体的事，并做好。要把一个类定义为服务，就要用 @Injectable 装饰器来提供元数据，以便让 Angular 可以把它作为依赖注入到组件中。通过构造函数进行注入</p>
+<p>Angular 把组件和服务区分开，以提高模块性和复用性。</p>
+<ul>
+<li>通过把组件中和视图有关的功能与其他类型的处理分离开，你可以让组件类更加精简、高效。 理想情况下，组件的工作只管用户体验，而不用顾及其它。 它应该提供用于数据绑定的属性和方法，以便作为视图（由模板渲染）和应用逻辑（通常包含一些模型的概念）的中介者。</li>
+<li>组件不应该定义任何诸如从服务器获取数据、验证用户输入或直接往控制台中写日志等工作。 而要把这些任务委托给各种服务。通过把各种处理任务定义到可注入的服务类中，你可以让它被任何组件使用。 通过在不同的环境中注入同一种服务的不同提供商，你还可以让你的应用更具适应性。</li>
+</ul>
+<p>默认情况下，Angular CLI 的 ng generate service 命令会在 @Injectable 装饰器中提供元数据，把它注册到根注入器中。本教程就用这种方法注册了 HeroService 的提供商</p>
+<p>当你使用特定的 NgModule 注册提供商时，该服务的同一个实例将会对该 NgModule 中的所有组件可用。要想在这一层注册，请用 @NgModule 装饰器中的 providers 属性</p>
+<p>当你在组件级注册提供商时，你会为该组件的每一个新实例提供该服务的一个新实例。 要在组件级注册，就要在 @Component 元数据的 providers 属性中注册服务提供商</p>
+<h1 id="组件与模板"><a href="#组件与模板" class="headerlink" title="组件与模板"></a>组件与模板</h1><h2 id="显示数据"><a href="#显示数据" class="headerlink" title="显示数据"></a>显示数据</h2><p>你可以在两种地方存放组件模板。 你可以使用 template 属性把它定义为内联的，或者把模板定义在一个独立的 HTML 文件中， 再通过 @Component 装饰器中的 templateUrl 属性， 在组件元数据中把它链接到组件。</p>
+<p>默认情况下，Angular CLI 生成组件时会带有模板文件，你可以通过参数覆盖它：<code>ng generate component hero -it</code></p>
+<ul>
+<li><code></code>显示属性。</li>
+<li><code>*ngFor</code> 是 Angular 的“迭代”指令</li>
+<li><code>*ngIf</code> 指令会根据一个布尔条件来显示或移除一个元素</li>
+</ul>
 
         </div>
 
@@ -234,7 +251,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-07T14:10:40.608Z" itemprop="dateUpdated">2018-10-07 22:10:40</time>
+    最后更新时间：<time datetime="2018-10-07T14:11:13.056Z" itemprop="dateUpdated">2018-10-07 22:11:13</time>
 </span><br>
 
 
