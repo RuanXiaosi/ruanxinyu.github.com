@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ruanxinyu.github.io/"/>
-  <updated>2018-10-06T13:50:42.119Z</updated>
+  <updated>2018-10-07T14:09:44.491Z</updated>
   <id>http://ruanxinyu.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AngularJS学习记录-1</title>
+    <link href="http://ruanxinyu.github.io/posts/AngularJS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-1/"/>
+    <id>http://ruanxinyu.github.io/posts/AngularJS学习记录-1/</id>
+    <published>2018-10-07T03:50:16.000Z</published>
+    <updated>2018-10-07T14:09:44.491Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="学习记录" scheme="http://ruanxinyu.github.io/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="学习记录" scheme="http://ruanxinyu.github.io/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
   
   <entry>
     <title>基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能</title>
@@ -166,20 +184,6 @@
     
     
       <category term="环境搭建" scheme="http://ruanxinyu.github.io/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AngularJS学习记录-1</title>
-    <link href="http://ruanxinyu.github.io/posts/AngularJS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-1/"/>
-    <id>http://ruanxinyu.github.io/posts/AngularJS学习记录-1/</id>
-    <published>2018-10-04T03:50:16.000Z</published>
-    <updated>2018-10-04T03:50:16.366Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
     
   </entry>
   
