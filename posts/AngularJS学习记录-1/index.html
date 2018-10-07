@@ -36,7 +36,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/AngularJS学习记录-1/2018-10-07-20-56-50.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/AngularJS学习记录-1/2018-10-07-21-38-11.png">
-<meta property="og:updated_time" content="2018-10-07T14:12:45.039Z">
+<meta property="og:updated_time" content="2018-10-07T14:18:16.130Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJS学习记录-1">
 <meta name="twitter:description" content="前言AngularJS的学习地址为：https://angular.cns/guide/quickstart ng命令介绍 安装@angular/cli: npm install -g @angular/cli 创建工程： ng new angular-tour-of-heroes 开启调试： ng serve --open 创建组件： ng generate component xxx 创建服务">
@@ -261,6 +261,19 @@
 <p>模板表达式能成就或毁掉一个应用。请遵循下列指南：<code>没有可见的副作用</code>,<code>执行迅速</code>,<code>非常简单</code>,<code>幂等性</code></p>
 <p>模板语句用来响应由绑定目标（如 HTML 元素、组件或指令）触发的事件。 模板语句将在事件绑定一节看到，它出现在 = 号右侧的引号中，就像这样：(event)=”statement”。</p>
 <p>绑定方式：</p>
+<ol>
+<li>属性绑定：<code>[target]=&quot;expression&quot;</code></li>
+<li>事件绑定：<code>(target)=&quot;statement&quot;</code></li>
+<li>双向绑定：<code>[(target)]=&quot;expression&quot;</code></li>
+<li>css类绑定：<code>[class.special]=&quot;isSpecial&quot;</code></li>
+<li>样式绑定：<code>[style.color]=&quot;isSpecial ? &#39;red&#39; : &#39;green&#39;&quot;</code></li>
+</ol>
+<p>在多数情况下，插值表达式是更方便的备选项。 实际上，在渲染视图之前，Angular 把这些插值表达式翻译成相应的属性绑定。</p>
+<p>在新版的 Angular 中不需要那么多指令。 使用更强大、更富有表现力的 Angular 绑定系统，其实可以达到同样的效果。</p>
+<p>外部组件应该只能绑定到组件的公共（允许绑定） API 上，Angular 要求你显式声明那些 API。 它让你可以自己决定哪些属性是可以被外部组件绑定的。进行数据绑定的属性都带有 <code>@Input()</code> 和 <code>@Output()</code> 装饰器。</p>
+<p><strong>好东西:</strong> Angular 的安全导航操作符<code>?.</code> 是一种流畅而便利的方式，用来保护出现在属性路径中 null 和 undefined 值。 下例中，当 currentHero 为空时，保护视图渲染器，让它免于失败。<code></code></p>
+<p>非空断言操作符<code>!</code></p>
+<p>类型转换函数 <code>$any</code></p>
 <h2 id="生命钩子"><a href="#生命钩子" class="headerlink" title="生命钩子"></a>生命钩子</h2><p>执行顺序<br><img src="/posts/AngularJS学习记录-1/2018-10-07-21-38-11.png" title="[blog.ruanxinyu.cn]"></p>
 <h2 id="组件交互"><a href="#组件交互" class="headerlink" title="组件交互"></a>组件交互</h2><p><a href="https://angular.cn/guide/component-interaction" target="_blank" rel="noopener">https://angular.cn/guide/component-interaction</a></p>
 <ul>
@@ -294,7 +307,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-07T14:12:45.039Z" itemprop="dateUpdated">2018-10-07 22:12:45</time>
+    最后更新时间：<time datetime="2018-10-07T14:18:16.130Z" itemprop="dateUpdated">2018-10-07 22:18:16</time>
 </span><br>
 
 
