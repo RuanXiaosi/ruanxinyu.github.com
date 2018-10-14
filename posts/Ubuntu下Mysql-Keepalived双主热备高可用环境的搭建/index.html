@@ -3,29 +3,14 @@
 <head>
     
 
-    
-
-    
-<!-- Baidu Tongji -->
-<script>var _hmt = _hmt || []</script>
-<script async src="//hm.baidu.com/hm.js?b4c4998e548a16b827d4ffe9dbe2b47b"></script>
-<!-- End Baidu Tongji -->
-
-
-
-
     <meta charset="utf-8">
-    
-    
-    
-    
-    <title>Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="阮新宇的成长记录">
+    <meta name="author" content="阮新宇">
     <meta name="keywords" content="环境搭建">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+
     <meta name="description" content="Mysql复制模式及原理Mysql内建的复制功能是构建大型，高性能应用程序的基础。Mysql将数据库的更改写入到二进制日志文件，而复制功能就是基于该日志完成的。Mysql的二进制日志格式也有三种：STATEMENT，ROW，MIXED。对应的是Mysql的三种复制模式. 复制原理master服务器将数据的改变记录二进制binlog日志，当master上的数据发生改变时，则将其改变写入二进制日志中；">
 <meta name="keywords" content="环境搭建">
 <meta property="og:type" content="article">
@@ -52,158 +37,85 @@
     
         <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
-
-    <!-- custom head -->
-    
-
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/avatar.png">
 </head>
-
-<body>
-    <div id="loading" class="active"></div>
-
-    <aside id="menu"  >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
+<body class="bg-white">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">
+        <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
     </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.png">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">阮新宇</h5>
-          <a href="mailto:1096421257@qq.com" title="1096421257@qq.com" class="mail">1096421257@qq.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                归档
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                分类
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/RuanXinyu" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-      </ul>
-    </div>
-  </div>
-</aside>
+    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建</div>
+    <div class="navbar-collapse offcanvas-collapse" id="navbarsDefault">
+        <ul class="navbar-nav mr-auto">
         
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/"  >主页</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/bookmarks"  >书签收藏</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/questions"  >问题速查</a>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文管理</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/tags"  >标签</a>
+                        
+                        <a class="dropdown-item" href="/categories"  >分类</a>
+                        
+                        <a class="dropdown-item" href="/archives"  >归档</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">关于</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="https://github.com/RuanXinyu" target="_blank" >github</a>
+                        
+                        <a class="dropdown-item" href="/posts/下一步计划"  >下一步计划</a>
+                        
+                    </div>
+                </li>
+            
+        
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="全文搜索" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+        </form>
+    </div>
+</nav>
+    <main role="main" class="container-fluid mt-5">
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+    <div class="row">
+        <div class="col-2 position-fixed border-right" style="overflow-y:auto; height:100%; width:100%">
+            <div class="my-3 bg-white rounded box-shadow post-toc">
+                <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mysql复制模式及原理"><span class="toc-text">Mysql复制模式及原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复制原理"><span class="toc-text">复制原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于SQL语句的复制-SBR"><span class="toc-text">基于SQL语句的复制(SBR)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于行的复制-RBR"><span class="toc-text">基于行的复制(RBR)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#混合模式复制-MBR"><span class="toc-text">混合模式复制(MBR)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决的问题"><span class="toc-text">解决的问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基础环境说明"><span class="toc-text">基础环境说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Mysql的主从同步设置"><span class="toc-text">Mysql的主从同步设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置my-cnf文件"><span class="toc-text">配置my.cnf文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建复制用户"><span class="toc-text">创建复制用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行CHANGE-MASTER-TO语句"><span class="toc-text">执行CHANGE MASTER TO语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重启并查看同步状态"><span class="toc-text">重启并查看同步状态</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#KeepAlived的配置"><span class="toc-text">KeepAlived的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#功能验证"><span class="toc-text">功能验证</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正常情况下的验证"><span class="toc-text">正常情况下的验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异常恢复下的验证"><span class="toc-text">异常恢复下的验证</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常见操作说明"><span class="toc-text">常见操作说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#彻底解除主从复制关系"><span class="toc-text">彻底解除主从复制关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#让slave不随MySQL自动启动"><span class="toc-text">让slave不随MySQL自动启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据备份的快速恢复"><span class="toc-text">数据备份的快速恢复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何限制复制哪些数据库"><span class="toc-text">如何限制复制哪些数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改log-bin和relay-log后重启报错"><span class="toc-text">修改log-bin和relay_log后重启报错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日志出现-Warning-IP-address-39-xxxx-39-could-not-be-resolved-Name-or-service-not-known"><span class="toc-text">日志出现[Warning] IP address &#39;xxxx&#39; could not be resolved: Name or service not known</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主备同步报：Fatal-error-The-slave-I-O-thread-stops-because-master-and-slave-have-equal-MySQL-server-UUIDs"><span class="toc-text">主备同步报：Fatal error: The slave I/O thread stops because master and slave have equal MySQL server UUIDs</span></a></li></ol></li></ol>
+            </div>
         </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-10-04T04:50:27.000Z" itemprop="datePublished" class="page-time">
-  2018-10-04
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/环境搭建/">环境搭建</a></li></ul>
-
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>目录</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Mysql复制模式及原理"><span class="post-toc-number">1.</span> <span class="post-toc-text">Mysql复制模式及原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#复制原理"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">复制原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基于SQL语句的复制-SBR"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">基于SQL语句的复制(SBR)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基于行的复制-RBR"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">基于行的复制(RBR)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#混合模式复制-MBR"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">混合模式复制(MBR)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决的问题"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">解决的问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基础环境说明"><span class="post-toc-number">2.</span> <span class="post-toc-text">基础环境说明</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Mysql的主从同步设置"><span class="post-toc-number">3.</span> <span class="post-toc-text">Mysql的主从同步设置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置my-cnf文件"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">配置my.cnf文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建复制用户"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">创建复制用户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#执行CHANGE-MASTER-TO语句"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">执行CHANGE MASTER TO语句</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#重启并查看同步状态"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">重启并查看同步状态</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#KeepAlived的配置"><span class="post-toc-number">4.</span> <span class="post-toc-text">KeepAlived的配置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#功能验证"><span class="post-toc-number">5.</span> <span class="post-toc-text">功能验证</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#正常情况下的验证"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">正常情况下的验证</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#异常恢复下的验证"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">异常恢复下的验证</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#常见操作说明"><span class="post-toc-number">6.</span> <span class="post-toc-text">常见操作说明</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#彻底解除主从复制关系"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">彻底解除主从复制关系</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#让slave不随MySQL自动启动"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">让slave不随MySQL自动启动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据备份的快速恢复"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">数据备份的快速恢复</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何限制复制哪些数据库"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">如何限制复制哪些数据库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改log-bin和relay-log后重启报错"><span class="post-toc-number">6.5.</span> <span class="post-toc-text">修改log-bin和relay_log后重启报错</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#日志出现-Warning-IP-address-39-xxxx-39-could-not-be-resolved-Name-or-service-not-known"><span class="post-toc-number">6.6.</span> <span class="post-toc-text">日志出现[Warning] IP address &#39;xxxx&#39; could not be resolved: Name or service not known</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#主备同步报：Fatal-error-The-slave-I-O-thread-stops-because-master-and-slave-have-equal-MySQL-server-UUIDs"><span class="post-toc-number">6.7.</span> <span class="post-toc-text">主备同步报：Fatal error: The slave I/O thread stops because master and slave have equal MySQL server UUIDs</span></a></li></ol></li></ol>
-        </nav>
-    </aside>
-
-
-<article id="post-Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2018-10-04 12:50:27" datetime="2018-10-04T04:50:27.000Z"  itemprop="datePublished">2018-10-04</time>
-
-            
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/环境搭建/">环境搭建</a></li></ul>
-
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            
-            <h1 id="Mysql复制模式及原理"><a href="#Mysql复制模式及原理" class="headerlink" title="Mysql复制模式及原理"></a>Mysql复制模式及原理</h1><p>Mysql内建的复制功能是构建大型，高性能应用程序的基础。Mysql将数据库的更改写入到二进制日志文件，而复制功能就是基于该日志完成的。Mysql的二进制日志格式也有三种：STATEMENT，ROW，MIXED。对应的是Mysql的三种复制模式.</p>
+        <div class="col-10 offset-2">
+        <div class="my-3 bg-white rounded box-shadow post-content"><h1 id="Mysql复制模式及原理"><a href="#Mysql复制模式及原理" class="headerlink" title="Mysql复制模式及原理"></a>Mysql复制模式及原理</h1><p>Mysql内建的复制功能是构建大型，高性能应用程序的基础。Mysql将数据库的更改写入到二进制日志文件，而复制功能就是基于该日志完成的。Mysql的二进制日志格式也有三种：STATEMENT，ROW，MIXED。对应的是Mysql的三种复制模式.</p>
 <h2 id="复制原理"><a href="#复制原理" class="headerlink" title="复制原理"></a>复制原理</h2><p>master服务器将数据的改变记录二进制binlog日志，当master上的数据发生改变时，则将其改变写入二进制日志中；salve服务器会在一定时间间隔内对master二进制日志进行探测其是否发生改变，如果发生改变，则开始一个I/OThread请求master二进制事件，同时主节点为每个I/O线程启动一个dump线程，用于向其发送二进制事件，并保存至从节点本地的中继日志中，从节点将启动SQL线程从中继日志中读取二进制日志，在本地重放，使得其数据和主节点的保持一致，最后I/OThread和SQLThread将进入睡眠状态，等待下一次被唤醒。过程如下：<br><img src="/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-04-20-43-35.png" title="[blog.ruanxinyu.cn]"></p>
 <p>注意几点：</p>
 <ul>
@@ -330,281 +242,13 @@
 <h2 id="修改log-bin和relay-log后重启报错"><a href="#修改log-bin和relay-log后重启报错" class="headerlink" title="修改log-bin和relay_log后重启报错"></a>修改<code>log-bin</code>和<code>relay_log</code>后重启报错</h2><p>先执行<code>reset slave</code>，然后执行<code>start slave</code>即可。</p>
 <h2 id="日志出现-Warning-IP-address-39-xxxx-39-could-not-be-resolved-Name-or-service-not-known"><a href="#日志出现-Warning-IP-address-39-xxxx-39-could-not-be-resolved-Name-or-service-not-known" class="headerlink" title="日志出现[Warning] IP address &#39;xxxx&#39; could not be resolved: Name or service not known"></a>日志出现<code>[Warning] IP address &#39;xxxx&#39; could not be resolved: Name or service not known</code></h2><p>mysql默认会反向解析DNS，对于访问者Mysql不会判断是hosts还是ip都会进行dns反向解析，我们可以通过在<code>my.cnf</code>中添加<code>skip-name-resolve</code>禁用dns反查即可。</p>
 <h2 id="主备同步报：Fatal-error-The-slave-I-O-thread-stops-because-master-and-slave-have-equal-MySQL-server-UUIDs"><a href="#主备同步报：Fatal-error-The-slave-I-O-thread-stops-because-master-and-slave-have-equal-MySQL-server-UUIDs" class="headerlink" title="主备同步报：Fatal error: The slave I/O thread stops because master and slave have equal MySQL server UUIDs"></a>主备同步报：<code>Fatal error: The slave I/O thread stops because master and slave have equal MySQL server UUIDs</code></h2><p>是因为数据目录下的<code>/var/lib/mysql/auto.cnf</code>文件是一样导致的，我们可以删除备机上的该文件，然后重启mysql</p>
-
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2018-10-05T15:15:52.834Z" itemprop="dateUpdated">2018-10-05 23:15:52</time>
-</span><br>
-
-
-        
-        原始链接：<a href="/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/" target="_blank" rel="external">http://ruanxinyu.github.io/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/</a>
-        
-    </div>
-    
-    <footer>
-        <a href="http://ruanxinyu.github.io">
-            <img src="/img/avatar.png" alt="阮新宇">
-            阮新宇
-        </a>
-    </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/环境搭建/">环境搭建</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/&title=《Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/&title=《Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/&via=http://ruanxinyu.github.io" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
 </div>
-
-
-
         </div>
     </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/posts/Git常见问题操作指导/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h5 class="title">Git常见问题操作指导</h5>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/posts/TypeScript学习记录-1/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h5 class="title">TypeScript学习记录-1</h5>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'false' == 'true',
-            verify: 'false' == 'true',
-            appId: "6OnUHurDk7brX6HPnIjKMeVb-gzGzoHsz",
-            appKey: "C8w3nGdzmRR4i8LePSnMEjsy",
-            avatar: "mm",
-            placeholder: "Just go go",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
 </div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>阮新宇 &copy; 2015 - 2018</span>
-            <span>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-</footer>
 
     </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/&title=《Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/&title=《Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/&via=http://ruanxinyu.github.io" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADHUlEQVR42u3awXLqQAwEQP7/p/2uudiMJPMKi/YpRQzeXqqiaLSvV3wdf66z189+W73z7InJKzdf2NjY2A9hH5dX8oDrd53Bru+pbmVuwcbGxt7KzhdULTN3Fct8s67vx8bGxsaeNBV5kaveiY2NjY1dLWDJK0mhykOovDnBxsbG/k12tczk8f18wJBcH8zSsLGxsb+eXS023/zzR+bb2NjY2F/MPopXNcTvLTF/4tG6sLGxsTexJ0upNh55q5Ns3A1biY2Njb2InQxoe5FNPgzOBwZ3HfrBxsbG3sSuxu69IjcP9KsrfLNmbGxs7EXsPKBJRrOTxmM+Wo4O62BjY2MvYifBUN4k9ApMjkw2NFktNjY29ib2JKBJHnncevWOGfXei42Njf0sdi/QyQe0k2KTF9F807GxsbE3sZMPnRekSdhUHRVHQRU2Njb2Onb18dVwv/o51WjpunS9ydKwsbGxH85u9i43vbc3Kq6uBBsbG3s3u3pMJy8hOawXMCVF67QQYmNjYy9i3/xvfbHwJFucj5PLW4+NjY29iF29adIS9CKnPMbKiyU2Njb2DvYEeT0Grg4M5oXzP5UrbGxs7Eex7wruewPgfBOrbQ82Njb2VnYex/QCnXmhuv60ZiuCjY2NvYKd/K8+wVcDoHl49Gb92NjY2IvY+SN70VK+xOogodo4lfHY2NjYD2FXi1C+6MnItjc2KJ9RwsbGxl7BTqL5SeSUB08TQPOAETY2NvYKdhK4vwZX0qJURwWTcvhm0IuNjY39QHZ1idVmoLeg/OlJdHXDN4ONjY399ey72ok8SOod7sm7q6iAYWNjY69j965JUemNeHutCzY2NvYvsCex+6QEVqOlSdSFjY2NvY/dK1f5FuRFqHqEKDkedLoGbGxs7EXs6p/+apzUay2qvN5mYWNjY29i57HRBDAZNlcHw4XDOtjY2NiL2PPSUj2UUy2B1Q198zVgY2NjY+cj1eJn9o5U5tuKjY2Njd1b+iSWmjQ52NjY2L/Drh6vrAZDnxgwVMMvbGxs7K3seUAzbx4mg+H5ndjY2NiPZf8DmJ18uMzUNXwAAAAASUVORK5CYII=" alt="微信分享二维码">
-</div>
-
-
-
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
-
-
-
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 </body>
 </html>

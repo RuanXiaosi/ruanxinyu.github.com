@@ -3,199 +3,111 @@
 <head>
     
 
-    
-
-    
-<!-- Baidu Tongji -->
-<script>var _hmt = _hmt || []</script>
-<script async src="//hm.baidu.com/hm.js?b4c4998e548a16b827d4ffe9dbe2b47b"></script>
-<!-- End Baidu Tongji -->
-
-
-
-
     <meta charset="utf-8">
-    
-    
-    
-    
-    <title>Git常见问题操作指导 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="阮新宇的成长记录">
+    <meta name="author" content="阮新宇">
     <meta name="keywords" content="飞行手册">
-    <meta name="description" content="图形化客户端强烈推荐：SmartGit， 本文是基于Git飞行规则上做的修改与补充。  快速查询目录快速查询目录编辑提交(editting commits)刚才提交了什么提交信息写错了提交里的用户名和邮箱不对想从一个提交里移除一个文件想删除最后一次提交删除任意提交尝试推一个修正后的提交到远程，但是报错：意外的做了一次硬重置，想找回内容暂存(Staging)需要把暂存的内容添加到上一次的提交想要暂">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Git常见问题操作指导 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+
+    <meta name="description" content="图形化客户端强烈推荐：SmartGit， 本文是基于Git飞行规则上做的修改与补充。  快速查询目录    为了清楚的表述，这篇文档里的所有例子使用了自定义的bash 提示，以便指示当前分支和是否有暂存的变化(changes)。分支名用小括号括起来，分支名后面跟的*表示暂存的变化(changes)。  编辑提交(editting commits)刚才提交了什么如果你用 git commit -a">
 <meta name="keywords" content="飞行手册">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git常见问题操作指导">
 <meta property="og:url" content="http://ruanxinyu.github.io/posts/Git常见问题操作指导/index.html">
 <meta property="og:site_name" content="RuanXinYu&#39;s Blog">
-<meta property="og:description" content="图形化客户端强烈推荐：SmartGit， 本文是基于Git飞行规则上做的修改与补充。  快速查询目录快速查询目录编辑提交(editting commits)刚才提交了什么提交信息写错了提交里的用户名和邮箱不对想从一个提交里移除一个文件想删除最后一次提交删除任意提交尝试推一个修正后的提交到远程，但是报错：意外的做了一次硬重置，想找回内容暂存(Staging)需要把暂存的内容添加到上一次的提交想要暂">
+<meta property="og:description" content="图形化客户端强烈推荐：SmartGit， 本文是基于Git飞行规则上做的修改与补充。  快速查询目录    为了清楚的表述，这篇文档里的所有例子使用了自定义的bash 提示，以便指示当前分支和是否有暂存的变化(changes)。分支名用小括号括起来，分支名后面跟的*表示暂存的变化(changes)。  编辑提交(editting commits)刚才提交了什么如果你用 git commit -a">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-06T04:03:46.892Z">
+<meta property="og:updated_time" content="2018-10-14T05:16:20.561Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git常见问题操作指导">
-<meta name="twitter:description" content="图形化客户端强烈推荐：SmartGit， 本文是基于Git飞行规则上做的修改与补充。  快速查询目录快速查询目录编辑提交(editting commits)刚才提交了什么提交信息写错了提交里的用户名和邮箱不对想从一个提交里移除一个文件想删除最后一次提交删除任意提交尝试推一个修正后的提交到远程，但是报错：意外的做了一次硬重置，想找回内容暂存(Staging)需要把暂存的内容添加到上一次的提交想要暂">
+<meta name="twitter:description" content="图形化客户端强烈推荐：SmartGit， 本文是基于Git飞行规则上做的修改与补充。  快速查询目录    为了清楚的表述，这篇文档里的所有例子使用了自定义的bash 提示，以便指示当前分支和是否有暂存的变化(changes)。分支名用小括号括起来，分支名后面跟的*表示暂存的变化(changes)。  编辑提交(editting commits)刚才提交了什么如果你用 git commit -a">
     
         <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
-
-    <!-- custom head -->
-    
-
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/avatar.png">
 </head>
-
-<body>
-    <div id="loading" class="active"></div>
-
-    <aside id="menu"  >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
+<body class="bg-white">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">
+        <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
     </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.png">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">阮新宇</h5>
-          <a href="mailto:1096421257@qq.com" title="1096421257@qq.com" class="mail">1096421257@qq.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                归档
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                分类
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/RuanXinyu" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-      </ul>
-    </div>
-  </div>
-</aside>
+    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">Git常见问题操作指导</div>
+    <div class="navbar-collapse offcanvas-collapse" id="navbarsDefault">
+        <ul class="navbar-nav mr-auto">
         
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/"  >主页</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/bookmarks"  >书签收藏</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/questions"  >问题速查</a>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文管理</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/tags"  >标签</a>
+                        
+                        <a class="dropdown-item" href="/categories"  >分类</a>
+                        
+                        <a class="dropdown-item" href="/archives"  >归档</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">关于</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="https://github.com/RuanXinyu" target="_blank" >github</a>
+                        
+                        <a class="dropdown-item" href="/posts/下一步计划"  >下一步计划</a>
+                        
+                    </div>
+                </li>
+            
+        
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="全文搜索" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+        </form>
+    </div>
+</nav>
+    <main role="main" class="container-fluid mt-5">
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+    <div class="row">
+        <div class="col-2 position-fixed border-right" style="overflow-y:auto; height:100%; width:100%">
+            <div class="my-3 bg-white rounded box-shadow post-toc">
+                <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#快速查询目录"><span class="toc-text">快速查询目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编辑提交-editting-commits"><span class="toc-text">编辑提交(editting commits)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#刚才提交了什么"><span class="toc-text">刚才提交了什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交信息写错了"><span class="toc-text">提交信息写错了</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交里的用户名和邮箱不对"><span class="toc-text">提交里的用户名和邮箱不对</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#想从一个提交里移除一个文件"><span class="toc-text">想从一个提交里移除一个文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#想删除最后一次提交"><span class="toc-text">想删除最后一次提交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除任意提交"><span class="toc-text">删除任意提交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#尝试推一个修正后的提交到远程，但是报错："><span class="toc-text">尝试推一个修正后的提交到远程，但是报错：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#意外的做了一次硬重置，想找回内容"><span class="toc-text">意外的做了一次硬重置，想找回内容</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#暂存-Staging"><span class="toc-text">暂存(Staging)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#需要把暂存的内容添加到上一次的提交"><span class="toc-text">需要把暂存的内容添加到上一次的提交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#想要暂存一个新文件的一部分，而不是这个文件的全部"><span class="toc-text">想要暂存一个新文件的一部分，而不是这个文件的全部</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#想把在一个文件里的变化加到两个提交里"><span class="toc-text">想把在一个文件里的变化加到两个提交里</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#想把暂存的内容变成未暂存，把未暂存的内容暂存起来"><span class="toc-text">想把暂存的内容变成未暂存，把未暂存的内容暂存起来</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#未暂存-Unstaged-的内容"><span class="toc-text">未暂存(Unstaged)的内容</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#想把未暂存的内容移动到一个新分支"><span class="toc-text">想把未暂存的内容移动到一个新分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#想把未暂存的内容移动到另一个已存在的分支"><span class="toc-text">想把未暂存的内容移动到另一个已存在的分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#想丢弃本地未提交的变化"><span class="toc-text">想丢弃本地未提交的变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#想丢弃某些未暂存的内容"><span class="toc-text">想丢弃某些未暂存的内容</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分支-Branches"><span class="toc-text">分支(Branches)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#从错误的分支拉取了内容，或把内容拉取到了错误的分支"><span class="toc-text">从错误的分支拉取了内容，或把内容拉取到了错误的分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#想扔掉本地的提交，以便我的分支与远程的保持一致"><span class="toc-text">想扔掉本地的提交，以便我的分支与远程的保持一致</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#需要提交到一个新分支，但错误的提交到了master"><span class="toc-text">需要提交到一个新分支，但错误的提交到了master</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#想保留来自另外一个ref-ish的整个文件"><span class="toc-text">想保留来自另外一个ref-ish的整个文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#把几个提交提交到了同一个分支，而这些提交应该分布在不同的分支里"><span class="toc-text">把几个提交提交到了同一个分支，而这些提交应该分布在不同的分支里</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#想删除上游分支被删除了的本地分支"><span class="toc-text">想删除上游分支被删除了的本地分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不小心删除了我的分支"><span class="toc-text">不小心删除了我的分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#想删除一个分支"><span class="toc-text">想删除一个分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#想从别人正在工作的远程分支签出一个分支"><span class="toc-text">想从别人正在工作的远程分支签出一个分支</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Rebasing-和合并-Merging"><span class="toc-text">Rebasing 和合并(Merging)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#想撤销rebase-merge"><span class="toc-text">想撤销rebase/merge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#已经rebase过-但是我不想强推"><span class="toc-text">已经rebase过, 但是我不想强推</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#需要组合几个提交"><span class="toc-text">需要组合几个提交</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安全合并策略"><span class="toc-text">安全合并策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#需要将一个分支合并成一个提交"><span class="toc-text">需要将一个分支合并成一个提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#只想组合未推的提交"><span class="toc-text">只想组合未推的提交</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检查是否分支上的所有提交都合并过了"><span class="toc-text">检查是否分支上的所有提交都合并过了</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交互式rebase可能出现的问题"><span class="toc-text">交互式rebase可能出现的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#这个rebase编辑屏幕出现’noop’"><span class="toc-text">这个rebase编辑屏幕出现’noop’</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#有冲突的情况"><span class="toc-text">有冲突的情况</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#杂项-Miscellaneous-Objects"><span class="toc-text">杂项(Miscellaneous Objects)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆所有子模块"><span class="toc-text">克隆所有子模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除标签"><span class="toc-text">删除标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#恢复已删除标签"><span class="toc-text">恢复已删除标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#已删除补丁"><span class="toc-text">已删除补丁</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#跟踪文件-Tracking-Files"><span class="toc-text">跟踪文件(Tracking Files)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#只想改变一个文件名字的大小写，而不修改内容"><span class="toc-text">只想改变一个文件名字的大小写，而不修改内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#想从Git删除一个文件，但保留该文件"><span class="toc-text">想从Git删除一个文件，但保留该文件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置-Configuration"><span class="toc-text">配置(Configuration)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#想给一些Git命令添加别名"><span class="toc-text">想给一些Git命令添加别名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#想缓存一个仓库的用户名和密码"><span class="toc-text">想缓存一个仓库的用户名和密码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#不知道我做错了些什么"><span class="toc-text">不知道我做错了些什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#其它资源-Other-Resources"><span class="toc-text">其它资源(Other Resources)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#书-Books"><span class="toc-text">书(Books)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#教程-Tutorials"><span class="toc-text">教程(Tutorials)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#脚本和工具-Scripts-and-Tools"><span class="toc-text">脚本和工具(Scripts and Tools)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GUI客户端-GUI-Clients"><span class="toc-text">GUI客户端(GUI Clients)</span></a></li></ol></li></ol>
+            </div>
         </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">Git常见问题操作指导</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-10-04T05:15:35.000Z" itemprop="datePublished" class="page-time">
-  2018-10-04
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/飞行手册/">飞行手册</a></li></ul>
-
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>目录</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#快速查询目录"><span class="post-toc-number">1.</span> <span class="post-toc-text">快速查询目录</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#编辑提交-editting-commits"><span class="post-toc-number">2.</span> <span class="post-toc-text">编辑提交(editting commits)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#刚才提交了什么"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">刚才提交了什么</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#提交信息写错了"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">提交信息写错了</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#提交里的用户名和邮箱不对"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">提交里的用户名和邮箱不对</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#想从一个提交里移除一个文件"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">想从一个提交里移除一个文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#想删除最后一次提交"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">想删除最后一次提交</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#删除任意提交"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">删除任意提交</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#尝试推一个修正后的提交到远程，但是报错："><span class="post-toc-number">2.7.</span> <span class="post-toc-text">尝试推一个修正后的提交到远程，但是报错：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#意外的做了一次硬重置，想找回内容"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">意外的做了一次硬重置，想找回内容</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#暂存-Staging"><span class="post-toc-number">3.</span> <span class="post-toc-text">暂存(Staging)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#需要把暂存的内容添加到上一次的提交"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">需要把暂存的内容添加到上一次的提交</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#想要暂存一个新文件的一部分，而不是这个文件的全部"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">想要暂存一个新文件的一部分，而不是这个文件的全部</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#想把在一个文件里的变化加到两个提交里"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">想把在一个文件里的变化加到两个提交里</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#想把暂存的内容变成未暂存，把未暂存的内容暂存起来"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">想把暂存的内容变成未暂存，把未暂存的内容暂存起来</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#未暂存-Unstaged-的内容"><span class="post-toc-number">4.</span> <span class="post-toc-text">未暂存(Unstaged)的内容</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#想把未暂存的内容移动到一个新分支"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">想把未暂存的内容移动到一个新分支</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#想把未暂存的内容移动到另一个已存在的分支"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">想把未暂存的内容移动到另一个已存在的分支</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#想丢弃本地未提交的变化"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">想丢弃本地未提交的变化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#想丢弃某些未暂存的内容"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">想丢弃某些未暂存的内容</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#分支-Branches"><span class="post-toc-number">5.</span> <span class="post-toc-text">分支(Branches)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#从错误的分支拉取了内容，或把内容拉取到了错误的分支"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">从错误的分支拉取了内容，或把内容拉取到了错误的分支</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#想扔掉本地的提交，以便我的分支与远程的保持一致"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">想扔掉本地的提交，以便我的分支与远程的保持一致</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#需要提交到一个新分支，但错误的提交到了master"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">需要提交到一个新分支，但错误的提交到了master</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#想保留来自另外一个ref-ish的整个文件"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">想保留来自另外一个ref-ish的整个文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#把几个提交提交到了同一个分支，而这些提交应该分布在不同的分支里"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">把几个提交提交到了同一个分支，而这些提交应该分布在不同的分支里</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#想删除上游分支被删除了的本地分支"><span class="post-toc-number">5.6.</span> <span class="post-toc-text">想删除上游分支被删除了的本地分支</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#不小心删除了我的分支"><span class="post-toc-number">5.7.</span> <span class="post-toc-text">不小心删除了我的分支</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#想删除一个分支"><span class="post-toc-number">5.8.</span> <span class="post-toc-text">想删除一个分支</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#想从别人正在工作的远程分支签出一个分支"><span class="post-toc-number">5.9.</span> <span class="post-toc-text">想从别人正在工作的远程分支签出一个分支</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Rebasing-和合并-Merging"><span class="post-toc-number">6.</span> <span class="post-toc-text">Rebasing 和合并(Merging)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#想撤销rebase-merge"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">想撤销rebase/merge</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#已经rebase过-但是我不想强推"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">已经rebase过, 但是我不想强推</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#需要组合几个提交"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">需要组合几个提交</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安全合并策略"><span class="post-toc-number">6.3.1.</span> <span class="post-toc-text">安全合并策略</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#需要将一个分支合并成一个提交"><span class="post-toc-number">6.3.2.</span> <span class="post-toc-text">需要将一个分支合并成一个提交</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#只想组合未推的提交"><span class="post-toc-number">6.3.3.</span> <span class="post-toc-text">只想组合未推的提交</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#检查是否分支上的所有提交都合并过了"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">检查是否分支上的所有提交都合并过了</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#交互式rebase可能出现的问题"><span class="post-toc-number">6.5.</span> <span class="post-toc-text">交互式rebase可能出现的问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#这个rebase编辑屏幕出现’noop’"><span class="post-toc-number">6.5.1.</span> <span class="post-toc-text">这个rebase编辑屏幕出现’noop’</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#有冲突的情况"><span class="post-toc-number">6.5.2.</span> <span class="post-toc-text">有冲突的情况</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#杂项-Miscellaneous-Objects"><span class="post-toc-number">7.</span> <span class="post-toc-text">杂项(Miscellaneous Objects)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#克隆所有子模块"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">克隆所有子模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#删除标签"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">删除标签</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#恢复已删除标签"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">恢复已删除标签</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#已删除补丁"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">已删除补丁</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#跟踪文件-Tracking-Files"><span class="post-toc-number">8.</span> <span class="post-toc-text">跟踪文件(Tracking Files)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#只想改变一个文件名字的大小写，而不修改内容"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">只想改变一个文件名字的大小写，而不修改内容</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#想从Git删除一个文件，但保留该文件"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">想从Git删除一个文件，但保留该文件</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置-Configuration"><span class="post-toc-number">9.</span> <span class="post-toc-text">配置(Configuration)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#想给一些Git命令添加别名"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">想给一些Git命令添加别名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#想缓存一个仓库的用户名和密码"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">想缓存一个仓库的用户名和密码</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#不知道我做错了些什么"><span class="post-toc-number">10.</span> <span class="post-toc-text">不知道我做错了些什么</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#其它资源-Other-Resources"><span class="post-toc-number">11.</span> <span class="post-toc-text">其它资源(Other Resources)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#书-Books"><span class="post-toc-number">11.1.</span> <span class="post-toc-text">书(Books)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#教程-Tutorials"><span class="post-toc-number">11.2.</span> <span class="post-toc-text">教程(Tutorials)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#脚本和工具-Scripts-and-Tools"><span class="post-toc-number">11.3.</span> <span class="post-toc-text">脚本和工具(Scripts and Tools)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GUI客户端-GUI-Clients"><span class="post-toc-number">11.4.</span> <span class="post-toc-text">GUI客户端(GUI Clients)</span></a></li></ol></li></ol>
-        </nav>
-    </aside>
-
-
-<article id="post-Git常见问题操作指导"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">Git常见问题操作指导</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2018-10-04 13:15:35" datetime="2018-10-04T05:15:35.000Z"  itemprop="datePublished">2018-10-04</time>
-
-            
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/飞行手册/">飞行手册</a></li></ul>
-
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            
-            <blockquote>
+        <div class="col-10 offset-2">
+        <div class="my-3 bg-white rounded box-shadow post-content"><blockquote>
 <p>图形化客户端强烈推荐：<a href="https://www.syntevo.com/smartgit/" target="_blank" rel="noopener">SmartGit</a>， 本文是基于<a href="https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md" target="_blank" rel="noopener">Git飞行规则</a>上做的修改与补充。</p>
 </blockquote>
-<h1 id="快速查询目录"><a href="#快速查询目录" class="headerlink" title="快速查询目录"></a>快速查询目录</h1><ol class="post-toc-page"><li class="post-toc-page-item post-toc-page-level-1"><a class="post-toc-page-link" href="#快速查询目录"><span class="post-toc-page-text">快速查询目录</span></a></li><li class="post-toc-page-item post-toc-page-level-1"><a class="post-toc-page-link" href="#编辑提交-editting-commits"><span class="post-toc-page-text">编辑提交(editting commits)</span></a><ol class="post-toc-page-child"><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#刚才提交了什么"><span class="post-toc-page-text">刚才提交了什么</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#提交信息写错了"><span class="post-toc-page-text">提交信息写错了</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#提交里的用户名和邮箱不对"><span class="post-toc-page-text">提交里的用户名和邮箱不对</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#想从一个提交里移除一个文件"><span class="post-toc-page-text">想从一个提交里移除一个文件</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#想删除最后一次提交"><span class="post-toc-page-text">想删除最后一次提交</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#删除任意提交"><span class="post-toc-page-text">删除任意提交</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#尝试推一个修正后的提交到远程，但是报错："><span class="post-toc-page-text">尝试推一个修正后的提交到远程，但是报错：</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#意外的做了一次硬重置，想找回内容"><span class="post-toc-page-text">意外的做了一次硬重置，想找回内容</span></a></li></ol></li><li class="post-toc-page-item post-toc-page-level-1"><a class="post-toc-page-link" href="#暂存-Staging"><span class="post-toc-page-text">暂存(Staging)</span></a><ol class="post-toc-page-child"><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#需要把暂存的内容添加到上一次的提交"><span class="post-toc-page-text">需要把暂存的内容添加到上一次的提交</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#想要暂存一个新文件的一部分，而不是这个文件的全部"><span class="post-toc-page-text">想要暂存一个新文件的一部分，而不是这个文件的全部</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#想把在一个文件里的变化加到两个提交里"><span class="post-toc-page-text">想把在一个文件里的变化加到两个提交里</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#想把暂存的内容变成未暂存，把未暂存的内容暂存起来"><span class="post-toc-page-text">想把暂存的内容变成未暂存，把未暂存的内容暂存起来</span></a></li></ol></li><li class="post-toc-page-item post-toc-page-level-1"><a class="post-toc-page-link" href="#未暂存-Unstaged-的内容"><span class="post-toc-page-text">未暂存(Unstaged)的内容</span></a><ol class="post-toc-page-child"><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#想把未暂存的内容移动到一个新分支"><span class="post-toc-page-text">想把未暂存的内容移动到一个新分支</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#想把未暂存的内容移动到另一个已存在的分支"><span class="post-toc-page-text">想把未暂存的内容移动到另一个已存在的分支</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#想丢弃本地未提交的变化"><span class="post-toc-page-text">想丢弃本地未提交的变化</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#想丢弃某些未暂存的内容"><span class="post-toc-page-text">想丢弃某些未暂存的内容</span></a></li></ol></li><li class="post-toc-page-item post-toc-page-level-1"><a class="post-toc-page-link" href="#分支-Branches"><span class="post-toc-page-text">分支(Branches)</span></a><ol class="post-toc-page-child"><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#从错误的分支拉取了内容，或把内容拉取到了错误的分支"><span class="post-toc-page-text">从错误的分支拉取了内容，或把内容拉取到了错误的分支</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#想扔掉本地的提交，以便我的分支与远程的保持一致"><span class="post-toc-page-text">想扔掉本地的提交，以便我的分支与远程的保持一致</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#需要提交到一个新分支，但错误的提交到了master"><span class="post-toc-page-text">需要提交到一个新分支，但错误的提交到了master</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#想保留来自另外一个ref-ish的整个文件"><span class="post-toc-page-text">想保留来自另外一个ref-ish的整个文件</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#把几个提交提交到了同一个分支，而这些提交应该分布在不同的分支里"><span class="post-toc-page-text">把几个提交提交到了同一个分支，而这些提交应该分布在不同的分支里</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#想删除上游分支被删除了的本地分支"><span class="post-toc-page-text">想删除上游分支被删除了的本地分支</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#不小心删除了我的分支"><span class="post-toc-page-text">不小心删除了我的分支</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#想删除一个分支"><span class="post-toc-page-text">想删除一个分支</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#想从别人正在工作的远程分支签出一个分支"><span class="post-toc-page-text">想从别人正在工作的远程分支签出一个分支</span></a></li></ol></li><li class="post-toc-page-item post-toc-page-level-1"><a class="post-toc-page-link" href="#Rebasing-和合并-Merging"><span class="post-toc-page-text">Rebasing 和合并(Merging)</span></a><ol class="post-toc-page-child"><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#想撤销rebase-merge"><span class="post-toc-page-text">想撤销rebase/merge</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#已经rebase过-但是我不想强推"><span class="post-toc-page-text">已经rebase过, 但是我不想强推</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#需要组合几个提交"><span class="post-toc-page-text">需要组合几个提交</span></a><ol class="post-toc-page-child"><li class="post-toc-page-item post-toc-page-level-3"><a class="post-toc-page-link" href="#安全合并策略"><span class="post-toc-page-text">安全合并策略</span></a></li><li class="post-toc-page-item post-toc-page-level-3"><a class="post-toc-page-link" href="#需要将一个分支合并成一个提交"><span class="post-toc-page-text">需要将一个分支合并成一个提交</span></a></li><li class="post-toc-page-item post-toc-page-level-3"><a class="post-toc-page-link" href="#只想组合未推的提交"><span class="post-toc-page-text">只想组合未推的提交</span></a></li></ol></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#检查是否分支上的所有提交都合并过了"><span class="post-toc-page-text">检查是否分支上的所有提交都合并过了</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#交互式rebase可能出现的问题"><span class="post-toc-page-text">交互式rebase可能出现的问题</span></a><ol class="post-toc-page-child"><li class="post-toc-page-item post-toc-page-level-3"><a class="post-toc-page-link" href="#这个rebase编辑屏幕出现’noop’"><span class="post-toc-page-text">这个rebase编辑屏幕出现’noop’</span></a></li><li class="post-toc-page-item post-toc-page-level-3"><a class="post-toc-page-link" href="#有冲突的情况"><span class="post-toc-page-text">有冲突的情况</span></a></li></ol></li></ol></li><li class="post-toc-page-item post-toc-page-level-1"><a class="post-toc-page-link" href="#杂项-Miscellaneous-Objects"><span class="post-toc-page-text">杂项(Miscellaneous Objects)</span></a><ol class="post-toc-page-child"><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#克隆所有子模块"><span class="post-toc-page-text">克隆所有子模块</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#删除标签"><span class="post-toc-page-text">删除标签</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#恢复已删除标签"><span class="post-toc-page-text">恢复已删除标签</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#已删除补丁"><span class="post-toc-page-text">已删除补丁</span></a></li></ol></li><li class="post-toc-page-item post-toc-page-level-1"><a class="post-toc-page-link" href="#跟踪文件-Tracking-Files"><span class="post-toc-page-text">跟踪文件(Tracking Files)</span></a><ol class="post-toc-page-child"><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#只想改变一个文件名字的大小写，而不修改内容"><span class="post-toc-page-text">只想改变一个文件名字的大小写，而不修改内容</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#想从Git删除一个文件，但保留该文件"><span class="post-toc-page-text">想从Git删除一个文件，但保留该文件</span></a></li></ol></li><li class="post-toc-page-item post-toc-page-level-1"><a class="post-toc-page-link" href="#配置-Configuration"><span class="post-toc-page-text">配置(Configuration)</span></a><ol class="post-toc-page-child"><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#想给一些Git命令添加别名"><span class="post-toc-page-text">想给一些Git命令添加别名</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#想缓存一个仓库的用户名和密码"><span class="post-toc-page-text">想缓存一个仓库的用户名和密码</span></a></li></ol></li><li class="post-toc-page-item post-toc-page-level-1"><a class="post-toc-page-link" href="#不知道我做错了些什么"><span class="post-toc-page-text">不知道我做错了些什么</span></a></li><li class="post-toc-page-item post-toc-page-level-1"><a class="post-toc-page-link" href="#其它资源-Other-Resources"><span class="post-toc-page-text">其它资源(Other Resources)</span></a><ol class="post-toc-page-child"><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#书-Books"><span class="post-toc-page-text">书(Books)</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#教程-Tutorials"><span class="post-toc-page-text">教程(Tutorials)</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#脚本和工具-Scripts-and-Tools"><span class="post-toc-page-text">脚本和工具(Scripts and Tools)</span></a></li><li class="post-toc-page-item post-toc-page-level-2"><a class="post-toc-page-link" href="#GUI客户端-GUI-Clients"><span class="post-toc-page-text">GUI客户端(GUI Clients)</span></a></li></ol></li></ol> 
+<h1 id="快速查询目录"><a href="#快速查询目录" class="headerlink" title="快速查询目录"></a>快速查询目录</h1><!-- page_toc -->  
 <blockquote>
 <p>为了清楚的表述，这篇文档里的所有例子使用了自定义的bash 提示，以便指示当前分支和是否有暂存的变化(changes)。分支名用小括号括起来，分支名后面跟的<code>*</code>表示暂存的变化(changes)。</p>
 </blockquote>
@@ -430,281 +342,13 @@
 <li><a href="http://www.git-tower.com/" target="_blank" rel="noopener">Tower</a> - 图形化Git客户端 OS X(付费)</li>
 <li><a href="https://www.syntevo.com/smartgit/" target="_blank" rel="noopener">SmartGit</a> - 推荐，对个人用户免费</li>
 </ul>
-
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2018-10-06T04:03:46.892Z" itemprop="dateUpdated">2018-10-06 12:03:46</time>
-</span><br>
-
-
-        
-        原始链接：<a href="/posts/Git常见问题操作指导/" target="_blank" rel="external">http://ruanxinyu.github.io/posts/Git常见问题操作指导/</a>
-        
-    </div>
-    
-    <footer>
-        <a href="http://ruanxinyu.github.io">
-            <img src="/img/avatar.png" alt="阮新宇">
-            阮新宇
-        </a>
-    </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/飞行手册/">飞行手册</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/posts/Git常见问题操作指导/&title=《Git常见问题操作指导》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/posts/Git常见问题操作指导/&title=《Git常见问题操作指导》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/posts/Git常见问题操作指导/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Git常见问题操作指导》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/posts/Git常见问题操作指导/&via=http://ruanxinyu.github.io" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/posts/Git常见问题操作指导/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
 </div>
-
-
-
         </div>
     </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/posts/Ubuntu下Mysql的安装与验证/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h5 class="title">Ubuntu下Mysql的安装与验证</h5>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h5 class="title">Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建</h5>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'false' == 'true',
-            verify: 'false' == 'true',
-            appId: "6OnUHurDk7brX6HPnIjKMeVb-gzGzoHsz",
-            appKey: "C8w3nGdzmRR4i8LePSnMEjsy",
-            avatar: "mm",
-            placeholder: "Just go go",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
 </div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>阮新宇 &copy; 2015 - 2018</span>
-            <span>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-</footer>
 
     </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/posts/Git常见问题操作指导/&title=《Git常见问题操作指导》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/posts/Git常见问题操作指导/&title=《Git常见问题操作指导》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/posts/Git常见问题操作指导/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Git常见问题操作指导》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/posts/Git常见问题操作指导/&via=http://ruanxinyu.github.io" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/posts/Git常见问题操作指导/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHUlEQVR42u3aQW7DMAwEwPz/0+61QBB3SSoFLI1OheNYnhxYUuTrFa/rbb1/2rvy+/qn5y9bGBgYj2Vct+t+g2TL6vPvr3+kYmBgHMD4tH0vpN6H14SUvxsGBgZG/tKF4DjYFwMDA6P6uElITdJNDAwMjGqReX9MlgTipCT+ei2OgYHxQEZ+6v7/f3+lv4GBgfEoxlVcyXcn7c+rtTAwMPZmrG1D9pK8ecGMgYGxN6MX7KqpZH5PUtZiYGCcxsgTuEL8bh3k9YpbDAyM0xj5i06SvEk7YcF5IQYGxhaMfLihGv6qjdJRkMXAwDiA0UvdVjUMFvyvwMDA2JSRNxrXvko+Rha1EDAwMLZmVMPlqgC9rBOLgYFxGKPXklzbwkySzgW1OAYGxkMYSYjsjYVN0sTyoRsGBsamjGpKlzAmI629NicGBsbejF6KlpS7k281hy0wMDAOYMw36AXlZaUsBgbGAYxJwM0/7X2rcNyGgYFxAGPSPqyOovYGLwqHbhgYGNsx5olgr0ie9F0xMDBOY8wDbjWA9o7VolEwDAyMjRhXceXBsTr8Wm1tYmBgnMPI1+Sh1eGMZNiiCcPAwHgsoxpk8+J2cmyXvwMGBsY5jGpxWx25qAbTvDDGwMDAyO/Jr5cP/SfHiRgYGMczqoVoUhLn9y8LuBgYGA9hJCldXlL+sWWcYhYO7zAwMLZmjErH+FWqP9Pa5gQGBsZjGT/ShJ07CxT80AAAAABJRU5ErkJggg==" alt="微信分享二维码">
-</div>
-
-
-
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
-
-
-
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 </body>
 </html>

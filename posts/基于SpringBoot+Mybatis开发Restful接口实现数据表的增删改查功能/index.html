@@ -3,29 +3,14 @@
 <head>
     
 
-    
-
-    
-<!-- Baidu Tongji -->
-<script>var _hmt = _hmt || []</script>
-<script async src="//hm.baidu.com/hm.js?b4c4998e548a16b827d4ffe9dbe2b47b"></script>
-<!-- End Baidu Tongji -->
-
-
-
-
     <meta charset="utf-8">
-    
-    
-    
-    
-    <title>基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="阮新宇的成长记录">
+    <meta name="author" content="阮新宇">
     <meta name="keywords" content="Java">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+
     <meta name="description" content="基础环境说明本教程使用Maven管理依赖，使用IDEA进行开发，在开始之前，请按照下面教程安装好JDK和Mysql:  JDK的安装请参考：JDK安装教程 Mysql的安装请参考： Ubuntu下Mysql的安装与验证  本教程的代码地址为：https://github.com/RuanXinyu/springcloud-demo/tree/master/productionservice 初始化">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
@@ -58,158 +43,85 @@
     
         <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
-
-    <!-- custom head -->
-    
-
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/avatar.png">
 </head>
-
-<body>
-    <div id="loading" class="active"></div>
-
-    <aside id="menu"  >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
+<body class="bg-white">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">
+        <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
     </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.png">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">阮新宇</h5>
-          <a href="mailto:1096421257@qq.com" title="1096421257@qq.com" class="mail">1096421257@qq.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                归档
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                分类
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/RuanXinyu" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-      </ul>
-    </div>
-  </div>
-</aside>
+    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能</div>
+    <div class="navbar-collapse offcanvas-collapse" id="navbarsDefault">
+        <ul class="navbar-nav mr-auto">
         
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/"  >主页</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/bookmarks"  >书签收藏</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/questions"  >问题速查</a>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文管理</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/tags"  >标签</a>
+                        
+                        <a class="dropdown-item" href="/categories"  >分类</a>
+                        
+                        <a class="dropdown-item" href="/archives"  >归档</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">关于</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="https://github.com/RuanXinyu" target="_blank" >github</a>
+                        
+                        <a class="dropdown-item" href="/posts/下一步计划"  >下一步计划</a>
+                        
+                    </div>
+                </li>
+            
+        
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="全文搜索" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+        </form>
+    </div>
+</nav>
+    <main role="main" class="container-fluid mt-5">
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+    <div class="row">
+        <div class="col-2 position-fixed border-right" style="overflow-y:auto; height:100%; width:100%">
+            <div class="my-3 bg-white rounded box-shadow post-toc">
+                <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础环境说明"><span class="toc-text">基础环境说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#初始化数据库"><span class="toc-text">初始化数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#通过IDEA生成基础代码"><span class="toc-text">通过IDEA生成基础代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用MybatisGenerator生成代码"><span class="toc-text">使用MybatisGenerator生成代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pom-xml"><span class="toc-text">pom.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mybatis-generator-xml"><span class="toc-text">mybatis_generator.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mybatis-generator-generate"><span class="toc-text">mybatis-generator:generate</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加查询数据列表接口"><span class="toc-text">添加查询数据列表接口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ProductionMapper-xml"><span class="toc-text">ProductionMapper.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ProductionMapper-java"><span class="toc-text">ProductionMapper.java</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#增加-Mapper注解"><span class="toc-text">增加@Mapper注解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#增加service层代码"><span class="toc-text">增加service层代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ProductionService-java"><span class="toc-text">ProductionService.java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ProductionServiceImpl-java"><span class="toc-text">ProductionServiceImpl.java</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#增加controller层代码"><span class="toc-text">增加controller层代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ProductionController-java"><span class="toc-text">ProductionController.java</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置application-properties"><span class="toc-text">配置application.properties</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#启动应用程序"><span class="toc-text">启动应用程序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PostMan验证接口"><span class="toc-text">PostMan验证接口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mall-production-save"><span class="toc-text">/mall/production/save</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mall-production-list"><span class="toc-text">/mall/production/list</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mall-production-update"><span class="toc-text">/mall/production/update</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mall-production-get-id"><span class="toc-text">/mall/production/get/{id}</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mall-production-delete-id"><span class="toc-text">/mall/production/delete/{id}</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#可能遇到的问题"><span class="toc-text">可能遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启动时提示自动加载ProductionMapper失败"><span class="toc-text">启动时提示自动加载ProductionMapper失败</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动时提示Result-Maps错误"><span class="toc-text">启动时提示Result Maps错误</span></a></li></ol></li></ol>
+            </div>
         </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-10-06T07:29:04.000Z" itemprop="datePublished" class="page-time">
-  2018-10-06
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术分享/">技术分享</a></li></ul>
-
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>目录</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基础环境说明"><span class="post-toc-number">1.</span> <span class="post-toc-text">基础环境说明</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#初始化数据库"><span class="post-toc-number">2.</span> <span class="post-toc-text">初始化数据库</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#通过IDEA生成基础代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">通过IDEA生成基础代码</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用MybatisGenerator生成代码"><span class="post-toc-number">4.</span> <span class="post-toc-text">使用MybatisGenerator生成代码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#pom-xml"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">pom.xml</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mybatis-generator-xml"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">mybatis_generator.xml</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mybatis-generator-generate"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">mybatis-generator:generate</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#添加查询数据列表接口"><span class="post-toc-number">5.</span> <span class="post-toc-text">添加查询数据列表接口</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ProductionMapper-xml"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">ProductionMapper.xml</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ProductionMapper-java"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">ProductionMapper.java</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#增加-Mapper注解"><span class="post-toc-number">6.</span> <span class="post-toc-text">增加@Mapper注解</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#增加service层代码"><span class="post-toc-number">7.</span> <span class="post-toc-text">增加service层代码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ProductionService-java"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">ProductionService.java</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ProductionServiceImpl-java"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">ProductionServiceImpl.java</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#增加controller层代码"><span class="post-toc-number">8.</span> <span class="post-toc-text">增加controller层代码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ProductionController-java"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">ProductionController.java</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置application-properties"><span class="post-toc-number">9.</span> <span class="post-toc-text">配置application.properties</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#启动应用程序"><span class="post-toc-number">10.</span> <span class="post-toc-text">启动应用程序</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#PostMan验证接口"><span class="post-toc-number">11.</span> <span class="post-toc-text">PostMan验证接口</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mall-production-save"><span class="post-toc-number">11.1.</span> <span class="post-toc-text">/mall/production/save</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mall-production-list"><span class="post-toc-number">11.2.</span> <span class="post-toc-text">/mall/production/list</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mall-production-update"><span class="post-toc-number">11.3.</span> <span class="post-toc-text">/mall/production/update</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mall-production-get-id"><span class="post-toc-number">11.4.</span> <span class="post-toc-text">/mall/production/get/{id}</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mall-production-delete-id"><span class="post-toc-number">11.5.</span> <span class="post-toc-text">/mall/production/delete/{id}</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#可能遇到的问题"><span class="post-toc-number">12.</span> <span class="post-toc-text">可能遇到的问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#启动时提示自动加载ProductionMapper失败"><span class="post-toc-number">12.1.</span> <span class="post-toc-text">启动时提示自动加载ProductionMapper失败</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#启动时提示Result-Maps错误"><span class="post-toc-number">12.2.</span> <span class="post-toc-text">启动时提示Result Maps错误</span></a></li></ol></li></ol>
-        </nav>
-    </aside>
-
-
-<article id="post-基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2018-10-06 15:29:04" datetime="2018-10-06T07:29:04.000Z"  itemprop="datePublished">2018-10-06</time>
-
-            
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术分享/">技术分享</a></li></ul>
-
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            
-            <h1 id="基础环境说明"><a href="#基础环境说明" class="headerlink" title="基础环境说明"></a>基础环境说明</h1><p>本教程使用Maven管理依赖，使用IDEA进行开发，在开始之前，请按照下面教程安装好JDK和Mysql:</p>
+        <div class="col-10 offset-2">
+        <div class="my-3 bg-white rounded box-shadow post-content"><h1 id="基础环境说明"><a href="#基础环境说明" class="headerlink" title="基础环境说明"></a>基础环境说明</h1><p>本教程使用Maven管理依赖，使用IDEA进行开发，在开始之前，请按照下面教程安装好JDK和Mysql:</p>
 <ul>
 <li>JDK的安装请参考：<a href="/posts/JDK安装教程/" title="JDK安装教程">JDK安装教程</a></li>
 <li>Mysql的安装请参考： <a href="/posts/Ubuntu下Mysql的安装与验证/" title="Ubuntu下Mysql的安装与验证">Ubuntu下Mysql的安装与验证</a></li>
@@ -267,281 +179,13 @@
 <h2 id="mall-production-delete-id"><a href="#mall-production-delete-id" class="headerlink" title="/mall/production/delete/{id}"></a>/mall/production/delete/{id}</h2><p>最后通过delete接口删除数据<br><img src="/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-21-05-33.png" title="[blog.ruanxinyu.cn]"></p>
 <h1 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h1><h2 id="启动时提示自动加载ProductionMapper失败"><a href="#启动时提示自动加载ProductionMapper失败" class="headerlink" title="启动时提示自动加载ProductionMapper失败"></a>启动时提示自动加载ProductionMapper失败</h2><p>如果在启动过程中提示<code>No qualifying bean of type &#39;com.ruan.productionservice.mapper.ProductionMapper&#39; available: expected at least 1 bean which qualifies as autowire candidate.</code>，则说明<code>ProductionMapper</code>没有添加<code>@Mapper</code>注解，该文件是Mybatis Generator自动生成的，需要手动添加该注解。</p>
 <h2 id="启动时提示Result-Maps错误"><a href="#启动时提示Result-Maps错误" class="headerlink" title="启动时提示Result Maps错误"></a>启动时提示Result Maps错误</h2><p>启动报错提示<code>java.lang.IllegalArgumentException: Result Maps collection already contains value for com.ruan.productionservice.mapper.ProductionMapper.BaseResultMap</code>，是因为多次使用Mybatis Generator生成代码，造成<code>ProductionMapper.xml</code>文件中存在重复的内容，删除掉该文件重新生成即可。</p>
-
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2018-10-06T13:50:42.119Z" itemprop="dateUpdated">2018-10-06 21:50:42</time>
-</span><br>
-
-
-        
-        原始链接：<a href="/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/" target="_blank" rel="external">http://ruanxinyu.github.io/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/</a>
-        
-    </div>
-    
-    <footer>
-        <a href="http://ruanxinyu.github.io">
-            <img src="/img/avatar.png" alt="阮新宇">
-            阮新宇
-        </a>
-    </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/&title=《基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/&title=《基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/&via=http://ruanxinyu.github.io" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
 </div>
-
-
-
         </div>
     </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/posts/AngularJS学习记录-1/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h5 class="title">AngularJS学习记录-1</h5>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/posts/Mysql常见问题操作指导/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h5 class="title">Mysql常见问题操作指导</h5>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'false' == 'true',
-            verify: 'false' == 'true',
-            appId: "6OnUHurDk7brX6HPnIjKMeVb-gzGzoHsz",
-            appKey: "C8w3nGdzmRR4i8LePSnMEjsy",
-            avatar: "mm",
-            placeholder: "Just go go",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
 </div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>阮新宇 &copy; 2015 - 2018</span>
-            <span>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-</footer>
 
     </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/&title=《基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/&title=《基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/&via=http://ruanxinyu.github.io" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD5UlEQVR42u3cy04cQQwF0Pn/nybbJMBwr+1BRDm9QjOd6qrTkYwf4vGIr7ffrveffPZt8vPzdZ7v57N13t9zfOHAgQMHjvioz5fOt56sk2z6/bfPn9i+vA9Ww4EDBw4cRxzJA26DXIs7O3x+Rhw4cODA8RM42gwoD6stdEKGAwcOHDh+Psfz8Pb88xw0T/Bw4MCBA8fP4cjbSLPW1OtC6XFxEwcOHDhw3PSJouD37/78kvkOHDhw4MAxKuTlgwsz1jzx26SO0elw4MCBA8eaYzN8sNn6ZtDhNj3DgQMHDhyv42hDYM7RFiLb0uF+/4/b5XDgwIHjv+fYh9v9FpOEcDZsN7wTBw4cOHCccuRbb9O8IpUaDTfkrF/ciQMHDhw4jjg2wSwPwO2oRIuY7/PTp+DAgQMHjgVHHiDb0l4eMmftpduhChw4cODAccXRBsVkW0kZcdasyo+Xrxy1nXDgwIEDR8CRB7ZNI2rToGpfw6ZQiAMHDhw4rjjyFKg9ZBKkNynZ1UAeDhw4cOC44thvNA9ybUMrH4PYtKai/yM4cODAgWPy3HqJWahLnjJLLGdPjJpVOHDgwIEj5pgNELTXrGw3W2eGjgMHDhw4rjheUSJsRwpyiNmx618jcODAgQPHgiN/QN5wygPhbEBhg7j6Bzhw4MCBo1xhduxNA6kN2G0ythm/wIEDBw4cM45ZoN03hPJAPouDeaD941scOHDgwHHEMWsCzUYcbkuBm1TtA0ocOHDgwHEzD3D8hzXbFZIwmXwyS/CGzSccOHDgwBFwJGnYVTjMN9cOSczqox8EWhw4cODAMeKYBbM8KcqDdFvma5M6HDhw4MDxPRx5YtYmb/tD5kldm4gmWDhw4MCBY8bRlu3aBk873NA+Nx+nixJUHDhw4MCx5sjb/EnC8xZf+9GHfJ8Hv3HgwIEDB46YYxNoW++cKR+k2LSaHlfvAQcOHDhwHBX72mJiW3ZsUfLmVhTyceDAgQPHKUe7oQRrlpJdDUzU9+DAgQMHjtE9efjJG0htG2mTLm4gPtgnDhw4cOA44miTnzzlmyVaLWse2r948Thw4MCBY82x2cpVgrdpdM2eggMHDhw4XsfxVl5t8rY/Rl4oPHgZOHDgwIHjJq498uC3D28tXJ405mSrETocOHDgwBFwtMNkeQtqk+DlY3nHgRYHDhw4cBxxtIGq/WSTJb0iGft0TRw4cODA8e0cs4GGWcuqTSMPXgwOHDhw4Ph2jv0IXV6qy5PAtrD4RXEQBw4cOHCsOTZDDHmCNCN+TpB/HqWFOHDgwIFjzdHmNftmUh722jDcYq3mO3DgwIEDx9/f/gK1ymbZiVtQWgAAAABJRU5ErkJggg==" alt="微信分享二维码">
-</div>
-
-
-
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
-
-
-
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 </body>
 </html>

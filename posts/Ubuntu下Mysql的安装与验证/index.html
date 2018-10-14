@@ -3,29 +3,14 @@
 <head>
     
 
-    
-
-    
-<!-- Baidu Tongji -->
-<script>var _hmt = _hmt || []</script>
-<script async src="//hm.baidu.com/hm.js?b4c4998e548a16b827d4ffe9dbe2b47b"></script>
-<!-- End Baidu Tongji -->
-
-
-
-
     <meta charset="utf-8">
-    
-    
-    
-    
-    <title>Ubuntu下Mysql的安装与验证 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="阮新宇的成长记录">
+    <meta name="author" content="阮新宇">
     <meta name="keywords" content="环境搭建">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Ubuntu下Mysql的安装与验证 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+
     <meta name="description" content="apt方式安装 Ubuntu 18.04.1版本下，如果直接使用sudo apt-get install mysql-server安装的是5.9版本，我们要安装最新的8.0版本。  首先进去到https://dev.mysql.com/downloads/repo/apt/页面，下载deb包  点击下载按钮后，我们也可以页面中获取下载地址，然后通过wget下载：  通过wget下载后通过执行dpk">
 <meta name="keywords" content="环境搭建">
 <meta property="og:type" content="article">
@@ -47,158 +32,85 @@
     
         <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
-
-    <!-- custom head -->
-    
-
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/avatar.png">
 </head>
-
-<body>
-    <div id="loading" class="active"></div>
-
-    <aside id="menu"  >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
+<body class="bg-white">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">
+        <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
     </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.png">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">阮新宇</h5>
-          <a href="mailto:1096421257@qq.com" title="1096421257@qq.com" class="mail">1096421257@qq.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                归档
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                分类
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/RuanXinyu" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-      </ul>
-    </div>
-  </div>
-</aside>
+    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">Ubuntu下Mysql的安装与验证</div>
+    <div class="navbar-collapse offcanvas-collapse" id="navbarsDefault">
+        <ul class="navbar-nav mr-auto">
         
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/"  >主页</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/bookmarks"  >书签收藏</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/questions"  >问题速查</a>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文管理</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/tags"  >标签</a>
+                        
+                        <a class="dropdown-item" href="/categories"  >分类</a>
+                        
+                        <a class="dropdown-item" href="/archives"  >归档</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">关于</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="https://github.com/RuanXinyu" target="_blank" >github</a>
+                        
+                        <a class="dropdown-item" href="/posts/下一步计划"  >下一步计划</a>
+                        
+                    </div>
+                </li>
+            
+        
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="全文搜索" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+        </form>
+    </div>
+</nav>
+    <main role="main" class="container-fluid mt-5">
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+    <div class="row">
+        <div class="col-2 position-fixed border-right" style="overflow-y:auto; height:100%; width:100%">
+            <div class="my-3 bg-white rounded box-shadow post-toc">
+                <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#apt方式安装"><span class="toc-text">apt方式安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#启动与开机启动"><span class="toc-text">启动与开机启动</span></a></li></ol>
+            </div>
         </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">Ubuntu下Mysql的安装与验证</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-10-04T13:21:18.000Z" itemprop="datePublished" class="page-time">
-  2018-10-04
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/环境搭建/">环境搭建</a></li></ul>
-
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>目录</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#apt方式安装"><span class="post-toc-number">1.</span> <span class="post-toc-text">apt方式安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#启动与开机启动"><span class="post-toc-number">2.</span> <span class="post-toc-text">启动与开机启动</span></a></li></ol>
-        </nav>
-    </aside>
-
-
-<article id="post-Ubuntu下Mysql的安装与验证"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">Ubuntu下Mysql的安装与验证</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2018-10-04 21:21:18" datetime="2018-10-04T13:21:18.000Z"  itemprop="datePublished">2018-10-04</time>
-
-            
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/环境搭建/">环境搭建</a></li></ul>
-
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            
-            <h1 id="apt方式安装"><a href="#apt方式安装" class="headerlink" title="apt方式安装"></a>apt方式安装</h1><blockquote>
+        <div class="col-10 offset-2">
+        <div class="my-3 bg-white rounded box-shadow post-content"><h1 id="apt方式安装"><a href="#apt方式安装" class="headerlink" title="apt方式安装"></a>apt方式安装</h1><blockquote>
 <p>Ubuntu 18.04.1版本下，如果直接使用<code>sudo apt-get install mysql-server</code>安装的是<code>5.9</code>版本，我们要安装最新的<code>8.0</code>版本。</p>
 </blockquote>
 <p>首先进去到<a href="https://dev.mysql.com/downloads/repo/apt/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/repo/apt/</a>页面，下载deb包</p>
@@ -225,281 +137,13 @@
 <li>错误日志文件： <code>/var/log/mysql/error.log</code></li>
 </ol>
 <p>在控制台执行<code>mysql -u root -p</code>，输入密码就可以进入<br><img src="/posts/Ubuntu下Mysql的安装与验证/2018-10-05-18-58-08.png" title="[blog.ruanxinyu.cn]"></p>
-
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2018-10-05T12:53:21.936Z" itemprop="dateUpdated">2018-10-05 20:53:21</time>
-</span><br>
-
-
-        
-        原始链接：<a href="/posts/Ubuntu下Mysql的安装与验证/" target="_blank" rel="external">http://ruanxinyu.github.io/posts/Ubuntu下Mysql的安装与验证/</a>
-        
-    </div>
-    
-    <footer>
-        <a href="http://ruanxinyu.github.io">
-            <img src="/img/avatar.png" alt="阮新宇">
-            阮新宇
-        </a>
-    </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/环境搭建/">环境搭建</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/posts/Ubuntu下Mysql的安装与验证/&title=《Ubuntu下Mysql的安装与验证》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/posts/Ubuntu下Mysql的安装与验证/&title=《Ubuntu下Mysql的安装与验证》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/posts/Ubuntu下Mysql的安装与验证/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu下Mysql的安装与验证》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/posts/Ubuntu下Mysql的安装与验证/&via=http://ruanxinyu.github.io" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/posts/Ubuntu下Mysql的安装与验证/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
 </div>
-
-
-
         </div>
     </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/posts/Ubuntu常见问题操作指导/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h5 class="title">Ubuntu常见问题操作指导</h5>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/posts/Git常见问题操作指导/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h5 class="title">Git常见问题操作指导</h5>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'false' == 'true',
-            verify: 'false' == 'true',
-            appId: "6OnUHurDk7brX6HPnIjKMeVb-gzGzoHsz",
-            appKey: "C8w3nGdzmRR4i8LePSnMEjsy",
-            avatar: "mm",
-            placeholder: "Just go go",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
 </div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>阮新宇 &copy; 2015 - 2018</span>
-            <span>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-</footer>
 
     </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/posts/Ubuntu下Mysql的安装与验证/&title=《Ubuntu下Mysql的安装与验证》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/posts/Ubuntu下Mysql的安装与验证/&title=《Ubuntu下Mysql的安装与验证》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/posts/Ubuntu下Mysql的安装与验证/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu下Mysql的安装与验证》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/posts/Ubuntu下Mysql的安装与验证/&via=http://ruanxinyu.github.io" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/posts/Ubuntu下Mysql的安装与验证/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrElEQVR42u3aQW7kMAwEwPn/p5PrAos43aRsOED5NAgSR6WDyGnq84mfr3+en37+/5P8TvuGzx0PHh4e3mLp+RKTdyZ/e/2T2Zbh4eHhPcNLltiWiuulzMpPvmY8PDy89/CuD+t8O64LTPt+PDw8vL/Cm5WN/X/Bw8PDewMvCSPagz6JYk8FHAeyFjw8PLyYl0+R3vP5lvkeHh4e3nqqvi8S7YLy+CNaLR4eHt4NvPzATaKBfKzVhrmbdeLh4eHdwZtFEnmoOntDcfQn68HDw8M7yjv17/dlpg15o8YdDw8P7ygv0eeBwj6SaEdZUQyBh4eHdwMvx+TloY1lTw3nouXi4eHhLXiz8DTflOu2exb+Ju8ZfofAw8PDi3l5GJFHvZsgeDZsi6ofHh4e3lHe9QF9vR1tAchb6tkW4+Hh4T3Dmw3ATvXym6sDv5QNPDw8vEd4+bGbRxXt9ak2QSnCCDw8PLxDvPZFm2cWMeStfJQH4+Hh4a15m5dugt2kfR9eusLDw8N7hJe8etNq52HH7FpVkbXg4eHhjXh56zwLefNltdFwtB48PDy8G3ibAzqPYmfXCNotq68O4OHh4a15myhhdvSfarjx8PDwnudtlpIPsfK/OhsK4+Hh4d3NS0ZTm2tSs8tb+ysIeHh4eGd5baOct8X5dYT20K+LAR4eHt4jvLapnY3BZu31gcKAh4eHt+adGmu11wtWUWxStPDw8PCO8r7KZx/L5kOvPD7Gw8PDe5LXHrh52cijh/3nAw8eHh5eyWu/8Ldx6mb837b7dfXDw8PDW/DakVVyTLdN89kChoeHh/dOXrLcPObIN6VYDx4eHt5reHkbnbfpszD3ly3Gw8PDu43XDr3yozwfhrUDs+JmBB4eHt5RXv4lv13i2WAijzzw8PDwbuN9A5i7VLkqp1GkAAAAAElFTkSuQmCC" alt="微信分享二维码">
-</div>
-
-
-
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
-
-
-
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 </body>
 </html>

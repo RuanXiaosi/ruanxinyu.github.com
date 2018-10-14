@@ -3,29 +3,14 @@
 <head>
     
 
-    
-
-    
-<!-- Baidu Tongji -->
-<script>var _hmt = _hmt || []</script>
-<script async src="//hm.baidu.com/hm.js?b4c4998e548a16b827d4ffe9dbe2b47b"></script>
-<!-- End Baidu Tongji -->
-
-
-
-
     <meta charset="utf-8">
-    
-    
-    
-    
-    <title>Linux初始化init系统：Sysvinit、Upstart和Systemd | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="阮新宇的成长记录">
+    <meta name="author" content="阮新宇">
     <meta name="keywords" content="Linux">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Linux初始化init系统：Sysvinit、Upstart和Systemd | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+
     <meta name="description" content="init系统介绍Linux操作系统的启动首先从BIOS开始，接下来进入bootloader，由bootloader载入内核，进行内核初始化。内核初始化的最后一步就是启动pid为1的init进程。init以守护进程方式存在，是系统的第一个进程,，是所有其他进程的祖先。 Init系统能够定义、管理和控制 init进程的行为。它负责组织和运行许多独立的或相关的始化工作(因此被称为init系统)，从而让计">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
@@ -43,158 +28,85 @@
     
         <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
-
-    <!-- custom head -->
-    
-
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/avatar.png">
 </head>
-
-<body>
-    <div id="loading" class="active"></div>
-
-    <aside id="menu"  >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
+<body class="bg-white">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">
+        <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
     </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.png">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">阮新宇</h5>
-          <a href="mailto:1096421257@qq.com" title="1096421257@qq.com" class="mail">1096421257@qq.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                归档
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                分类
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/RuanXinyu" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-      </ul>
-    </div>
-  </div>
-</aside>
+    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">Linux初始化init系统：Sysvinit、Upstart和Systemd</div>
+    <div class="navbar-collapse offcanvas-collapse" id="navbarsDefault">
+        <ul class="navbar-nav mr-auto">
         
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/"  >主页</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/bookmarks"  >书签收藏</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/questions"  >问题速查</a>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文管理</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/tags"  >标签</a>
+                        
+                        <a class="dropdown-item" href="/categories"  >分类</a>
+                        
+                        <a class="dropdown-item" href="/archives"  >归档</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">关于</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="https://github.com/RuanXinyu" target="_blank" >github</a>
+                        
+                        <a class="dropdown-item" href="/posts/下一步计划"  >下一步计划</a>
+                        
+                    </div>
+                </li>
+            
+        
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="全文搜索" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+        </form>
+    </div>
+</nav>
+    <main role="main" class="container-fluid mt-5">
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+    <div class="row">
+        <div class="col-2 position-fixed border-right" style="overflow-y:auto; height:100%; width:100%">
+            <div class="my-3 bg-white rounded box-shadow post-toc">
+                <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#init系统介绍"><span class="toc-text">init系统介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sysvinit介绍"><span class="toc-text">Sysvinit介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行级别"><span class="toc-text">运行级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sysvinit执行顺序"><span class="toc-text">Sysvinit执行顺序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sysvinit优缺点"><span class="toc-text">Sysvinit优缺点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Upstart介绍"><span class="toc-text">Upstart介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#开发UpStart的缘由"><span class="toc-text">开发UpStart的缘由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UpStart的原理"><span class="toc-text">UpStart的原理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Systemd介绍"><span class="toc-text">Systemd介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Systemd的单元概念"><span class="toc-text">Systemd的单元概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Systemd的Target和运行级别"><span class="toc-text">Systemd的Target和运行级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用C-C-开发新的系统服务"><span class="toc-text">使用C/C++开发新的系统服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unit文件的编写"><span class="toc-text">Unit文件的编写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Unit-参数"><span class="toc-text">[Unit]参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#install-参数"><span class="toc-text">[install]参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#service-参数"><span class="toc-text">[service]参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#服务生命周期控制相关的参数"><span class="toc-text">服务生命周期控制相关的参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#服务上下文配置相关的参数"><span class="toc-text">服务上下文配置相关的参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Systemd命令行工具的使用"><span class="toc-text">Systemd命令行工具的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Systemd命令和sysvinit命令的对照表"><span class="toc-text">Systemd命令和sysvinit命令的对照表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#systemd电源管理命令"><span class="toc-text">systemd电源管理命令</span></a></li></ol></li></ol></li></ol>
+            </div>
         </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">Linux初始化init系统：Sysvinit、Upstart和Systemd</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-09-22T07:04:38.000Z" itemprop="datePublished" class="page-time">
-  2018-09-22
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
-
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>目录</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#init系统介绍"><span class="post-toc-number">1.</span> <span class="post-toc-text">init系统介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Sysvinit介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">Sysvinit介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#运行级别"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">运行级别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sysvinit执行顺序"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Sysvinit执行顺序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sysvinit优缺点"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Sysvinit优缺点</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Upstart介绍"><span class="post-toc-number">3.</span> <span class="post-toc-text">Upstart介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开发UpStart的缘由"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">开发UpStart的缘由</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#UpStart的原理"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">UpStart的原理</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Systemd介绍"><span class="post-toc-number">4.</span> <span class="post-toc-text">Systemd介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Systemd的单元概念"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Systemd的单元概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Systemd的Target和运行级别"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Systemd的Target和运行级别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用C-C-开发新的系统服务"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">使用C/C++开发新的系统服务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Unit文件的编写"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">Unit文件的编写</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Unit-参数"><span class="post-toc-number">4.4.1.</span> <span class="post-toc-text">[Unit]参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#install-参数"><span class="post-toc-number">4.4.2.</span> <span class="post-toc-text">[install]参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#service-参数"><span class="post-toc-number">4.4.3.</span> <span class="post-toc-text">[service]参数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#服务生命周期控制相关的参数"><span class="post-toc-number">4.4.3.1.</span> <span class="post-toc-text">服务生命周期控制相关的参数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#服务上下文配置相关的参数"><span class="post-toc-number">4.4.3.2.</span> <span class="post-toc-text">服务上下文配置相关的参数</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Systemd命令行工具的使用"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">Systemd命令行工具的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Systemd命令和sysvinit命令的对照表"><span class="post-toc-number">4.5.1.</span> <span class="post-toc-text">Systemd命令和sysvinit命令的对照表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#systemd电源管理命令"><span class="post-toc-number">4.5.2.</span> <span class="post-toc-text">systemd电源管理命令</span></a></li></ol></li></ol></li></ol>
-        </nav>
-    </aside>
-
-
-<article id="post-Linux初始化init系统"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">Linux初始化init系统：Sysvinit、Upstart和Systemd</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2018-09-22 15:04:38" datetime="2018-09-22T07:04:38.000Z"  itemprop="datePublished">2018-09-22</time>
-
-            
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
-
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            
-            <h1 id="init系统介绍"><a href="#init系统介绍" class="headerlink" title="init系统介绍"></a>init系统介绍</h1><p>Linux操作系统的启动首先从BIOS开始，接下来进入bootloader，由bootloader载入内核，进行内核初始化。内核初始化的最后一步就是启动<code>pid</code>为<code>1</code>的<code>init进程</code>。init以守护进程方式存在，是系统的第一个进程,，是所有其他进程的祖先。</p>
+        <div class="col-10 offset-2">
+        <div class="my-3 bg-white rounded box-shadow post-content"><h1 id="init系统介绍"><a href="#init系统介绍" class="headerlink" title="init系统介绍"></a>init系统介绍</h1><p>Linux操作系统的启动首先从BIOS开始，接下来进入bootloader，由bootloader载入内核，进行内核初始化。内核初始化的最后一步就是启动<code>pid</code>为<code>1</code>的<code>init进程</code>。init以守护进程方式存在，是系统的第一个进程,，是所有其他进程的祖先。</p>
 <p>Init系统能够定义、管理和控制 init进程的行为。它负责组织和运行许多独立的或相关的始化工作(因此被称为init系统)，从而让计算机系统进入某种用户预订的运行模式。</p>
 <p>Linux初始化init系统包括：<code>Sysvinit</code>、<code>Upstart</code>和<code>Systemd</code>，它们在Ubuntu系统下的演化如下：</p>
 <ol>
@@ -497,281 +409,13 @@
 </tr>
 </tbody>
 </table>
-
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2018-10-01T04:55:08.279Z" itemprop="dateUpdated">2018-10-01 12:55:08</time>
-</span><br>
-
-
-        
-        原始链接：<a href="/posts/Linux初始化init系统/" target="_blank" rel="external">http://ruanxinyu.github.io/posts/Linux初始化init系统/</a>
-        
-    </div>
-    
-    <footer>
-        <a href="http://ruanxinyu.github.io">
-            <img src="/img/avatar.png" alt="阮新宇">
-            阮新宇
-        </a>
-    </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/posts/Linux初始化init系统/&title=《Linux初始化init系统：Sysvinit、Upstart和Systemd》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/posts/Linux初始化init系统/&title=《Linux初始化init系统：Sysvinit、Upstart和Systemd》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/posts/Linux初始化init系统/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux初始化init系统：Sysvinit、Upstart和Systemd》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/posts/Linux初始化init系统/&via=http://ruanxinyu.github.io" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/posts/Linux初始化init系统/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
 </div>
-
-
-
         </div>
     </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/posts/Ubuntu下HAProxy的安装与配置/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h5 class="title">Ubuntu下HAProxy的安装与配置</h5>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/posts/Ubuntu下KeepAlived的安装与配置/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h5 class="title">Ubuntu下KeepAlived的安装与配置</h5>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'false' == 'true',
-            verify: 'false' == 'true',
-            appId: "6OnUHurDk7brX6HPnIjKMeVb-gzGzoHsz",
-            appKey: "C8w3nGdzmRR4i8LePSnMEjsy",
-            avatar: "mm",
-            placeholder: "Just go go",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
 </div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>阮新宇 &copy; 2015 - 2018</span>
-            <span>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-</footer>
 
     </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ruanxinyu.github.io/posts/Linux初始化init系统/&title=《Linux初始化init系统：Sysvinit、Upstart和Systemd》 — RuanXinYu's Blog&pic=http://ruanxinyu.github.io/img/avatar.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ruanxinyu.github.io/posts/Linux初始化init系统/&title=《Linux初始化init系统：Sysvinit、Upstart和Systemd》 — RuanXinYu's Blog&source=阮新宇的成长记录" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ruanxinyu.github.io/posts/Linux初始化init系统/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux初始化init系统：Sysvinit、Upstart和Systemd》 — RuanXinYu's Blog&url=http://ruanxinyu.github.io/posts/Linux初始化init系统/&via=http://ruanxinyu.github.io" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ruanxinyu.github.io/posts/Linux初始化init系统/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3aQXKDMAwF0Nz/0um2MynkS4LOYD+vOtQBnhdClvV6xeN9MH7/93P+52+P7pzMvGBgYGA8lvE+Hdeu09F9kucezcHAwNiHkYTC8/nVF03un7wbBgYGRvLqvfl5WomBgYHRC7jnCdz8OgYGBkZvE5s87DwpTELt7XtxDAyMBzKqCdx//n3L+QYGBsajGO/imATQPMkrvxUGBsbSjGopLW+2OE8oq7Do+AEDA2MbRjVoTtK73rYWAwNjT0b1kCAJpveV3qLQjIGBsRCjV4KfU/NQHpXeMDAwlmYkD6gecyYHn82vQfKtwMDAWI4xb61IguOk7SxCYmBgbMColuarAXoO+ELCwMDYgHFt6T8J34WDyWQmBgbGBoxJMndHOlg+TMXAwFiaMU/jzotxeePF5MgBAwNjH0Y1jauW9fOUsbpwGBgYazOS9OtLQjZO7PLAXV5LDAyMRRl5s0WvlD/Z6B4+EQMDY2lGkt7NW8Empb1C6MfAwNiMcUHxq3U8mTeH/fFcDAyMjRnVBotqO2w1GY0OBjAwMDZg5LA5ptcKhoGBsQ/jXRx3JILVEt4rXz8MDIwlGPmoFt0mzRl5wa4Mw8DAeCyjF2Sr65SvXHMzjIGBsQEjb3qYbFDnad/hrzAwMDAuKvRXi3f5dQwMDIxqalhtoag2rV6QGmJgYDyQ0Suo5S2t+cFndaOLgYGxA6O3dexdSRZl8hnAwMBYjvED/0bk840P5a4AAAAASUVORK5CYII=" alt="微信分享二维码">
-</div>
-
-
-
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
-
-
-
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 </body>
 </html>
