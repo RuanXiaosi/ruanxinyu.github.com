@@ -11,19 +11,19 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <title>Jenkins的安装与使用 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
 
-    <meta name="description" content="Jenkins的介绍官方地址为：https://jenkins.io/。Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。 Jenkins的安装 在启动之前需要先安装java环境，具体可以参考教程：JDK安装教程。该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参考Vir">
+    <meta name="description" content="Jenkins的介绍 官方地址为：https://jenkins.io/。Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。  Jenkins的安装  在启动之前需要先安装java环境，具体可以参考教程：JDK安装教程。该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参">
 <meta name="keywords" content="环境搭建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jenkins的安装与使用">
 <meta property="og:url" content="http://ruanxinyu.github.io/posts/Jenkins的安装与使用/index.html">
 <meta property="og:site_name" content="RuanXinYu&#39;s Blog">
-<meta property="og:description" content="Jenkins的介绍官方地址为：https://jenkins.io/。Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。 Jenkins的安装 在启动之前需要先安装java环境，具体可以参考教程：JDK安装教程。该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参考Vir">
+<meta property="og:description" content="Jenkins的介绍 官方地址为：https://jenkins.io/。Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。  Jenkins的安装  在启动之前需要先安装java环境，具体可以参考教程：JDK安装教程。该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/Jenkins的安装与使用/2018-10-03-17-27-12.png">
 <meta property="og:updated_time" content="2018-10-03T09:39:57.541Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jenkins的安装与使用">
-<meta name="twitter:description" content="Jenkins的介绍官方地址为：https://jenkins.io/。Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。 Jenkins的安装 在启动之前需要先安装java环境，具体可以参考教程：JDK安装教程。该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参考Vir">
+<meta name="twitter:description" content="Jenkins的介绍 官方地址为：https://jenkins.io/。Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。  Jenkins的安装  在启动之前需要先安装java环境，具体可以参考教程：JDK安装教程。该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参">
 <meta name="twitter:image" content="http://ruanxinyu.github.io/posts/Jenkins的安装与使用/2018-10-03-17-27-12.png">
     
         <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
@@ -102,12 +102,14 @@
         <div class="col-2 position-fixed border-right" style="overflow-y:auto; height:100%; width:100%">
             <div class="my-3 bg-white rounded box-shadow post-toc">
                 <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Jenkins的介绍"><span class="toc-text">Jenkins的介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Jenkins的安装"><span class="toc-text">Jenkins的安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改Jenkins的主目录"><span class="toc-text">修改Jenkins的主目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#系统服务与开机启动"><span class="toc-text">系统服务与开机启动</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jenkins的介绍"><span class="toc-text"> Jenkins的介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jenkins的安装"><span class="toc-text"> Jenkins的安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改jenkins的主目录"><span class="toc-text"> 修改Jenkins的主目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#系统服务与开机启动"><span class="toc-text"> 系统服务与开机启动</span></a></li></ol>
             </div>
         </div>
         <div class="col-10 offset-2">
-        <div class="my-3 bg-white rounded box-shadow post-content"><h1 id="Jenkins的介绍"><a href="#Jenkins的介绍" class="headerlink" title="Jenkins的介绍"></a>Jenkins的介绍</h1><p>官方地址为：<a href="https://jenkins.io/" target="_blank" rel="noopener">https://jenkins.io/</a>。Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。</p>
-<h1 id="Jenkins的安装"><a href="#Jenkins的安装" class="headerlink" title="Jenkins的安装"></a>Jenkins的安装</h1><blockquote>
+        <div class="my-3 bg-white rounded box-shadow post-content"><h1 id="jenkins的介绍"><a class="markdownIt-Anchor" href="#jenkins的介绍"></a> Jenkins的介绍</h1>
+<p>官方地址为：<a href="https://jenkins.io/" target="_blank" rel="noopener">https://jenkins.io/</a>。Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。</p>
+<h1 id="jenkins的安装"><a class="markdownIt-Anchor" href="#jenkins的安装"></a> Jenkins的安装</h1>
+<blockquote>
 <p>在启动之前需要先安装java环境，具体可以参考教程：<a href="/posts/JDK安装教程/" title="JDK安装教程">JDK安装教程</a>。该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参考<a href="/posts/VirtualBox安装Ubuntu教程/" title="VirtualBox安装Ubuntu教程">VirtualBox安装Ubuntu教程</a>。</p>
 </blockquote>
 <p>具体的安装文档可以参考：<a href="https://jenkins.io/doc/book/installing/" target="_blank" rel="noopener">https://jenkins.io/doc/book/installing/</a>。</p>
@@ -115,14 +117,18 @@
 <p>文档中直接通过<code>sudo apt-get install jenkins</code>的方式安装会报错，不兼容最新版本的Ubuntu系统，因此下文采用直接下载软件包安装的过程。</p>
 </blockquote>
 <ul>
-<li><p>首先下载<code>http://mirrors.jenkins.io/war-stable/latest/jenkins.war</code>软件包，然后执行<code>java -jar jenkins.war</code>即可启动Jenkins。默认情况下Jenkins会监听<code>8080</code>端口，我们可以通过如下命令修改端口号<code>java -jar jenkins.war --httpPort=9090</code>。</p>
+<li>
+<p>首先下载<code>http://mirrors.jenkins.io/war-stable/latest/jenkins.war</code>软件包，然后执行<code>java -jar jenkins.war</code>即可启动Jenkins。默认情况下Jenkins会监听<code>8080</code>端口，我们可以通过如下命令修改端口号<code>java -jar jenkins.war --httpPort=9090</code>。</p>
 </li>
-<li><p>访问<code>http://192.168.1.108:8080/</code>，可以看到如下的页面，提示输入密码，可以从界面中找到密码所在的文件路径，或者从启动日志中也可以看到。</p>
-<img src="/posts/Jenkins的安装与使用/2018-10-03-17-27-12.png" title="[blog.ruanxinyu.cn]">
+<li>
+<p>访问<code>http://192.168.1.108:8080/</code>，可以看到如下的页面，提示输入密码，可以从界面中找到密码所在的文件路径，或者从启动日志中也可以看到。</p>
 </li>
 </ul>
-<h1 id="修改Jenkins的主目录"><a href="#修改Jenkins的主目录" class="headerlink" title="修改Jenkins的主目录"></a>修改Jenkins的主目录</h1><p>从Jenkins的启动日志中可以看出Jenkins默认的主目录为<code>$user.home/.jenkins</code>，我们在此将其主目录更改至<code>/usr/local/jenkins/.jenkins</code>，只需要导出环境<code>JENKINS_HOME</code>环境变量<code>exprot JENKINS_HOME=/usr/local/jenkins/.jenkins</code>，然后启动Jenkins即可。</p>
-<h1 id="系统服务与开机启动"><a href="#系统服务与开机启动" class="headerlink" title="系统服务与开机启动"></a>系统服务与开机启动</h1></div>
+<img src="/posts/Jenkins的安装与使用/2018-10-03-17-27-12.png" title="[blog.ruanxinyu.cn]">
+<h1 id="修改jenkins的主目录"><a class="markdownIt-Anchor" href="#修改jenkins的主目录"></a> 修改Jenkins的主目录</h1>
+<p>从Jenkins的启动日志中可以看出Jenkins默认的主目录为<code>$user.home/.jenkins</code>，我们在此将其主目录更改至<code>/usr/local/jenkins/.jenkins</code>，只需要导出环境<code>JENKINS_HOME</code>环境变量<code>exprot JENKINS_HOME=/usr/local/jenkins/.jenkins</code>，然后启动Jenkins即可。</p>
+<h1 id="系统服务与开机启动"><a class="markdownIt-Anchor" href="#系统服务与开机启动"></a> 系统服务与开机启动</h1>
+</div>
         </div>
     </div>
 </div>

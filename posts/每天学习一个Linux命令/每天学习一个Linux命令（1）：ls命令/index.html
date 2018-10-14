@@ -11,20 +11,20 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <title>每天学习一个Linux命令（1）：ls命令 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
 
-    <meta name="description" content="ls命令是linux下最常用的命令。ls命令就是list的缩写，用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。 语法1ls [OPTION]... [FILE]... 参数 -a 显示所有文件及目录，包括以.开头的隐藏文件 -A 同 -a ，但不列出 “.” (目前目录) 及 “..” (父目录) -l 除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出 -h">
+    <meta name="description" content="ls命令是linux下最常用的命令。ls命令就是list的缩写，用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。  语法 1ls [OPTION]... [FILE]...  参数  -a 显示所有文件及目录，包括以.开头的隐藏文件 -A 同 -a ，但不列出 “.” (目前目录) 及 “…” (父目录) -l 除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每天学习一个Linux命令（1）：ls命令">
 <meta property="og:url" content="http://ruanxinyu.github.io/posts/每天学习一个Linux命令/每天学习一个Linux命令（1）：ls命令/index.html">
 <meta property="og:site_name" content="RuanXinYu&#39;s Blog">
-<meta property="og:description" content="ls命令是linux下最常用的命令。ls命令就是list的缩写，用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。 语法1ls [OPTION]... [FILE]... 参数 -a 显示所有文件及目录，包括以.开头的隐藏文件 -A 同 -a ，但不列出 “.” (目前目录) 及 “..” (父目录) -l 除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出 -h">
+<meta property="og:description" content="ls命令是linux下最常用的命令。ls命令就是list的缩写，用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。  语法 1ls [OPTION]... [FILE]...  参数  -a 显示所有文件及目录，包括以.开头的隐藏文件 -A 同 -a ，但不列出 “.” (目前目录) 及 “…” (父目录) -l 除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/每天学习一个Linux命令/每天学习一个Linux命令（1）：ls命令/1.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/每天学习一个Linux命令/每天学习一个Linux命令（1）：ls命令/2.png">
 <meta property="og:updated_time" content="2018-10-01T04:52:36.720Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每天学习一个Linux命令（1）：ls命令">
-<meta name="twitter:description" content="ls命令是linux下最常用的命令。ls命令就是list的缩写，用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。 语法1ls [OPTION]... [FILE]... 参数 -a 显示所有文件及目录，包括以.开头的隐藏文件 -A 同 -a ，但不列出 “.” (目前目录) 及 “..” (父目录) -l 除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出 -h">
+<meta name="twitter:description" content="ls命令是linux下最常用的命令。ls命令就是list的缩写，用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。  语法 1ls [OPTION]... [FILE]...  参数  -a 显示所有文件及目录，包括以.开头的隐藏文件 -A 同 -a ，但不列出 “.” (目前目录) 及 “…” (父目录) -l 除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出">
 <meta name="twitter:image" content="http://ruanxinyu.github.io/posts/每天学习一个Linux命令/每天学习一个Linux命令（1）：ls命令/1.png">
     
         <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
@@ -103,31 +103,42 @@
         <div class="col-2 position-fixed border-right" style="overflow-y:auto; height:100%; width:100%">
             <div class="my-3 bg-white rounded box-shadow post-toc">
                 <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#语法"><span class="toc-text">语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参数"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用小技巧"><span class="toc-text">使用小技巧</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用范例"><span class="toc-text">常用范例</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#语法"><span class="toc-text"> 语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参数"><span class="toc-text"> 参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用小技巧"><span class="toc-text"> 使用小技巧</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用范例"><span class="toc-text"> 常用范例</span></a></li></ol>
             </div>
         </div>
         <div class="col-10 offset-2">
         <div class="my-3 bg-white rounded box-shadow post-content"><p><code>ls</code>命令是linux下最常用的命令。<code>ls</code>命令就是<code>list</code>的缩写，用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。</p>
-<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls [OPTION]... [FILE]...</span><br></pre></td></tr></table></figure>
-<h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><ul>
+<h1 id="语法"><a class="markdownIt-Anchor" href="#语法"></a> 语法</h1>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls [OPTION]... [FILE]...</span><br></pre></td></tr></table></figure>
+<h1 id="参数"><a class="markdownIt-Anchor" href="#参数"></a> 参数</h1>
+<ul>
 <li><code>-a</code> 显示所有文件及目录，包括以.开头的隐藏文件</li>
-<li><code>-A</code> 同 -a ，但不列出 “.” (目前目录) 及 “..” (父目录)</li>
+<li><code>-A</code> 同 -a ，但不列出 “.” (目前目录) 及 “…” (父目录)</li>
 <li><code>-l</code> 除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出</li>
 <li><code>-h</code> human-readable，默认-l参数显示出来的文件大小是字节大小，-h参数可以按照KB/MB/GB来显示</li>
 <li><code>-r</code> reverse，将文件以相反次序显示(原定依英文字母次序)</li>
 <li><code>-t</code> 将文件依建立时间之先后次序列出</li>
-<li><code>-F</code> 在列出的文件名称后加一符号；例如可执行档则加 “*”, 目录则加 “/“</li>
+<li><code>-F</code> 在列出的文件名称后加一符号；例如可执行档则加 “*”, 目录则加 “/”</li>
 <li><code>-R</code> recursive，若目录下有文件，则以下之文件亦皆依序列出</li>
 </ul>
-<h1 id="使用小技巧"><a href="#使用小技巧" class="headerlink" title="使用小技巧"></a>使用小技巧</h1><ol>
+<h1 id="使用小技巧"><a class="markdownIt-Anchor" href="#使用小技巧"></a> 使用小技巧</h1>
+<ol>
 <li>一般Linux操作系统都会存在一个<code>ll</code>的命令，相当于<code>ls -l --color=auto</code></li>
 <li>ls命令使支持<code>*</code>通配符的</li>
 </ol>
-<h1 id="常用范例"><a href="#常用范例" class="headerlink" title="常用范例"></a>常用范例</h1><p><strong>范例1： 列出<code>/var</code>目录下的文件</strong><br>命令： <code>ls /var</code><br>结果：<br><img src="/posts/每天学习一个Linux命令/每天学习一个Linux命令（1）：ls命令/1.png" title="[1]"></p>
+<h1 id="常用范例"><a class="markdownIt-Anchor" href="#常用范例"></a> 常用范例</h1>
+<p><strong>范例1： 列出<code>/var</code>目录下的文件</strong><br>
+命令： <code>ls /var</code><br>
+结果：</p>
+<img src="/posts/每天学习一个Linux命令/每天学习一个Linux命令（1）：ls命令/1.png" title="[1]">
 <hr>
-<p><strong>范例2： 列出目前工作目录下所有名称是<code>s</code>开头的文件，越新的排越后面</strong><br>命令： <code>ls -ltr s*</code><br>结果：<br><img src="/posts/每天学习一个Linux命令/每天学习一个Linux命令（1）：ls命令/2.png" title="[2]"></p>
+<p><strong>范例2： 列出目前工作目录下所有名称是<code>s</code>开头的文件，越新的排越后面</strong><br>
+命令： <code>ls -ltr s*</code><br>
+结果：</p>
+<img src="/posts/每天学习一个Linux命令/每天学习一个Linux命令（1）：ls命令/2.png" title="[2]">
 <hr>
-<p><strong>范例3： 将<code>/bin</code>目录以下所有目录及文件详细资料列出</strong><br>命令： <code>ls -lR /bin</code></p>
+<p><strong>范例3： 将<code>/bin</code>目录以下所有目录及文件详细资料列出</strong><br>
+命令： <code>ls -lR /bin</code></p>
 </div>
         </div>
     </div>

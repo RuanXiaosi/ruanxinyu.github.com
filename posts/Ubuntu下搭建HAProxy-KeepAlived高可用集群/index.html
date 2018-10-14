@@ -11,13 +11,13 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <title>Ubuntu下搭建HAProxy+KeepAlived高可用集群 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
 
-    <meta name="description" content="环境说明本次教程搭建的架构图如下所示，通过KeepAlived实现HAProxy的高可用，通过HAProxy实现后端服务器App01和App02的高可用和负载均衡。HAPrxoy有两台，分别为192.168.1.102和192.168.1.103，VIP为192.168.1.104，通过8081端口访问App01的两台机器，通过8082端口访问App02的两台机器。 本教程使用Ubuntu 18.">
+    <meta name="description" content="环境说明 本次教程搭建的架构图如下所示，通过KeepAlived实现HAProxy的高可用，通过HAProxy实现后端服务器App01和App02的高可用和负载均衡。HAPrxoy有两台，分别为192.168.1.102和192.168.1.103，VIP为192.168.1.104，通过8081端口访问App01的两台机器，通过8082端口访问App02的两台机器。  本教程使用Ubuntu">
 <meta name="keywords" content="环境搭建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu下搭建HAProxy+KeepAlived高可用集群">
 <meta property="og:url" content="http://ruanxinyu.github.io/posts/Ubuntu下搭建HAProxy-KeepAlived高可用集群/index.html">
 <meta property="og:site_name" content="RuanXinYu&#39;s Blog">
-<meta property="og:description" content="环境说明本次教程搭建的架构图如下所示，通过KeepAlived实现HAProxy的高可用，通过HAProxy实现后端服务器App01和App02的高可用和负载均衡。HAPrxoy有两台，分别为192.168.1.102和192.168.1.103，VIP为192.168.1.104，通过8081端口访问App01的两台机器，通过8082端口访问App02的两台机器。 本教程使用Ubuntu 18.">
+<meta property="og:description" content="环境说明 本次教程搭建的架构图如下所示，通过KeepAlived实现HAProxy的高可用，通过HAProxy实现后端服务器App01和App02的高可用和负载均衡。HAPrxoy有两台，分别为192.168.1.102和192.168.1.103，VIP为192.168.1.104，通过8081端口访问App01的两台机器，通过8082端口访问App02的两台机器。  本教程使用Ubuntu">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/Ubuntu下搭建HAProxy-KeepAlived高可用集群/2018-10-01-22-23-16.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/Ubuntu下搭建HAProxy-KeepAlived高可用集群/2018-10-01-22-31-44.png">
@@ -25,7 +25,7 @@
 <meta property="og:updated_time" content="2018-10-02T08:08:38.708Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu下搭建HAProxy+KeepAlived高可用集群">
-<meta name="twitter:description" content="环境说明本次教程搭建的架构图如下所示，通过KeepAlived实现HAProxy的高可用，通过HAProxy实现后端服务器App01和App02的高可用和负载均衡。HAPrxoy有两台，分别为192.168.1.102和192.168.1.103，VIP为192.168.1.104，通过8081端口访问App01的两台机器，通过8082端口访问App02的两台机器。 本教程使用Ubuntu 18.">
+<meta name="twitter:description" content="环境说明 本次教程搭建的架构图如下所示，通过KeepAlived实现HAProxy的高可用，通过HAProxy实现后端服务器App01和App02的高可用和负载均衡。HAPrxoy有两台，分别为192.168.1.102和192.168.1.103，VIP为192.168.1.104，通过8081端口访问App01的两台机器，通过8082端口访问App02的两台机器。  本教程使用Ubuntu">
 <meta name="twitter:image" content="http://ruanxinyu.github.io/posts/Ubuntu下搭建HAProxy-KeepAlived高可用集群/2018-10-01-22-23-16.png">
     
         <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
@@ -104,21 +104,30 @@
         <div class="col-2 position-fixed border-right" style="overflow-y:auto; height:100%; width:100%">
             <div class="my-3 bg-white rounded box-shadow post-toc">
                 <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#环境说明"><span class="toc-text">环境说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HAProxy的配置"><span class="toc-text">HAProxy的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#KeepAlived的配置"><span class="toc-text">KeepAlived的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#App服务的配置"><span class="toc-text">App服务的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#高可用功能验证"><span class="toc-text">高可用功能验证</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#环境说明"><span class="toc-text"> 环境说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#haproxy的配置"><span class="toc-text"> HAProxy的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#keepalived的配置"><span class="toc-text"> KeepAlived的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#app服务的配置"><span class="toc-text"> App服务的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#高可用功能验证"><span class="toc-text"> 高可用功能验证</span></a></li></ol>
             </div>
         </div>
         <div class="col-10 offset-2">
-        <div class="my-3 bg-white rounded box-shadow post-content"><h1 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h1><p>本次教程搭建的架构图如下所示，通过KeepAlived实现HAProxy的高可用，通过HAProxy实现后端服务器App01和App02的高可用和负载均衡。HAPrxoy有两台，分别为<code>192.168.1.102</code>和<code>192.168.1.103</code>，VIP为<code>192.168.1.104</code>，通过<code>8081</code>端口访问App01的两台机器，通过<code>8082</code>端口访问App02的两台机器。<br><img src="/posts/Ubuntu下搭建HAProxy-KeepAlived高可用集群/2018-10-01-22-23-16.png" title="[blog.ruanxinyu.cn]"></p>
+        <div class="my-3 bg-white rounded box-shadow post-content"><h1 id="环境说明"><a class="markdownIt-Anchor" href="#环境说明"></a> 环境说明</h1>
+<p>本次教程搭建的架构图如下所示，通过KeepAlived实现HAProxy的高可用，通过HAProxy实现后端服务器App01和App02的高可用和负载均衡。HAPrxoy有两台，分别为<code>192.168.1.102</code>和<code>192.168.1.103</code>，VIP为<code>192.168.1.104</code>，通过<code>8081</code>端口访问App01的两台机器，通过<code>8082</code>端口访问App02的两台机器。</p>
+<img src="/posts/Ubuntu下搭建HAProxy-KeepAlived高可用集群/2018-10-01-22-23-16.png" title="[blog.ruanxinyu.cn]">
 <p>本教程使用Ubuntu 18.04.01系统，同时需要安装KeepAlived和HAProxy，相关的教程请参考：</p>
 <ol>
-<li><a href="/posts/VirtualBox安装Ubuntu教程/" title="VirtualBox安装Ubuntu教程">VirtualBox安装Ubuntu教程</a></li>
-<li><a href="/posts/Ubuntu下KeepAlived的安装与配置/" title="Ubuntu下KeepAlived的安装与配置">Ubuntu下KeepAlived的安装与配置</a></li>
-<li><a href="/posts/Ubuntu下HAProxy的安装与配置/" title="Ubuntu下HAProxy的安装与配置">Ubuntu下HAProxy的安装与配置</a>
+<li>
+<a href="/posts/VirtualBox安装Ubuntu教程/" title="VirtualBox安装Ubuntu教程">VirtualBox安装Ubuntu教程</a>
+</li>
+<li>
+<a href="/posts/Ubuntu下KeepAlived的安装与配置/" title="Ubuntu下KeepAlived的安装与配置">Ubuntu下KeepAlived的安装与配置</a>
+</li>
+<li>
+<a href="/posts/Ubuntu下HAProxy的安装与配置/" title="Ubuntu下HAProxy的安装与配置">Ubuntu下HAProxy的安装与配置</a>
 </li>
 </ol>
-<h1 id="HAProxy的配置"><a href="#HAProxy的配置" class="headerlink" title="HAProxy的配置"></a>HAProxy的配置</h1><p>两台HAProxy的配置是相同的，通过<code>8081</code>端口访问App01的两台机器，通过<code>8082</code>端口访问App02的两台机器。为了简化配置过程，还是采用最简化的配置，如下所示：</p>
+<h1 id="haproxy的配置"><a class="markdownIt-Anchor" href="#haproxy的配置"></a> HAProxy的配置</h1>
+<p>两台HAProxy的配置是相同的，通过<code>8081</code>端口访问App01的两台机器，通过<code>8082</code>端口访问App02的两台机器。为了简化配置过程，还是采用最简化的配置，如下所示：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">global</span><br><span class="line">    daemon                          <span class="comment"># 配置为后台启动</span></span><br><span class="line">defaults</span><br><span class="line">    mode http</span><br><span class="line">    timeout connect 30s             <span class="comment"># 连接超时</span></span><br><span class="line">    timeout client 30s              <span class="comment"># 客户端超时</span></span><br><span class="line">    timeout server 30s              <span class="comment"># 服务器超时</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###########################################################</span></span><br><span class="line">frontend app01</span><br><span class="line">    <span class="built_in">bind</span> *:8081                     <span class="comment"># 绑定端口</span></span><br><span class="line">    default_backend app01_backend   <span class="comment"># 默认的backend的名称</span></span><br><span class="line"></span><br><span class="line">backend app01_backend</span><br><span class="line">    server web1 192.168.1.106:80    <span class="comment"># 设置后端服务器</span></span><br><span class="line">    server web1 192.168.1.108:80    <span class="comment"># 设置后端服务器</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###########################################################</span></span><br><span class="line">frontend app02</span><br><span class="line">    <span class="built_in">bind</span> *:8082                     <span class="comment"># 绑定端口</span></span><br><span class="line">    default_backend app02_backend   <span class="comment"># 默认的backend的名称</span></span><br><span class="line"></span><br><span class="line">backend app02_backend</span><br><span class="line">    server web1 192.168.1.107:80    <span class="comment"># 设置后端服务器</span></span><br><span class="line">    server web1 192.168.1.109:80    <span class="comment"># 设置后端服务器</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###########################################################</span></span><br><span class="line">listen stats</span><br><span class="line">    <span class="built_in">bind</span> *:8083                     <span class="comment"># 设置监控组的名称</span></span><br><span class="line">    stats refresh 30s               <span class="comment"># 统计页面自动刷新时间</span></span><br><span class="line">    stats uri /stats                <span class="comment"># 统计页面url</span></span><br></pre></td></tr></table></figure>
-<h1 id="KeepAlived的配置"><a href="#KeepAlived的配置" class="headerlink" title="KeepAlived的配置"></a>KeepAlived的配置</h1><p>KeepAlived与HAProxy是在相同机器上，IP地址分别为主机haproxy_vm01（<code>192.168.1.102</code>）和备机haproxy_vm02（<code>192.168.1.103</code>）， VIP为<code>192.168.1.104</code>。因为KeepAlived是主备的，因此两台机器的配置是不一样的。</p>
+<h1 id="keepalived的配置"><a class="markdownIt-Anchor" href="#keepalived的配置"></a> KeepAlived的配置</h1>
+<p>KeepAlived与HAProxy是在相同机器上，IP地址分别为主机haproxy_vm01（<code>192.168.1.102</code>）和备机haproxy_vm02（<code>192.168.1.103</code>）， VIP为<code>192.168.1.104</code>。因为KeepAlived是主备的，因此两台机器的配置是不一样的。</p>
 <ol>
 <li>主机haproxy_vm01（<code>192.168.1.102</code>）的配置如下：</li>
 </ol>
@@ -128,14 +137,18 @@
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">vrrp_script chk_service_ok &#123;</span><br><span class="line">       script <span class="string">"killall -0 haproxy"</span></span><br><span class="line">       interval 2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    interface enp0s3</span><br><span class="line">    state BACKUP</span><br><span class="line">    virtual_router_id 51</span><br><span class="line">    priority 80</span><br><span class="line"></span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        192.168.1.104/25</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    track_script &#123;</span><br><span class="line">       chk_service_ok</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>通过上述配置可以看到，检查haproxy是否可用使用的是<code>killall -0 haproxy</code>命令来判断haproxy的进程是否存在。</p>
-<h1 id="App服务的配置"><a href="#App服务的配置" class="headerlink" title="App服务的配置"></a>App服务的配置</h1><p>我们后台采用<code>apache</code>，首先在每一台后台机器安装apache，我们使用Apache服务器来模拟HAProxy后端的服务器，<code>sudo apt-get install apache2</code>。</p>
+<h1 id="app服务的配置"><a class="markdownIt-Anchor" href="#app服务的配置"></a> App服务的配置</h1>
+<p>我们后台采用<code>apache</code>，首先在每一台后台机器安装apache，我们使用Apache服务器来模拟HAProxy后端的服务器，<code>sudo apt-get install apache2</code>。</p>
 <p>为了区分App01和App02，我们做如下操作：</p>
 <ol>
-<li>在App01的两台机器执行<code>sudo sh -c &#39;echo &quot;This is apache server 01&quot; &gt; /var/www/html/index.html&#39;</code></li>
-<li>在App02的两台机器执行<code>sudo sh -c &#39;echo &quot;This is apache server 02&quot; &gt; /var/www/html/index.html&#39;</code></li>
+<li>在App01的两台机器执行<code>sudo sh -c 'echo &quot;This is apache server 01&quot; &gt; /var/www/html/index.html'</code></li>
+<li>在App02的两台机器执行<code>sudo sh -c 'echo &quot;This is apache server 02&quot; &gt; /var/www/html/index.html'</code></li>
 </ol>
-<h1 id="高可用功能验证"><a href="#高可用功能验证" class="headerlink" title="高可用功能验证"></a>高可用功能验证</h1><p>分别重新启动KeepAlived（<code>sudo systemctl restart keepalived</code>）和HAProxy（<code>sudo systemctl restart haproxy</code>）, 在HAProxy的两台机器上通过<code>ip a</code>命令，可以看到VIP（<code>192.168.1.104</code>）在haproxy_vm01（<code>192.168.1.102</code>）上.<br><img src="/posts/Ubuntu下搭建HAProxy-KeepAlived高可用集群/2018-10-01-22-31-44.png" title="[blog.ruanxinyu.cn]"></p>
-<p>通过VIP访问8081和8082端口，可以发现能够正常访问到后台的服务器，如下所示，此时我们关闭haproxy_vm01（<code>192.168.1.102</code>）上的HAproxy进程<code>sudo killall haproxy</code>，通过<code>ip a</code>可以看到VIP已经漂移到haproxy_vm02（<code>192.168.1.103</code>）上，但是通过VIP访问8081和8082端口，业务仍旧是正常的，说明HAProxy是高可用的。<br><img src="/posts/Ubuntu下搭建HAProxy-KeepAlived高可用集群/2018-10-01-22-29-38.png" title="[blog.ruanxinyu.cn]"></p>
+<h1 id="高可用功能验证"><a class="markdownIt-Anchor" href="#高可用功能验证"></a> 高可用功能验证</h1>
+<p>分别重新启动KeepAlived（<code>sudo systemctl restart keepalived</code>）和HAProxy（<code>sudo systemctl restart haproxy</code>）, 在HAProxy的两台机器上通过<code>ip a</code>命令，可以看到VIP（<code>192.168.1.104</code>）在haproxy_vm01（<code>192.168.1.102</code>）上.</p>
+<img src="/posts/Ubuntu下搭建HAProxy-KeepAlived高可用集群/2018-10-01-22-31-44.png" title="[blog.ruanxinyu.cn]">
+<p>通过VIP访问8081和8082端口，可以发现能够正常访问到后台的服务器，如下所示，此时我们关闭haproxy_vm01（<code>192.168.1.102</code>）上的HAproxy进程<code>sudo killall haproxy</code>，通过<code>ip a</code>可以看到VIP已经漂移到haproxy_vm02（<code>192.168.1.103</code>）上，但是通过VIP访问8081和8082端口，业务仍旧是正常的，说明HAProxy是高可用的。</p>
+<img src="/posts/Ubuntu下搭建HAProxy-KeepAlived高可用集群/2018-10-01-22-29-38.png" title="[blog.ruanxinyu.cn]">
 <p>我们关闭App01_vm01（<code>192.168.1.106</code>)，然后通过VIP访问8081端口，依旧可以正常访问，说明HAProxy已经保证后端App的高可用。</p>
 </div>
         </div>

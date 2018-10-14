@@ -11,18 +11,18 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <title>每天学习一个Linux命令（2）：cd命令 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
 
-    <meta name="description" content="cd命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。 语法1cd [dir] 使用小技巧 切换至用户所示在的目录可以使用cd ~ 或者 cd(不带参数) &amp;quot;.&amp;quot; 则是表示目前所在的目录，&amp;quot;..&amp;quot; 则表示目前目录位置的上一层目录 通过pwd命令可以打印当前所在的目录 cd -表示切换至上一次所在的目录  常用范例范例1： 切换至根目录下的var">
+    <meta name="description" content="cd命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。  语法 1cd [dir]  使用小技巧  切换至用户所示在的目录可以使用cd ~ 或者 cd(不带参数) &amp;quot;.&amp;quot; 则是表示目前所在的目录，&amp;quot;..&amp;quot; 则表示目前目录位置的上一层目录 通过pwd命令可以打印当前所在的目录 cd -表示切换至上一次所在的目录   常用范例 范例1： 切换至根目">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每天学习一个Linux命令（2）：cd命令">
 <meta property="og:url" content="http://ruanxinyu.github.io/posts/每天学习一个Linux命令/每天学习一个Linux命令（2）：cd命令/index.html">
 <meta property="og:site_name" content="RuanXinYu&#39;s Blog">
-<meta property="og:description" content="cd命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。 语法1cd [dir] 使用小技巧 切换至用户所示在的目录可以使用cd ~ 或者 cd(不带参数) &amp;quot;.&amp;quot; 则是表示目前所在的目录，&amp;quot;..&amp;quot; 则表示目前目录位置的上一层目录 通过pwd命令可以打印当前所在的目录 cd -表示切换至上一次所在的目录  常用范例范例1： 切换至根目录下的var">
+<meta property="og:description" content="cd命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。  语法 1cd [dir]  使用小技巧  切换至用户所示在的目录可以使用cd ~ 或者 cd(不带参数) &amp;quot;.&amp;quot; 则是表示目前所在的目录，&amp;quot;..&amp;quot; 则表示目前目录位置的上一层目录 通过pwd命令可以打印当前所在的目录 cd -表示切换至上一次所在的目录   常用范例 范例1： 切换至根目">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-08-12T13:13:07.219Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每天学习一个Linux命令（2）：cd命令">
-<meta name="twitter:description" content="cd命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。 语法1cd [dir] 使用小技巧 切换至用户所示在的目录可以使用cd ~ 或者 cd(不带参数) &amp;quot;.&amp;quot; 则是表示目前所在的目录，&amp;quot;..&amp;quot; 则表示目前目录位置的上一层目录 通过pwd命令可以打印当前所在的目录 cd -表示切换至上一次所在的目录  常用范例范例1： 切换至根目录下的var">
+<meta name="twitter:description" content="cd命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。  语法 1cd [dir]  使用小技巧  切换至用户所示在的目录可以使用cd ~ 或者 cd(不带参数) &amp;quot;.&amp;quot; 则是表示目前所在的目录，&amp;quot;..&amp;quot; 则表示目前目录位置的上一层目录 通过pwd命令可以打印当前所在的目录 cd -表示切换至上一次所在的目录   常用范例 范例1： 切换至根目">
     
         <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
     
@@ -100,31 +100,41 @@
         <div class="col-2 position-fixed border-right" style="overflow-y:auto; height:100%; width:100%">
             <div class="my-3 bg-white rounded box-shadow post-toc">
                 <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#语法"><span class="toc-text">语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用小技巧"><span class="toc-text">使用小技巧</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用范例"><span class="toc-text">常用范例</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#语法"><span class="toc-text"> 语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用小技巧"><span class="toc-text"> 使用小技巧</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用范例"><span class="toc-text"> 常用范例</span></a></li></ol>
             </div>
         </div>
         <div class="col-10 offset-2">
         <div class="my-3 bg-white rounded box-shadow post-content"><p><code>cd</code>命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。</p>
-<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd [dir]</span><br></pre></td></tr></table></figure>
-<h1 id="使用小技巧"><a href="#使用小技巧" class="headerlink" title="使用小技巧"></a>使用小技巧</h1><ol>
+<h1 id="语法"><a class="markdownIt-Anchor" href="#语法"></a> 语法</h1>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd [dir]</span><br></pre></td></tr></table></figure>
+<h1 id="使用小技巧"><a class="markdownIt-Anchor" href="#使用小技巧"></a> 使用小技巧</h1>
+<ol>
 <li>切换至用户所示在的目录可以使用<code>cd ~</code> 或者 <code>cd</code>(不带参数)</li>
 <li><code>&quot;.&quot;</code> 则是表示目前所在的目录，<code>&quot;..&quot;</code> 则表示目前目录位置的上一层目录</li>
 <li>通过<code>pwd</code>命令可以打印当前所在的目录</li>
 <li><code>cd -</code>表示切换至上一次所在的目录</li>
 </ol>
-<h1 id="常用范例"><a href="#常用范例" class="headerlink" title="常用范例"></a>常用范例</h1><p><strong>范例1： 切换至根目录下的var目录下</strong><br>命令： <code>cd /var</code>(绝对路径)</p>
+<h1 id="常用范例"><a class="markdownIt-Anchor" href="#常用范例"></a> 常用范例</h1>
+<p><strong>范例1： 切换至根目录下的var目录下</strong><br>
+命令： <code>cd /var</code>(绝对路径)</p>
 <hr>
-<p><strong>范例2： 切换至当前目录下的var目录下</strong><br>命令： <code>cd var</code>(相对目录)</p>
+<p><strong>范例2： 切换至当前目录下的var目录下</strong><br>
+命令： <code>cd var</code>(相对目录)</p>
 <hr>
-<p><strong>范例3： 切换至上两级的目录</strong><br>命令： <code>cd ../../</code></p>
+<p><strong>范例3： 切换至上两级的目录</strong><br>
+命令： <code>cd ../../</code></p>
 <hr>
-<p><strong>范例4： 切换至包含空格的目录</strong><br>命令： <code>cd &#39;aa aa&#39;</code>或者<code>cd aa\ aa</code></p>
+<p><strong>范例4： 切换至包含空格的目录</strong><br>
+命令： <code>cd 'aa aa'</code>或者<code>cd aa\ aa</code></p>
 <hr>
-<p><strong>范例5： 切换至当前用户的home目录</strong><br>命令： <code>cd ~</code>或者<code>cd</code></p>
+<p><strong>范例5： 切换至当前用户的home目录</strong><br>
+命令： <code>cd ~</code>或者<code>cd</code></p>
 <hr>
-<p><strong>范例6： 打印当前所在的目录</strong><br>命令： <code>pwd</code></p>
+<p><strong>范例6： 打印当前所在的目录</strong><br>
+命令： <code>pwd</code></p>
 <hr>
-<p><strong>范例7： 切换到上一次所在的目录</strong><br>命令： <code>cd -</code></p>
+<p><strong>范例7： 切换到上一次所在的目录</strong><br>
+命令： <code>cd -</code></p>
 </div>
         </div>
     </div>

@@ -11,20 +11,20 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <title>AngularJS学习记录-1 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
 
-    <meta name="description" content="前言AngularJS的学习地址为：https://angular.cns/guide/quickstart ng命令介绍 安装@angular/cli: npm install -g @angular/cli 创建工程： ng new angular-tour-of-heroes 开启调试： ng serve --open 创建组件： ng generate component xxx 创建服务">
+    <meta name="description" content="前言 AngularJS的学习地址为：https://angular.cns/guide/quickstart  ng命令介绍  安装@angular/cli: npm install -g @angular/cli 创建工程： ng new angular-tour-of-heroes 开启调试： ng serve --open 创建组件： ng generate component xxx">
 <meta name="keywords" content="学习记录">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AngularJS学习记录-1">
 <meta property="og:url" content="http://ruanxinyu.github.io/posts/AngularJS学习记录-1/index.html">
 <meta property="og:site_name" content="RuanXinYu&#39;s Blog">
-<meta property="og:description" content="前言AngularJS的学习地址为：https://angular.cns/guide/quickstart ng命令介绍 安装@angular/cli: npm install -g @angular/cli 创建工程： ng new angular-tour-of-heroes 开启调试： ng serve --open 创建组件： ng generate component xxx 创建服务">
+<meta property="og:description" content="前言 AngularJS的学习地址为：https://angular.cns/guide/quickstart  ng命令介绍  安装@angular/cli: npm install -g @angular/cli 创建工程： ng new angular-tour-of-heroes 开启调试： ng serve --open 创建组件： ng generate component xxx">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/AngularJS学习记录-1/2018-10-07-20-56-50.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/AngularJS学习记录-1/2018-10-07-21-38-11.png">
 <meta property="og:updated_time" content="2018-10-07T14:18:28.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJS学习记录-1">
-<meta name="twitter:description" content="前言AngularJS的学习地址为：https://angular.cns/guide/quickstart ng命令介绍 安装@angular/cli: npm install -g @angular/cli 创建工程： ng new angular-tour-of-heroes 开启调试： ng serve --open 创建组件： ng generate component xxx 创建服务">
+<meta name="twitter:description" content="前言 AngularJS的学习地址为：https://angular.cns/guide/quickstart  ng命令介绍  安装@angular/cli: npm install -g @angular/cli 创建工程： ng new angular-tour-of-heroes 开启调试： ng serve --open 创建组件： ng generate component xxx">
 <meta name="twitter:image" content="http://ruanxinyu.github.io/posts/AngularJS学习记录-1/2018-10-07-20-56-50.png">
     
         <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
@@ -103,12 +103,14 @@
         <div class="col-2 position-fixed border-right" style="overflow-y:auto; height:100%; width:100%">
             <div class="my-3 bg-white rounded box-shadow post-toc">
                 <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ng命令介绍"><span class="toc-text">ng命令介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#核心知识"><span class="toc-text">核心知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#架构"><span class="toc-text">架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块"><span class="toc-text">模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件"><span class="toc-text">组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务与依赖注入"><span class="toc-text">服务与依赖注入</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#组件与模板"><span class="toc-text">组件与模板</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#显示数据"><span class="toc-text">显示数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板语法"><span class="toc-text">模板语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生命钩子"><span class="toc-text">生命钩子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件交互"><span class="toc-text">组件交互</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件样式"><span class="toc-text">组件样式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#表单"><span class="toc-text">表单</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#用户输入"><span class="toc-text">用户输入</span></a></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ng命令介绍"><span class="toc-text"> ng命令介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#核心知识"><span class="toc-text"> 核心知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#架构"><span class="toc-text"> 架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块"><span class="toc-text"> 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件"><span class="toc-text"> 组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务与依赖注入"><span class="toc-text"> 服务与依赖注入</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#组件与模板"><span class="toc-text"> 组件与模板</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#显示数据"><span class="toc-text"> 显示数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板语法"><span class="toc-text"> 模板语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生命钩子"><span class="toc-text"> 生命钩子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件交互"><span class="toc-text"> 组件交互</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件样式"><span class="toc-text"> 组件样式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#表单"><span class="toc-text"> 表单</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#用户输入"><span class="toc-text"> 用户输入</span></a></li></ol></li></ol>
             </div>
         </div>
         <div class="col-10 offset-2">
-        <div class="my-3 bg-white rounded box-shadow post-content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>AngularJS的学习地址为：<a href="https://angular.cn/guide/quickstart" target="_blank" rel="noopener">https://angular.cns/guide/quickstart</a></p>
-<h1 id="ng命令介绍"><a href="#ng命令介绍" class="headerlink" title="ng命令介绍"></a>ng命令介绍</h1><ol>
+        <div class="my-3 bg-white rounded box-shadow post-content"><h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>AngularJS的学习地址为：<a href="https://angular.cn/guide/quickstart" target="_blank" rel="noopener">https://angular.cns/guide/quickstart</a></p>
+<h1 id="ng命令介绍"><a class="markdownIt-Anchor" href="#ng命令介绍"></a> ng命令介绍</h1>
+<ol>
 <li>安装@angular/cli: <code>npm install -g @angular/cli</code></li>
 <li>创建工程： <code>ng new angular-tour-of-heroes</code></li>
 <li>开启调试： <code>ng serve --open</code></li>
@@ -117,13 +119,16 @@
 <li>创建路由：<code>ng generate module xxx --flat --module=app</code></li>
 <li>创建类：<code>ng generate class hero</code></li>
 </ol>
-<h1 id="核心知识"><a href="#核心知识" class="headerlink" title="核心知识"></a>核心知识</h1><h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p>Angular 的基本构造块是 NgModule，它为组件提供了编译的上下文环境。Angular包含一个根模块，可以包含其他模块，模块的加载是懒加载的。</p>
+<h1 id="核心知识"><a class="markdownIt-Anchor" href="#核心知识"></a> 核心知识</h1>
+<h2 id="架构"><a class="markdownIt-Anchor" href="#架构"></a> 架构</h2>
+<p>Angular 的基本构造块是 NgModule，它为组件提供了编译的上下文环境。Angular包含一个根模块，可以包含其他模块，模块的加载是懒加载的。</p>
 <p>组件定义视图，同时使用服务。组件和服务都是简单的类，这些类使用装饰器来标出它们的类型，并提供元数据以告知 Angular 该如何使用它们。</p>
 <p>模板会把 HTML 和 Angular 的标记（markup）组合起来，这些标记可以在 HTML 元素显示出来之前修改它们。 模板中的指令会提供程序逻辑，而绑定标记会把你应用中的数据和 DOM 连接在一起。包含事件绑定和属性绑定，并且支持双星绑定和管道等功能。</p>
 <p>对于与特定视图无关并希望跨组件共享的数据或逻辑，可以创建服务类。 服务类的定义通常紧跟在 “@Injectable” 装饰器之后。该装饰器提供的元数据可以让你的服务作为依赖被注入到客户组件中。</p>
 <p>Angular 的 Router 模块提供了一个服务，它可以让你定义在应用的各个不同状态和视图层次结构之间导航时要使用的路径。如果路由器认为当前的应用状态需要某些特定的功能，而定义此功能的模块尚未加载，路由器就会按需惰性加载此模块。</p>
 <img src="/posts/AngularJS学习记录-1/2018-10-07-20-56-50.png" title="[blog.ruanxinyu.cn]">
-<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>NgModule 是一个带有 @NgModule 装饰器的类。@NgModule 装饰器是一个函数，它接受一个元数据对象，该对象的属性用来描述这个模块。其中最重要的属性如下。</p>
+<h2 id="模块"><a class="markdownIt-Anchor" href="#模块"></a> 模块</h2>
+<p>NgModule 是一个带有 @NgModule 装饰器的类。@NgModule 装饰器是一个函数，它接受一个元数据对象，该对象的属性用来描述这个模块。其中最重要的属性如下。</p>
 <ul>
 <li><strong>declarations（可声明对象表）</strong> —— 那些属于本 NgModule 的组件、指令、管道。</li>
 <li><strong>exports（导出表）</strong> —— 那些能在其它模块的组件模板中使用的可声明对象的子集。</li>
@@ -132,15 +137,17 @@
 <li><strong>bootstrap</strong> —— 应用的主视图，称为根组件。它是应用中所有其它视图的宿主。只有根模块才应该设置这个 bootstrap 属性。</li>
 </ul>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; NgModule &#125;      <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; BrowserModule &#125; <span class="keyword">from</span> <span class="string">'@angular/platform-browser'</span>;</span><br><span class="line"><span class="meta">@NgModule</span>(&#123;</span><br><span class="line">  imports:      [ BrowserModule ],</span><br><span class="line">  providers:    [ Logger ],</span><br><span class="line">  declarations: [ AppComponent ],</span><br><span class="line">  exports:      [ AppComponent ],</span><br><span class="line">  bootstrap:    [ AppComponent ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppModule &#123; &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><p>组件通过<code>constructor</code>来提供依赖注入，常见的元数据如下：</p>
+<h2 id="组件"><a class="markdownIt-Anchor" href="#组件"></a> 组件</h2>
+<p>组件通过<code>constructor</code>来提供依赖注入，常见的元数据如下：</p>
 <ul>
-<li><strong>selector：</strong>是一个 CSS 选择器，它会告诉 Angular，一旦在模板 HTML 中找到了这个选择器对应的标签，就创建并插入该组件的一个实例。 </li>
-<li><strong>templateUrl：</strong>该组件的 HTML 模板文件相对于这个组件文件的地址。</li>
+<li>**selector：**是一个 CSS 选择器，它会告诉 Angular，一旦在模板 HTML 中找到了这个选择器对应的标签，就创建并插入该组件的一个实例。</li>
+<li>**templateUrl：**该组件的 HTML 模板文件相对于这个组件文件的地址。</li>
 <li><strong>providers:</strong> 是当前组件所需的依赖注入提供商的一个数组</li>
 </ul>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector:    <span class="string">'app-hero-list'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./hero-list.component.html'</span>,</span><br><span class="line">  providers:  [ HeroService ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> HeroListComponent <span class="keyword">implements</span> OnInit &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>指令：结构型指令和属性型指令。</p>
-<h2 id="服务与依赖注入"><a href="#服务与依赖注入" class="headerlink" title="服务与依赖注入"></a>服务与依赖注入</h2><p>服务是一个广义的概念，它包括应用所需的任何值、函数或特性。狭义的服务是一个明确定义了用途的类。它应该做一些具体的事，并做好。要把一个类定义为服务，就要用 @Injectable 装饰器来提供元数据，以便让 Angular 可以把它作为依赖注入到组件中。通过构造函数进行注入</p>
+<h2 id="服务与依赖注入"><a class="markdownIt-Anchor" href="#服务与依赖注入"></a> 服务与依赖注入</h2>
+<p>服务是一个广义的概念，它包括应用所需的任何值、函数或特性。狭义的服务是一个明确定义了用途的类。它应该做一些具体的事，并做好。要把一个类定义为服务，就要用 @Injectable 装饰器来提供元数据，以便让 Angular 可以把它作为依赖注入到组件中。通过构造函数进行注入</p>
 <p>Angular 把组件和服务区分开，以提高模块性和复用性。</p>
 <ul>
 <li>通过把组件中和视图有关的功能与其他类型的处理分离开，你可以让组件类更加精简、高效。 理想情况下，组件的工作只管用户体验，而不用顾及其它。 它应该提供用于数据绑定的属性和方法，以便作为视图（由模板渲染）和应用逻辑（通常包含一些模型的概念）的中介者。</li>
@@ -149,14 +156,17 @@
 <p>默认情况下，Angular CLI 的 ng generate service 命令会在 @Injectable 装饰器中提供元数据，把它注册到根注入器中。本教程就用这种方法注册了 HeroService 的提供商</p>
 <p>当你使用特定的 NgModule 注册提供商时，该服务的同一个实例将会对该 NgModule 中的所有组件可用。要想在这一层注册，请用 @NgModule 装饰器中的 providers 属性</p>
 <p>当你在组件级注册提供商时，你会为该组件的每一个新实例提供该服务的一个新实例。 要在组件级注册，就要在 @Component 元数据的 providers 属性中注册服务提供商</p>
-<h1 id="组件与模板"><a href="#组件与模板" class="headerlink" title="组件与模板"></a>组件与模板</h1><h2 id="显示数据"><a href="#显示数据" class="headerlink" title="显示数据"></a>显示数据</h2><p>你可以在两种地方存放组件模板。 你可以使用 template 属性把它定义为内联的，或者把模板定义在一个独立的 HTML 文件中， 再通过 @Component 装饰器中的 templateUrl 属性， 在组件元数据中把它链接到组件。</p>
+<h1 id="组件与模板"><a class="markdownIt-Anchor" href="#组件与模板"></a> 组件与模板</h1>
+<h2 id="显示数据"><a class="markdownIt-Anchor" href="#显示数据"></a> 显示数据</h2>
+<p>你可以在两种地方存放组件模板。 你可以使用 template 属性把它定义为内联的，或者把模板定义在一个独立的 HTML 文件中， 再通过 @Component 装饰器中的 templateUrl 属性， 在组件元数据中把它链接到组件。</p>
 <p>默认情况下，Angular CLI 生成组件时会带有模板文件，你可以通过参数覆盖它：<code>ng generate component hero -it</code></p>
 <ul>
 <li><code></code>显示属性。</li>
 <li><code>*ngFor</code> 是 Angular 的“迭代”指令</li>
 <li><code>*ngIf</code> 指令会根据一个布尔条件来显示或移除一个元素</li>
 </ul>
-<h2 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h2><p>JavaScript 中那些具有或可能引发副作用的表达式是被禁止的，包括：</p>
+<h2 id="模板语法"><a class="markdownIt-Anchor" href="#模板语法"></a> 模板语法</h2>
+<p>JavaScript 中那些具有或可能引发副作用的表达式是被禁止的，包括：</p>
 <ul>
 <li>赋值 <code>(=, +=, -=, ...)</code></li>
 <li><code>new</code> 运算符</li>
@@ -171,14 +181,14 @@
 <p>表达式中的上下文变量是由模板变量、指令的上下文变量（如果有）和组件的成员叠加而成的。 如果你要引用的变量名存在于一个以上的命名空间中，那么，模板变量是最优先的，其次是指令的上下文变量，最后是组件的成员。</p>
 <p>模板表达式不能引用全局命名空间中的任何东西，比如 window 或 document。它们也不能调用 console.log 或 Math.max。 它们只能引用表达式上下文中的成员。</p>
 <p>模板表达式能成就或毁掉一个应用。请遵循下列指南：<code>没有可见的副作用</code>,<code>执行迅速</code>,<code>非常简单</code>,<code>幂等性</code></p>
-<p>模板语句用来响应由绑定目标（如 HTML 元素、组件或指令）触发的事件。 模板语句将在事件绑定一节看到，它出现在 = 号右侧的引号中，就像这样：(event)=”statement”。</p>
+<p>模板语句用来响应由绑定目标（如 HTML 元素、组件或指令）触发的事件。 模板语句将在事件绑定一节看到，它出现在 = 号右侧的引号中，就像这样：(event)=“statement”。</p>
 <p>绑定方式：</p>
 <ol>
 <li>属性绑定：<code>[target]=&quot;expression&quot;</code></li>
 <li>事件绑定：<code>(target)=&quot;statement&quot;</code></li>
 <li>双向绑定：<code>[(target)]=&quot;expression&quot;</code></li>
 <li>css类绑定：<code>[class.special]=&quot;isSpecial&quot;</code></li>
-<li>样式绑定：<code>[style.color]=&quot;isSpecial ? &#39;red&#39; : &#39;green&#39;&quot;</code></li>
+<li>样式绑定：<code>[style.color]=&quot;isSpecial ? 'red' : 'green'&quot;</code></li>
 </ol>
 <p>在多数情况下，插值表达式是更方便的备选项。 实际上，在渲染视图之前，Angular 把这些插值表达式翻译成相应的属性绑定。</p>
 <p>在新版的 Angular 中不需要那么多指令。 使用更强大、更富有表现力的 Angular 绑定系统，其实可以达到同样的效果。</p>
@@ -186,8 +196,11 @@
 <p><strong>好东西:</strong> Angular 的安全导航操作符<code>?.</code> 是一种流畅而便利的方式，用来保护出现在属性路径中 null 和 undefined 值。 下例中，当 currentHero 为空时，保护视图渲染器，让它免于失败。<code></code></p>
 <p>非空断言操作符<code>!</code></p>
 <p>类型转换函数 <code>$any</code></p>
-<h2 id="生命钩子"><a href="#生命钩子" class="headerlink" title="生命钩子"></a>生命钩子</h2><p>执行顺序<br><img src="/posts/AngularJS学习记录-1/2018-10-07-21-38-11.png" title="[blog.ruanxinyu.cn]"></p>
-<h2 id="组件交互"><a href="#组件交互" class="headerlink" title="组件交互"></a>组件交互</h2><p><a href="https://angular.cn/guide/component-interaction" target="_blank" rel="noopener">https://angular.cn/guide/component-interaction</a></p>
+<h2 id="生命钩子"><a class="markdownIt-Anchor" href="#生命钩子"></a> 生命钩子</h2>
+<p>执行顺序</p>
+<img src="/posts/AngularJS学习记录-1/2018-10-07-21-38-11.png" title="[blog.ruanxinyu.cn]">
+<h2 id="组件交互"><a class="markdownIt-Anchor" href="#组件交互"></a> 组件交互</h2>
+<p><a href="https://angular.cn/guide/component-interaction" target="_blank" rel="noopener">https://angular.cn/guide/component-interaction</a></p>
 <ul>
 <li>通过输入型绑定把数据从父组件传到子组件</li>
 <li>通过 setter 截听输入属性值的变化</li>
@@ -197,14 +210,17 @@
 <li>父组件调用<code>@ViewChild()</code></li>
 <li>父组件和子组件通过服务来通讯</li>
 </ul>
-<h2 id="组件样式"><a href="#组件样式" class="headerlink" title="组件样式"></a>组件样式</h2><ul>
+<h2 id="组件样式"><a class="markdownIt-Anchor" href="#组件样式"></a> 组件样式</h2>
+<ul>
 <li>使用 <code>:host</code> 伪类选择器，用来选择组件宿主元素中的元素</li>
 <li>使用 <code>:host-context()</code> 伪类选择器。它也以类似 <code>:host()</code> 形式使用。它在当前组件宿主元素的祖先节点中查找 CSS 类， 直到文档的根节点为止</li>
 <li>可以在组件的 HTML 模板中写 <code>&lt;link&gt;</code> 标签</li>
 <li>可以利用标准的 CSS <code>@import</code> 规则来把其它 CSS 文件导入到 CSS 文件中。</li>
 <li>如果使用 CLI 进行构建，那么你可以用 sass、less 或 stylus 来编写样式，并使用相应的扩展名（.scss、.less、.styl）把它们指定到 @Component.styleUrls 元数据中。</li>
 </ul>
-<h1 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h1><h2 id="用户输入"><a href="#用户输入" class="headerlink" title="用户输入"></a>用户输入</h2><p><a href="https://angular.cn/guide/user-input" target="_blank" rel="noopener">https://angular.cn/guide/user-input</a></p>
+<h1 id="表单"><a class="markdownIt-Anchor" href="#表单"></a> 表单</h1>
+<h2 id="用户输入"><a class="markdownIt-Anchor" href="#用户输入"></a> 用户输入</h2>
+<p><a href="https://angular.cn/guide/user-input" target="_blank" rel="noopener">https://angular.cn/guide/user-input</a></p>
 <ul>
 <li>绑定到用户输入事件<code>&lt;button (click)=&quot;onClickMe()&quot;&gt;Click me!&lt;/button&gt;</code></li>
 <li>通过 <code>$event</code> 对象取得用户输入<code>&lt;input (keyup)=&quot;onKey($event)&quot;&gt;</code></li>
