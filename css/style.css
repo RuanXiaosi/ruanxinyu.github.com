@@ -1,10 +1,3 @@
-img{  
-    width: 100%;
-    height: auto;
-}
-h1, h2 {
-    border-bottom: 1px solid #dee2e6!important;
-}
 .toc{
     padding-left: 1rem;
 }
@@ -18,4 +11,47 @@ body {
     font: normal 1em Roboto, "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", sans-serif;
     font-size: 14px;
     line-height: 25px;
+}
+
+.post-content img{  
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.post-content h1 {
+    border-bottom: 1px solid #dee2e6!important;
+    padding-bottom: 1rem;
+    font-size: 24px;
+    color: #007bff;
+}
+
+.post-content h2 {
+    font-size: 22px;
+    color: #007bff;
+}
+
+.post-content h3 {
+    font-size: 20px;
+    color: #007bff;
+}
+
+.post-content h4 {
+    font-size: 18px;
+    color: #007bff;
+}
+
+.post-content h5 {
+    font-size: 16px;
+    color: #007bff;
+}
+
+.post-content h6 {
+    font-size: 14px;
+    color: #007bff;
+}
+
+.post-toc li {
+    font-size: 12px;
+    line-height: 18px;
 }
