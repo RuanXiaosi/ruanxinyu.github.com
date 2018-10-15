@@ -91,8 +91,8 @@
         
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="全文搜索" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+          <input class="form-control mr-sm-2" type="text" placeholder="速查表搜索" autofocus="autofocus" aria-label="Search" id="global_search_text">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="global_search">搜索</button>
         </form>
     </div>
 </nav>
@@ -100,10 +100,27 @@
         
     <div class="my-3 p-3 bg-white rounded box-shadow">
   <h5 class="mt-1 font-weight-bold text-success"></h5>
-  <ul>
+  <div class="ml-4 mb-2 border-bottom">
+    <form>
+      <div class="form-row align-items-center">
+        <div class="col-auto">
+          <label class="sr-only" for="inlineFormInput">搜索：</label>
+          <input type="text" class="form-control mb-2" id="question_search_text" placeholder="请输入问题关键字...">
+        </div>
+      </div>
+    </form>
+  </div>
+  <ul id="questions">
   
   
   
+  
+  
+  
+  <li>
+    <span class="text-warning">【博文】：</span>
+    <a href="/pages/about/index.html" target="_blank" title="我的博客介绍">我的博客介绍</a>
+  </li>
   
   
   
@@ -120,22 +137,11 @@
   </li>
   
   
-    <ul>
-    
       <li>
         <span class="text-danger">【标题】：</span>
         <a href="/pages/inbox/index.html#hexo不同的页面如何使用不同的layout" target="_blank" title="碎片知识收集箱#hexo不同的页面如何使用不同的layout">hexo不同的页面如何使用不同的layout</a>
       </li>
     
-    </ul>
-  
-  
-  <li>
-    <span class="text-warning">【博文】：</span>
-    <a href="/pages/about/index.html" target="_blank" title="我的博客介绍">我的博客介绍</a>
-  </li>
-  
-  
   
   <li>
     <span class="text-warning">【博文】：</span>
@@ -147,12 +153,17 @@
   
   <li>
     <span class="text-warning">【博文】：</span>
+    <a href="/posts/AngularJS学习记录-1/" target="_blank" title="AngularJS学习记录-1">AngularJS学习记录-1</a>
+  </li>
+  
+  
+  
+  <li>
+    <span class="text-warning">【博文】：</span>
     <a href="/posts/Git常见问题操作指导/" target="_blank" title="Git常见问题操作指导">Git常见问题操作指导</a>
   </li>
   
   
-    <ul>
-    
       <li>
         <span class="text-danger">【标题】：</span>
         <a href="/posts/Git常见问题操作指导/#刚才提交了什么" target="_blank" title="Git常见问题操作指导#刚才提交了什么">刚才提交了什么</a>
@@ -363,15 +374,6 @@
         <a href="/posts/Git常见问题操作指导/#gui客户端gui-clients" target="_blank" title="Git常见问题操作指导#gui客户端gui-clients">gui客户端gui-clients</a>
       </li>
     
-    </ul>
-  
-  
-  <li>
-    <span class="text-warning">【博文】：</span>
-    <a href="/posts/AngularJS学习记录-1/" target="_blank" title="AngularJS学习记录-1">AngularJS学习记录-1</a>
-  </li>
-  
-  
   
   <li>
     <span class="text-warning">【博文】：</span>
@@ -400,8 +402,6 @@
   </li>
   
   
-    <ul>
-    
       <li>
         <span class="text-danger">【标题】：</span>
         <a href="/posts/Mysql常见问题操作指导/#windows如何启动mysql" target="_blank" title="Mysql常见问题操作指导#windows如何启动mysql">windows如何启动mysql</a>
@@ -442,19 +442,17 @@
         <a href="/posts/Mysql常见问题操作指导/#修改权限提示skip-grant-tables下不能执行该操作" target="_blank" title="Mysql常见问题操作指导#修改权限提示skip-grant-tables下不能执行该操作">修改权限提示skip-grant-tables下不能执行该操作</a>
       </li>
     
-    </ul>
-  
   
   <li>
     <span class="text-warning">【博文】：</span>
-    <a href="/posts/SonatypeNexus的安装与使用/" target="_blank" title="SonatypeNexus的安装与使用">SonatypeNexus的安装与使用</a>
+    <a href="/posts/TypeScript学习记录-1/" target="_blank" title="TypeScript学习记录-1">TypeScript学习记录-1</a>
   </li>
   
   
   
   <li>
     <span class="text-warning">【博文】：</span>
-    <a href="/posts/TypeScript学习记录-1/" target="_blank" title="TypeScript学习记录-1">TypeScript学习记录-1</a>
+    <a href="/posts/SonatypeNexus的安装与使用/" target="_blank" title="SonatypeNexus的安装与使用">SonatypeNexus的安装与使用</a>
   </li>
   
   
@@ -475,13 +473,6 @@
   
   <li>
     <span class="text-warning">【博文】：</span>
-    <a href="/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/" target="_blank" title="Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建">Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建</a>
-  </li>
-  
-  
-  
-  <li>
-    <span class="text-warning">【博文】：</span>
     <a href="/posts/Ubuntu下Mysql的安装与验证/" target="_blank" title="Ubuntu下Mysql的安装与验证">Ubuntu下Mysql的安装与验证</a>
   </li>
   
@@ -489,38 +480,7 @@
   
   <li>
     <span class="text-warning">【博文】：</span>
-    <a href="/posts/Ubuntu常见问题操作指导/" target="_blank" title="Ubuntu常见问题操作指导">Ubuntu常见问题操作指导</a>
-  </li>
-  
-  
-    <ul>
-    
-      <li>
-        <span class="text-danger">【标题】：</span>
-        <a href="/posts/Ubuntu常见问题操作指导/#如何重启网卡" target="_blank" title="Ubuntu常见问题操作指导#如何重启网卡">如何重启网卡</a>
-      </li>
-    
-      <li>
-        <span class="text-danger">【标题】：</span>
-        <a href="/posts/Ubuntu常见问题操作指导/#如何临时添加-修改-删除ip地址" target="_blank" title="Ubuntu常见问题操作指导#如何临时添加-修改-删除ip地址">如何临时添加-修改-删除ip地址</a>
-      </li>
-    
-      <li>
-        <span class="text-danger">【标题】：</span>
-        <a href="/posts/Ubuntu常见问题操作指导/#如何设置静态ip地址和dns" target="_blank" title="Ubuntu常见问题操作指导#如何设置静态ip地址和dns">如何设置静态ip地址和dns</a>
-      </li>
-    
-      <li>
-        <span class="text-danger">【标题】：</span>
-        <a href="/posts/Ubuntu常见问题操作指导/#如何查看和设置dns" target="_blank" title="Ubuntu常见问题操作指导#如何查看和设置dns">如何查看和设置dns</a>
-      </li>
-    
-    </ul>
-  
-  
-  <li>
-    <span class="text-warning">【博文】：</span>
-    <a href="/posts/VirtualBox安装Ubuntu教程/" target="_blank" title="VirtualBox安装Ubuntu教程">VirtualBox安装Ubuntu教程</a>
+    <a href="/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/" target="_blank" title="Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建">Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建</a>
   </li>
   
   
@@ -541,7 +501,41 @@
   
   <li>
     <span class="text-warning">【博文】：</span>
+    <a href="/posts/Ubuntu常见问题操作指导/" target="_blank" title="Ubuntu常见问题操作指导">Ubuntu常见问题操作指导</a>
+  </li>
+  
+  
+      <li>
+        <span class="text-danger">【标题】：</span>
+        <a href="/posts/Ubuntu常见问题操作指导/#如何重启网卡" target="_blank" title="Ubuntu常见问题操作指导#如何重启网卡">如何重启网卡</a>
+      </li>
+    
+      <li>
+        <span class="text-danger">【标题】：</span>
+        <a href="/posts/Ubuntu常见问题操作指导/#如何临时添加-修改-删除ip地址" target="_blank" title="Ubuntu常见问题操作指导#如何临时添加-修改-删除ip地址">如何临时添加-修改-删除ip地址</a>
+      </li>
+    
+      <li>
+        <span class="text-danger">【标题】：</span>
+        <a href="/posts/Ubuntu常见问题操作指导/#如何设置静态ip地址和dns" target="_blank" title="Ubuntu常见问题操作指导#如何设置静态ip地址和dns">如何设置静态ip地址和dns</a>
+      </li>
+    
+      <li>
+        <span class="text-danger">【标题】：</span>
+        <a href="/posts/Ubuntu常见问题操作指导/#如何查看和设置dns" target="_blank" title="Ubuntu常见问题操作指导#如何查看和设置dns">如何查看和设置dns</a>
+      </li>
+    
+  
+  <li>
+    <span class="text-warning">【博文】：</span>
     <a href="/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/" target="_blank" title="基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能">基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能</a>
+  </li>
+  
+  
+  
+  <li>
+    <span class="text-warning">【博文】：</span>
+    <a href="/posts/VirtualBox安装Ubuntu教程/" target="_blank" title="VirtualBox安装Ubuntu教程">VirtualBox安装Ubuntu教程</a>
   </li>
   
   
@@ -583,14 +577,14 @@
   
   <li>
     <span class="text-warning">【博文】：</span>
-    <a href="/posts/香帅的北大金融学课/【香帅】001-一万美金赠品里的秘密/" target="_blank" title="【香帅】001.一万美金赠品里的秘密">【香帅】001.一万美金赠品里的秘密</a>
+    <a href="/posts/香帅的北大金融学课/【香帅】002-南北战争中的第二战场/" target="_blank" title="【香帅】002.南北战争中的第二战场">【香帅】002.南北战争中的第二战场</a>
   </li>
   
   
   
   <li>
     <span class="text-warning">【博文】：</span>
-    <a href="/posts/香帅的北大金融学课/【香帅】002-南北战争中的第二战场/" target="_blank" title="【香帅】002.南北战争中的第二战场">【香帅】002.南北战争中的第二战场</a>
+    <a href="/posts/香帅的北大金融学课/【香帅】001-一万美金赠品里的秘密/" target="_blank" title="【香帅】001.一万美金赠品里的秘密">【香帅】001.一万美金赠品里的秘密</a>
   </li>
   
   
@@ -604,14 +598,14 @@
   
   <li>
     <span class="text-warning">【博文】：</span>
-    <a href="/posts/香帅的北大金融学课/【香帅】004-构建完整的金融世界观/" target="_blank" title="【香帅】004.构建完整的金融世界观">【香帅】004.构建完整的金融世界观</a>
+    <a href="/posts/香帅的北大金融学课/【香帅】005-第1周总结：PPT/" target="_blank" title="【香帅】005.第1周总结：PPT">【香帅】005.第1周总结：PPT</a>
   </li>
   
   
   
   <li>
     <span class="text-warning">【博文】：</span>
-    <a href="/posts/香帅的北大金融学课/【香帅】005-第1周总结：PPT/" target="_blank" title="【香帅】005.第1周总结：PPT">【香帅】005.第1周总结：PPT</a>
+    <a href="/posts/香帅的北大金融学课/【香帅】004-构建完整的金融世界观/" target="_blank" title="【香帅】004.构建完整的金融世界观">【香帅】004.构建完整的金融世界观</a>
   </li>
   
   
@@ -639,13 +633,6 @@
   
   <li>
     <span class="text-warning">【博文】：</span>
-    <a href="/posts/香帅的北大金融学课/【香帅】009-个人资产配置的生命周期/" target="_blank" title="【香帅】009.个人资产配置的生命周期">【香帅】009.个人资产配置的生命周期</a>
-  </li>
-  
-  
-  
-  <li>
-    <span class="text-warning">【博文】：</span>
     <a href="/posts/香帅的北大金融学课/【香帅】008-金融市场上的二道贩子们/" target="_blank" title="【香帅】008.金融市场上的二道贩子们">【香帅】008.金融市场上的二道贩子们</a>
   </li>
   
@@ -660,7 +647,7 @@
   
   <li>
     <span class="text-warning">【博文】：</span>
-    <a href="/posts/香帅的北大金融学课/【香帅】010-第2周总结：PPT/" target="_blank" title="【香帅】010.第2周总结：PPT">【香帅】010.第2周总结：PPT</a>
+    <a href="/posts/香帅的北大金融学课/【香帅】009-个人资产配置的生命周期/" target="_blank" title="【香帅】009.个人资产配置的生命周期">【香帅】009.个人资产配置的生命周期</a>
   </li>
   
   
@@ -668,6 +655,13 @@
   <li>
     <span class="text-warning">【博文】：</span>
     <a href="/posts/香帅的北大金融学课/【香帅】010-第2周问答：如何投资A股市场更明智/" target="_blank" title="【香帅】010.第2周问答：如何投资A股市场更明智">【香帅】010.第2周问答：如何投资A股市场更明智</a>
+  </li>
+  
+  
+  
+  <li>
+    <span class="text-warning">【博文】：</span>
+    <a href="/posts/香帅的北大金融学课/【香帅】010-第2周总结：PPT/" target="_blank" title="【香帅】010.第2周总结：PPT">【香帅】010.第2周总结：PPT</a>
   </li>
   
   
@@ -700,6 +694,16 @@
         
         <li>
           <span class="text-success">【书签】：</span>
+            <a href="https://api.jquery.com/" target="_blank" title="Jquery官方文档">Jquery官方文档</a>
+          </li>
+        
+        <li>
+          <span class="text-success">【书签】：</span>
+            <a href="http://jquery.cuishifeng.cn/" target="_blank" title="Jquery中文文档">Jquery中文文档</a>
+          </li>
+        
+        <li>
+          <span class="text-success">【书签】：</span>
             <a href="https://github.com/openresty/lua-nginx-module/blob/master/README.markdown" target="_blank" title="Nginx Lua官方文档">Nginx Lua官方文档</a>
           </li>
         
@@ -722,5 +726,6 @@
     </main>
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>

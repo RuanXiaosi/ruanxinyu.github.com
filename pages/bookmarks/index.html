@@ -91,8 +91,8 @@
         
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="全文搜索" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+          <input class="form-control mr-sm-2" type="text" placeholder="速查表搜索" autofocus="autofocus" aria-label="Search" id="global_search_text">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="global_search">搜索</button>
         </form>
     </div>
 </nav>
@@ -148,20 +148,34 @@
         
         <tr>
           <td scope="row">2</td>
+          <td title="Jquery官方文档"><a href="https://api.jquery.com/" target="_blank">Jquery官方文档</a></td>
+          <td>
+            https://api.jquery.com/</td>
+        </tr>
+        
+        <tr>
+          <td scope="row">3</td>
+          <td title="Jquery中文文档"><a href="http://jquery.cuishifeng.cn/" target="_blank">Jquery中文文档</a></td>
+          <td>
+            http://jquery.cuishifeng.cn/</td>
+        </tr>
+        
+        <tr>
+          <td scope="row">4</td>
           <td title="Nginx Lua官方文档"><a href="https://github.com/openresty/lua-nginx-module/blob/master/README.markdown" target="_blank">Nginx Lua官方文档</a></td>
           <td>
             https://github.com/openresty/lua-nginx-module/blob/master/README.markdown</td>
         </tr>
         
         <tr>
-          <td scope="row">3</td>
+          <td scope="row">5</td>
           <td title="Nginx Lua中文文档"><a href="https://openresty-reference.readthedocs.io/en/latest/Lua_Nginx_API" target="_blank">Nginx Lua中文文档</a></td>
           <td>
             https://openresty-reference.readthedocs.io/en/latest/Lua_Nginx_API</td>
         </tr>
         
         <tr>
-          <td scope="row">4</td>
+          <td scope="row">6</td>
           <td title="Karaf官方文档"><a href="http://karaf.apache.org/manual/latest/#_start_the_server" target="_blank">Karaf官方文档</a></td>
           <td>
             http://karaf.apache.org/manual/latest/#_start_the_server</td>
@@ -177,5 +191,6 @@
     </main>
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>
