@@ -110,7 +110,25 @@
             </div>
         </div>
         <div class="col-10 offset-2">
-        <div class="my-3 bg-white rounded box-shadow post-content"><h1 id="keepalived介绍"><a class="markdownIt-Anchor" href="#keepalived介绍"></a> KeepAlived介绍</h1>
+            <div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        
+                            <li class="breadcrumb-item"><a href="/categories/环境搭建/" class="font-weight-bold text-primary">环境搭建</a></li>
+                        
+                        <li class="breadcrumb-item active" aria-current="page">Ubuntu下KeepAlived的安装与配置</li>
+                        <div class="ml-2">
+                            (
+                            
+                                    <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
+                            
+                            <span class="font-weight-bold text-success mr-2"> 2018-09-18 20:42:46</span><span>)</span>
+                        </div>
+                    </ol>
+                </nav>
+            </div>
+            <div class="my-3 bg-white rounded box-shadow post-content">
+                <h1 id="keepalived介绍"><a class="markdownIt-Anchor" href="#keepalived介绍"></a> KeepAlived介绍</h1>
 <p>Keepalived是一个基于VRRP协议来实现的服务高可用方案，可以利用其来避免IP单点故障，一般与其它负载均衡技术（如lvs、haproxy、nginx）一起工作来达到集群的高可用。</p>
 <p>健康检查和失败切换是keepalived的两大核心功能。</p>
 <p>keepalived的健康检查支持tcp三次握手、icmp请求、http请求、udp和echo请求等方式对负载均衡器后面的实际的服务器)进行保活，具体采用哪种检查方式可以根据自己的业务需要进行选择；</p>
@@ -172,7 +190,22 @@
 <p>我们删除主机vm01上的<code>/tmp/service_ok</code>文件，然后重新执行<code>ip a</code>，发现VIP（<code>192.168.42.23</code>）已经漂移到备机vm02上，此时我们通过<code>ssh ruan@192.168.42.23</code>登陆则是备机vm02。即当主机故障时，业务可以自动切换至备机。</p>
 <img src="/posts/Ubuntu下KeepAlived的安装与配置/2018-09-24-16-58-02.png" title="[blog.ruanxinyu.cn]">
 <p>我们重新创建主机vm01上的<code>/tmp/service_ok</code>文件，，然后重新执行<code>ip a</code>，发现VIP（<code>192.168.42.23</code>）已经重新漂移到备机vm01上，此时我们通过<code>ssh ruan@192.168.42.23</code>登陆重新回到主机vm01。即当主机恢复时，可以自动将该主机加入到服务器群提供服务。</p>
-</div>
+
+                <div class="row border-top">
+                    <div class="col-6">
+                        上一篇：
+                        
+                        <a href="/posts/Linux初始化init系统/"><h6 class="d-inline">Linux初始化init系统：Sysvinit、Upstart和Systemd</h6></a>
+                        
+                    </div>
+                    <div class="col-6 text-right">
+                        下一篇：
+                        
+                        <a href="/posts/VirtualBox安装Ubuntu教程/"><h6 class="d-inline">VirtualBox安装Ubuntu教程</h6></a>
+                        
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

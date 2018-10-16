@@ -123,7 +123,25 @@
             </div>
         </div>
         <div class="col-10 offset-2">
-        <div class="my-3 bg-white rounded box-shadow post-content"><h1 id="基础环境说明"><a class="markdownIt-Anchor" href="#基础环境说明"></a> 基础环境说明</h1>
+            <div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        
+                            <li class="breadcrumb-item"><a href="/categories/技术分享/" class="font-weight-bold text-primary">技术分享</a></li>
+                        
+                        <li class="breadcrumb-item active" aria-current="page">基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能</li>
+                        <div class="ml-2">
+                            (
+                            
+                                    <a href="/tags/Java/" class="font-weight-bold text-danger">Java</a> | 
+                            
+                            <span class="font-weight-bold text-success mr-2"> 2018-10-06 15:29:04</span><span>)</span>
+                        </div>
+                    </ol>
+                </nav>
+            </div>
+            <div class="my-3 bg-white rounded box-shadow post-content">
+                <h1 id="基础环境说明"><a class="markdownIt-Anchor" href="#基础环境说明"></a> 基础环境说明</h1>
 <p>本教程使用Maven管理依赖，使用IDEA进行开发，在开始之前，请按照下面教程安装好JDK和Mysql:</p>
 <ul>
 <li>JDK的安装请参考：<a href="/posts/JDK安装教程/" title="JDK安装教程">JDK安装教程</a></li>
@@ -222,7 +240,22 @@
 <p>如果在启动过程中提示<code>No qualifying bean of type 'com.ruan.productionservice.mapper.ProductionMapper' available: expected at least 1 bean which qualifies as autowire candidate.</code>，则说明<code>ProductionMapper</code>没有添加<code>@Mapper</code>注解，该文件是Mybatis Generator自动生成的，需要手动添加该注解。</p>
 <h2 id="启动时提示result-maps错误"><a class="markdownIt-Anchor" href="#启动时提示result-maps错误"></a> 启动时提示Result Maps错误</h2>
 <p>启动报错提示<code>java.lang.IllegalArgumentException: Result Maps collection already contains value for com.ruan.productionservice.mapper.ProductionMapper.BaseResultMap</code>，是因为多次使用Mybatis Generator生成代码，造成<code>ProductionMapper.xml</code>文件中存在重复的内容，删除掉该文件重新生成即可。</p>
-</div>
+
+                <div class="row border-top">
+                    <div class="col-6">
+                        上一篇：
+                        
+                        <a href="/posts/AngularJS学习记录-1/"><h6 class="d-inline">AngularJS学习记录-1</h6></a>
+                        
+                    </div>
+                    <div class="col-6 text-right">
+                        下一篇：
+                        
+                        <a href="/posts/Mysql常见问题操作指导/"><h6 class="d-inline">Mysql常见问题操作指导</h6></a>
+                        
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

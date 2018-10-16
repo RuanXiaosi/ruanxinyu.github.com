@@ -108,7 +108,25 @@
             </div>
         </div>
         <div class="col-10 offset-2">
-        <div class="my-3 bg-white rounded box-shadow post-content"><h1 id="init系统介绍"><a class="markdownIt-Anchor" href="#init系统介绍"></a> init系统介绍</h1>
+            <div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        
+                            <li class="breadcrumb-item"><a href="/categories/Linux/" class="font-weight-bold text-primary">Linux</a></li>
+                        
+                        <li class="breadcrumb-item active" aria-current="page">Linux初始化init系统：Sysvinit、Upstart和Systemd</li>
+                        <div class="ml-2">
+                            (
+                            
+                                    <a href="/tags/Linux/" class="font-weight-bold text-danger">Linux</a> | 
+                            
+                            <span class="font-weight-bold text-success mr-2"> 2018-09-22 15:04:38</span><span>)</span>
+                        </div>
+                    </ol>
+                </nav>
+            </div>
+            <div class="my-3 bg-white rounded box-shadow post-content">
+                <h1 id="init系统介绍"><a class="markdownIt-Anchor" href="#init系统介绍"></a> init系统介绍</h1>
 <p>Linux操作系统的启动首先从BIOS开始，接下来进入bootloader，由bootloader载入内核，进行内核初始化。内核初始化的最后一步就是启动<code>pid</code>为<code>1</code>的<code>init进程</code>。init以守护进程方式存在，是系统的第一个进程,，是所有其他进程的祖先。</p>
 <p>Init系统能够定义、管理和控制 init进程的行为。它负责组织和运行许多独立的或相关的始化工作(因此被称为init系统)，从而让计算机系统进入某种用户预订的运行模式。</p>
 <p>Linux初始化init系统包括：<code>Sysvinit</code>、<code>Upstart</code>和<code>Systemd</code>，它们在Ubuntu系统下的演化如下：</p>
@@ -432,7 +450,22 @@
 </tr>
 </tbody>
 </table>
-</div>
+
+                <div class="row border-top">
+                    <div class="col-6">
+                        上一篇：
+                        
+                        <a href="/posts/Ubuntu下HAProxy的安装与配置/"><h6 class="d-inline">Ubuntu下HAProxy的安装与配置</h6></a>
+                        
+                    </div>
+                    <div class="col-6 text-right">
+                        下一篇：
+                        
+                        <a href="/posts/Ubuntu下KeepAlived的安装与配置/"><h6 class="d-inline">Ubuntu下KeepAlived的安装与配置</h6></a>
+                        
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
