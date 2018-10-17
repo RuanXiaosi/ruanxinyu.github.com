@@ -11,21 +11,21 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <title>Mysql常见问题操作指导 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
 
-    <meta name="description" content="【注意】：该文章存在加密内容，请进入详情查看具体内容。">
+    <meta name="description" content="快速查询目录  启动  windows如何启动mysql 执行net start mysql80（需要用管理员权限启动，否则会报拒绝访问错误），或者通过如下方式：   windows下mysq的数据和配置文件存放位置 默认是在C:\ProgramData\MySQL\目录下  windows启动mysql报拒绝访问错误 使用管理员权限启动即可，net start mysql80  windows">
 <meta name="keywords" content="飞行手册">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mysql常见问题操作指导">
 <meta property="og:url" content="http://ruanxinyu.github.io/posts/Mysql常见问题操作指导/index.html">
 <meta property="og:site_name" content="RuanXinYu&#39;s Blog">
-<meta property="og:description" content="【注意】：该文章存在加密内容，请进入详情查看具体内容。">
+<meta property="og:description" content="快速查询目录  启动  windows如何启动mysql 执行net start mysql80（需要用管理员权限启动，否则会报拒绝访问错误），或者通过如下方式：   windows下mysq的数据和配置文件存放位置 默认是在C:\ProgramData\MySQL\目录下  windows启动mysql报拒绝访问错误 使用管理员权限启动即可，net start mysql80  windows">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/Mysql常见问题操作指导/2018-10-06-11-16-52.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/Mysql常见问题操作指导/2018-10-06-11-41-08.png">
 <meta property="og:image" content="http://ruanxinyu.github.io/posts/Mysql常见问题操作指导/2018-10-06-11-46-31.png">
-<meta property="og:updated_time" content="2018-10-17T07:04:24.566Z">
+<meta property="og:updated_time" content="2018-10-17T12:11:09.243Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql常见问题操作指导">
-<meta name="twitter:description" content="【注意】：该文章存在加密内容，请进入详情查看具体内容。">
+<meta name="twitter:description" content="快速查询目录  启动  windows如何启动mysql 执行net start mysql80（需要用管理员权限启动，否则会报拒绝访问错误），或者通过如下方式：   windows下mysq的数据和配置文件存放位置 默认是在C:\ProgramData\MySQL\目录下  windows启动mysql报拒绝访问错误 使用管理员权限启动即可，net start mysql80  windows">
 <meta name="twitter:image" content="http://ruanxinyu.github.io/posts/Mysql常见问题操作指导/2018-10-06-11-16-52.png">
     
         <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
@@ -106,7 +106,7 @@
         <div class="col-2 position-fixed border-right" style="overflow-y:auto; height:100%; width:100%">
             <div class="my-3 bg-white rounded box-shadow post-toc">
                 <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#快速查询目录"><span class="toc-text"> 快速查询目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#启动"><span class="toc-text"> 启动</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#windows如何启动mysql"><span class="toc-text"> windows如何启动mysql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows下mysq的数据和配置文件存放位置"><span class="toc-text"> windows下mysq的数据和配置文件存放位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows启动mysql报拒绝访问错误"><span class="toc-text"> windows启动mysql报拒绝访问错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows下mysql的日志位置"><span class="toc-text"> windows下mysql的日志位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows下mysql启动失败"><span class="toc-text"> windows下mysql启动失败</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#权限"><span class="toc-text"> 权限</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何添加用户权限"><span class="toc-text"> 如何添加用户权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#忘记root的密码"><span class="toc-text"> 忘记root的密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改权限提示skip-grant-tables下不能执行该操作-2"><span class="toc-text"> 修改权限提示–skip-grant-tables下不能执行该操作</span></a></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#快速查询目录"><span class="toc-text"> 快速查询目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#启动"><span class="toc-text"> 启动</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#windows如何启动mysql"><span class="toc-text"> windows如何启动mysql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows下mysq的数据和配置文件存放位置"><span class="toc-text"> windows下mysq的数据和配置文件存放位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows启动mysql报拒绝访问错误"><span class="toc-text"> windows启动mysql报拒绝访问错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows下mysql的日志位置"><span class="toc-text"> windows下mysql的日志位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows下mysql启动失败"><span class="toc-text"> windows下mysql启动失败</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#权限"><span class="toc-text"> 权限</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何添加用户权限"><span class="toc-text"> 如何添加用户权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#忘记root的密码"><span class="toc-text"> 忘记root的密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改权限提示skip-grant-tables下不能执行该操作"><span class="toc-text"> 修改权限提示–skip-grant-tables下不能执行该操作</span></a></li></ol></li></ol>
             </div>
         </div>
         <div class="col-10 offset-2">
@@ -128,8 +128,8 @@
                 </nav>
             </div>
             <div class="my-3 bg-white rounded box-shadow post-content">
+            
                 <h1 id="快速查询目录"><a class="markdownIt-Anchor" href="#快速查询目录"></a> 快速查询目录</h1>
-<!-- page_toc -->  
 <h1 id="启动"><a class="markdownIt-Anchor" href="#启动"></a> 启动</h1>
 <h2 id="windows如何启动mysql"><a class="markdownIt-Anchor" href="#windows如何启动mysql"></a> windows如何启动mysql</h2>
 <p>执行<code>net start mysql80</code>（需要用管理员权限启动，否则会报拒绝访问错误），或者通过如下方式：</p>
@@ -163,10 +163,10 @@
 <p><strong>mysql 5.7.9版本之后</strong></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> mysql;</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> authentication_string=<span class="string">''</span> <span class="keyword">where</span> <span class="keyword">user</span>=<span class="string">'root'</span>;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">user</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'root@123'</span>;</span><br></pre></td></tr></table></figure>
 <p>最后，删除<code>skip-grant-tables</code>配置并重启mysql即可完成密码的修改。</p>
-                <div class="bg-danger"><hr><form class="form-inline my-2 my-lg-0">                  <label class="ml-3 font-weight-bold">该部分内容已加密，请输入密码：</label>                  <input class="form-control mr-sm-2 content-password" type="password" placeholder="请输入密码...">                  <button class="btn my-2 my-sm-0 content-display" type="button" content="U2FsdGVkX19jd9v4LSeQrTwuf9KJw+AISX3ed8Tid0Y=">查看</button>                </form><hr></div>
-<h2 id="修改权限提示skip-grant-tables下不能执行该操作-2"><a class="markdownIt-Anchor" href="#修改权限提示skip-grant-tables下不能执行该操作-2"></a> 修改权限提示–skip-grant-tables下不能执行该操作</h2>
+<h2 id="修改权限提示skip-grant-tables下不能执行该操作"><a class="markdownIt-Anchor" href="#修改权限提示skip-grant-tables下不能执行该操作"></a> 修改权限提示–skip-grant-tables下不能执行该操作</h2>
 <p>提示<code>The MySQL server is running with the --skip-grant-tables option so it cannot execute this statement</code>，在执行之前执行一下<code>flush privileges;</code>即可。</p>
 
+            
                 <div class="row border-top">
                     <div class="col-6">
                         上一篇：
@@ -189,7 +189,7 @@
     </main>
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/aes.js"></script>
+    <script src="/js/crypto-js.js"></script>
     <script src="/js/main.js"></script>
 </body>
 </html>

@@ -127,6 +127,7 @@
                 </nav>
             </div>
             <div class="my-3 bg-white rounded box-shadow post-content">
+            
                 <h1 id="sonatypenexus的介绍"><a class="markdownIt-Anchor" href="#sonatypenexus的介绍"></a> SonatypeNexus的介绍</h1>
 <p>Sonatype Nexus可以用来作为Maven/Java, npm, NuGet, RubyGems, Docker, P2, OBR, APT and YUM等的代理仓和私有仓库，同时还与Eclipse, IntelliJ, Hudson, Jenkins, Puppet, Chef, Docker等工具有很好的集成。那么我们在开发中可以用SonatypeNexus做什么呢？</p>
 <ol>
@@ -173,6 +174,7 @@
 <p>在Nexus的界面中可以看到提示<a href="https://help.sonatype.com/repomanager3/system-requirements#filehandles" target="_blank" rel="noopener"><code>System Requirement: max file descriptors [4096] likely too low, increase to at least [65536].</code></a>，点击进去可以看到具体的设置方式，如果采用上文中的systemd的方式启动nexus，则不存在这个问题，因为我们已经在<code>nexus.service</code>中设置最大文件句柄数<code>LimitNOFILE=65536</code>。</p>
 <p>**注意：**设置完该参数后需要重新启动进程才可以生效。</p>
 
+            
                 <div class="row border-top">
                     <div class="col-6">
                         上一篇：
@@ -195,7 +197,7 @@
     </main>
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/aes.js"></script>
+    <script src="/js/crypto-js.js"></script>
     <script src="/js/main.js"></script>
 </body>
 </html>

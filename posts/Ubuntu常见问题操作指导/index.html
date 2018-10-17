@@ -124,6 +124,7 @@
                 </nav>
             </div>
             <div class="my-3 bg-white rounded box-shadow post-content">
+            
                 <h1 id="如何重启网卡"><a class="markdownIt-Anchor" href="#如何重启网卡"></a> 如何重启网卡</h1>
 <p>重启网卡可以使用<code>ip</code>，<code>ifconfig</code>和<code>service</code>命令，如下所示，推荐使用<code>ip</code>命令。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 推荐使用ip命令</span></span><br><span class="line">sudo ip link <span class="built_in">set</span> enp0s3 down</span><br><span class="line">sudo ip link <span class="built_in">set</span> enp0s3 up</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用ifconfig命令</span></span><br><span class="line">sudo ifconfig enp0s3 down</span><br><span class="line">sudo ifconfig enp0s3 up</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用service命令，但是不支持最新版的Ubuntu</span></span><br><span class="line">sudo service network restart</span><br></pre></td></tr></table></figure>
@@ -146,6 +147,7 @@
 <p>如果是设置全局DNS，请编辑<code>sudo vim /etc/systemd/resolved.conf</code>，然后重启<code>systemd-resolved</code>服务<code>sudo systemctl restart systemd-resolved.service</code>即可。</p>
 <p>查看当前正在使用的DNS可以使用<code>sudo systemd-resolve --status</code></p>
 
+            
                 <div class="row border-top">
                     <div class="col-6">
                         上一篇：
@@ -168,7 +170,7 @@
     </main>
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/aes.js"></script>
+    <script src="/js/crypto-js.js"></script>
     <script src="/js/main.js"></script>
 </body>
 </html>

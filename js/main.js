@@ -32,4 +32,15 @@ $(function () {
         window.location.href = "/pages/questions/?q=" + $("#global_search_text").val();
         return false;
     });
+
+    $(".content-encrypt-display").click(function() {
+        var password = $(this).prev(".content-encrypt-password").val();
+        $(".content-encrypt-display").each(function(index) {
+            var content = CryptoJS.AES.decrypt($(this).attr("content"), password).toString(CryptoJS.enc.Utf8);
+            var encryptDiv = $(this).parents(".content-encrypt-div");
+            $(this).parents(".content-encrypt-div").after(content);
+            encryptDiv.hide();
+        });
+        return false;
+    });
 })

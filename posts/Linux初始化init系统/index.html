@@ -126,6 +126,7 @@
                 </nav>
             </div>
             <div class="my-3 bg-white rounded box-shadow post-content">
+            
                 <h1 id="init系统介绍"><a class="markdownIt-Anchor" href="#init系统介绍"></a> init系统介绍</h1>
 <p>Linux操作系统的启动首先从BIOS开始，接下来进入bootloader，由bootloader载入内核，进行内核初始化。内核初始化的最后一步就是启动<code>pid</code>为<code>1</code>的<code>init进程</code>。init以守护进程方式存在，是系统的第一个进程,，是所有其他进程的祖先。</p>
 <p>Init系统能够定义、管理和控制 init进程的行为。它负责组织和运行许多独立的或相关的始化工作(因此被称为init系统)，从而让计算机系统进入某种用户预订的运行模式。</p>
@@ -451,6 +452,7 @@
 </tbody>
 </table>
 
+            
                 <div class="row border-top">
                     <div class="col-6">
                         上一篇：
@@ -473,7 +475,7 @@
     </main>
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/aes.js"></script>
+    <script src="/js/crypto-js.js"></script>
     <script src="/js/main.js"></script>
 </body>
 </html>

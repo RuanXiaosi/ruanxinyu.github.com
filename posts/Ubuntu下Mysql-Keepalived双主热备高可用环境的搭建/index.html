@@ -135,6 +135,7 @@
                 </nav>
             </div>
             <div class="my-3 bg-white rounded box-shadow post-content">
+            
                 <h1 id="mysql复制模式及原理"><a class="markdownIt-Anchor" href="#mysql复制模式及原理"></a> Mysql复制模式及原理</h1>
 <p>Mysql内建的复制功能是构建大型，高性能应用程序的基础。Mysql将数据库的更改写入到二进制日志文件，而复制功能就是基于该日志完成的。Mysql的二进制日志格式也有三种：STATEMENT，ROW，MIXED。对应的是Mysql的三种复制模式.</p>
 <h2 id="复制原理"><a class="markdownIt-Anchor" href="#复制原理"></a> 复制原理</h2>
@@ -290,6 +291,7 @@
 <h2 id="主备同步报fatal-error-the-slave-io-thread-stops-because-master-and-slave-have-equal-mysql-server-uuids"><a class="markdownIt-Anchor" href="#主备同步报fatal-error-the-slave-io-thread-stops-because-master-and-slave-have-equal-mysql-server-uuids"></a> 主备同步报：<code>Fatal error: The slave I/O thread stops because master and slave have equal MySQL server UUIDs</code></h2>
 <p>是因为数据目录下的<code>/var/lib/mysql/auto.cnf</code>文件是一样导致的，我们可以删除备机上的该文件，然后重启mysql</p>
 
+            
                 <div class="row border-top">
                     <div class="col-6">
                         上一篇：
@@ -312,7 +314,7 @@
     </main>
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/aes.js"></script>
+    <script src="/js/crypto-js.js"></script>
     <script src="/js/main.js"></script>
 </body>
 </html>

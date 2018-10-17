@@ -141,6 +141,7 @@
                 </nav>
             </div>
             <div class="my-3 bg-white rounded box-shadow post-content">
+            
                 <h1 id="基础环境说明"><a class="markdownIt-Anchor" href="#基础环境说明"></a> 基础环境说明</h1>
 <p>本教程使用Maven管理依赖，使用IDEA进行开发，在开始之前，请按照下面教程安装好JDK和Mysql:</p>
 <ul>
@@ -241,6 +242,7 @@
 <h2 id="启动时提示result-maps错误"><a class="markdownIt-Anchor" href="#启动时提示result-maps错误"></a> 启动时提示Result Maps错误</h2>
 <p>启动报错提示<code>java.lang.IllegalArgumentException: Result Maps collection already contains value for com.ruan.productionservice.mapper.ProductionMapper.BaseResultMap</code>，是因为多次使用Mybatis Generator生成代码，造成<code>ProductionMapper.xml</code>文件中存在重复的内容，删除掉该文件重新生成即可。</p>
 
+            
                 <div class="row border-top">
                     <div class="col-6">
                         上一篇：
@@ -263,7 +265,7 @@
     </main>
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/aes.js"></script>
+    <script src="/js/crypto-js.js"></script>
     <script src="/js/main.js"></script>
 </body>
 </html>

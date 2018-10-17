@@ -128,6 +128,7 @@
                 </nav>
             </div>
             <div class="my-3 bg-white rounded box-shadow post-content">
+            
                 <h1 id="keepalived介绍"><a class="markdownIt-Anchor" href="#keepalived介绍"></a> KeepAlived介绍</h1>
 <p>Keepalived是一个基于VRRP协议来实现的服务高可用方案，可以利用其来避免IP单点故障，一般与其它负载均衡技术（如lvs、haproxy、nginx）一起工作来达到集群的高可用。</p>
 <p>健康检查和失败切换是keepalived的两大核心功能。</p>
@@ -191,6 +192,7 @@
 <img src="/posts/Ubuntu下KeepAlived的安装与配置/2018-09-24-16-58-02.png" title="[blog.ruanxinyu.cn]">
 <p>我们重新创建主机vm01上的<code>/tmp/service_ok</code>文件，，然后重新执行<code>ip a</code>，发现VIP（<code>192.168.42.23</code>）已经重新漂移到备机vm01上，此时我们通过<code>ssh ruan@192.168.42.23</code>登陆重新回到主机vm01。即当主机恢复时，可以自动将该主机加入到服务器群提供服务。</p>
 
+            
                 <div class="row border-top">
                     <div class="col-6">
                         上一篇：
@@ -213,7 +215,7 @@
     </main>
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/aes.js"></script>
+    <script src="/js/crypto-js.js"></script>
     <script src="/js/main.js"></script>
 </body>
 </html>
