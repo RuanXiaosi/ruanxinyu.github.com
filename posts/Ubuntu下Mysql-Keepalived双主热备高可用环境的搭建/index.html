@@ -45,11 +45,11 @@
     <a class="navbar-brand" href="/">
         <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
     </a>
-    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="navbar-collapse offcanvas-collapse" id="navbarsDefault">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         
             
@@ -110,13 +110,13 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed border-right" style="overflow-y:auto; height:100%; width:100%">
+        <div class="col-2 position-fixed border-right col-toc" style="overflow-y:auto; height:100%; width:100%">
             <div class="my-3 bg-white rounded box-shadow post-toc">
                 <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
                 <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql复制模式及原理"><span class="toc-text"> Mysql复制模式及原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复制原理"><span class="toc-text"> 复制原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于sql语句的复制sbr"><span class="toc-text"> 基于SQL语句的复制(SBR)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于行的复制rbr"><span class="toc-text"> 基于行的复制(RBR)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#混合模式复制mbr"><span class="toc-text"> 混合模式复制(MBR)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决的问题"><span class="toc-text"> 解决的问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基础环境说明"><span class="toc-text"> 基础环境说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql的主从同步设置"><span class="toc-text"> Mysql的主从同步设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置mycnf文件"><span class="toc-text"> 配置my.cnf文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建复制用户"><span class="toc-text"> 创建复制用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行change-master-to语句"><span class="toc-text"> 执行CHANGE MASTER TO语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重启并查看同步状态"><span class="toc-text"> 重启并查看同步状态</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#keepalived的配置"><span class="toc-text"> KeepAlived的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#功能验证"><span class="toc-text"> 功能验证</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正常情况下的验证"><span class="toc-text"> 正常情况下的验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异常恢复下的验证"><span class="toc-text"> 异常恢复下的验证</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常见操作说明"><span class="toc-text"> 常见操作说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#彻底解除主从复制关系"><span class="toc-text"> 彻底解除主从复制关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#让slave不随mysql自动启动"><span class="toc-text"> 让slave不随MySQL自动启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据备份的快速恢复"><span class="toc-text"> 数据备份的快速恢复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何限制复制哪些数据库"><span class="toc-text"> 如何限制复制哪些数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改log-bin和relay_log后重启报错"><span class="toc-text"> 修改log-bin和relay_log后重启报错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日志出现warning-ip-address-xxxx-could-not-be-resolved-name-or-service-not-known"><span class="toc-text"> 日志出现[Warning] IP address &#39;xxxx&#39; could not be resolved: Name or service not known</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主备同步报fatal-error-the-slave-io-thread-stops-because-master-and-slave-have-equal-mysql-server-uuids"><span class="toc-text"> 主备同步报：Fatal error: The slave I/O thread stops because master and slave have equal MySQL server UUIDs</span></a></li></ol></li></ol>
             </div>
         </div>
-        <div class="col-10 offset-2">
+        <div class="col-10 offset-2 col-content">
             <div>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -313,7 +313,7 @@
 
     </main>
     <script src="/js/jquery-3.3.1.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/crypto-js.js"></script>
     <script src="/js/main.js"></script>
 </body>

@@ -51,11 +51,11 @@
     <a class="navbar-brand" href="/">
         <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
     </a>
-    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="navbar-collapse offcanvas-collapse" id="navbarsDefault">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         
             
@@ -116,13 +116,13 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed border-right" style="overflow-y:auto; height:100%; width:100%">
+        <div class="col-2 position-fixed border-right col-toc" style="overflow-y:auto; height:100%; width:100%">
             <div class="my-3 bg-white rounded box-shadow post-toc">
                 <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
                 <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础环境说明"><span class="toc-text"> 基础环境说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#初始化数据库"><span class="toc-text"> 初始化数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#通过idea生成基础代码"><span class="toc-text"> 通过IDEA生成基础代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用mybatisgenerator生成代码"><span class="toc-text"> 使用MybatisGenerator生成代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pomxml"><span class="toc-text"> pom.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mybatis_generatorxml"><span class="toc-text"> mybatis_generator.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mybatis-generatorgenerate"><span class="toc-text"> mybatis-generator:generate</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加查询数据列表接口"><span class="toc-text"> 添加查询数据列表接口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#productionmapperxml"><span class="toc-text"> ProductionMapper.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#productionmapperjava"><span class="toc-text"> ProductionMapper.java</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#增加mapper注解"><span class="toc-text"> 增加@Mapper注解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#增加service层代码"><span class="toc-text"> 增加service层代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#productionservicejava"><span class="toc-text"> ProductionService.java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#productionserviceimpljava"><span class="toc-text"> ProductionServiceImpl.java</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#增加controller层代码"><span class="toc-text"> 增加controller层代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#productioncontrollerjava"><span class="toc-text"> ProductionController.java</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置applicationproperties"><span class="toc-text"> 配置application.properties</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#启动应用程序"><span class="toc-text"> 启动应用程序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#postman验证接口"><span class="toc-text"> PostMan验证接口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mallproductionsave"><span class="toc-text"> /mall/production/save</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mallproductionlist"><span class="toc-text"> /mall/production/list</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mallproductionupdate"><span class="toc-text"> /mall/production/update</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mallproductiongetid"><span class="toc-text"> /mall/production/get/{id}</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mallproductiondeleteid"><span class="toc-text"> /mall/production/delete/{id}</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#可能遇到的问题"><span class="toc-text"> 可能遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启动时提示自动加载productionmapper失败"><span class="toc-text"> 启动时提示自动加载ProductionMapper失败</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动时提示result-maps错误"><span class="toc-text"> 启动时提示Result Maps错误</span></a></li></ol></li></ol>
             </div>
         </div>
-        <div class="col-10 offset-2">
+        <div class="col-10 offset-2 col-content">
             <div>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -264,7 +264,7 @@
 
     </main>
     <script src="/js/jquery-3.3.1.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/crypto-js.js"></script>
     <script src="/js/main.js"></script>
 </body>

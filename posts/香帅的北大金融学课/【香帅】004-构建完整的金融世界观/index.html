@@ -36,11 +36,11 @@
     <a class="navbar-brand" href="/">
         <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
     </a>
-    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="navbar-collapse offcanvas-collapse" id="navbarsDefault">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         
             
@@ -101,13 +101,13 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed border-right" style="overflow-y:auto; height:100%; width:100%">
+        <div class="col-2 position-fixed border-right col-toc" style="overflow-y:auto; height:100%; width:100%">
             <div class="my-3 bg-white rounded box-shadow post-toc">
                 <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
                 <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#语句摘录"><span class="toc-text"> 语句摘录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#划重点"><span class="toc-text"> 划重点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#课后习题"><span class="toc-text"> 课后习题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#课程原文"><span class="toc-text"> 课程原文</span></a></li></ol>
             </div>
         </div>
-        <div class="col-10 offset-2">
+        <div class="col-10 offset-2 col-content">
             <div>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -177,7 +177,7 @@
 
     </main>
     <script src="/js/jquery-3.3.1.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/crypto-js.js"></script>
     <script src="/js/main.js"></script>
 </body>

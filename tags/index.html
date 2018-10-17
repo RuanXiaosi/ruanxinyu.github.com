@@ -34,11 +34,11 @@
     <a class="navbar-brand" href="/">
         <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
     </a>
-    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="navbar-collapse offcanvas-collapse" id="navbarsDefault">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         
             
@@ -99,7 +99,7 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed" style="overflow-y:auto; height:100%; width:100%">
+        <div class="col-2 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
 <div class="my-3 bg-white rounded box-shadow post-toc">
     <a href="/"><h6 class="text-success">标签列表：</h6></a><hr class="mt-0">
     <ul class="pl-2">
@@ -108,9 +108,9 @@
     
         <li><a href="/tags/Java/">&nbspJava</a></li>
     
-        <li><a href="/tags/飞行手册/">&nbsp飞行手册</a></li>
-    
         <li><a href="/tags/学习记录/">&nbsp学习记录</a></li>
+    
+        <li><a href="/tags/飞行手册/">&nbsp飞行手册</a></li>
     
         <li><a href="/tags/Linux/">&nbspLinux</a></li>
     
@@ -121,33 +121,11 @@
     </ul>
 </div>
 </div>
-        <div class="col-10 offset-2 border-left">
+        <div class="col-10 offset-2 border-left col-content">
         
                 <a href="/tags/环境搭建/"><h3 class="mt-4 font-weight-bold text-success" id="tag-环境搭建">环境搭建</h3></a>
                 <hr>
                 
-
-<div class="media text-muted pt-3" id="post-Jenkins的安装与使用">
-    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
-        <div class="d-inline-flex">
-            <a href="/posts/Jenkins的安装与使用/"><h6 class="">Jenkins的安装与使用</h6></a>
-        </div>
-        <div class="float-right">
-            
-                    <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
-            
-            <span class="font-weight-bold text-success mr-2"> 2018-10-03 17:01:53 </span>
-        </div>
-        <div class="float-none">
-             Jenkins的介绍
-官方地址为：https://jenkins.io/。Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。
- Jenkins的安装
-
-在启动之前需要先安装java环境，具体可以参考教程：JDK安装教程。该教程使用的Ubu...
-            <a href="/posts/Jenkins的安装与使用/" class="ml-2">阅读全文...</a>
-        </div>
-    </div>
-</div>
 
 <div class="media text-muted pt-3" id="post-JDK安装教程">
     <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
@@ -171,6 +149,28 @@ JDK的官方下载地址为： http://www.oracle.com/technetwork/java/javase/dow
     </div>
 </div>
 
+<div class="media text-muted pt-3" id="post-Jenkins的安装与使用">
+    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
+        <div class="d-inline-flex">
+            <a href="/posts/Jenkins的安装与使用/"><h6 class="">Jenkins的安装与使用</h6></a>
+        </div>
+        <div class="float-right">
+            
+                    <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
+            
+            <span class="font-weight-bold text-success mr-2"> 2018-10-03 17:01:53 </span>
+        </div>
+        <div class="float-none">
+             Jenkins的介绍
+官方地址为：https://jenkins.io/。Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。
+ Jenkins的安装
+
+在启动之前需要先安装java环境，具体可以参考教程：JDK安装教程。该教程使用的Ubu...
+            <a href="/posts/Jenkins的安装与使用/" class="ml-2">阅读全文...</a>
+        </div>
+    </div>
+</div>
+
 <div class="media text-muted pt-3" id="post-SonatypeNexus的安装与使用">
     <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
         <div class="d-inline-flex">
@@ -186,6 +186,26 @@ JDK的官方下载地址为： http://www.oracle.com/technetwork/java/javase/dow
              SonatypeNexus的介绍
 Sonatype Nexus可以用来作为Maven/Java, npm, NuGet, RubyGems, Docker, P2, OBR, APT and YUM等的代理仓和私有仓库，同时还与Eclipse, IntelliJ, Hudson, Jenkins, Puppet, Chef, Docker等...
             <a href="/posts/SonatypeNexus的安装与使用/" class="ml-2">阅读全文...</a>
+        </div>
+    </div>
+</div>
+
+<div class="media text-muted pt-3" id="post-Ubuntu下HAProxy的安装与配置">
+    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
+        <div class="d-inline-flex">
+            <a href="/posts/Ubuntu下HAProxy的安装与配置/"><h6 class="">Ubuntu下HAProxy的安装与配置</h6></a>
+        </div>
+        <div class="float-right">
+            
+                    <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
+            
+            <span class="font-weight-bold text-success mr-2"> 2018-09-25 07:07:50 </span>
+        </div>
+        <div class="float-none">
+             HAProxy的简介
+HAProxy是一款提供高可用性、负载均衡以及基于TCP（第四层）和HTTP（第七层）应用的代理软件，支持虚拟主机，它是免费、快速并且可靠的一种解决方案。
+HAProxy实现了一种事件驱动、单一进程模型，此模型支持非常大的并发连接数，特别适用于那些负载特大的web站点，完全可以支持数以万计的并发连接，根据官方文档，ha...
+            <a href="/posts/Ubuntu下HAProxy的安装与配置/" class="ml-2">阅读全文...</a>
         </div>
     </div>
 </div>
@@ -211,22 +231,23 @@ keepalived的健康检查支持tcp三次握手、icmp请求、htt...
     </div>
 </div>
 
-<div class="media text-muted pt-3" id="post-Ubuntu下HAProxy的安装与配置">
+<div class="media text-muted pt-3" id="post-Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建">
     <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
         <div class="d-inline-flex">
-            <a href="/posts/Ubuntu下HAProxy的安装与配置/"><h6 class="">Ubuntu下HAProxy的安装与配置</h6></a>
+            <a href="/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/"><h6 class="">Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建</h6></a>
         </div>
         <div class="float-right">
             
                     <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
             
-            <span class="font-weight-bold text-success mr-2"> 2018-09-25 07:07:50 </span>
+            <span class="font-weight-bold text-success mr-2"> 2018-10-04 12:50:27 </span>
         </div>
         <div class="float-none">
-             HAProxy的简介
-HAProxy是一款提供高可用性、负载均衡以及基于TCP（第四层）和HTTP（第七层）应用的代理软件，支持虚拟主机，它是免费、快速并且可靠的一种解决方案。
-HAProxy实现了一种事件驱动、单一进程模型，此模型支持非常大的并发连接数，特别适用于那些负载特大的web站点，完全可以支持数以万计的并发连接，根据官方文档，ha...
-            <a href="/posts/Ubuntu下HAProxy的安装与配置/" class="ml-2">阅读全文...</a>
+             Mysql复制模式及原理
+Mysql内建的复制功能是构建大型，高性能应用程序的基础。Mysql将数据库的更改写入到二进制日志文件，而复制功能就是基于该日志完成的。Mysql的二进制日志格式也有三种：STATEMENT，ROW，MIXED。对应的是Mysql的三种复制模式.
+ 复制原理
+master服务器将数据的改变记录二进制binlog日志...
+            <a href="/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/" class="ml-2">阅读全文...</a>
         </div>
     </div>
 </div>
@@ -251,46 +272,6 @@ Ubuntu 18.04.1版本下，如果直接使用sudo apt-get install mysql-server安
 
 点击下载按钮后，我们也可以页面中获取下载地址...
             <a href="/posts/Ubuntu下Mysql的安装与验证/" class="ml-2">阅读全文...</a>
-        </div>
-    </div>
-</div>
-
-<div class="media text-muted pt-3" id="post-Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建">
-    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
-        <div class="d-inline-flex">
-            <a href="/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/"><h6 class="">Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建</h6></a>
-        </div>
-        <div class="float-right">
-            
-                    <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
-            
-            <span class="font-weight-bold text-success mr-2"> 2018-10-04 12:50:27 </span>
-        </div>
-        <div class="float-none">
-             Mysql复制模式及原理
-Mysql内建的复制功能是构建大型，高性能应用程序的基础。Mysql将数据库的更改写入到二进制日志文件，而复制功能就是基于该日志完成的。Mysql的二进制日志格式也有三种：STATEMENT，ROW，MIXED。对应的是Mysql的三种复制模式.
- 复制原理
-master服务器将数据的改变记录二进制binlog日志...
-            <a href="/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/" class="ml-2">阅读全文...</a>
-        </div>
-    </div>
-</div>
-
-<div class="media text-muted pt-3" id="post-Ubuntu下搭建HAProxy-KeepAlived高可用集群">
-    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
-        <div class="d-inline-flex">
-            <a href="/posts/Ubuntu下搭建HAProxy-KeepAlived高可用集群/"><h6 class="">Ubuntu下搭建HAProxy+KeepAlived高可用集群</h6></a>
-        </div>
-        <div class="float-right">
-            
-                    <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
-            
-            <span class="font-weight-bold text-success mr-2"> 2018-09-28 10:48:23 </span>
-        </div>
-        <div class="float-none">
-             环境说明
-本次教程搭建的架构图如下所示，通过KeepAlived实现HAProxy的高可用，通过HAProxy实现后端服务器App01和App02的高可用和负载均衡。HAPrxoy有两台，分别为192.168.1.102和192.168.1.103，VIP为192.168.1.104，通过8081端口访问App01的两台机器，通过8082端...
-            <a href="/posts/Ubuntu下搭建HAProxy-KeepAlived高可用集群/" class="ml-2">阅读全文...</a>
         </div>
     </div>
 </div>
@@ -362,6 +343,25 @@ master服务器将数据的改变记录二进制binlog日志...
     </div>
 </div>
 
+<div class="media text-muted pt-3" id="post-Ubuntu下搭建HAProxy-KeepAlived高可用集群">
+    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
+        <div class="d-inline-flex">
+            <a href="/posts/Ubuntu下搭建HAProxy-KeepAlived高可用集群/"><h6 class="">Ubuntu下搭建HAProxy+KeepAlived高可用集群</h6></a>
+        </div>
+        <div class="float-right">
+            
+                    <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
+            
+            <span class="font-weight-bold text-success mr-2"> 2018-09-28 10:48:23 </span>
+        </div>
+        <div class="float-none">
+             环境说明
+本次教程搭建的架构图如下所示，通过KeepAlived实现HAProxy的高可用，通过HAProxy实现后端服务器App01和App02的高可用和负载均衡。HAPrxoy有两台，分别为192.168.1.102和192.168.1.103，VIP为192.168.1.104，通过8081端口访问App01的两台机器，通过8082端...
+            <a href="/posts/Ubuntu下搭建HAProxy-KeepAlived高可用集群/" class="ml-2">阅读全文...</a>
+        </div>
+    </div>
+</div>
+
         
                 <a href="/tags/Java/"><h3 class="mt-4 font-weight-bold text-success" id="tag-Java">Java</h3></a>
                 <hr>
@@ -409,83 +409,6 @@ Mysql的安装请参考： Ubuntu下Mysql的安装与验证
 
 本教程的代码地址为：https://github.com/RuanXinyu/springcloud-demo/tre...
             <a href="/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/" class="ml-2">阅读全文...</a>
-        </div>
-    </div>
-</div>
-
-        
-                <a href="/tags/飞行手册/"><h3 class="mt-4 font-weight-bold text-success" id="tag-飞行手册">飞行手册</h3></a>
-                <hr>
-                
-
-<div class="media text-muted pt-3" id="post-Git常见问题操作指导">
-    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
-        <div class="d-inline-flex">
-            <a href="/posts/Git常见问题操作指导/"><h6 class="">Git常见问题操作指导</h6></a>
-        </div>
-        <div class="float-right">
-            
-                    <a href="/tags/飞行手册/" class="font-weight-bold text-danger">飞行手册</a> | 
-            
-            <span class="font-weight-bold text-success mr-2"> 2018-10-04 13:15:35 </span>
-        </div>
-        <div class="float-none">
-            
-图形化客户端强烈推荐：SmartGit， 本文是基于Git飞行规则上做的修改与补充。
-
- 快速查询目录
-  
-
-为了清楚的表述，这篇文档里的所有例子使用了自定义的bash 提示，以便指示当前分支和是否有暂存的变化(changes)。分支名用小括号括起来，分支名后面跟的*表示暂存的变化(changes)。
-
- 编辑提交(editting co...
-            <a href="/posts/Git常见问题操作指导/" class="ml-2">阅读全文...</a>
-        </div>
-    </div>
-</div>
-
-<div class="media text-muted pt-3" id="post-Mysql常见问题操作指导">
-    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
-        <div class="d-inline-flex">
-            <a href="/posts/Mysql常见问题操作指导/"><h6 class="">Mysql常见问题操作指导</h6></a>
-        </div>
-        <div class="float-right">
-            
-                    <a href="/tags/飞行手册/" class="font-weight-bold text-danger">飞行手册</a> | 
-            
-            <span class="font-weight-bold text-success mr-2"> 2018-10-06 09:39:34 </span>
-        </div>
-        <div class="float-none">
-             快速查询目录
- 启动
- windows如何启动mysql
-执行net start mysql80（需要用管理员权限启动，否则会报拒绝访问错误），或者通过如下方式：
-
- windows下mysq的数据和配置文件存放位置
-默认是在C:\ProgramData\MySQL\目录下
- windows启动mysql报拒绝访问错误
-使用管理员权限启动即...
-            <a href="/posts/Mysql常见问题操作指导/" class="ml-2">阅读全文...</a>
-        </div>
-    </div>
-</div>
-
-<div class="media text-muted pt-3" id="post-Ubuntu常见问题操作指导">
-    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
-        <div class="d-inline-flex">
-            <a href="/posts/Ubuntu常见问题操作指导/"><h6 class="">Ubuntu常见问题操作指导</h6></a>
-        </div>
-        <div class="float-right">
-            
-                    <a href="/tags/飞行手册/" class="font-weight-bold text-danger">飞行手册</a> | 
-            
-            <span class="font-weight-bold text-success mr-2"> 2018-10-04 21:27:53 </span>
-        </div>
-        <div class="float-none">
-             如何重启网卡
-重启网卡可以使用ip，ifconfig和service命令，如下所示，推荐使用ip命令。
-12345678910# 推荐使用ip命令sudo ip link set enp0s3 downsudo ip link set enp0s3 up# 使用ifconfig命令sudo ifconfig enp0s3 downsudo ...
-            <a href="/posts/Ubuntu常见问题操作指导/" class="ml-2">阅读全文...</a>
         </div>
     </div>
 </div>
@@ -579,6 +502,83 @@ Hadoop生态圈
 </div>
 
         
+                <a href="/tags/飞行手册/"><h3 class="mt-4 font-weight-bold text-success" id="tag-飞行手册">飞行手册</h3></a>
+                <hr>
+                
+
+<div class="media text-muted pt-3" id="post-Git常见问题操作指导">
+    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
+        <div class="d-inline-flex">
+            <a href="/posts/Git常见问题操作指导/"><h6 class="">Git常见问题操作指导</h6></a>
+        </div>
+        <div class="float-right">
+            
+                    <a href="/tags/飞行手册/" class="font-weight-bold text-danger">飞行手册</a> | 
+            
+            <span class="font-weight-bold text-success mr-2"> 2018-10-04 13:15:35 </span>
+        </div>
+        <div class="float-none">
+            
+图形化客户端强烈推荐：SmartGit， 本文是基于Git飞行规则上做的修改与补充。
+
+ 快速查询目录
+  
+
+为了清楚的表述，这篇文档里的所有例子使用了自定义的bash 提示，以便指示当前分支和是否有暂存的变化(changes)。分支名用小括号括起来，分支名后面跟的*表示暂存的变化(changes)。
+
+ 编辑提交(editting co...
+            <a href="/posts/Git常见问题操作指导/" class="ml-2">阅读全文...</a>
+        </div>
+    </div>
+</div>
+
+<div class="media text-muted pt-3" id="post-Mysql常见问题操作指导">
+    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
+        <div class="d-inline-flex">
+            <a href="/posts/Mysql常见问题操作指导/"><h6 class="">Mysql常见问题操作指导</h6></a>
+        </div>
+        <div class="float-right">
+            
+                    <a href="/tags/飞行手册/" class="font-weight-bold text-danger">飞行手册</a> | 
+            
+            <span class="font-weight-bold text-success mr-2"> 2018-10-06 09:39:34 </span>
+        </div>
+        <div class="float-none">
+             快速查询目录
+ 启动
+ windows如何启动mysql
+执行net start mysql80（需要用管理员权限启动，否则会报拒绝访问错误），或者通过如下方式：
+
+ windows下mysq的数据和配置文件存放位置
+默认是在C:\ProgramData\MySQL\目录下
+ windows启动mysql报拒绝访问错误
+使用管理员权限启动即...
+            <a href="/posts/Mysql常见问题操作指导/" class="ml-2">阅读全文...</a>
+        </div>
+    </div>
+</div>
+
+<div class="media text-muted pt-3" id="post-Ubuntu常见问题操作指导">
+    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
+        <div class="d-inline-flex">
+            <a href="/posts/Ubuntu常见问题操作指导/"><h6 class="">Ubuntu常见问题操作指导</h6></a>
+        </div>
+        <div class="float-right">
+            
+                    <a href="/tags/飞行手册/" class="font-weight-bold text-danger">飞行手册</a> | 
+            
+            <span class="font-weight-bold text-success mr-2"> 2018-10-04 21:27:53 </span>
+        </div>
+        <div class="float-none">
+             如何重启网卡
+重启网卡可以使用ip，ifconfig和service命令，如下所示，推荐使用ip命令。
+12345678910# 推荐使用ip命令sudo ip link set enp0s3 downsudo ip link set enp0s3 up# 使用ifconfig命令sudo ifconfig enp0s3 downsudo ...
+            <a href="/posts/Ubuntu常见问题操作指导/" class="ml-2">阅读全文...</a>
+        </div>
+    </div>
+</div>
+
+        
                 <a href="/tags/Linux/"><h3 class="mt-4 font-weight-bold text-success" id="tag-Linux">Linux</h3></a>
                 <hr>
                 
@@ -599,32 +599,6 @@ Hadoop生态圈
 Linux操作系统的启动首先从BIOS开始，接下来进入bootloader，由bootloader载入内核，进行内核初始化。内核初始化的最后一步就是启动pid为1的init进程。init以守护进程方式存在，是系统的第一个进程,，是所有其他进程的祖先。
 Init系统能够定义、管理和控制 init进程的行为。它负责组织和运行许...
             <a href="/posts/Linux初始化init系统/" class="ml-2">阅读全文...</a>
-        </div>
-    </div>
-</div>
-
-<div class="media text-muted pt-3" id="post-每天学习一个Linux命令/每天学习一个Linux命令（2）：cd命令">
-    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
-        <div class="d-inline-flex">
-            <a href="/posts/每天学习一个Linux命令/每天学习一个Linux命令（2）：cd命令/"><h6 class="">每天学习一个Linux命令（2）：cd命令</h6></a>
-        </div>
-        <div class="float-right">
-            
-                    <a href="/tags/Linux/" class="font-weight-bold text-danger">Linux</a> | 
-            
-            <span class="font-weight-bold text-success mr-2"> 2018-05-01 18:00:58 </span>
-        </div>
-        <div class="float-none">
-            cd命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。
- 语法
-1cd [dir]
- 使用小技巧
-
-切换至用户所示在的目录可以使用cd ~ 或者 cd(不带参数)
-&quot;.&quot; 则是表示目前所在的目录，&quot;..&quot; 则表示目前目录位置的上一层目录
-通过pwd命令可以打印当前所在的目录
-cd -表示切...
-            <a href="/posts/每天学习一个Linux命令/每天学习一个Linux命令（2）：cd命令/" class="ml-2">阅读全文...</a>
         </div>
     </div>
 </div>
@@ -665,6 +639,32 @@ echo是shell的内部命令，因此查看帮助...
     </div>
 </div>
 
+<div class="media text-muted pt-3" id="post-每天学习一个Linux命令/每天学习一个Linux命令（2）：cd命令">
+    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
+        <div class="d-inline-flex">
+            <a href="/posts/每天学习一个Linux命令/每天学习一个Linux命令（2）：cd命令/"><h6 class="">每天学习一个Linux命令（2）：cd命令</h6></a>
+        </div>
+        <div class="float-right">
+            
+                    <a href="/tags/Linux/" class="font-weight-bold text-danger">Linux</a> | 
+            
+            <span class="font-weight-bold text-success mr-2"> 2018-05-01 18:00:58 </span>
+        </div>
+        <div class="float-none">
+            cd命令用于切换至目标目录，以/开头的则为绝对路径，否则为相对路径。
+ 语法
+1cd [dir]
+ 使用小技巧
+
+切换至用户所示在的目录可以使用cd ~ 或者 cd(不带参数)
+&quot;.&quot; 则是表示目前所在的目录，&quot;..&quot; 则表示目前目录位置的上一层目录
+通过pwd命令可以打印当前所在的目录
+cd -表示切...
+            <a href="/posts/每天学习一个Linux命令/每天学习一个Linux命令（2）：cd命令/" class="ml-2">阅读全文...</a>
+        </div>
+    </div>
+</div>
+
 <div class="media text-muted pt-3" id="post-每天学习一个Linux命令/每天学习一个Linux命令（1）：ls命令">
     <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
         <div class="d-inline-flex">
@@ -695,6 +695,31 @@ echo是shell的内部命令，因此查看帮助...
                 <hr>
                 
 
+<div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】003-现代人如何抵御风险">
+    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
+        <div class="d-inline-flex">
+            <a href="/posts/香帅的北大金融学课/【香帅】003-现代人如何抵御风险/"><h6 class="">【香帅】003.现代人如何抵御风险</h6></a>
+        </div>
+        <div class="float-right">
+            
+                    <a href="/tags/经济/" class="font-weight-bold text-danger">经济</a> | 
+            
+                    <a href="/tags/香帅的北大金融学课/" class="font-weight-bold text-danger">香帅的北大金融学课</a> | 
+            
+            <span class="font-weight-bold text-success mr-2"> 2018-10-09 21:59:39 </span>
+        </div>
+        <div class="float-none">
+             语句摘录
+古代社会主要依赖于家庭、宗族来实现风险共担，首先与血缘和地域。
+金融是迄今人类社会能最有效实现跨区域、跨时间、大规模“风险分担”的一个机制:
+1．保险能够帮助个体将风险转移、分散到社会群体中间，提高了我们人类的独立性和安全感；
+1．股票的“利益共享，风险共担”的功能帮助荷兰开辟了强大的海上帝国；
+1．风投和创投分担了创业创新的风险...
+            <a href="/posts/香帅的北大金融学课/【香帅】003-现代人如何抵御风险/" class="ml-2">阅读全文...</a>
+        </div>
+    </div>
+</div>
+
 <div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】002-南北战争中的第二战场">
     <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
         <div class="d-inline-flex">
@@ -743,31 +768,6 @@ echo是shell的内部命令，因此查看帮助...
     </div>
 </div>
 
-<div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】001-一万美金赠品里的秘密">
-    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
-        <div class="d-inline-flex">
-            <a href="/posts/香帅的北大金融学课/【香帅】001-一万美金赠品里的秘密/"><h6 class="">【香帅】001.一万美金赠品里的秘密</h6></a>
-        </div>
-        <div class="float-right">
-            
-                    <a href="/tags/经济/" class="font-weight-bold text-danger">经济</a> | 
-            
-                    <a href="/tags/香帅的北大金融学课/" class="font-weight-bold text-danger">香帅的北大金融学课</a> | 
-            
-            <span class="font-weight-bold text-success mr-2"> 2018-10-08 13:06:01 </span>
-        </div>
-        <div class="float-none">
-             语句摘录
-买一辆车，送一张面值１万美金的30年期的美国国债。按照90年代中期平均8％左右的国债利率算，折算到30年后，这个面值１万美金的债券只剩下994美金。
-
-复利在金钱的升值和贬值上效果是类似的，通货膨胀会很大程度稀释我们的财富，我们需要防止自身财富的贬值。
-
-货币的时间价值，在金融里，时间就是金钱。货币的时间价值在金融里边是可以度量，...
-            <a href="/posts/香帅的北大金融学课/【香帅】001-一万美金赠品里的秘密/" class="ml-2">阅读全文...</a>
-        </div>
-    </div>
-</div>
-
 <div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】005-第1周总结：PPT">
     <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
         <div class="d-inline-flex">
@@ -794,10 +794,10 @@ echo是shell的内部命令，因此查看帮助...
     </div>
 </div>
 
-<div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】003-现代人如何抵御风险">
+<div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】001-一万美金赠品里的秘密">
     <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
         <div class="d-inline-flex">
-            <a href="/posts/香帅的北大金融学课/【香帅】003-现代人如何抵御风险/"><h6 class="">【香帅】003.现代人如何抵御风险</h6></a>
+            <a href="/posts/香帅的北大金融学课/【香帅】001-一万美金赠品里的秘密/"><h6 class="">【香帅】001.一万美金赠品里的秘密</h6></a>
         </div>
         <div class="float-right">
             
@@ -805,16 +805,16 @@ echo是shell的内部命令，因此查看帮助...
             
                     <a href="/tags/香帅的北大金融学课/" class="font-weight-bold text-danger">香帅的北大金融学课</a> | 
             
-            <span class="font-weight-bold text-success mr-2"> 2018-10-09 21:59:39 </span>
+            <span class="font-weight-bold text-success mr-2"> 2018-10-08 13:06:01 </span>
         </div>
         <div class="float-none">
              语句摘录
-古代社会主要依赖于家庭、宗族来实现风险共担，首先与血缘和地域。
-金融是迄今人类社会能最有效实现跨区域、跨时间、大规模“风险分担”的一个机制:
-1．保险能够帮助个体将风险转移、分散到社会群体中间，提高了我们人类的独立性和安全感；
-1．股票的“利益共享，风险共担”的功能帮助荷兰开辟了强大的海上帝国；
-1．风投和创投分担了创业创新的风险...
-            <a href="/posts/香帅的北大金融学课/【香帅】003-现代人如何抵御风险/" class="ml-2">阅读全文...</a>
+买一辆车，送一张面值１万美金的30年期的美国国债。按照90年代中期平均8％左右的国债利率算，折算到30年后，这个面值１万美金的债券只剩下994美金。
+
+复利在金钱的升值和贬值上效果是类似的，通货膨胀会很大程度稀释我们的财富，我们需要防止自身财富的贬值。
+
+货币的时间价值，在金融里，时间就是金钱。货币的时间价值在金融里边是可以度量，...
+            <a href="/posts/香帅的北大金融学课/【香帅】001-一万美金赠品里的秘密/" class="ml-2">阅读全文...</a>
         </div>
     </div>
 </div>
@@ -838,28 +838,6 @@ echo是shell的内部命令，因此查看帮助...
 秦始皇为统一市场，因而统一了货币制度。汉武帝穷兵黩武，通过国有经济筹集经费和加强集权控制。
 **中华帝国的金融是围绕着中央财政，自上而下的一个货币经济体系，我们就可以直接把它称为“中央货币财政体系”。**这种制度在生产...
             <a href="/posts/香帅的北大金融学课/【香帅】006-王的信用：中央货币财政体系/" class="ml-2">阅读全文...</a>
-        </div>
-    </div>
-</div>
-
-<div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】007-分权制衡：银行货币信用体系">
-    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
-        <div class="d-inline-flex">
-            <a href="/posts/香帅的北大金融学课/【香帅】007-分权制衡：银行货币信用体系/"><h6 class="">【香帅】007.分权制衡：银行货币信用体系</h6></a>
-        </div>
-        <div class="float-right">
-            
-                    <a href="/tags/经济/" class="font-weight-bold text-danger">经济</a> | 
-            
-                    <a href="/tags/香帅的北大金融学课/" class="font-weight-bold text-danger">香帅的北大金融学课</a> | 
-            
-            <span class="font-weight-bold text-success mr-2"> 2018-10-10 18:31:02 </span>
-        </div>
-        <div class="float-none">
-             语句摘录
-中世纪，朝圣者需要一个异地托管财物的体系，因为当时小国林立无法建立跨国异地财务托管体系，因此圣殿骑士团承担起这个指责，扮演着“银行”的角色，而且扮演了一个欧洲金融启蒙者的角色。
-因为小国林立，相互制约，造成统治阶层也不敢违约，所以才建立起全民信用关系网络。之后一系列的金融业务，都延续了圣殿骑士团的金融遗产，在这个基础上，欧洲就逐渐...
-            <a href="/posts/香帅的北大金融学课/【香帅】007-分权制衡：银行货币信用体系/" class="ml-2">阅读全文...</a>
         </div>
     </div>
 </div>
@@ -908,6 +886,28 @@ echo是shell的内部命令，因此查看帮助...
 
 没有金融中...
             <a href="/posts/香帅的北大金融学课/【香帅】008-金融市场上的二道贩子们/" class="ml-2">阅读全文...</a>
+        </div>
+    </div>
+</div>
+
+<div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】007-分权制衡：银行货币信用体系">
+    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
+        <div class="d-inline-flex">
+            <a href="/posts/香帅的北大金融学课/【香帅】007-分权制衡：银行货币信用体系/"><h6 class="">【香帅】007.分权制衡：银行货币信用体系</h6></a>
+        </div>
+        <div class="float-right">
+            
+                    <a href="/tags/经济/" class="font-weight-bold text-danger">经济</a> | 
+            
+                    <a href="/tags/香帅的北大金融学课/" class="font-weight-bold text-danger">香帅的北大金融学课</a> | 
+            
+            <span class="font-weight-bold text-success mr-2"> 2018-10-10 18:31:02 </span>
+        </div>
+        <div class="float-none">
+             语句摘录
+中世纪，朝圣者需要一个异地托管财物的体系，因为当时小国林立无法建立跨国异地财务托管体系，因此圣殿骑士团承担起这个指责，扮演着“银行”的角色，而且扮演了一个欧洲金融启蒙者的角色。
+因为小国林立，相互制约，造成统治阶层也不敢违约，所以才建立起全民信用关系网络。之后一系列的金融业务，都延续了圣殿骑士团的金融遗产，在这个基础上，欧洲就逐渐...
+            <a href="/posts/香帅的北大金融学课/【香帅】007-分权制衡：银行货币信用体系/" class="ml-2">阅读全文...</a>
         </div>
     </div>
 </div>
@@ -969,31 +969,6 @@ echo是shell的内部命令，因此查看帮助...
     </div>
 </div>
 
-<div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】010-第2周加餐：深度解析阿里金融帝国">
-    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
-        <div class="d-inline-flex">
-            <a href="/posts/香帅的北大金融学课/【香帅】010-第2周加餐：深度解析阿里金融帝国/"><h6 class="">【香帅】010.第2周加餐：深度解析阿里金融帝国</h6></a>
-        </div>
-        <div class="float-right">
-            
-                    <a href="/tags/经济/" class="font-weight-bold text-danger">经济</a> | 
-            
-                    <a href="/tags/香帅的北大金融学课/" class="font-weight-bold text-danger">香帅的北大金融学课</a> | 
-            
-            <span class="font-weight-bold text-success mr-2"> 2018-10-10 21:43:29 </span>
-        </div>
-        <div class="float-none">
-             语句摘录
-虽然阿里巴巴从搭建互联网起家，但其本质上做的还是营销服务（阿里铁军）。但是到了B2B这个市场，当客户企业成长到一定规模以后可能就不需要阿里巴巴的中介服务了。客户企业能够打造自己的网站（或者其他信息渠道），组建自己的营销团队。所以，阿里巴巴的 B2B 业务增长有限。
-
-这个瓶颈点分析的还是到位的。
-
-2003年阿里转型C2C，快速形...
-            <a href="/posts/香帅的北大金融学课/【香帅】010-第2周加餐：深度解析阿里金融帝国/" class="ml-2">阅读全文...</a>
-        </div>
-    </div>
-</div>
-
 <div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】010-第2周问答：如何投资A股市场更明智">
     <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
         <div class="d-inline-flex">
@@ -1017,6 +992,31 @@ echo是shell的内部命令，因此查看帮助...
  课程原文
 
             <a href="/posts/香帅的北大金融学课/【香帅】010-第2周问答：如何投资A股市场更明智/" class="ml-2">阅读全文...</a>
+        </div>
+    </div>
+</div>
+
+<div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】010-第2周加餐：深度解析阿里金融帝国">
+    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
+        <div class="d-inline-flex">
+            <a href="/posts/香帅的北大金融学课/【香帅】010-第2周加餐：深度解析阿里金融帝国/"><h6 class="">【香帅】010.第2周加餐：深度解析阿里金融帝国</h6></a>
+        </div>
+        <div class="float-right">
+            
+                    <a href="/tags/经济/" class="font-weight-bold text-danger">经济</a> | 
+            
+                    <a href="/tags/香帅的北大金融学课/" class="font-weight-bold text-danger">香帅的北大金融学课</a> | 
+            
+            <span class="font-weight-bold text-success mr-2"> 2018-10-10 21:43:29 </span>
+        </div>
+        <div class="float-none">
+             语句摘录
+虽然阿里巴巴从搭建互联网起家，但其本质上做的还是营销服务（阿里铁军）。但是到了B2B这个市场，当客户企业成长到一定规模以后可能就不需要阿里巴巴的中介服务了。客户企业能够打造自己的网站（或者其他信息渠道），组建自己的营销团队。所以，阿里巴巴的 B2B 业务增长有限。
+
+这个瓶颈点分析的还是到位的。
+
+2003年阿里转型C2C，快速形...
+            <a href="/posts/香帅的北大金融学课/【香帅】010-第2周加餐：深度解析阿里金融帝国/" class="ml-2">阅读全文...</a>
         </div>
     </div>
 </div>
@@ -1026,6 +1026,31 @@ echo是shell的内部命令，因此查看帮助...
                 <hr>
                 
 
+<div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】003-现代人如何抵御风险">
+    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
+        <div class="d-inline-flex">
+            <a href="/posts/香帅的北大金融学课/【香帅】003-现代人如何抵御风险/"><h6 class="">【香帅】003.现代人如何抵御风险</h6></a>
+        </div>
+        <div class="float-right">
+            
+                    <a href="/tags/经济/" class="font-weight-bold text-danger">经济</a> | 
+            
+                    <a href="/tags/香帅的北大金融学课/" class="font-weight-bold text-danger">香帅的北大金融学课</a> | 
+            
+            <span class="font-weight-bold text-success mr-2"> 2018-10-09 21:59:39 </span>
+        </div>
+        <div class="float-none">
+             语句摘录
+古代社会主要依赖于家庭、宗族来实现风险共担，首先与血缘和地域。
+金融是迄今人类社会能最有效实现跨区域、跨时间、大规模“风险分担”的一个机制:
+1．保险能够帮助个体将风险转移、分散到社会群体中间，提高了我们人类的独立性和安全感；
+1．股票的“利益共享，风险共担”的功能帮助荷兰开辟了强大的海上帝国；
+1．风投和创投分担了创业创新的风险...
+            <a href="/posts/香帅的北大金融学课/【香帅】003-现代人如何抵御风险/" class="ml-2">阅读全文...</a>
+        </div>
+    </div>
+</div>
+
 <div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】002-南北战争中的第二战场">
     <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
         <div class="d-inline-flex">
@@ -1074,31 +1099,6 @@ echo是shell的内部命令，因此查看帮助...
     </div>
 </div>
 
-<div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】001-一万美金赠品里的秘密">
-    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
-        <div class="d-inline-flex">
-            <a href="/posts/香帅的北大金融学课/【香帅】001-一万美金赠品里的秘密/"><h6 class="">【香帅】001.一万美金赠品里的秘密</h6></a>
-        </div>
-        <div class="float-right">
-            
-                    <a href="/tags/经济/" class="font-weight-bold text-danger">经济</a> | 
-            
-                    <a href="/tags/香帅的北大金融学课/" class="font-weight-bold text-danger">香帅的北大金融学课</a> | 
-            
-            <span class="font-weight-bold text-success mr-2"> 2018-10-08 13:06:01 </span>
-        </div>
-        <div class="float-none">
-             语句摘录
-买一辆车，送一张面值１万美金的30年期的美国国债。按照90年代中期平均8％左右的国债利率算，折算到30年后，这个面值１万美金的债券只剩下994美金。
-
-复利在金钱的升值和贬值上效果是类似的，通货膨胀会很大程度稀释我们的财富，我们需要防止自身财富的贬值。
-
-货币的时间价值，在金融里，时间就是金钱。货币的时间价值在金融里边是可以度量，...
-            <a href="/posts/香帅的北大金融学课/【香帅】001-一万美金赠品里的秘密/" class="ml-2">阅读全文...</a>
-        </div>
-    </div>
-</div>
-
 <div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】005-第1周总结：PPT">
     <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
         <div class="d-inline-flex">
@@ -1125,10 +1125,10 @@ echo是shell的内部命令，因此查看帮助...
     </div>
 </div>
 
-<div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】003-现代人如何抵御风险">
+<div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】001-一万美金赠品里的秘密">
     <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
         <div class="d-inline-flex">
-            <a href="/posts/香帅的北大金融学课/【香帅】003-现代人如何抵御风险/"><h6 class="">【香帅】003.现代人如何抵御风险</h6></a>
+            <a href="/posts/香帅的北大金融学课/【香帅】001-一万美金赠品里的秘密/"><h6 class="">【香帅】001.一万美金赠品里的秘密</h6></a>
         </div>
         <div class="float-right">
             
@@ -1136,16 +1136,16 @@ echo是shell的内部命令，因此查看帮助...
             
                     <a href="/tags/香帅的北大金融学课/" class="font-weight-bold text-danger">香帅的北大金融学课</a> | 
             
-            <span class="font-weight-bold text-success mr-2"> 2018-10-09 21:59:39 </span>
+            <span class="font-weight-bold text-success mr-2"> 2018-10-08 13:06:01 </span>
         </div>
         <div class="float-none">
              语句摘录
-古代社会主要依赖于家庭、宗族来实现风险共担，首先与血缘和地域。
-金融是迄今人类社会能最有效实现跨区域、跨时间、大规模“风险分担”的一个机制:
-1．保险能够帮助个体将风险转移、分散到社会群体中间，提高了我们人类的独立性和安全感；
-1．股票的“利益共享，风险共担”的功能帮助荷兰开辟了强大的海上帝国；
-1．风投和创投分担了创业创新的风险...
-            <a href="/posts/香帅的北大金融学课/【香帅】003-现代人如何抵御风险/" class="ml-2">阅读全文...</a>
+买一辆车，送一张面值１万美金的30年期的美国国债。按照90年代中期平均8％左右的国债利率算，折算到30年后，这个面值１万美金的债券只剩下994美金。
+
+复利在金钱的升值和贬值上效果是类似的，通货膨胀会很大程度稀释我们的财富，我们需要防止自身财富的贬值。
+
+货币的时间价值，在金融里，时间就是金钱。货币的时间价值在金融里边是可以度量，...
+            <a href="/posts/香帅的北大金融学课/【香帅】001-一万美金赠品里的秘密/" class="ml-2">阅读全文...</a>
         </div>
     </div>
 </div>
@@ -1169,28 +1169,6 @@ echo是shell的内部命令，因此查看帮助...
 秦始皇为统一市场，因而统一了货币制度。汉武帝穷兵黩武，通过国有经济筹集经费和加强集权控制。
 **中华帝国的金融是围绕着中央财政，自上而下的一个货币经济体系，我们就可以直接把它称为“中央货币财政体系”。**这种制度在生产...
             <a href="/posts/香帅的北大金融学课/【香帅】006-王的信用：中央货币财政体系/" class="ml-2">阅读全文...</a>
-        </div>
-    </div>
-</div>
-
-<div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】007-分权制衡：银行货币信用体系">
-    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
-        <div class="d-inline-flex">
-            <a href="/posts/香帅的北大金融学课/【香帅】007-分权制衡：银行货币信用体系/"><h6 class="">【香帅】007.分权制衡：银行货币信用体系</h6></a>
-        </div>
-        <div class="float-right">
-            
-                    <a href="/tags/经济/" class="font-weight-bold text-danger">经济</a> | 
-            
-                    <a href="/tags/香帅的北大金融学课/" class="font-weight-bold text-danger">香帅的北大金融学课</a> | 
-            
-            <span class="font-weight-bold text-success mr-2"> 2018-10-10 18:31:02 </span>
-        </div>
-        <div class="float-none">
-             语句摘录
-中世纪，朝圣者需要一个异地托管财物的体系，因为当时小国林立无法建立跨国异地财务托管体系，因此圣殿骑士团承担起这个指责，扮演着“银行”的角色，而且扮演了一个欧洲金融启蒙者的角色。
-因为小国林立，相互制约，造成统治阶层也不敢违约，所以才建立起全民信用关系网络。之后一系列的金融业务，都延续了圣殿骑士团的金融遗产，在这个基础上，欧洲就逐渐...
-            <a href="/posts/香帅的北大金融学课/【香帅】007-分权制衡：银行货币信用体系/" class="ml-2">阅读全文...</a>
         </div>
     </div>
 </div>
@@ -1239,6 +1217,28 @@ echo是shell的内部命令，因此查看帮助...
 
 没有金融中...
             <a href="/posts/香帅的北大金融学课/【香帅】008-金融市场上的二道贩子们/" class="ml-2">阅读全文...</a>
+        </div>
+    </div>
+</div>
+
+<div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】007-分权制衡：银行货币信用体系">
+    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
+        <div class="d-inline-flex">
+            <a href="/posts/香帅的北大金融学课/【香帅】007-分权制衡：银行货币信用体系/"><h6 class="">【香帅】007.分权制衡：银行货币信用体系</h6></a>
+        </div>
+        <div class="float-right">
+            
+                    <a href="/tags/经济/" class="font-weight-bold text-danger">经济</a> | 
+            
+                    <a href="/tags/香帅的北大金融学课/" class="font-weight-bold text-danger">香帅的北大金融学课</a> | 
+            
+            <span class="font-weight-bold text-success mr-2"> 2018-10-10 18:31:02 </span>
+        </div>
+        <div class="float-none">
+             语句摘录
+中世纪，朝圣者需要一个异地托管财物的体系，因为当时小国林立无法建立跨国异地财务托管体系，因此圣殿骑士团承担起这个指责，扮演着“银行”的角色，而且扮演了一个欧洲金融启蒙者的角色。
+因为小国林立，相互制约，造成统治阶层也不敢违约，所以才建立起全民信用关系网络。之后一系列的金融业务，都延续了圣殿骑士团的金融遗产，在这个基础上，欧洲就逐渐...
+            <a href="/posts/香帅的北大金融学课/【香帅】007-分权制衡：银行货币信用体系/" class="ml-2">阅读全文...</a>
         </div>
     </div>
 </div>
@@ -1300,31 +1300,6 @@ echo是shell的内部命令，因此查看帮助...
     </div>
 </div>
 
-<div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】010-第2周加餐：深度解析阿里金融帝国">
-    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
-        <div class="d-inline-flex">
-            <a href="/posts/香帅的北大金融学课/【香帅】010-第2周加餐：深度解析阿里金融帝国/"><h6 class="">【香帅】010.第2周加餐：深度解析阿里金融帝国</h6></a>
-        </div>
-        <div class="float-right">
-            
-                    <a href="/tags/经济/" class="font-weight-bold text-danger">经济</a> | 
-            
-                    <a href="/tags/香帅的北大金融学课/" class="font-weight-bold text-danger">香帅的北大金融学课</a> | 
-            
-            <span class="font-weight-bold text-success mr-2"> 2018-10-10 21:43:29 </span>
-        </div>
-        <div class="float-none">
-             语句摘录
-虽然阿里巴巴从搭建互联网起家，但其本质上做的还是营销服务（阿里铁军）。但是到了B2B这个市场，当客户企业成长到一定规模以后可能就不需要阿里巴巴的中介服务了。客户企业能够打造自己的网站（或者其他信息渠道），组建自己的营销团队。所以，阿里巴巴的 B2B 业务增长有限。
-
-这个瓶颈点分析的还是到位的。
-
-2003年阿里转型C2C，快速形...
-            <a href="/posts/香帅的北大金融学课/【香帅】010-第2周加餐：深度解析阿里金融帝国/" class="ml-2">阅读全文...</a>
-        </div>
-    </div>
-</div>
-
 <div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】010-第2周问答：如何投资A股市场更明智">
     <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
         <div class="d-inline-flex">
@@ -1348,6 +1323,31 @@ echo是shell的内部命令，因此查看帮助...
  课程原文
 
             <a href="/posts/香帅的北大金融学课/【香帅】010-第2周问答：如何投资A股市场更明智/" class="ml-2">阅读全文...</a>
+        </div>
+    </div>
+</div>
+
+<div class="media text-muted pt-3" id="post-香帅的北大金融学课/【香帅】010-第2周加餐：深度解析阿里金融帝国">
+    <div class="media-body pb-1 mb-0 small lh-25 border-bottom border-gray">
+        <div class="d-inline-flex">
+            <a href="/posts/香帅的北大金融学课/【香帅】010-第2周加餐：深度解析阿里金融帝国/"><h6 class="">【香帅】010.第2周加餐：深度解析阿里金融帝国</h6></a>
+        </div>
+        <div class="float-right">
+            
+                    <a href="/tags/经济/" class="font-weight-bold text-danger">经济</a> | 
+            
+                    <a href="/tags/香帅的北大金融学课/" class="font-weight-bold text-danger">香帅的北大金融学课</a> | 
+            
+            <span class="font-weight-bold text-success mr-2"> 2018-10-10 21:43:29 </span>
+        </div>
+        <div class="float-none">
+             语句摘录
+虽然阿里巴巴从搭建互联网起家，但其本质上做的还是营销服务（阿里铁军）。但是到了B2B这个市场，当客户企业成长到一定规模以后可能就不需要阿里巴巴的中介服务了。客户企业能够打造自己的网站（或者其他信息渠道），组建自己的营销团队。所以，阿里巴巴的 B2B 业务增长有限。
+
+这个瓶颈点分析的还是到位的。
+
+2003年阿里转型C2C，快速形...
+            <a href="/posts/香帅的北大金融学课/【香帅】010-第2周加餐：深度解析阿里金融帝国/" class="ml-2">阅读全文...</a>
         </div>
     </div>
 </div>
@@ -1359,7 +1359,7 @@ echo是shell的内部命令，因此查看帮助...
 </div>
     </main>
     <script src="/js/jquery-3.3.1.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/crypto-js.js"></script>
     <script src="/js/main.js"></script>
 </body>

@@ -154,11 +154,11 @@
     <a class="navbar-brand" href="/">
         <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
     </a>
-    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="navbar-collapse offcanvas-collapse" id="navbarsDefault">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         
             
@@ -219,13 +219,13 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed border-right" style="overflow-y:auto; height:100%; width:100%">
+        <div class="col-2 position-fixed border-right col-toc" style="overflow-y:auto; height:100%; width:100%">
             <div class="my-3 bg-white rounded box-shadow post-toc">
                 <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
                 <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#大数据概述"><span class="toc-text"> 大数据概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分析型数据库"><span class="toc-text"> 分析型数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#分析型数据库的介绍"><span class="toc-text"> 分析型数据库的介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析型数据库的基本概念"><span class="toc-text"> 分析型数据库的基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析型数据库的基本操作"><span class="toc-text"> 分析型数据库的基本操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#maxcompute"><span class="toc-text"> MaxCompute</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#maxcompute的介绍"><span class="toc-text"> MaxCompute的介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#maxcompute的架构介绍"><span class="toc-text"> MaxCompute的架构介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ddl的介绍"><span class="toc-text"> DDL的介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dml的介绍"><span class="toc-text"> DML的介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内置函数"><span class="toc-text"> 内置函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他使用方式"><span class="toc-text"> 其他使用方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#授权"><span class="toc-text"> 授权</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dataide"><span class="toc-text"> DataIDE</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#dataide介绍"><span class="toc-text"> DataIDE介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dataide基本概念"><span class="toc-text"> DataIDE基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据集成"><span class="toc-text"> 数据集成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据开发"><span class="toc-text"> 数据开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#脚本开发"><span class="toc-text"> 脚本开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#任务节点任务"><span class="toc-text"> 任务：节点任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工作流任务"><span class="toc-text"> 工作流任务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据管理"><span class="toc-text"> 数据管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运维中心"><span class="toc-text"> 运维中心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目管理"><span class="toc-text"> 项目管理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#quickbi报表"><span class="toc-text"> QuickBI报表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#quickbi的介绍"><span class="toc-text"> QuickBI的介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#quickbi的数据管理"><span class="toc-text"> QuickBI的数据管理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#datav数据大屏"><span class="toc-text"> DataV数据大屏</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#产品介绍"><span class="toc-text"> 产品介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#datav大屏介绍"><span class="toc-text"> DataV大屏介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#datav演示"><span class="toc-text"> DataV演示</span></a></li></ol></li></ol>
             </div>
         </div>
-        <div class="col-10 offset-2">
+        <div class="col-10 offset-2 col-content">
             <div>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -532,7 +532,7 @@
 
     </main>
     <script src="/js/jquery-3.3.1.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/crypto-js.js"></script>
     <script src="/js/main.js"></script>
 </body>

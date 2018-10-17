@@ -34,11 +34,11 @@
     <a class="navbar-brand" href="/">
         <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
     </a>
-    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="navbar-collapse offcanvas-collapse" id="navbarsDefault">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         
             
@@ -99,13 +99,13 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed border-right" style="overflow-y:auto; height:100%; width:100%">
+        <div class="col-2 position-fixed border-right col-toc" style="overflow-y:auto; height:100%; width:100%">
             <div class="my-3 bg-white rounded box-shadow post-toc">
                 <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
                 <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装和编译"><span class="toc-text"> 安装和编译</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#变量类型"><span class="toc-text"> 变量类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#变量声明"><span class="toc-text"> 变量声明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#默认值"><span class="toc-text"> 默认值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数声明"><span class="toc-text"> 函数声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#spread"><span class="toc-text"> Spread</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#接口"><span class="toc-text"> 接口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类"><span class="toc-text"> 类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数"><span class="toc-text"> 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#this和箭头函数"><span class="toc-text"> this和箭头函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#泛型"><span class="toc-text"> 泛型</span></a></li></ol>
             </div>
         </div>
-        <div class="col-10 offset-2">
+        <div class="col-10 offset-2 col-content">
             <div>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -196,7 +196,7 @@
 
     </main>
     <script src="/js/jquery-3.3.1.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/crypto-js.js"></script>
     <script src="/js/main.js"></script>
 </body>

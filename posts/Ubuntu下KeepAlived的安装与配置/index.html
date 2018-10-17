@@ -38,11 +38,11 @@
     <a class="navbar-brand" href="/">
         <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
     </a>
-    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="navbar-collapse offcanvas-collapse" id="navbarsDefault">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         
             
@@ -103,13 +103,13 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed border-right" style="overflow-y:auto; height:100%; width:100%">
+        <div class="col-2 position-fixed border-right col-toc" style="overflow-y:auto; height:100%; width:100%">
             <div class="my-3 bg-white rounded box-shadow post-toc">
                 <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
                 <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#keepalived介绍"><span class="toc-text"> KeepAlived介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vrrp协议介绍"><span class="toc-text"> VRRP协议介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#keepalived的安装"><span class="toc-text"> KeepAlived的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#apt-get安装"><span class="toc-text"> apt-get安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码编译安装"><span class="toc-text"> 源码编译安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#守护进程和开机启动"><span class="toc-text"> 守护进程和开机启动</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#keepalive的配置"><span class="toc-text"> KeepAlive的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#keepalivedconf"><span class="toc-text"> keepalived.conf</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#keepalived的验证"><span class="toc-text"> KeepAlived的验证</span></a></li></ol>
             </div>
         </div>
-        <div class="col-10 offset-2">
+        <div class="col-10 offset-2 col-content">
             <div>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -214,7 +214,7 @@
 
     </main>
     <script src="/js/jquery-3.3.1.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/crypto-js.js"></script>
     <script src="/js/main.js"></script>
 </body>

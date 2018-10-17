@@ -33,11 +33,11 @@
     <a class="navbar-brand" href="/">
         <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
     </a>
-    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="navbar-collapse offcanvas-collapse" id="navbarsDefault">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         
             
@@ -98,7 +98,7 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed" style="overflow-y:auto; height:100%; width:100%">
+        <div class="col-2 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
 <div class="my-3 bg-white rounded box-shadow post-toc">
     <a href="/"><h6 class="text-success">标签列表：</h6></a><hr class="mt-0">
     <ul class="pl-2">
@@ -107,9 +107,9 @@
     
         <li><a href="/tags/Java/">&nbspJava</a></li>
     
-        <li><a href="/tags/飞行手册/">&nbsp飞行手册</a></li>
-    
         <li><a href="/tags/学习记录/">&nbsp学习记录</a></li>
+    
+        <li><a href="/tags/飞行手册/">&nbsp飞行手册</a></li>
     
         <li><a href="/tags/Linux/">&nbspLinux</a></li>
     
@@ -120,7 +120,7 @@
     </ul>
 </div>
 </div>
-        <div class="col-10 offset-2 border-left">
+        <div class="col-10 offset-2 border-left col-content">
         
             <h3 class="mt-4 font-weight-bold text-success" id="tag-环境搭建">环境搭建</h3><hr>
             
@@ -367,7 +367,7 @@ JDK的官方下载地址为： http://www.oracle.com/technetwork/java/javase/dow
 </div>
     </main>
     <script src="/js/jquery-3.3.1.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/crypto-js.js"></script>
     <script src="/js/main.js"></script>
 </body>

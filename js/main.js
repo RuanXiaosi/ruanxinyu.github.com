@@ -43,4 +43,9 @@ $(function () {
         });
         return false;
     });
+
+    if (document.body.scrollWidth < 768) {
+        $(".col-toc").hide();
+        $(".col-content").removeClass("offset-2 col-10").addClass("col-12");
+    }
 })

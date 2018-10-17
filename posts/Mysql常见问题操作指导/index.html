@@ -38,11 +38,11 @@
     <a class="navbar-brand" href="/">
         <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
     </a>
-    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="navbar-collapse offcanvas-collapse" id="navbarsDefault">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         
             
@@ -103,13 +103,13 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed border-right" style="overflow-y:auto; height:100%; width:100%">
+        <div class="col-2 position-fixed border-right col-toc" style="overflow-y:auto; height:100%; width:100%">
             <div class="my-3 bg-white rounded box-shadow post-toc">
                 <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
                 <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#快速查询目录"><span class="toc-text"> 快速查询目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#启动"><span class="toc-text"> 启动</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#windows如何启动mysql"><span class="toc-text"> windows如何启动mysql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows下mysq的数据和配置文件存放位置"><span class="toc-text"> windows下mysq的数据和配置文件存放位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows启动mysql报拒绝访问错误"><span class="toc-text"> windows启动mysql报拒绝访问错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows下mysql的日志位置"><span class="toc-text"> windows下mysql的日志位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows下mysql启动失败"><span class="toc-text"> windows下mysql启动失败</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#权限"><span class="toc-text"> 权限</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何添加用户权限"><span class="toc-text"> 如何添加用户权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#忘记root的密码"><span class="toc-text"> 忘记root的密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改权限提示skip-grant-tables下不能执行该操作"><span class="toc-text"> 修改权限提示–skip-grant-tables下不能执行该操作</span></a></li></ol></li></ol>
             </div>
         </div>
-        <div class="col-10 offset-2">
+        <div class="col-10 offset-2 col-content">
             <div>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -188,7 +188,7 @@
 
     </main>
     <script src="/js/jquery-3.3.1.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/crypto-js.js"></script>
     <script src="/js/main.js"></script>
 </body>
