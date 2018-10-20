@@ -75,6 +75,7 @@ $(function () {
                         }
                         toc += '</ol></div></div>';
                         $(".col-content").removeClass("col-10 col-12").addClass("offset-2 col-8").before(toc);
+                        $(".pre-next-link").hide();
                         break;
                     }
                 }
