@@ -48,11 +48,13 @@ $(function () {
         $(".col-toc").hide();
         $(".col-content").removeClass("col-10 col-8").addClass("col-12");
     } else {
-        var project = window.location.href.match(/\/posts\/(.*)\/\?project=([^&]*)/);
+        var project = window.location.href.match(/https?:\/\/[^\/]*(\/.*)?\/posts\/(.*)\/\?project=([^&]*)/);
         if (project) {
-            var projectName = decodeURI(project[2]);
-            var postName = decodeURI(project[1]);
-            $.get("/data/projects.json", function(data) {
+            var projectName = decodeURI(project[3]);
+            var postName = decodeURI(project[2]);
+            var urlPrefix = decodeURI(project[1]);
+            urlPrefix = urlPrefix != "undefined" ? urlPrefix : "";
+            $.get(urlPrefix + "/data/projects.json", function(data) {
                 for (var index in data) {
                     if (data[index].title == projectName) {
                         var toc = '<div class="col-2 pt-3 pl-0 position-fixed" style="overflow-y:auto; height:100%; width:100%"><h6 class="text-success">【项目】' + data[index].title  + '</h6><hr class="mt-0"><ol class="toc">';
@@ -60,6 +62,7 @@ $(function () {
                             if (data[index].titles[index1].url == "" || data[index].titles[index1].url == "#") {
                                 toc += '<li class="toc-item toc-level-1">' + data[index].titles[index1].title + '</li>';
                             } else {
+                                data[index].titles[index1].url = urlPrefix + data[index].titles[index1].url;
                                 var text = '<li class="toc-item toc-level-1"><a href="' + data[index].titles[index1].url + '?project=' + data[index].title + '">&nbsp' + data[index].titles[index1].title + '</a></li>';
                                 toc += data[index].titles[index1].title == postName ? "<strong>" + text + "</strong>" : text;
                             }
@@ -67,6 +70,7 @@ $(function () {
                             if ("subtitles" in data[index].titles[index1] && data[index].titles[index1].subtitles.length > 0) {
                                 toc += '<ol class="toc-child">';
                                 for (var index2 in data[index].titles[index1].subtitles) {
+                                    data[index].titles[index1].subtitles[index2].url = urlPrefix + data[index].titles[index1].subtitles[index2].url;
                                     var text = '<li class="toc-item toc-level-1"><a href="' + data[index].titles[index1].subtitles[index2].url + '?project=' + data[index].title + '">&nbsp' + data[index].titles[index1].subtitles[index2].title + '</a></li>';
                                     toc += data[index].titles[index1].subtitles[index2].title == postName ? "<strong>" + text + "</strong>" : text;
                                 }
