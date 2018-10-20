@@ -3,11 +3,11 @@
         "title": "Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统",
         "author": "阮新宇",
         "description": "Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统",
-        "posts": [
+        "titles": [
             {
                 "title": "基础环境准备",
                 "url": "#",
-                "subPosts": [
+                "subtitles": [
                     {
                         "title": "VirtualBox安装Ubuntu教程",
                         "url": "/posts/VirtualBox安装Ubuntu教程/"
@@ -41,7 +41,7 @@
             {
                 "title": "参考文档",
                 "url": "#",
-                "subPosts": [
+                "subtitles": [
                     {
                         "title": "Ubuntu常见问题操作指导",
                         "url": "/posts/Ubuntu常见问题操作指导/"
