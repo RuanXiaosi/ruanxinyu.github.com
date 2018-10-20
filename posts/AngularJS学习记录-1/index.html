@@ -63,6 +63,12 @@
             
         
             
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/projects"  >项目</a>
+                </li>
+            
+        
+            
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -102,33 +108,27 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed border-right col-toc" style="overflow-y:auto; height:100%; width:100%">
-            <div class="my-3 bg-white rounded box-shadow post-toc">
-                <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ng命令介绍"><span class="toc-text"> ng命令介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#核心知识"><span class="toc-text"> 核心知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#架构"><span class="toc-text"> 架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块"><span class="toc-text"> 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件"><span class="toc-text"> 组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务与依赖注入"><span class="toc-text"> 服务与依赖注入</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#组件与模板"><span class="toc-text"> 组件与模板</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#显示数据"><span class="toc-text"> 显示数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板语法"><span class="toc-text"> 模板语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生命钩子"><span class="toc-text"> 生命钩子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件交互"><span class="toc-text"> 组件交互</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件样式"><span class="toc-text"> 组件样式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#表单"><span class="toc-text"> 表单</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#用户输入"><span class="toc-text"> 用户输入</span></a></li></ol></li></ol>
-            </div>
-        </div>
-        <div class="col-10 offset-2 col-content">
+        <div class="col-10 col-content border-left border-right">
             <div>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        
-                            <li class="breadcrumb-item"><a href="/categories/学习记录/" class="font-weight-bold text-primary">学习记录</a></li>
-                        
-                        <li class="breadcrumb-item active" aria-current="page">AngularJS学习记录-1</li>
-                        <div class="ml-2">
-                            (
-                            
-                                    <a href="/tags/学习记录/" class="font-weight-bold text-danger">学习记录</a> | 
-                            
-                            <span class="font-weight-bold text-success mr-2"> 2018-10-07 11:50:16</span><span>)</span>
-                        </div>
-                    </ol>
-                </nav>
-            </div>
-            <div class="my-3 bg-white rounded box-shadow post-content">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
             
-                <h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+                <li class="breadcrumb-item"><a href="/categories/学习记录/" class="font-weight-bold text-primary">学习记录</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">AngularJS学习记录-1</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/学习记录/" class="font-weight-bold text-danger">学习记录</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-10-07 11:50:16</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
 <p>AngularJS的学习地址为：<a href="https://angular.cn/guide/quickstart" target="_blank" rel="noopener">https://angular.cns/guide/quickstart</a></p>
 <h1 id="ng命令介绍"><a class="markdownIt-Anchor" href="#ng命令介绍"></a> ng命令介绍</h1>
 <ol>
@@ -249,23 +249,34 @@
 <li>按键事件过滤（通过 <code>key.enter</code>）: <code>&lt;input #box (keyup.enter)=&quot;onEnter(box.value)&quot;&gt; &lt;p&gt;&lt;/p&gt;</code></li>
 </ul>
 
+
+
+    <div class="row border-top">
+        <div class="col-6">
+            上一篇：
             
-                <div class="row border-top">
-                    <div class="col-6">
-                        上一篇：
-                        
-                        <a href="/posts/香帅的北大金融学课/【香帅】001-一万美金赠品里的秘密/"><h6 class="d-inline">【香帅】001.一万美金赠品里的秘密</h6></a>
-                        
-                    </div>
-                    <div class="col-6 text-right">
-                        下一篇：
-                        
-                        <a href="/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/"><h6 class="d-inline">基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能</h6></a>
-                        
-                    </div>
-                </div>
-            </div>
+            <a href="/posts/香帅的北大金融学课/【香帅】001-一万美金赠品里的秘密/"><h6 class="d-inline">【香帅】001.一万美金赠品里的秘密</h6></a>
+            
         </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/"><h6 class="d-inline">基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ng命令介绍"><span class="toc-text"> ng命令介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#核心知识"><span class="toc-text"> 核心知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#架构"><span class="toc-text"> 架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块"><span class="toc-text"> 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件"><span class="toc-text"> 组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务与依赖注入"><span class="toc-text"> 服务与依赖注入</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#组件与模板"><span class="toc-text"> 组件与模板</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#显示数据"><span class="toc-text"> 显示数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板语法"><span class="toc-text"> 模板语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生命钩子"><span class="toc-text"> 生命钩子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件交互"><span class="toc-text"> 组件交互</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件样式"><span class="toc-text"> 组件样式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#表单"><span class="toc-text"> 表单</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#用户输入"><span class="toc-text"> 用户输入</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
     </div>
 </div>
 

@@ -71,6 +71,12 @@
             
         
             
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/projects"  >项目</a>
+                </li>
+            
+        
+            
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -110,33 +116,27 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed border-right col-toc" style="overflow-y:auto; height:100%; width:100%">
-            <div class="my-3 bg-white rounded box-shadow post-toc">
-                <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql复制模式及原理"><span class="toc-text"> Mysql复制模式及原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复制原理"><span class="toc-text"> 复制原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于sql语句的复制sbr"><span class="toc-text"> 基于SQL语句的复制(SBR)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于行的复制rbr"><span class="toc-text"> 基于行的复制(RBR)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#混合模式复制mbr"><span class="toc-text"> 混合模式复制(MBR)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决的问题"><span class="toc-text"> 解决的问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基础环境说明"><span class="toc-text"> 基础环境说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql的主从同步设置"><span class="toc-text"> Mysql的主从同步设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置mycnf文件"><span class="toc-text"> 配置my.cnf文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建复制用户"><span class="toc-text"> 创建复制用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行change-master-to语句"><span class="toc-text"> 执行CHANGE MASTER TO语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重启并查看同步状态"><span class="toc-text"> 重启并查看同步状态</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#keepalived的配置"><span class="toc-text"> KeepAlived的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#功能验证"><span class="toc-text"> 功能验证</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正常情况下的验证"><span class="toc-text"> 正常情况下的验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异常恢复下的验证"><span class="toc-text"> 异常恢复下的验证</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常见操作说明"><span class="toc-text"> 常见操作说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#彻底解除主从复制关系"><span class="toc-text"> 彻底解除主从复制关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#让slave不随mysql自动启动"><span class="toc-text"> 让slave不随MySQL自动启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据备份的快速恢复"><span class="toc-text"> 数据备份的快速恢复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何限制复制哪些数据库"><span class="toc-text"> 如何限制复制哪些数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改log-bin和relay_log后重启报错"><span class="toc-text"> 修改log-bin和relay_log后重启报错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日志出现warning-ip-address-xxxx-could-not-be-resolved-name-or-service-not-known"><span class="toc-text"> 日志出现[Warning] IP address &#39;xxxx&#39; could not be resolved: Name or service not known</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主备同步报fatal-error-the-slave-io-thread-stops-because-master-and-slave-have-equal-mysql-server-uuids"><span class="toc-text"> 主备同步报：Fatal error: The slave I/O thread stops because master and slave have equal MySQL server UUIDs</span></a></li></ol></li></ol>
-            </div>
-        </div>
-        <div class="col-10 offset-2 col-content">
+        <div class="col-10 col-content border-left border-right">
             <div>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        
-                            <li class="breadcrumb-item"><a href="/categories/环境搭建/" class="font-weight-bold text-primary">环境搭建</a></li>
-                        
-                        <li class="breadcrumb-item active" aria-current="page">Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建</li>
-                        <div class="ml-2">
-                            (
-                            
-                                    <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
-                            
-                            <span class="font-weight-bold text-success mr-2"> 2018-10-04 12:50:27</span><span>)</span>
-                        </div>
-                    </ol>
-                </nav>
-            </div>
-            <div class="my-3 bg-white rounded box-shadow post-content">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
             
-                <h1 id="mysql复制模式及原理"><a class="markdownIt-Anchor" href="#mysql复制模式及原理"></a> Mysql复制模式及原理</h1>
+                <li class="breadcrumb-item"><a href="/categories/环境搭建/" class="font-weight-bold text-primary">环境搭建</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-10-04 12:50:27</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="mysql复制模式及原理"><a class="markdownIt-Anchor" href="#mysql复制模式及原理"></a> Mysql复制模式及原理</h1>
 <p>Mysql内建的复制功能是构建大型，高性能应用程序的基础。Mysql将数据库的更改写入到二进制日志文件，而复制功能就是基于该日志完成的。Mysql的二进制日志格式也有三种：STATEMENT，ROW，MIXED。对应的是Mysql的三种复制模式.</p>
 <h2 id="复制原理"><a class="markdownIt-Anchor" href="#复制原理"></a> 复制原理</h2>
 <p>master服务器将数据的改变记录二进制binlog日志，当master上的数据发生改变时，则将其改变写入二进制日志中；salve服务器会在一定时间间隔内对master二进制日志进行探测其是否发生改变，如果发生改变，则开始一个I/OThread请求master二进制事件，同时主节点为每个I/O线程启动一个dump线程，用于向其发送二进制事件，并保存至从节点本地的中继日志中，从节点将启动SQL线程从中继日志中读取二进制日志，在本地重放，使得其数据和主节点的保持一致，最后I/OThread和SQLThread将进入睡眠状态，等待下一次被唤醒。过程如下：</p>
@@ -291,23 +291,34 @@
 <h2 id="主备同步报fatal-error-the-slave-io-thread-stops-because-master-and-slave-have-equal-mysql-server-uuids"><a class="markdownIt-Anchor" href="#主备同步报fatal-error-the-slave-io-thread-stops-because-master-and-slave-have-equal-mysql-server-uuids"></a> 主备同步报：<code>Fatal error: The slave I/O thread stops because master and slave have equal MySQL server UUIDs</code></h2>
 <p>是因为数据目录下的<code>/var/lib/mysql/auto.cnf</code>文件是一样导致的，我们可以删除备机上的该文件，然后重启mysql</p>
 
+
+
+    <div class="row border-top">
+        <div class="col-6">
+            上一篇：
             
-                <div class="row border-top">
-                    <div class="col-6">
-                        上一篇：
-                        
-                        <a href="/posts/Git常见问题操作指导/"><h6 class="d-inline">Git常见问题操作指导</h6></a>
-                        
-                    </div>
-                    <div class="col-6 text-right">
-                        下一篇：
-                        
-                        <a href="/posts/TypeScript学习记录-1/"><h6 class="d-inline">TypeScript学习记录-1</h6></a>
-                        
-                    </div>
-                </div>
-            </div>
+            <a href="/posts/Git常见问题操作指导/"><h6 class="d-inline">Git常见问题操作指导</h6></a>
+            
         </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/TypeScript学习记录-1/"><h6 class="d-inline">TypeScript学习记录-1</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql复制模式及原理"><span class="toc-text"> Mysql复制模式及原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复制原理"><span class="toc-text"> 复制原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于sql语句的复制sbr"><span class="toc-text"> 基于SQL语句的复制(SBR)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于行的复制rbr"><span class="toc-text"> 基于行的复制(RBR)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#混合模式复制mbr"><span class="toc-text"> 混合模式复制(MBR)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决的问题"><span class="toc-text"> 解决的问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基础环境说明"><span class="toc-text"> 基础环境说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql的主从同步设置"><span class="toc-text"> Mysql的主从同步设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置mycnf文件"><span class="toc-text"> 配置my.cnf文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建复制用户"><span class="toc-text"> 创建复制用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行change-master-to语句"><span class="toc-text"> 执行CHANGE MASTER TO语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重启并查看同步状态"><span class="toc-text"> 重启并查看同步状态</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#keepalived的配置"><span class="toc-text"> KeepAlived的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#功能验证"><span class="toc-text"> 功能验证</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正常情况下的验证"><span class="toc-text"> 正常情况下的验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异常恢复下的验证"><span class="toc-text"> 异常恢复下的验证</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常见操作说明"><span class="toc-text"> 常见操作说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#彻底解除主从复制关系"><span class="toc-text"> 彻底解除主从复制关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#让slave不随mysql自动启动"><span class="toc-text"> 让slave不随MySQL自动启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据备份的快速恢复"><span class="toc-text"> 数据备份的快速恢复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何限制复制哪些数据库"><span class="toc-text"> 如何限制复制哪些数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改log-bin和relay_log后重启报错"><span class="toc-text"> 修改log-bin和relay_log后重启报错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日志出现warning-ip-address-xxxx-could-not-be-resolved-name-or-service-not-known"><span class="toc-text"> 日志出现[Warning] IP address &#39;xxxx&#39; could not be resolved: Name or service not known</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主备同步报fatal-error-the-slave-io-thread-stops-because-master-and-slave-have-equal-mysql-server-uuids"><span class="toc-text"> 主备同步报：Fatal error: The slave I/O thread stops because master and slave have equal MySQL server UUIDs</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
     </div>
 </div>
 

@@ -82,6 +82,12 @@
             
         
             
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/projects"  >项目</a>
+                </li>
+            
+        
+            
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -121,33 +127,27 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed border-right col-toc" style="overflow-y:auto; height:100%; width:100%">
-            <div class="my-3 bg-white rounded box-shadow post-toc">
-                <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础准备工作"><span class="toc-text"> 基础准备工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建虚拟机"><span class="toc-text"> 创建虚拟机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设置虚拟机"><span class="toc-text"> 设置虚拟机</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置粘贴板"><span class="toc-text"> 设置粘贴板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#导入操作系统镜像"><span class="toc-text"> 导入操作系统镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置虚拟机网络"><span class="toc-text"> 设置虚拟机网络</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装ubuntu"><span class="toc-text"> 安装Ubuntu</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#virtualbox的使用说明"><span class="toc-text"> VirtualBox的使用说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#鼠标捕获"><span class="toc-text"> 鼠标捕获</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#保存快照"><span class="toc-text"> 保存快照</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速保存并恢复"><span class="toc-text"> 快速保存并恢复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复制虚拟机"><span class="toc-text"> 复制虚拟机</span></a></li></ol></li></ol>
-            </div>
-        </div>
-        <div class="col-10 offset-2 col-content">
+        <div class="col-10 col-content border-left border-right">
             <div>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        
-                            <li class="breadcrumb-item"><a href="/categories/环境搭建/" class="font-weight-bold text-primary">环境搭建</a></li>
-                        
-                        <li class="breadcrumb-item active" aria-current="page">VirtualBox安装Ubuntu教程</li>
-                        <div class="ml-2">
-                            (
-                            
-                                    <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
-                            
-                            <span class="font-weight-bold text-success mr-2"> 2018-09-16 19:59:38</span><span>)</span>
-                        </div>
-                    </ol>
-                </nav>
-            </div>
-            <div class="my-3 bg-white rounded box-shadow post-content">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
             
-                <h1 id="基础准备工作"><a class="markdownIt-Anchor" href="#基础准备工作"></a> 基础准备工作</h1>
+                <li class="breadcrumb-item"><a href="/categories/环境搭建/" class="font-weight-bold text-primary">环境搭建</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">VirtualBox安装Ubuntu教程</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-09-16 19:59:38</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="基础准备工作"><a class="markdownIt-Anchor" href="#基础准备工作"></a> 基础准备工作</h1>
 <p>本教程使用的VirtualBox版本为<code>5.2.18</code>，Ubuntu版本为<code>server 18.04.1</code>。</p>
 <p>首先，下载Ubuntu Server镜像，本文以ubuntu-18.04.1为例，可以从华为开源镜像站提供加速下载，地址为： <a href="http://mirrors.huaweicloud.com/repository/ubuntu-releases/18.04.1/ubuntu-18.04.1-live-server-amd64.iso" target="_blank" rel="noopener">http://mirrors.huaweicloud.com/repository/ubuntu-releases/18.04.1/ubuntu-18.04.1-live-server-amd64.iso</a></p>
 <p>下载并安装VirtualBox，下载地址为: <a href="https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-Win.exe" target="_blank" rel="noopener">https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-Win.exe</a></p>
@@ -223,23 +223,34 @@
 <p>在做实验的时候需要使用多个虚拟机，不用重新安装，直接复制虚拟机即可，在对应的虚拟机上右键就可以，需要在关机的状态下才能复制。但是在复制虚拟机之后最后刷新一下网卡的MAC地址，否则可能会出现相同MAC地址的情况。</p>
 <img src="/posts/VirtualBox安装Ubuntu教程/2018-09-26-15-33-38.png" title="[blog.ruanxinyu.cn]">
 
+
+
+    <div class="row border-top">
+        <div class="col-6">
+            上一篇：
             
-                <div class="row border-top">
-                    <div class="col-6">
-                        上一篇：
-                        
-                        <a href="/posts/Ubuntu下KeepAlived的安装与配置/"><h6 class="d-inline">Ubuntu下KeepAlived的安装与配置</h6></a>
-                        
-                    </div>
-                    <div class="col-6 text-right">
-                        下一篇：
-                        
-                        <a href="/posts/每天学习一个Linux命令/每天学习一个Linux命令（3）：echo命令/"><h6 class="d-inline">每天学习一个Linux命令（3）：echo命令</h6></a>
-                        
-                    </div>
-                </div>
-            </div>
+            <a href="/posts/Ubuntu下KeepAlived的安装与配置/"><h6 class="d-inline">Ubuntu下KeepAlived的安装与配置</h6></a>
+            
         </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/每天学习一个Linux命令/每天学习一个Linux命令（3）：echo命令/"><h6 class="d-inline">每天学习一个Linux命令（3）：echo命令</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础准备工作"><span class="toc-text"> 基础准备工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建虚拟机"><span class="toc-text"> 创建虚拟机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设置虚拟机"><span class="toc-text"> 设置虚拟机</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置粘贴板"><span class="toc-text"> 设置粘贴板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#导入操作系统镜像"><span class="toc-text"> 导入操作系统镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置虚拟机网络"><span class="toc-text"> 设置虚拟机网络</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装ubuntu"><span class="toc-text"> 安装Ubuntu</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#virtualbox的使用说明"><span class="toc-text"> VirtualBox的使用说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#鼠标捕获"><span class="toc-text"> 鼠标捕获</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#保存快照"><span class="toc-text"> 保存快照</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速保存并恢复"><span class="toc-text"> 快速保存并恢复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复制虚拟机"><span class="toc-text"> 复制虚拟机</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
     </div>
 </div>
 

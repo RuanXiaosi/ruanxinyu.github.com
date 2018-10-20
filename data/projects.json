@@ -1,0 +1,57 @@
+[
+    {
+        "title": "Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统",
+        "author": "阮新宇",
+        "description": "Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统",
+        "posts": [
+            {
+                "title": "基础环境准备",
+                "url": "#",
+                "subPosts": [
+                    {
+                        "title": "VirtualBox安装Ubuntu教程",
+                        "url": "/posts/VirtualBox安装Ubuntu教程/"
+                    },
+                    {
+                        "title": "JDK安装教程",
+                        "url": "/posts/JDK安装教程/"
+                    }
+                ]
+            },
+            {
+                "title": "Ubuntu下KeepAlived的安装与配置",
+                "url": "/posts/Ubuntu下KeepAlived的安装与配置/"
+            },
+            {
+                "title": "Ubuntu下搭建HAProxy-KeepAlived高可用集群",
+                "url": "/posts/Ubuntu下搭建HAProxy-KeepAlived高可用集群/"
+            },
+            {
+                "title": "Ubuntu下Mysql的安装与验证",
+                "url": "/posts/Ubuntu下Mysql的安装与验证/"
+            },
+            {
+                "title": "Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建",
+                "url": "/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/"
+            },
+            {
+                "title": "Ubuntu下Nginx的安装与配置",
+                "url": "/posts/Ubuntu下Nginx的安装与配置/"
+            },
+            {
+                "title": "参考文档",
+                "url": "#",
+                "subPosts": [
+                    {
+                        "title": "Ubuntu常见问题操作指导",
+                        "url": "/posts/Ubuntu常见问题操作指导/"
+                    },
+                    {
+                        "title": "Mysql常见问题操作指导",
+                        "url": "/posts/Mysql常见问题操作指导/"
+                    }
+                ]
+            }
+        ]
+    }
+]

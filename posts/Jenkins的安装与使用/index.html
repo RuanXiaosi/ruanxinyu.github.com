@@ -62,6 +62,12 @@
             
         
             
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/projects"  >项目</a>
+                </li>
+            
+        
+            
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -101,33 +107,27 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed border-right col-toc" style="overflow-y:auto; height:100%; width:100%">
-            <div class="my-3 bg-white rounded box-shadow post-toc">
-                <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jenkins的介绍"><span class="toc-text"> Jenkins的介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jenkins的安装"><span class="toc-text"> Jenkins的安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改jenkins的主目录"><span class="toc-text"> 修改Jenkins的主目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#系统服务与开机启动"><span class="toc-text"> 系统服务与开机启动</span></a></li></ol>
-            </div>
-        </div>
-        <div class="col-10 offset-2 col-content">
+        <div class="col-10 col-content border-left border-right">
             <div>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        
-                            <li class="breadcrumb-item"><a href="/categories/环境搭建/" class="font-weight-bold text-primary">环境搭建</a></li>
-                        
-                        <li class="breadcrumb-item active" aria-current="page">Jenkins的安装与使用</li>
-                        <div class="ml-2">
-                            (
-                            
-                                    <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
-                            
-                            <span class="font-weight-bold text-success mr-2"> 2018-10-03 17:01:53</span><span>)</span>
-                        </div>
-                    </ol>
-                </nav>
-            </div>
-            <div class="my-3 bg-white rounded box-shadow post-content">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
             
-                <h1 id="jenkins的介绍"><a class="markdownIt-Anchor" href="#jenkins的介绍"></a> Jenkins的介绍</h1>
+                <li class="breadcrumb-item"><a href="/categories/环境搭建/" class="font-weight-bold text-primary">环境搭建</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">Jenkins的安装与使用</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-10-03 17:01:53</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="jenkins的介绍"><a class="markdownIt-Anchor" href="#jenkins的介绍"></a> Jenkins的介绍</h1>
 <p>官方地址为：<a href="https://jenkins.io/" target="_blank" rel="noopener">https://jenkins.io/</a>。Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。</p>
 <h1 id="jenkins的安装"><a class="markdownIt-Anchor" href="#jenkins的安装"></a> Jenkins的安装</h1>
 <blockquote>
@@ -150,23 +150,34 @@
 <p>从Jenkins的启动日志中可以看出Jenkins默认的主目录为<code>$user.home/.jenkins</code>，我们在此将其主目录更改至<code>/usr/local/jenkins/.jenkins</code>，只需要导出环境<code>JENKINS_HOME</code>环境变量<code>exprot JENKINS_HOME=/usr/local/jenkins/.jenkins</code>，然后启动Jenkins即可。</p>
 <h1 id="系统服务与开机启动"><a class="markdownIt-Anchor" href="#系统服务与开机启动"></a> 系统服务与开机启动</h1>
 
+
+
+    <div class="row border-top">
+        <div class="col-6">
+            上一篇：
             
-                <div class="row border-top">
-                    <div class="col-6">
-                        上一篇：
-                        
-                        <a href="/posts/TypeScript学习记录-1/"><h6 class="d-inline">TypeScript学习记录-1</h6></a>
-                        
-                    </div>
-                    <div class="col-6 text-right">
-                        下一篇：
-                        
-                        <a href="/posts/SonatypeNexus的安装与使用/"><h6 class="d-inline">SonatypeNexus的安装与使用</h6></a>
-                        
-                    </div>
-                </div>
-            </div>
+            <a href="/posts/TypeScript学习记录-1/"><h6 class="d-inline">TypeScript学习记录-1</h6></a>
+            
         </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/SonatypeNexus的安装与使用/"><h6 class="d-inline">SonatypeNexus的安装与使用</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jenkins的介绍"><span class="toc-text"> Jenkins的介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jenkins的安装"><span class="toc-text"> Jenkins的安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改jenkins的主目录"><span class="toc-text"> 修改Jenkins的主目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#系统服务与开机启动"><span class="toc-text"> 系统服务与开机启动</span></a></li></ol>
+    
+    </div>
+</div>
+
     </div>
 </div>
 

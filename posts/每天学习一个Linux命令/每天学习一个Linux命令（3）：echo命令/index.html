@@ -60,6 +60,12 @@
             
         
             
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/projects"  >项目</a>
+                </li>
+            
+        
+            
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -99,33 +105,27 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed border-right col-toc" style="overflow-y:auto; height:100%; width:100%">
-            <div class="my-3 bg-white rounded box-shadow post-toc">
-                <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#语法"><span class="toc-text"> 语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参数"><span class="toc-text"> 参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#转义字符"><span class="toc-text"> 转义字符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用小技巧"><span class="toc-text"> 使用小技巧</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用范例"><span class="toc-text"> 常用范例</span></a></li></ol>
-            </div>
-        </div>
-        <div class="col-10 offset-2 col-content">
+        <div class="col-10 col-content border-left border-right">
             <div>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        
-                            <li class="breadcrumb-item"><a href="/categories/Linux/" class="font-weight-bold text-primary">Linux</a></li>
-                        
-                        <li class="breadcrumb-item active" aria-current="page">每天学习一个Linux命令（3）：echo命令</li>
-                        <div class="ml-2">
-                            (
-                            
-                                    <a href="/tags/Linux/" class="font-weight-bold text-danger">Linux</a> | 
-                            
-                            <span class="font-weight-bold text-success mr-2"> 2018-05-02 19:20:58</span><span>)</span>
-                        </div>
-                    </ol>
-                </nav>
-            </div>
-            <div class="my-3 bg-white rounded box-shadow post-content">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
             
-                <p><code>echo</code>命令用于输出字符串，可以通过参数和转义等来控制输出格式。</p>
+                <li class="breadcrumb-item"><a href="/categories/Linux/" class="font-weight-bold text-primary">Linux</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">每天学习一个Linux命令（3）：echo命令</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/Linux/" class="font-weight-bold text-danger">Linux</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-05-02 19:20:58</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <p><code>echo</code>命令用于输出字符串，可以通过参数和转义等来控制输出格式。</p>
 <h1 id="语法"><a class="markdownIt-Anchor" href="#语法"></a> 语法</h1>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo [-neE] [arg ...]</span><br></pre></td></tr></table></figure>
 <h1 id="参数"><a class="markdownIt-Anchor" href="#参数"></a> 参数</h1>
@@ -181,23 +181,34 @@
 <p>输出：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Tue May 1 21:16:57 CST 2018</span><br><span class="line">Tue May 1 21:16:57 CST 2018</span><br></pre></td></tr></table></figure>
 
+
+
+    <div class="row border-top">
+        <div class="col-6">
+            上一篇：
             
-                <div class="row border-top">
-                    <div class="col-6">
-                        上一篇：
-                        
-                        <a href="/posts/VirtualBox安装Ubuntu教程/"><h6 class="d-inline">VirtualBox安装Ubuntu教程</h6></a>
-                        
-                    </div>
-                    <div class="col-6 text-right">
-                        下一篇：
-                        
-                        <a href="/posts/每天学习一个Linux命令/每天学习一个Linux命令（2）：cd命令/"><h6 class="d-inline">每天学习一个Linux命令（2）：cd命令</h6></a>
-                        
-                    </div>
-                </div>
-            </div>
+            <a href="/posts/VirtualBox安装Ubuntu教程/"><h6 class="d-inline">VirtualBox安装Ubuntu教程</h6></a>
+            
         </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/每天学习一个Linux命令/每天学习一个Linux命令（2）：cd命令/"><h6 class="d-inline">每天学习一个Linux命令（2）：cd命令</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#语法"><span class="toc-text"> 语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参数"><span class="toc-text"> 参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#转义字符"><span class="toc-text"> 转义字符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用小技巧"><span class="toc-text"> 使用小技巧</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用范例"><span class="toc-text"> 常用范例</span></a></li></ol>
+    
+    </div>
+</div>
+
     </div>
 </div>
 

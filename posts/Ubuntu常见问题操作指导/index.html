@@ -60,6 +60,12 @@
             
         
             
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/projects"  >项目</a>
+                </li>
+            
+        
+            
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -99,33 +105,27 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed border-right col-toc" style="overflow-y:auto; height:100%; width:100%">
-            <div class="my-3 bg-white rounded box-shadow post-toc">
-                <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何重启网卡"><span class="toc-text"> 如何重启网卡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何临时添加-修改-删除ip地址"><span class="toc-text"> 如何临时添加-修改-删除IP地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何设置静态ip地址和dns"><span class="toc-text"> 如何设置静态IP地址和DNS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何查看和设置dns"><span class="toc-text"> 如何查看和设置DNS</span></a></li></ol>
-            </div>
-        </div>
-        <div class="col-10 offset-2 col-content">
+        <div class="col-10 col-content border-left border-right">
             <div>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        
-                            <li class="breadcrumb-item"><a href="/categories/飞行手册/" class="font-weight-bold text-primary">飞行手册</a></li>
-                        
-                        <li class="breadcrumb-item active" aria-current="page">Ubuntu常见问题操作指导</li>
-                        <div class="ml-2">
-                            (
-                            
-                                    <a href="/tags/飞行手册/" class="font-weight-bold text-danger">飞行手册</a> | 
-                            
-                            <span class="font-weight-bold text-success mr-2"> 2018-10-04 21:27:53</span><span>)</span>
-                        </div>
-                    </ol>
-                </nav>
-            </div>
-            <div class="my-3 bg-white rounded box-shadow post-content">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
             
-                <h1 id="如何重启网卡"><a class="markdownIt-Anchor" href="#如何重启网卡"></a> 如何重启网卡</h1>
+                <li class="breadcrumb-item"><a href="/categories/飞行手册/" class="font-weight-bold text-primary">飞行手册</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">Ubuntu常见问题操作指导</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/飞行手册/" class="font-weight-bold text-danger">飞行手册</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-10-04 21:27:53</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="如何重启网卡"><a class="markdownIt-Anchor" href="#如何重启网卡"></a> 如何重启网卡</h1>
 <p>重启网卡可以使用<code>ip</code>，<code>ifconfig</code>和<code>service</code>命令，如下所示，推荐使用<code>ip</code>命令。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 推荐使用ip命令</span></span><br><span class="line">sudo ip link <span class="built_in">set</span> enp0s3 down</span><br><span class="line">sudo ip link <span class="built_in">set</span> enp0s3 up</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用ifconfig命令</span></span><br><span class="line">sudo ifconfig enp0s3 down</span><br><span class="line">sudo ifconfig enp0s3 up</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用service命令，但是不支持最新版的Ubuntu</span></span><br><span class="line">sudo service network restart</span><br></pre></td></tr></table></figure>
 <h1 id="如何临时添加-修改-删除ip地址"><a class="markdownIt-Anchor" href="#如何临时添加-修改-删除ip地址"></a> 如何临时添加-修改-删除IP地址</h1>
@@ -147,23 +147,34 @@
 <p>如果是设置全局DNS，请编辑<code>sudo vim /etc/systemd/resolved.conf</code>，然后重启<code>systemd-resolved</code>服务<code>sudo systemctl restart systemd-resolved.service</code>即可。</p>
 <p>查看当前正在使用的DNS可以使用<code>sudo systemd-resolve --status</code></p>
 
+
+
+    <div class="row border-top">
+        <div class="col-6">
+            上一篇：
             
-                <div class="row border-top">
-                    <div class="col-6">
-                        上一篇：
-                        
-                        <a href="/posts/Mysql常见问题操作指导/"><h6 class="d-inline">Mysql常见问题操作指导</h6></a>
-                        
-                    </div>
-                    <div class="col-6 text-right">
-                        下一篇：
-                        
-                        <a href="/posts/Ubuntu下Mysql的安装与验证/"><h6 class="d-inline">Ubuntu下Mysql的安装与验证</h6></a>
-                        
-                    </div>
-                </div>
-            </div>
+            <a href="/posts/Mysql常见问题操作指导/"><h6 class="d-inline">Mysql常见问题操作指导</h6></a>
+            
         </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/Ubuntu下Mysql的安装与验证/"><h6 class="d-inline">Ubuntu下Mysql的安装与验证</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何重启网卡"><span class="toc-text"> 如何重启网卡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何临时添加-修改-删除ip地址"><span class="toc-text"> 如何临时添加-修改-删除IP地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何设置静态ip地址和dns"><span class="toc-text"> 如何设置静态IP地址和DNS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何查看和设置dns"><span class="toc-text"> 如何查看和设置DNS</span></a></li></ol>
+    
+    </div>
+</div>
+
     </div>
 </div>
 

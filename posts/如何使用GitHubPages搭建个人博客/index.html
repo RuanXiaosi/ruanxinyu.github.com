@@ -74,6 +74,12 @@
             
         
             
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/projects"  >项目</a>
+                </li>
+            
+        
+            
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -113,33 +119,27 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed border-right col-toc" style="overflow-y:auto; height:100%; width:100%">
-            <div class="my-3 bg-white rounded box-shadow post-toc">
-                <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#我对个人博客的要求"><span class="toc-text"> 我对个人博客的要求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置github-pages"><span class="toc-text"> 配置GitHub Pages</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装并体验hexo"><span class="toc-text"> 安装并体验Hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#切换到indigo主题"><span class="toc-text"> 切换到Indigo主题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置hexo和indigo主题"><span class="toc-text"> 配置Hexo和Indigo主题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo配置文件样例"><span class="toc-text"> Hexo配置文件样例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#indigo配置文件样例"><span class="toc-text"> Indigo配置文件样例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置百度统计"><span class="toc-text"> 配置百度统计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置评论功能"><span class="toc-text"> 配置评论功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用个人独立域名"><span class="toc-text"> 使用个人独立域名</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置域名解析dns"><span class="toc-text"> 配置域名解析DNS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置github仓库"><span class="toc-text"> 配置GitHub仓库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#通过git的子模块功能管理主题"><span class="toc-text"> 通过Git的子模块功能管理主题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#在华为devcloud上建立私有代码仓"><span class="toc-text"> 在华为DevCloud上建立私有代码仓</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何添加git的子模块功能"><span class="toc-text"> 如何添加Git的子模块功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何修改indigo主题的内容"><span class="toc-text"> 如何修改indigo主题的内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何同步indigo主题官方仓库的更新"><span class="toc-text"> 如何同步indigo主题官方仓库的更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何修改hexo工程代码的内容"><span class="toc-text"> 如何修改Hexo工程代码的内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆已经添加子模块功能的hexo工程"><span class="toc-text"> 克隆已经添加子模块功能的hexo工程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#你可能会遇到的坑"><span class="toc-text"> 你可能会遇到的坑</span></a></li></ol>
-            </div>
-        </div>
-        <div class="col-10 offset-2 col-content">
+        <div class="col-10 col-content border-left border-right">
             <div>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        
-                            <li class="breadcrumb-item"><a href="/categories/环境搭建/" class="font-weight-bold text-primary">环境搭建</a></li>
-                        
-                        <li class="breadcrumb-item active" aria-current="page">如何使用GitHubPages搭建个人博客</li>
-                        <div class="ml-2">
-                            (
-                            
-                                    <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
-                            
-                            <span class="font-weight-bold text-success mr-2"> 2018-04-30 20:07:11</span><span>)</span>
-                        </div>
-                    </ol>
-                </nav>
-            </div>
-            <div class="my-3 bg-white rounded box-shadow post-content">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
             
-                <h1 id="我对个人博客的要求"><a class="markdownIt-Anchor" href="#我对个人博客的要求"></a> 我对个人博客的要求</h1>
+                <li class="breadcrumb-item"><a href="/categories/环境搭建/" class="font-weight-bold text-primary">环境搭建</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">如何使用GitHubPages搭建个人博客</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-04-30 20:07:11</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="我对个人博客的要求"><a class="markdownIt-Anchor" href="#我对个人博客的要求"></a> 我对个人博客的要求</h1>
 <p>我对个人博客有如下几点要求，因此最终选定通过<code>Hexo</code>+<code>GitHub Pages</code>来搭建。</p>
 <ol>
 <li>存在独立域名，别人能通过互联网访问</li>
@@ -372,23 +372,34 @@ Indigo主题的配置说明文档地址为： <a href="https://github.com/yscode
 <p>这是由于你的网址超过50个字符导致的，解决方式请参照上文“配置评论功能”中的第5条</p>
 </blockquote>
 
+
+
+    <div class="row border-top">
+        <div class="col-6">
+            上一篇：
             
-                <div class="row border-top">
-                    <div class="col-6">
-                        上一篇：
-                        
-                        <a href="/posts/每天学习一个Linux命令/每天学习一个Linux命令（1）：ls命令/"><h6 class="d-inline">每天学习一个Linux命令（1）：ls命令</h6></a>
-                        
-                    </div>
-                    <div class="col-6 text-right">
-                        下一篇：
-                        
-                        <a href="/posts/JDK安装教程/"><h6 class="d-inline">JDK安装教程</h6></a>
-                        
-                    </div>
-                </div>
-            </div>
+            <a href="/posts/每天学习一个Linux命令/每天学习一个Linux命令（1）：ls命令/"><h6 class="d-inline">每天学习一个Linux命令（1）：ls命令</h6></a>
+            
         </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/JDK安装教程/"><h6 class="d-inline">JDK安装教程</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#我对个人博客的要求"><span class="toc-text"> 我对个人博客的要求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置github-pages"><span class="toc-text"> 配置GitHub Pages</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装并体验hexo"><span class="toc-text"> 安装并体验Hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#切换到indigo主题"><span class="toc-text"> 切换到Indigo主题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置hexo和indigo主题"><span class="toc-text"> 配置Hexo和Indigo主题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo配置文件样例"><span class="toc-text"> Hexo配置文件样例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#indigo配置文件样例"><span class="toc-text"> Indigo配置文件样例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置百度统计"><span class="toc-text"> 配置百度统计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置评论功能"><span class="toc-text"> 配置评论功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用个人独立域名"><span class="toc-text"> 使用个人独立域名</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置域名解析dns"><span class="toc-text"> 配置域名解析DNS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置github仓库"><span class="toc-text"> 配置GitHub仓库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#通过git的子模块功能管理主题"><span class="toc-text"> 通过Git的子模块功能管理主题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#在华为devcloud上建立私有代码仓"><span class="toc-text"> 在华为DevCloud上建立私有代码仓</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何添加git的子模块功能"><span class="toc-text"> 如何添加Git的子模块功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何修改indigo主题的内容"><span class="toc-text"> 如何修改indigo主题的内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何同步indigo主题官方仓库的更新"><span class="toc-text"> 如何同步indigo主题官方仓库的更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何修改hexo工程代码的内容"><span class="toc-text"> 如何修改Hexo工程代码的内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆已经添加子模块功能的hexo工程"><span class="toc-text"> 克隆已经添加子模块功能的hexo工程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#你可能会遇到的坑"><span class="toc-text"> 你可能会遇到的坑</span></a></li></ol>
+    
+    </div>
+</div>
+
     </div>
 </div>
 

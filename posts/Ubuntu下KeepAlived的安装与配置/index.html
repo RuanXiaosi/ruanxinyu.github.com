@@ -64,6 +64,12 @@
             
         
             
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/projects"  >项目</a>
+                </li>
+            
+        
+            
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -103,33 +109,27 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed border-right col-toc" style="overflow-y:auto; height:100%; width:100%">
-            <div class="my-3 bg-white rounded box-shadow post-toc">
-                <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#keepalived介绍"><span class="toc-text"> KeepAlived介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vrrp协议介绍"><span class="toc-text"> VRRP协议介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#keepalived的安装"><span class="toc-text"> KeepAlived的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#apt-get安装"><span class="toc-text"> apt-get安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码编译安装"><span class="toc-text"> 源码编译安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#守护进程和开机启动"><span class="toc-text"> 守护进程和开机启动</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#keepalive的配置"><span class="toc-text"> KeepAlive的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#keepalivedconf"><span class="toc-text"> keepalived.conf</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#keepalived的验证"><span class="toc-text"> KeepAlived的验证</span></a></li></ol>
-            </div>
-        </div>
-        <div class="col-10 offset-2 col-content">
+        <div class="col-10 col-content border-left border-right">
             <div>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        
-                            <li class="breadcrumb-item"><a href="/categories/环境搭建/" class="font-weight-bold text-primary">环境搭建</a></li>
-                        
-                        <li class="breadcrumb-item active" aria-current="page">Ubuntu下KeepAlived的安装与配置</li>
-                        <div class="ml-2">
-                            (
-                            
-                                    <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
-                            
-                            <span class="font-weight-bold text-success mr-2"> 2018-09-18 20:42:46</span><span>)</span>
-                        </div>
-                    </ol>
-                </nav>
-            </div>
-            <div class="my-3 bg-white rounded box-shadow post-content">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
             
-                <h1 id="keepalived介绍"><a class="markdownIt-Anchor" href="#keepalived介绍"></a> KeepAlived介绍</h1>
+                <li class="breadcrumb-item"><a href="/categories/环境搭建/" class="font-weight-bold text-primary">环境搭建</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">Ubuntu下KeepAlived的安装与配置</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-09-18 20:42:46</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="keepalived介绍"><a class="markdownIt-Anchor" href="#keepalived介绍"></a> KeepAlived介绍</h1>
 <p>Keepalived是一个基于VRRP协议来实现的服务高可用方案，可以利用其来避免IP单点故障，一般与其它负载均衡技术（如lvs、haproxy、nginx）一起工作来达到集群的高可用。</p>
 <p>健康检查和失败切换是keepalived的两大核心功能。</p>
 <p>keepalived的健康检查支持tcp三次握手、icmp请求、http请求、udp和echo请求等方式对负载均衡器后面的实际的服务器)进行保活，具体采用哪种检查方式可以根据自己的业务需要进行选择；</p>
@@ -192,23 +192,34 @@
 <img src="/posts/Ubuntu下KeepAlived的安装与配置/2018-09-24-16-58-02.png" title="[blog.ruanxinyu.cn]">
 <p>我们重新创建主机vm01上的<code>/tmp/service_ok</code>文件，，然后重新执行<code>ip a</code>，发现VIP（<code>192.168.42.23</code>）已经重新漂移到备机vm01上，此时我们通过<code>ssh ruan@192.168.42.23</code>登陆重新回到主机vm01。即当主机恢复时，可以自动将该主机加入到服务器群提供服务。</p>
 
+
+
+    <div class="row border-top">
+        <div class="col-6">
+            上一篇：
             
-                <div class="row border-top">
-                    <div class="col-6">
-                        上一篇：
-                        
-                        <a href="/posts/Linux初始化init系统/"><h6 class="d-inline">Linux初始化init系统：Sysvinit、Upstart和Systemd</h6></a>
-                        
-                    </div>
-                    <div class="col-6 text-right">
-                        下一篇：
-                        
-                        <a href="/posts/VirtualBox安装Ubuntu教程/"><h6 class="d-inline">VirtualBox安装Ubuntu教程</h6></a>
-                        
-                    </div>
-                </div>
-            </div>
+            <a href="/posts/Linux初始化init系统/"><h6 class="d-inline">Linux初始化init系统：Sysvinit、Upstart和Systemd</h6></a>
+            
         </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/VirtualBox安装Ubuntu教程/"><h6 class="d-inline">VirtualBox安装Ubuntu教程</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#keepalived介绍"><span class="toc-text"> KeepAlived介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vrrp协议介绍"><span class="toc-text"> VRRP协议介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#keepalived的安装"><span class="toc-text"> KeepAlived的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#apt-get安装"><span class="toc-text"> apt-get安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码编译安装"><span class="toc-text"> 源码编译安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#守护进程和开机启动"><span class="toc-text"> 守护进程和开机启动</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#keepalive的配置"><span class="toc-text"> KeepAlive的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#keepalivedconf"><span class="toc-text"> keepalived.conf</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#keepalived的验证"><span class="toc-text"> KeepAlived的验证</span></a></li></ol>
+    
+    </div>
+</div>
+
     </div>
 </div>
 

@@ -63,6 +63,12 @@
             
         
             
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/projects"  >项目</a>
+                </li>
+            
+        
+            
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -102,33 +108,27 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed border-right col-toc" style="overflow-y:auto; height:100%; width:100%">
-            <div class="my-3 bg-white rounded box-shadow post-toc">
-                <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#nginx的简介"><span class="toc-text"> Nginx的简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nginx的安装"><span class="toc-text"> Nginx的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#apt-get安装"><span class="toc-text"> apt-get安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码编译安装"><span class="toc-text"> 源码编译安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nginx的启动和关闭"><span class="toc-text"> Nginx的启动和关闭</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nginx的开机启动"><span class="toc-text"> Nginx的开机启动</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方式1rclocal"><span class="toc-text"> 方式1：rc.local</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方式2systemctl"><span class="toc-text"> 方式2：systemctl</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nginx的配置"><span class="toc-text"> Nginx的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nginx的验证"><span class="toc-text"> Nginx的验证</span></a></li></ol>
-            </div>
-        </div>
-        <div class="col-10 offset-2 col-content">
+        <div class="col-10 col-content border-left border-right">
             <div>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        
-                            <li class="breadcrumb-item"><a href="/categories/环境搭建/" class="font-weight-bold text-primary">环境搭建</a></li>
-                        
-                        <li class="breadcrumb-item active" aria-current="page">Ubuntu下Nginx的安装与配置</li>
-                        <div class="ml-2">
-                            (
-                            
-                                    <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
-                            
-                            <span class="font-weight-bold text-success mr-2"> 2018-10-02 14:19:56</span><span>)</span>
-                        </div>
-                    </ol>
-                </nav>
-            </div>
-            <div class="my-3 bg-white rounded box-shadow post-content">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
             
-                <h1 id="nginx的简介"><a class="markdownIt-Anchor" href="#nginx的简介"></a> Nginx的简介</h1>
+                <li class="breadcrumb-item"><a href="/categories/环境搭建/" class="font-weight-bold text-primary">环境搭建</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">Ubuntu下Nginx的安装与配置</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-10-02 14:19:56</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="nginx的简介"><a class="markdownIt-Anchor" href="#nginx的简介"></a> Nginx的简介</h1>
 <p>官方网址：<a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a>。 Nginx可以作为http服务器、反向代理服务器、邮件服务器和负载均衡服务器等功能，具有性能高、扩展灵活等特点，能够快速的响应静态网页的请求，支持FastCGI/SSL/Virtual Host/URL Rwrite/Gzip/HTTP Basic Auth等功能，并且支持丰富的第三方扩展功能。</p>
 <h1 id="nginx的安装"><a class="markdownIt-Anchor" href="#nginx的安装"></a> Nginx的安装</h1>
 <p>该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参考<a href="/posts/VirtualBox安装Ubuntu教程/" title="VirtualBox安装Ubuntu教程">VirtualBox安装Ubuntu教程</a>。Nginx可以直接通过apt-get安装，也可以通过源码编译安装。</p>
@@ -161,23 +161,34 @@
 <img src="/posts/Ubuntu下Nginx的安装与配置/2018-10-02-15-11-05.png" title="[blog.ruanxinyu.cn]">
 <p>我们在<code>/usr/local/nginx/html/</code>下创建一些文件夹和文件<code>cd /usr/local/nginx/html/ &amp;&amp; sudo mkdir -p aa/aa aa/bb aa/cc aa/dd &amp;&amp; sudo touch aa/a.txt</code>，可以通过浏览器看到对应的文件：</p>
 <img src="/posts/Ubuntu下Nginx的安装与配置/2018-10-02-15-15-27.png" title="[blog.ruanxinyu.cn]">
+
+
+    <div class="row border-top">
+        <div class="col-6">
+            上一篇：
             
-                <div class="row border-top">
-                    <div class="col-6">
-                        上一篇：
-                        
-                        <a href="/posts/SonatypeNexus的安装与使用/"><h6 class="d-inline">SonatypeNexus的安装与使用</h6></a>
-                        
-                    </div>
-                    <div class="col-6 text-right">
-                        下一篇：
-                        
-                        <a href="/posts/阿里ACA认证学习记录/"><h6 class="d-inline">阿里ACA认证学习记录</h6></a>
-                        
-                    </div>
-                </div>
-            </div>
+            <a href="/posts/SonatypeNexus的安装与使用/"><h6 class="d-inline">SonatypeNexus的安装与使用</h6></a>
+            
         </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/阿里ACA认证学习记录/"><h6 class="d-inline">阿里ACA认证学习记录</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#nginx的简介"><span class="toc-text"> Nginx的简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nginx的安装"><span class="toc-text"> Nginx的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#apt-get安装"><span class="toc-text"> apt-get安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码编译安装"><span class="toc-text"> 源码编译安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nginx的启动和关闭"><span class="toc-text"> Nginx的启动和关闭</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nginx的开机启动"><span class="toc-text"> Nginx的开机启动</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方式1rclocal"><span class="toc-text"> 方式1：rc.local</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方式2systemctl"><span class="toc-text"> 方式2：systemctl</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nginx的配置"><span class="toc-text"> Nginx的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nginx的验证"><span class="toc-text"> Nginx的验证</span></a></li></ol>
+    
+    </div>
+</div>
+
     </div>
 </div>
 

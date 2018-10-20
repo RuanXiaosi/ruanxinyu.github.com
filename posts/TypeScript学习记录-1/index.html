@@ -60,6 +60,12 @@
             
         
             
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/projects"  >项目</a>
+                </li>
+            
+        
+            
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -99,33 +105,27 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed border-right col-toc" style="overflow-y:auto; height:100%; width:100%">
-            <div class="my-3 bg-white rounded box-shadow post-toc">
-                <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装和编译"><span class="toc-text"> 安装和编译</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#变量类型"><span class="toc-text"> 变量类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#变量声明"><span class="toc-text"> 变量声明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#默认值"><span class="toc-text"> 默认值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数声明"><span class="toc-text"> 函数声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#spread"><span class="toc-text"> Spread</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#接口"><span class="toc-text"> 接口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类"><span class="toc-text"> 类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数"><span class="toc-text"> 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#this和箭头函数"><span class="toc-text"> this和箭头函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#泛型"><span class="toc-text"> 泛型</span></a></li></ol>
-            </div>
-        </div>
-        <div class="col-10 offset-2 col-content">
+        <div class="col-10 col-content border-left border-right">
             <div>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        
-                            <li class="breadcrumb-item"><a href="/categories/学习记录/" class="font-weight-bold text-primary">学习记录</a></li>
-                        
-                        <li class="breadcrumb-item active" aria-current="page">TypeScript学习记录-1</li>
-                        <div class="ml-2">
-                            (
-                            
-                                    <a href="/tags/学习记录/" class="font-weight-bold text-danger">学习记录</a> | 
-                            
-                            <span class="font-weight-bold text-success mr-2"> 2018-10-04 10:08:09</span><span>)</span>
-                        </div>
-                    </ol>
-                </nav>
-            </div>
-            <div class="my-3 bg-white rounded box-shadow post-content">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
             
-                <h1 id="安装和编译"><a class="markdownIt-Anchor" href="#安装和编译"></a> 安装和编译</h1>
+                <li class="breadcrumb-item"><a href="/categories/学习记录/" class="font-weight-bold text-primary">学习记录</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">TypeScript学习记录-1</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/学习记录/" class="font-weight-bold text-danger">学习记录</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-10-04 10:08:09</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="安装和编译"><a class="markdownIt-Anchor" href="#安装和编译"></a> 安装和编译</h1>
 <p>使用npm进行安装：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g typescript</span><br></pre></td></tr></table></figure>
 <p>使用<code>tsc</code>可以将ts文件编译为js文件：</p>
@@ -174,23 +174,34 @@
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> GenericNumber&lt;T&gt; &#123;</span><br><span class="line">    zeroValue: T;</span><br><span class="line">    add: <span class="function">(<span class="params">x: T, y: T</span>) =&gt;</span> T;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myGenericNumber = <span class="keyword">new</span> GenericNumber&lt;<span class="built_in">number</span>&gt;();</span><br></pre></td></tr></table></figure>
 <p>类继承</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Lengthwise &#123;</span><br><span class="line">    length: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loggingIdentity</span>&lt;<span class="title">T</span> <span class="title">extends</span> <span class="title">Lengthwise</span>&gt;(<span class="params">arg: T</span>): <span class="title">T</span> </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arg.length);  <span class="comment">// Now we know it has a .length property, so no more error</span></span><br><span class="line">    <span class="keyword">return</span> arg;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    <div class="row border-top">
+        <div class="col-6">
+            上一篇：
             
-                <div class="row border-top">
-                    <div class="col-6">
-                        上一篇：
-                        
-                        <a href="/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/"><h6 class="d-inline">Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建</h6></a>
-                        
-                    </div>
-                    <div class="col-6 text-right">
-                        下一篇：
-                        
-                        <a href="/posts/Jenkins的安装与使用/"><h6 class="d-inline">Jenkins的安装与使用</h6></a>
-                        
-                    </div>
-                </div>
-            </div>
+            <a href="/posts/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/"><h6 class="d-inline">Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建</h6></a>
+            
         </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/Jenkins的安装与使用/"><h6 class="d-inline">Jenkins的安装与使用</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装和编译"><span class="toc-text"> 安装和编译</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#变量类型"><span class="toc-text"> 变量类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#变量声明"><span class="toc-text"> 变量声明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#默认值"><span class="toc-text"> 默认值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数声明"><span class="toc-text"> 函数声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#spread"><span class="toc-text"> Spread</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#接口"><span class="toc-text"> 接口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类"><span class="toc-text"> 类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数"><span class="toc-text"> 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#this和箭头函数"><span class="toc-text"> this和箭头函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#泛型"><span class="toc-text"> 泛型</span></a></li></ol>
+    
+    </div>
+</div>
+
     </div>
 </div>
 

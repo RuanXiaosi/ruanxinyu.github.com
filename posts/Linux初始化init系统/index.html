@@ -62,6 +62,12 @@
             
         
             
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/projects"  >项目</a>
+                </li>
+            
+        
+            
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -101,33 +107,27 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed border-right col-toc" style="overflow-y:auto; height:100%; width:100%">
-            <div class="my-3 bg-white rounded box-shadow post-toc">
-                <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#init系统介绍"><span class="toc-text"> init系统介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sysvinit介绍"><span class="toc-text"> Sysvinit介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行级别"><span class="toc-text"> 运行级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sysvinit执行顺序"><span class="toc-text"> Sysvinit执行顺序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sysvinit优缺点"><span class="toc-text"> Sysvinit优缺点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#upstart介绍"><span class="toc-text"> Upstart介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#开发upstart的缘由"><span class="toc-text"> 开发UpStart的缘由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#upstart的原理"><span class="toc-text"> UpStart的原理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#systemd介绍"><span class="toc-text"> Systemd介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#systemd的单元概念"><span class="toc-text"> Systemd的单元概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#systemd的target和运行级别"><span class="toc-text"> Systemd的Target和运行级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用cc开发新的系统服务"><span class="toc-text"> 使用C/C++开发新的系统服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unit文件的编写"><span class="toc-text"> Unit文件的编写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#unit参数"><span class="toc-text"> [Unit]参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#install参数"><span class="toc-text"> [install]参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#service参数"><span class="toc-text"> [service]参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#服务生命周期控制相关的参数"><span class="toc-text"> 服务生命周期控制相关的参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#服务上下文配置相关的参数"><span class="toc-text"> 服务上下文配置相关的参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#systemd命令行工具的使用"><span class="toc-text"> Systemd命令行工具的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#systemd命令和sysvinit命令的对照表"><span class="toc-text"> Systemd命令和sysvinit命令的对照表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#systemd电源管理命令"><span class="toc-text"> systemd电源管理命令</span></a></li></ol></li></ol></li></ol>
-            </div>
-        </div>
-        <div class="col-10 offset-2 col-content">
+        <div class="col-10 col-content border-left border-right">
             <div>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        
-                            <li class="breadcrumb-item"><a href="/categories/Linux/" class="font-weight-bold text-primary">Linux</a></li>
-                        
-                        <li class="breadcrumb-item active" aria-current="page">Linux初始化init系统：Sysvinit、Upstart和Systemd</li>
-                        <div class="ml-2">
-                            (
-                            
-                                    <a href="/tags/Linux/" class="font-weight-bold text-danger">Linux</a> | 
-                            
-                            <span class="font-weight-bold text-success mr-2"> 2018-09-22 15:04:38</span><span>)</span>
-                        </div>
-                    </ol>
-                </nav>
-            </div>
-            <div class="my-3 bg-white rounded box-shadow post-content">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
             
-                <h1 id="init系统介绍"><a class="markdownIt-Anchor" href="#init系统介绍"></a> init系统介绍</h1>
+                <li class="breadcrumb-item"><a href="/categories/Linux/" class="font-weight-bold text-primary">Linux</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">Linux初始化init系统：Sysvinit、Upstart和Systemd</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/Linux/" class="font-weight-bold text-danger">Linux</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-09-22 15:04:38</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="init系统介绍"><a class="markdownIt-Anchor" href="#init系统介绍"></a> init系统介绍</h1>
 <p>Linux操作系统的启动首先从BIOS开始，接下来进入bootloader，由bootloader载入内核，进行内核初始化。内核初始化的最后一步就是启动<code>pid</code>为<code>1</code>的<code>init进程</code>。init以守护进程方式存在，是系统的第一个进程,，是所有其他进程的祖先。</p>
 <p>Init系统能够定义、管理和控制 init进程的行为。它负责组织和运行许多独立的或相关的始化工作(因此被称为init系统)，从而让计算机系统进入某种用户预订的运行模式。</p>
 <p>Linux初始化init系统包括：<code>Sysvinit</code>、<code>Upstart</code>和<code>Systemd</code>，它们在Ubuntu系统下的演化如下：</p>
@@ -452,23 +452,34 @@
 </tbody>
 </table>
 
+
+
+    <div class="row border-top">
+        <div class="col-6">
+            上一篇：
             
-                <div class="row border-top">
-                    <div class="col-6">
-                        上一篇：
-                        
-                        <a href="/posts/Ubuntu下HAProxy的安装与配置/"><h6 class="d-inline">Ubuntu下HAProxy的安装与配置</h6></a>
-                        
-                    </div>
-                    <div class="col-6 text-right">
-                        下一篇：
-                        
-                        <a href="/posts/Ubuntu下KeepAlived的安装与配置/"><h6 class="d-inline">Ubuntu下KeepAlived的安装与配置</h6></a>
-                        
-                    </div>
-                </div>
-            </div>
+            <a href="/posts/Ubuntu下HAProxy的安装与配置/"><h6 class="d-inline">Ubuntu下HAProxy的安装与配置</h6></a>
+            
         </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/Ubuntu下KeepAlived的安装与配置/"><h6 class="d-inline">Ubuntu下KeepAlived的安装与配置</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#init系统介绍"><span class="toc-text"> init系统介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sysvinit介绍"><span class="toc-text"> Sysvinit介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行级别"><span class="toc-text"> 运行级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sysvinit执行顺序"><span class="toc-text"> Sysvinit执行顺序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sysvinit优缺点"><span class="toc-text"> Sysvinit优缺点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#upstart介绍"><span class="toc-text"> Upstart介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#开发upstart的缘由"><span class="toc-text"> 开发UpStart的缘由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#upstart的原理"><span class="toc-text"> UpStart的原理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#systemd介绍"><span class="toc-text"> Systemd介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#systemd的单元概念"><span class="toc-text"> Systemd的单元概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#systemd的target和运行级别"><span class="toc-text"> Systemd的Target和运行级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用cc开发新的系统服务"><span class="toc-text"> 使用C/C++开发新的系统服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unit文件的编写"><span class="toc-text"> Unit文件的编写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#unit参数"><span class="toc-text"> [Unit]参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#install参数"><span class="toc-text"> [install]参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#service参数"><span class="toc-text"> [service]参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#服务生命周期控制相关的参数"><span class="toc-text"> 服务生命周期控制相关的参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#服务上下文配置相关的参数"><span class="toc-text"> 服务上下文配置相关的参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#systemd命令行工具的使用"><span class="toc-text"> Systemd命令行工具的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#systemd命令和sysvinit命令的对照表"><span class="toc-text"> Systemd命令和sysvinit命令的对照表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#systemd电源管理命令"><span class="toc-text"> systemd电源管理命令</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+</div>
+
     </div>
 </div>
 

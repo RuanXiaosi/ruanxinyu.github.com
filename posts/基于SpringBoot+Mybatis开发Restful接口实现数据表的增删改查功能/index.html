@@ -77,6 +77,12 @@
             
         
             
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/projects"  >项目</a>
+                </li>
+            
+        
+            
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -116,33 +122,27 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed border-right col-toc" style="overflow-y:auto; height:100%; width:100%">
-            <div class="my-3 bg-white rounded box-shadow post-toc">
-                <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础环境说明"><span class="toc-text"> 基础环境说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#初始化数据库"><span class="toc-text"> 初始化数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#通过idea生成基础代码"><span class="toc-text"> 通过IDEA生成基础代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用mybatisgenerator生成代码"><span class="toc-text"> 使用MybatisGenerator生成代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pomxml"><span class="toc-text"> pom.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mybatis_generatorxml"><span class="toc-text"> mybatis_generator.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mybatis-generatorgenerate"><span class="toc-text"> mybatis-generator:generate</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加查询数据列表接口"><span class="toc-text"> 添加查询数据列表接口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#productionmapperxml"><span class="toc-text"> ProductionMapper.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#productionmapperjava"><span class="toc-text"> ProductionMapper.java</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#增加mapper注解"><span class="toc-text"> 增加@Mapper注解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#增加service层代码"><span class="toc-text"> 增加service层代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#productionservicejava"><span class="toc-text"> ProductionService.java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#productionserviceimpljava"><span class="toc-text"> ProductionServiceImpl.java</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#增加controller层代码"><span class="toc-text"> 增加controller层代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#productioncontrollerjava"><span class="toc-text"> ProductionController.java</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置applicationproperties"><span class="toc-text"> 配置application.properties</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#启动应用程序"><span class="toc-text"> 启动应用程序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#postman验证接口"><span class="toc-text"> PostMan验证接口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mallproductionsave"><span class="toc-text"> /mall/production/save</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mallproductionlist"><span class="toc-text"> /mall/production/list</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mallproductionupdate"><span class="toc-text"> /mall/production/update</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mallproductiongetid"><span class="toc-text"> /mall/production/get/{id}</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mallproductiondeleteid"><span class="toc-text"> /mall/production/delete/{id}</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#可能遇到的问题"><span class="toc-text"> 可能遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启动时提示自动加载productionmapper失败"><span class="toc-text"> 启动时提示自动加载ProductionMapper失败</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动时提示result-maps错误"><span class="toc-text"> 启动时提示Result Maps错误</span></a></li></ol></li></ol>
-            </div>
-        </div>
-        <div class="col-10 offset-2 col-content">
+        <div class="col-10 col-content border-left border-right">
             <div>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        
-                            <li class="breadcrumb-item"><a href="/categories/技术分享/" class="font-weight-bold text-primary">技术分享</a></li>
-                        
-                        <li class="breadcrumb-item active" aria-current="page">基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能</li>
-                        <div class="ml-2">
-                            (
-                            
-                                    <a href="/tags/Java/" class="font-weight-bold text-danger">Java</a> | 
-                            
-                            <span class="font-weight-bold text-success mr-2"> 2018-10-06 15:29:04</span><span>)</span>
-                        </div>
-                    </ol>
-                </nav>
-            </div>
-            <div class="my-3 bg-white rounded box-shadow post-content">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
             
-                <h1 id="基础环境说明"><a class="markdownIt-Anchor" href="#基础环境说明"></a> 基础环境说明</h1>
+                <li class="breadcrumb-item"><a href="/categories/技术分享/" class="font-weight-bold text-primary">技术分享</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/Java/" class="font-weight-bold text-danger">Java</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-10-06 15:29:04</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="基础环境说明"><a class="markdownIt-Anchor" href="#基础环境说明"></a> 基础环境说明</h1>
 <p>本教程使用Maven管理依赖，使用IDEA进行开发，在开始之前，请按照下面教程安装好JDK和Mysql:</p>
 <ul>
 <li>JDK的安装请参考：<a href="/posts/JDK安装教程/" title="JDK安装教程">JDK安装教程</a></li>
@@ -242,23 +242,34 @@
 <h2 id="启动时提示result-maps错误"><a class="markdownIt-Anchor" href="#启动时提示result-maps错误"></a> 启动时提示Result Maps错误</h2>
 <p>启动报错提示<code>java.lang.IllegalArgumentException: Result Maps collection already contains value for com.ruan.productionservice.mapper.ProductionMapper.BaseResultMap</code>，是因为多次使用Mybatis Generator生成代码，造成<code>ProductionMapper.xml</code>文件中存在重复的内容，删除掉该文件重新生成即可。</p>
 
+
+
+    <div class="row border-top">
+        <div class="col-6">
+            上一篇：
             
-                <div class="row border-top">
-                    <div class="col-6">
-                        上一篇：
-                        
-                        <a href="/posts/AngularJS学习记录-1/"><h6 class="d-inline">AngularJS学习记录-1</h6></a>
-                        
-                    </div>
-                    <div class="col-6 text-right">
-                        下一篇：
-                        
-                        <a href="/posts/Mysql常见问题操作指导/"><h6 class="d-inline">Mysql常见问题操作指导</h6></a>
-                        
-                    </div>
-                </div>
-            </div>
+            <a href="/posts/AngularJS学习记录-1/"><h6 class="d-inline">AngularJS学习记录-1</h6></a>
+            
         </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/Mysql常见问题操作指导/"><h6 class="d-inline">Mysql常见问题操作指导</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础环境说明"><span class="toc-text"> 基础环境说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#初始化数据库"><span class="toc-text"> 初始化数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#通过idea生成基础代码"><span class="toc-text"> 通过IDEA生成基础代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用mybatisgenerator生成代码"><span class="toc-text"> 使用MybatisGenerator生成代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pomxml"><span class="toc-text"> pom.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mybatis_generatorxml"><span class="toc-text"> mybatis_generator.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mybatis-generatorgenerate"><span class="toc-text"> mybatis-generator:generate</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加查询数据列表接口"><span class="toc-text"> 添加查询数据列表接口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#productionmapperxml"><span class="toc-text"> ProductionMapper.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#productionmapperjava"><span class="toc-text"> ProductionMapper.java</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#增加mapper注解"><span class="toc-text"> 增加@Mapper注解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#增加service层代码"><span class="toc-text"> 增加service层代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#productionservicejava"><span class="toc-text"> ProductionService.java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#productionserviceimpljava"><span class="toc-text"> ProductionServiceImpl.java</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#增加controller层代码"><span class="toc-text"> 增加controller层代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#productioncontrollerjava"><span class="toc-text"> ProductionController.java</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置applicationproperties"><span class="toc-text"> 配置application.properties</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#启动应用程序"><span class="toc-text"> 启动应用程序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#postman验证接口"><span class="toc-text"> PostMan验证接口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mallproductionsave"><span class="toc-text"> /mall/production/save</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mallproductionlist"><span class="toc-text"> /mall/production/list</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mallproductionupdate"><span class="toc-text"> /mall/production/update</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mallproductiongetid"><span class="toc-text"> /mall/production/get/{id}</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mallproductiondeleteid"><span class="toc-text"> /mall/production/delete/{id}</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#可能遇到的问题"><span class="toc-text"> 可能遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启动时提示自动加载productionmapper失败"><span class="toc-text"> 启动时提示自动加载ProductionMapper失败</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动时提示result-maps错误"><span class="toc-text"> 启动时提示Result Maps错误</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
     </div>
 </div>
 

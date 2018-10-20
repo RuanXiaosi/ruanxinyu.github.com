@@ -64,6 +64,12 @@
             
         
             
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/projects"  >项目</a>
+                </li>
+            
+        
+            
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -103,33 +109,27 @@
     <main role="main" class="container-fluid mt-5">
         <div class="my-3 p-3 bg-white rounded box-shadow">
     <div class="row">
-        <div class="col-2 position-fixed border-right col-toc" style="overflow-y:auto; height:100%; width:100%">
-            <div class="my-3 bg-white rounded box-shadow post-toc">
-                <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#快速查询目录"><span class="toc-text"> 快速查询目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#启动"><span class="toc-text"> 启动</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#windows如何启动mysql"><span class="toc-text"> windows如何启动mysql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows下mysq的数据和配置文件存放位置"><span class="toc-text"> windows下mysq的数据和配置文件存放位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows启动mysql报拒绝访问错误"><span class="toc-text"> windows启动mysql报拒绝访问错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows下mysql的日志位置"><span class="toc-text"> windows下mysql的日志位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows下mysql启动失败"><span class="toc-text"> windows下mysql启动失败</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#权限"><span class="toc-text"> 权限</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何添加用户权限"><span class="toc-text"> 如何添加用户权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#忘记root的密码"><span class="toc-text"> 忘记root的密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改权限提示skip-grant-tables下不能执行该操作"><span class="toc-text"> 修改权限提示–skip-grant-tables下不能执行该操作</span></a></li></ol></li></ol>
-            </div>
-        </div>
-        <div class="col-10 offset-2 col-content">
+        <div class="col-10 col-content border-left border-right">
             <div>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        
-                            <li class="breadcrumb-item"><a href="/categories/飞行手册/" class="font-weight-bold text-primary">飞行手册</a></li>
-                        
-                        <li class="breadcrumb-item active" aria-current="page">Mysql常见问题操作指导</li>
-                        <div class="ml-2">
-                            (
-                            
-                                    <a href="/tags/飞行手册/" class="font-weight-bold text-danger">飞行手册</a> | 
-                            
-                            <span class="font-weight-bold text-success mr-2"> 2018-10-06 09:39:34</span><span>)</span>
-                        </div>
-                    </ol>
-                </nav>
-            </div>
-            <div class="my-3 bg-white rounded box-shadow post-content">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
             
-                <h1 id="快速查询目录"><a class="markdownIt-Anchor" href="#快速查询目录"></a> 快速查询目录</h1>
+                <li class="breadcrumb-item"><a href="/categories/飞行手册/" class="font-weight-bold text-primary">飞行手册</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">Mysql常见问题操作指导</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/飞行手册/" class="font-weight-bold text-danger">飞行手册</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-10-06 09:39:34</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="快速查询目录"><a class="markdownIt-Anchor" href="#快速查询目录"></a> 快速查询目录</h1>
 <h1 id="启动"><a class="markdownIt-Anchor" href="#启动"></a> 启动</h1>
 <h2 id="windows如何启动mysql"><a class="markdownIt-Anchor" href="#windows如何启动mysql"></a> windows如何启动mysql</h2>
 <p>执行<code>net start mysql80</code>（需要用管理员权限启动，否则会报拒绝访问错误），或者通过如下方式：</p>
@@ -166,23 +166,34 @@
 <h2 id="修改权限提示skip-grant-tables下不能执行该操作"><a class="markdownIt-Anchor" href="#修改权限提示skip-grant-tables下不能执行该操作"></a> 修改权限提示–skip-grant-tables下不能执行该操作</h2>
 <p>提示<code>The MySQL server is running with the --skip-grant-tables option so it cannot execute this statement</code>，在执行之前执行一下<code>flush privileges;</code>即可。</p>
 
+
+
+    <div class="row border-top">
+        <div class="col-6">
+            上一篇：
             
-                <div class="row border-top">
-                    <div class="col-6">
-                        上一篇：
-                        
-                        <a href="/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/"><h6 class="d-inline">基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能</h6></a>
-                        
-                    </div>
-                    <div class="col-6 text-right">
-                        下一篇：
-                        
-                        <a href="/posts/Ubuntu常见问题操作指导/"><h6 class="d-inline">Ubuntu常见问题操作指导</h6></a>
-                        
-                    </div>
-                </div>
-            </div>
+            <a href="/posts/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/"><h6 class="d-inline">基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能</h6></a>
+            
         </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/Ubuntu常见问题操作指导/"><h6 class="d-inline">Ubuntu常见问题操作指导</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#快速查询目录"><span class="toc-text"> 快速查询目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#启动"><span class="toc-text"> 启动</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#windows如何启动mysql"><span class="toc-text"> windows如何启动mysql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows下mysq的数据和配置文件存放位置"><span class="toc-text"> windows下mysq的数据和配置文件存放位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows启动mysql报拒绝访问错误"><span class="toc-text"> windows启动mysql报拒绝访问错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows下mysql的日志位置"><span class="toc-text"> windows下mysql的日志位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows下mysql启动失败"><span class="toc-text"> windows下mysql启动失败</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#权限"><span class="toc-text"> 权限</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何添加用户权限"><span class="toc-text"> 如何添加用户权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#忘记root的密码"><span class="toc-text"> 忘记root的密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改权限提示skip-grant-tables下不能执行该操作"><span class="toc-text"> 修改权限提示–skip-grant-tables下不能执行该操作</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
     </div>
 </div>
 
