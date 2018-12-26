@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="阮新宇的成长记录">
+    <meta name="author" content="阮新宇">
+    <meta name="keywords" content="学习记录">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>阿里ACA认证学习记录 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+
+    <meta name="description" content="大数据概述 大数据，指无法在可承受的时间范围内用常规软件工具进行捕捉，管理和处理的数据集合，是需要新处理模式才能具有更强的决策力，洞察发现力和流程优化能力的海量，高增长率和多样化的信息资产。 大数据的主要特征：4V   数据分析流程  Hadoop生态圈  阿里云大数据体系  数加的定位  统一的大数据计算平台   分析型数据库  分析型数据库的介绍 OLAP，OLTP，维度和度量，下钻，下图中">
+<meta name="keywords" content="学习记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿里ACA认证学习记录">
+<meta property="og:url" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/index.html">
+<meta property="og:site_name" content="RuanXinYu&#39;s Blog">
+<meta property="og:description" content="大数据概述 大数据，指无法在可承受的时间范围内用常规软件工具进行捕捉，管理和处理的数据集合，是需要新处理模式才能具有更强的决策力，洞察发现力和流程优化能力的海量，高增长率和多样化的信息资产。 大数据的主要特征：4V   数据分析流程  Hadoop生态圈  阿里云大数据体系  数加的定位  统一的大数据计算平台   分析型数据库  分析型数据库的介绍 OLAP，OLTP，维度和度量，下钻，下图中">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-39-47.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-40-26.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-41-31.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-43-04.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-43-42.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-44-21.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-45-11.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-47-20.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-49-23.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-55-17.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-57-34.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-16-13-05.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-16-55-30.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-16-56-14.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-16-57-32.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-01-14.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-02-03.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-05-08.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-17-52.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-32-48.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-33-43.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-36-13.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-36-38.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-39-09.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-40-15.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-41-46.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-42-31.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-43-11.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-20-04-58.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-20-08-24.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-20-09-02.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-16-43.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-17-42.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-19-12.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-19-31.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-23-24.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-26-16.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-27-31.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-28-17.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-29-08.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-29-42.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-32-11.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-35-05.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-36-03.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-37-37.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-37-58.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-38-17.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-39-59.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-48-23.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-49-29.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-49-48.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-57-01.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-57-16.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-57-50.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-58-28.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-59-23.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-01-12.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-02-44.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-04-46.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-05-25.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-06-11.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-08-40.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-28-41.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-29-26.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-35-23.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-36-04.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-36-24.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-37-36.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-39-19.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-43-11.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-45-07.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-25-52.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-26-45.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-27-31.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-27-56.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-28-34.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-31-05.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-34-28.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-10-11-14-47-16.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-38-08.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-40-47.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-11-08-19.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-21-48.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-36-06.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-10-11-16-06-43.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-11-09-04.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-11-10-24.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-14-41-54.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-14-42-18.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-14-44-45.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-14-45-39.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-14-46-51.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-14-51-55.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-03-22.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-03-47.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-10-44.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-12-25.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-16-14.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-17-19.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-22-00.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-22-47.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-23-21.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-24-21.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-25-13.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-26-53.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-26-17.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-29-42.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-30-22.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-30-51.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-31-18.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-31-39.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-32-12.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-33-01.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-33-33.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-36-21.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-38-15.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-38-33.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-39-16.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-39-37.png">
+<meta property="og:updated_time" content="2018-10-14T09:09:35.106Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="阿里ACA认证学习记录">
+<meta name="twitter:description" content="大数据概述 大数据，指无法在可承受的时间范围内用常规软件工具进行捕捉，管理和处理的数据集合，是需要新处理模式才能具有更强的决策力，洞察发现力和流程优化能力的海量，高增长率和多样化的信息资产。 大数据的主要特征：4V   数据分析流程  Hadoop生态圈  阿里云大数据体系  数加的定位  统一的大数据计算平台   分析型数据库  分析型数据库的介绍 OLAP，OLTP，维度和度量，下钻，下图中">
+<meta name="twitter:image" content="http://ruanxinyu.github.io/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-39-47.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/avatar.png">
+</head>
+<body class="bg-white">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="url_for('/')">
+        <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/"  >主页</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/inbox"  >收集箱</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/questions"  >速查表</a>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">项目</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/posts/VirtualBox安装Ubuntu教程/?project=Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统"  >Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/tags"  >标签</a>
+                        
+                        <a class="dropdown-item" href="/categories"  >分类</a>
+                        
+                        <a class="dropdown-item" href="/archives"  >归档</a>
+                        
+                        <a class="dropdown-item" href="/pages/bookmarks"  >书签收藏</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">关于</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/pages/about"  >规划介绍</a>
+                        
+                        <a class="dropdown-item" href="https://github.com/RuanXinyu" target="_blank" >github</a>
+                        
+                    </div>
+                </li>
+            
+        
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="速查表搜索" autofocus="autofocus" aria-label="Search" id="global_search_text">
+          <button class="btn my-2 my-sm-0" type="submit" id="global_search">搜索</button>
+        </form>
+    </div>
+</nav>
+    <main role="main" class="container-fluid mt-5">
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+    <div class="row">
+        <div class="col-10 col-content border-left border-right">
+            <div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            
+                <li class="breadcrumb-item"><a href="/categories/学习记录/" class="font-weight-bold text-primary">学习记录</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">阿里ACA认证学习记录</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/学习记录/" class="font-weight-bold text-danger">学习记录</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-09-28 15:23:31</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="大数据概述"><a class="markdownIt-Anchor" href="#大数据概述"></a> 大数据概述</h1>
+<p>大数据，指无法在可承受的时间范围内用常规软件工具进行捕捉，管理和处理的数据集合，是需要新处理模式才能具有更强的决策力，洞察发现力和流程优化能力的海量，高增长率和多样化的信息资产。</p>
+<p>大数据的主要特征：4V</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-39-47.png" title="[blog.ruanxinyu.cn]">
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-40-26.png" title="[blog.ruanxinyu.cn]">
+<p>数据分析流程</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-41-31.png" title="[blog.ruanxinyu.cn]">
+<p>Hadoop生态圈</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-43-04.png" title="[blog.ruanxinyu.cn]">
+<p>阿里云大数据体系</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-43-42.png" title="[blog.ruanxinyu.cn]">
+<p>数加的定位</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-44-21.png" title="[blog.ruanxinyu.cn]">
+<p>统一的大数据计算平台</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-45-11.png" title="[blog.ruanxinyu.cn]">
+<h1 id="分析型数据库"><a class="markdownIt-Anchor" href="#分析型数据库"></a> 分析型数据库</h1>
+<h2 id="分析型数据库的介绍"><a class="markdownIt-Anchor" href="#分析型数据库的介绍"></a> 分析型数据库的介绍</h2>
+<p>OLAP，OLTP，维度和度量，下钻，下图中时间，地区和产品就是维度，而销量和金额就是度量</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-47-20.png" title="[blog.ruanxinyu.cn]">
+<p>MPP（大规模并行处理， Massive Parallel Processing）</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-49-23.png" title="[blog.ruanxinyu.cn]">
+<p>分析型数据库：高并发在线分析（Realtime OLAP），与关系型数据库的区别是分析型数据库没有事务，是专门用于分析的，支持sql语句，但是跟关系型数据库没有什么关系</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-55-17.png" title="[blog.ruanxinyu.cn]">
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-15-57-34.png" title="[blog.ruanxinyu.cn]">
+<h2 id="分析型数据库的基本概念"><a class="markdownIt-Anchor" href="#分析型数据库的基本概念"></a> 分析型数据库的基本概念</h2>
+<p>表组</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-16-13-05.png" title="[blog.ruanxinyu.cn]">
+<p>表组的特点</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-16-55-30.png" title="[blog.ruanxinyu.cn]">
+<p>维表的特点，以空间换时间</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-16-56-14.png" title="[blog.ruanxinyu.cn]">
+<p>事实表的特点</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-16-57-32.png" title="[blog.ruanxinyu.cn]">
+<p>数据类型</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-01-14.png" title="[blog.ruanxinyu.cn]">
+<p>多值列，不满足3范式，性能明显优于join</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-02-03.png" title="[blog.ruanxinyu.cn]">
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-05-08.png" title="[blog.ruanxinyu.cn]">
+<h2 id="分析型数据库的基本操作"><a class="markdownIt-Anchor" href="#分析型数据库的基本操作"></a> 分析型数据库的基本操作</h2>
+<p>DMS在表组中新建表</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-17-52.png" title="[blog.ruanxinyu.cn]">
+<h1 id="maxcompute"><a class="markdownIt-Anchor" href="#maxcompute"></a> MaxCompute</h1>
+<h2 id="maxcompute的介绍"><a class="markdownIt-Anchor" href="#maxcompute的介绍"></a> MaxCompute的介绍</h2>
+<p>大数据计算服务</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-32-48.png" title="[blog.ruanxinyu.cn]">
+<p>对象</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-33-43.png" title="[blog.ruanxinyu.cn]">
+<p>分区</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-36-13.png" title="[blog.ruanxinyu.cn]">
+<p>分区表</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-36-38.png" title="[blog.ruanxinyu.cn]">
+<p>分区举例</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-39-09.png" title="[blog.ruanxinyu.cn]">
+<p>其他概念， 执行sql都是task，是异步的</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-40-15.png" title="[blog.ruanxinyu.cn]">
+<p>数据类型</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-41-46.png" title="[blog.ruanxinyu.cn]">
+<p>阿里小贷</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-42-31.png" title="[blog.ruanxinyu.cn]">
+<p>大数据架构</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-17-43-11.png" title="[blog.ruanxinyu.cn]">
+<h2 id="maxcompute的架构介绍"><a class="markdownIt-Anchor" href="#maxcompute的架构介绍"></a> MaxCompute的架构介绍</h2>
+<p>客户端</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-20-04-58.png" title="[blog.ruanxinyu.cn]">
+<p>逻辑层</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-20-08-24.png" title="[blog.ruanxinyu.cn]">
+<p>计算层</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-28-20-09-02.png" title="[blog.ruanxinyu.cn]">
+<p>数据上传</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-16-43.png" title="[blog.ruanxinyu.cn]">
+<p>数据下载</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-17-42.png" title="[blog.ruanxinyu.cn]">
+<p>参数</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-19-12.png" title="[blog.ruanxinyu.cn]">
+<p>分隔符</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-19-31.png" title="[blog.ruanxinyu.cn]">
+<h2 id="ddl的介绍"><a class="markdownIt-Anchor" href="#ddl的介绍"></a> DDL的介绍</h2>
+<p>创建表</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-23-24.png" title="[blog.ruanxinyu.cn]">
+<p>表的生命周期，比如用来保持最近7天的数据</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-26-16.png" title="[blog.ruanxinyu.cn]">
+<p>快捷建表</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-27-31.png" title="[blog.ruanxinyu.cn]">
+<p>分区操作</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-28-17.png" title="[blog.ruanxinyu.cn]">
+<p>修改表属性</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-29-08.png" title="[blog.ruanxinyu.cn]">
+<p>视图操作</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-29-42.png" title="[blog.ruanxinyu.cn]">
+<h2 id="dml的介绍"><a class="markdownIt-Anchor" href="#dml的介绍"></a> DML的介绍</h2>
+<p>查询操作</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-32-11.png" title="[blog.ruanxinyu.cn]">
+<p>更新数据</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-35-05.png" title="[blog.ruanxinyu.cn]">
+<p>多路输出</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-36-03.png" title="[blog.ruanxinyu.cn]">
+<p>表关联</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-37-37.png" title="[blog.ruanxinyu.cn]">
+<p>MapJoin</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-37-58.png" title="[blog.ruanxinyu.cn]">
+<p>MapJoin举例</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-38-17.png" title="[blog.ruanxinyu.cn]">
+<p>分支表达式</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-39-59.png" title="[blog.ruanxinyu.cn]">
+<h2 id="内置函数"><a class="markdownIt-Anchor" href="#内置函数"></a> 内置函数</h2>
+<p>数学运算函数-1</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-48-23.png" title="[blog.ruanxinyu.cn]">
+<p>数学运算函数-2</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-49-29.png" title="[blog.ruanxinyu.cn]">
+<p>字符串处理函数</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-49-48.png" title="[blog.ruanxinyu.cn]">
+<p>日期类型处理函数</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-57-01.png" title="[blog.ruanxinyu.cn]">
+<p>窗口函数</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-57-16.png" title="[blog.ruanxinyu.cn]">
+<p>聚合函数</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-57-50.png" title="[blog.ruanxinyu.cn]">
+<p>其他函数</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-58-28.png" title="[blog.ruanxinyu.cn]">
+<h2 id="其他使用方式"><a class="markdownIt-Anchor" href="#其他使用方式"></a> 其他使用方式</h2>
+<p>自定义函数</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-09-59-23.png" title="[blog.ruanxinyu.cn]">
+<p>UDF开发流程</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-01-12.png" title="[blog.ruanxinyu.cn]">
+<p>MapReduce介绍</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-02-44.png" title="[blog.ruanxinyu.cn]">
+<p>MR框架</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-04-46.png" title="[blog.ruanxinyu.cn]">
+<p>Graph</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-05-25.png" title="[blog.ruanxinyu.cn]">
+<p>如何使用合适的方式</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-06-11.png" title="[blog.ruanxinyu.cn]">
+<h2 id="授权"><a class="markdownIt-Anchor" href="#授权"></a> 授权</h2>
+<p>授权</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-08-40.png" title="[blog.ruanxinyu.cn]">
+<p>添加用户授权</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-28-41.png" title="[blog.ruanxinyu.cn]">
+<p>角色管理</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-29-26.png" title="[blog.ruanxinyu.cn]">
+<h1 id="dataide"><a class="markdownIt-Anchor" href="#dataide"></a> DataIDE</h1>
+<h2 id="dataide介绍"><a class="markdownIt-Anchor" href="#dataide介绍"></a> DataIDE介绍</h2>
+<p>产品概述</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-35-23.png" title="[blog.ruanxinyu.cn]">
+<p>开发流程-1</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-36-04.png" title="[blog.ruanxinyu.cn]">
+<p>开发流程-2</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-36-24.png" title="[blog.ruanxinyu.cn]">
+<p>应用场景</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-37-36.png" title="[blog.ruanxinyu.cn]">
+<h2 id="dataide基本概念"><a class="markdownIt-Anchor" href="#dataide基本概念"></a> DataIDE基本概念</h2>
+<p>概念</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-39-19.png" title="[blog.ruanxinyu.cn]">
+<p>角色</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-43-11.png" title="[blog.ruanxinyu.cn]">
+<p>多环境</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-10-45-07.png" title="[blog.ruanxinyu.cn]">
+<h2 id="数据集成"><a class="markdownIt-Anchor" href="#数据集成"></a> 数据集成</h2>
+<p>数据集成支持两种开发模式</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-25-52.png" title="[blog.ruanxinyu.cn]">
+<p>向导模式：选择来源</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-26-45.png" title="[blog.ruanxinyu.cn]">
+<p>一键生成数据表</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-27-31.png" title="[blog.ruanxinyu.cn]">
+<p>向导模式：选择目标</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-27-56.png" title="[blog.ruanxinyu.cn]">
+<p>向导模式：字段映射</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-28-34.png" title="[blog.ruanxinyu.cn]">
+<p>脚本模式：</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-31-05.png" title="[blog.ruanxinyu.cn]">
+<h2 id="数据开发"><a class="markdownIt-Anchor" href="#数据开发"></a> 数据开发</h2>
+<h3 id="脚本开发"><a class="markdownIt-Anchor" href="#脚本开发"></a> 脚本开发</h3>
+<p>提供参数配置</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-34-28.png" title="[blog.ruanxinyu.cn]">
+<p>执行脚本之前会提示费用情况</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-10-11-14-47-16.png" title="[blog.ruanxinyu.cn]">
+<h3 id="任务节点任务"><a class="markdownIt-Anchor" href="#任务节点任务"></a> 任务：节点任务</h3>
+<p>支持调度，依赖管理，版本管理和参数配置</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-38-08.png" title="[blog.ruanxinyu.cn]">
+<h3 id="工作流任务"><a class="markdownIt-Anchor" href="#工作流任务"></a> 工作流任务</h3>
+<p>支持编排</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-40-47.png" title="[blog.ruanxinyu.cn]">
+<h2 id="数据管理"><a class="markdownIt-Anchor" href="#数据管理"></a> 数据管理</h2>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-11-08-19.png" title="[blog.ruanxinyu.cn]">
+<p>数据表的信息在数据管理服务</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-21-48.png" title="[blog.ruanxinyu.cn]">
+<p>数据表的创建支持DDL和图像化两个模式</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-10-11-15-36-06.png" title="[blog.ruanxinyu.cn]">
+<h2 id="运维中心"><a class="markdownIt-Anchor" href="#运维中心"></a> 运维中心</h2>
+<p>介绍</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-10-11-16-06-43.png" title="[blog.ruanxinyu.cn]">
+<p>任务管理</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-11-09-04.png" title="[blog.ruanxinyu.cn]">
+<h2 id="项目管理"><a class="markdownIt-Anchor" href="#项目管理"></a> 项目管理</h2>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-11-10-24.png" title="[blog.ruanxinyu.cn]">
+<h1 id="quickbi报表"><a class="markdownIt-Anchor" href="#quickbi报表"></a> QuickBI报表</h1>
+<h2 id="quickbi的介绍"><a class="markdownIt-Anchor" href="#quickbi的介绍"></a> QuickBI的介绍</h2>
+<p>产品概述</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-14-41-54.png" title="[blog.ruanxinyu.cn]">
+<p>产品架构</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-14-42-18.png" title="[blog.ruanxinyu.cn]">
+<p>角色定位</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-14-44-45.png" title="[blog.ruanxinyu.cn]">
+<p>常见应用步骤</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-14-45-39.png" title="[blog.ruanxinyu.cn]">
+<h2 id="quickbi的数据管理"><a class="markdownIt-Anchor" href="#quickbi的数据管理"></a> QuickBI的数据管理</h2>
+<p>数据源管理</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-14-46-51.png" title="[blog.ruanxinyu.cn]">
+<p>数据集管理</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-14-51-55.png" title="[blog.ruanxinyu.cn]">
+<p>首页</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-03-22.png" title="[blog.ruanxinyu.cn]">
+<p>新建数据源</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-03-47.png" title="[blog.ruanxinyu.cn]">
+<p>表格分析</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-10-44.png" title="[blog.ruanxinyu.cn]">
+<p>图表与门户-常见图标</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-12-25.png" title="[blog.ruanxinyu.cn]">
+<p>图表</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-16-14.png" title="[blog.ruanxinyu.cn]">
+<p>门户</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-17-19.png" title="[blog.ruanxinyu.cn]">
+<h1 id="datav数据大屏"><a class="markdownIt-Anchor" href="#datav数据大屏"></a> DataV数据大屏</h1>
+<h2 id="产品介绍"><a class="markdownIt-Anchor" href="#产品介绍"></a> 产品介绍</h2>
+<p>产品概述</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-22-00.png" title="[blog.ruanxinyu.cn]">
+<p>特性1：多重场景模板</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-22-47.png" title="[blog.ruanxinyu.cn]">
+<p>特性2：丰富开放的图表库</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-23-21.png" title="[blog.ruanxinyu.cn]">
+<p>特性3：支持多种数据源</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-24-21.png" title="[blog.ruanxinyu.cn]">
+<p>特性4：零门槛图形化界面设计</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-25-13.png" title="[blog.ruanxinyu.cn]">
+<p>特性5，支持数据交互分析</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-26-53.png" title="[blog.ruanxinyu.cn]">
+<p>特性6：支持适配与发布方式</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-26-17.png" title="[blog.ruanxinyu.cn]">
+<h2 id="datav大屏介绍"><a class="markdownIt-Anchor" href="#datav大屏介绍"></a> DataV大屏介绍</h2>
+<p>展示类大屏</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-29-42.png" title="[blog.ruanxinyu.cn]">
+<p>展示类大屏示例</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-30-22.png" title="[blog.ruanxinyu.cn]">
+<p>分析类大屏</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-30-51.png" title="[blog.ruanxinyu.cn]">
+<p>分析类大屏示例</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-31-18.png" title="[blog.ruanxinyu.cn]">
+<p>监控类大屏</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-31-39.png" title="[blog.ruanxinyu.cn]">
+<p>监控类大屏示例</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-32-12.png" title="[blog.ruanxinyu.cn]">
+<p>可视化大屏设计原则</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-33-01.png" title="[blog.ruanxinyu.cn]">
+<p>大屏样例1</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-33-33.png" title="[blog.ruanxinyu.cn]">
+<p>大屏样例2</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-36-21.png" title="[blog.ruanxinyu.cn]">
+<h2 id="datav演示"><a class="markdownIt-Anchor" href="#datav演示"></a> DataV演示</h2>
+<p>添加数据</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-38-15.png" title="[blog.ruanxinyu.cn]">
+<p>视频和样例</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-38-33.png" title="[blog.ruanxinyu.cn]">
+<p>创建大屏-1</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-39-16.png" title="[blog.ruanxinyu.cn]">
+<p>创建大屏-2</p>
+<img src="/posts/技术文档/阿里ACA认证学习记录/2018-09-29-15-39-37.png" title="[blog.ruanxinyu.cn]">
+
+
+    <div class="row border-top pre-next-link">
+        <div class="col-6">
+            上一篇：
+            
+            <a href="/posts/技术文档/Ubuntu下Nginx的安装与配置/"><h6 class="d-inline">Ubuntu下Nginx的安装与配置</h6></a>
+            
+        </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/技术文档/Ubuntu下搭建HAProxy-KeepAlived高可用集群/"><h6 class="d-inline">Ubuntu下搭建HAProxy+KeepAlived高可用集群</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#大数据概述"><span class="toc-text"> 大数据概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分析型数据库"><span class="toc-text"> 分析型数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#分析型数据库的介绍"><span class="toc-text"> 分析型数据库的介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析型数据库的基本概念"><span class="toc-text"> 分析型数据库的基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析型数据库的基本操作"><span class="toc-text"> 分析型数据库的基本操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#maxcompute"><span class="toc-text"> MaxCompute</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#maxcompute的介绍"><span class="toc-text"> MaxCompute的介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#maxcompute的架构介绍"><span class="toc-text"> MaxCompute的架构介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ddl的介绍"><span class="toc-text"> DDL的介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dml的介绍"><span class="toc-text"> DML的介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内置函数"><span class="toc-text"> 内置函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他使用方式"><span class="toc-text"> 其他使用方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#授权"><span class="toc-text"> 授权</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dataide"><span class="toc-text"> DataIDE</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#dataide介绍"><span class="toc-text"> DataIDE介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dataide基本概念"><span class="toc-text"> DataIDE基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据集成"><span class="toc-text"> 数据集成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据开发"><span class="toc-text"> 数据开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#脚本开发"><span class="toc-text"> 脚本开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#任务节点任务"><span class="toc-text"> 任务：节点任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工作流任务"><span class="toc-text"> 工作流任务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据管理"><span class="toc-text"> 数据管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运维中心"><span class="toc-text"> 运维中心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目管理"><span class="toc-text"> 项目管理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#quickbi报表"><span class="toc-text"> QuickBI报表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#quickbi的介绍"><span class="toc-text"> QuickBI的介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#quickbi的数据管理"><span class="toc-text"> QuickBI的数据管理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#datav数据大屏"><span class="toc-text"> DataV数据大屏</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#产品介绍"><span class="toc-text"> 产品介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#datav大屏介绍"><span class="toc-text"> DataV大屏介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#datav演示"><span class="toc-text"> DataV演示</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </main>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/crypto-js.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

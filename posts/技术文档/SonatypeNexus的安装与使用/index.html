@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="阮新宇的成长记录">
+    <meta name="author" content="阮新宇">
+    <meta name="keywords" content="环境搭建">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>SonatypeNexus的安装与使用 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+
+    <meta name="description" content="SonatypeNexus的介绍 Sonatype Nexus可以用来作为Maven/Java, npm, NuGet, RubyGems, Docker, P2, OBR, APT and YUM等的代理仓和私有仓库，同时还与Eclipse, IntelliJ, Hudson, Jenkins, Puppet, Chef, Docker等工具有很好的集成。那么我们在开发中可以用Sonatype">
+<meta name="keywords" content="环境搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SonatypeNexus的安装与使用">
+<meta property="og:url" content="http://ruanxinyu.github.io/posts/技术文档/SonatypeNexus的安装与使用/index.html">
+<meta property="og:site_name" content="RuanXinYu&#39;s Blog">
+<meta property="og:description" content="SonatypeNexus的介绍 Sonatype Nexus可以用来作为Maven/Java, npm, NuGet, RubyGems, Docker, P2, OBR, APT and YUM等的代理仓和私有仓库，同时还与Eclipse, IntelliJ, Hudson, Jenkins, Puppet, Chef, Docker等工具有很好的集成。那么我们在开发中可以用Sonatype">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/SonatypeNexus的安装与使用/2018-10-02-20-27-22.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/SonatypeNexus的安装与使用/2018-10-02-20-33-44.png">
+<meta property="og:updated_time" content="2018-10-02T13:29:26.670Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SonatypeNexus的安装与使用">
+<meta name="twitter:description" content="SonatypeNexus的介绍 Sonatype Nexus可以用来作为Maven/Java, npm, NuGet, RubyGems, Docker, P2, OBR, APT and YUM等的代理仓和私有仓库，同时还与Eclipse, IntelliJ, Hudson, Jenkins, Puppet, Chef, Docker等工具有很好的集成。那么我们在开发中可以用Sonatype">
+<meta name="twitter:image" content="http://ruanxinyu.github.io/posts/技术文档/SonatypeNexus的安装与使用/2018-10-02-20-27-22.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/avatar.png">
+</head>
+<body class="bg-white">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="url_for('/')">
+        <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/"  >主页</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/inbox"  >收集箱</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/questions"  >速查表</a>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">项目</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/posts/VirtualBox安装Ubuntu教程/?project=Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统"  >Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/tags"  >标签</a>
+                        
+                        <a class="dropdown-item" href="/categories"  >分类</a>
+                        
+                        <a class="dropdown-item" href="/archives"  >归档</a>
+                        
+                        <a class="dropdown-item" href="/pages/bookmarks"  >书签收藏</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">关于</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/pages/about"  >规划介绍</a>
+                        
+                        <a class="dropdown-item" href="https://github.com/RuanXinyu" target="_blank" >github</a>
+                        
+                    </div>
+                </li>
+            
+        
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="速查表搜索" autofocus="autofocus" aria-label="Search" id="global_search_text">
+          <button class="btn my-2 my-sm-0" type="submit" id="global_search">搜索</button>
+        </form>
+    </div>
+</nav>
+    <main role="main" class="container-fluid mt-5">
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+    <div class="row">
+        <div class="col-10 col-content border-left border-right">
+            <div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            
+                <li class="breadcrumb-item"><a href="/categories/环境搭建/" class="font-weight-bold text-primary">环境搭建</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">SonatypeNexus的安装与使用</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-10-02 18:21:06</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="sonatypenexus的介绍"><a class="markdownIt-Anchor" href="#sonatypenexus的介绍"></a> SonatypeNexus的介绍</h1>
+<p>Sonatype Nexus可以用来作为Maven/Java, npm, NuGet, RubyGems, Docker, P2, OBR, APT and YUM等的代理仓和私有仓库，同时还与Eclipse, IntelliJ, Hudson, Jenkins, Puppet, Chef, Docker等工具有很好的集成。那么我们在开发中可以用SonatypeNexus做什么呢？</p>
+<ol>
+<li>代理并缓存Maven/npm/docker等中央仓，提升下载速度</li>
+<li>作为Maven/npm/docker等的私有仓库，上传私有组件</li>
+<li>作为编译构建仓库，用于分享或者部署到环境</li>
+</ol>
+<h1 id="sonatypenexus的安装"><a class="markdownIt-Anchor" href="#sonatypenexus的安装"></a> SonatypeNexus的安装</h1>
+<blockquote>
+<p>在启动之前需要先安装java环境，具体可以参考教程：。另外Nexus对内存要求比较大，请至少保持2G以上的内存。</p>
+</blockquote>
+<p>Linux下源码安装的脚本可以点击此处下载： <a href="/posts/技术文档/SonatypeNexus的安装与使用/nexus_install.sh" title="nexus_install.sh">nexus_install.sh</a>，下面对安装过程做一下说明。</p>
+<p>SonatypeNexus的下载地址为： <a href="https://help.sonatype.com/repomanager3/download/download-archives---repository-manager-3" target="_blank" rel="noopener">https://help.sonatype.com/repomanager3/download/download-archives—repository-manager-3</a></p>
+<p>Linux通过如下命令下载并解压：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.sonatype.com/nexus/3/nexus-3.13.0-01-unix.tar.gz</span><br><span class="line">sudo tar -zxvf nexus-3.13.0-01-unix.tar.gz -C /usr/<span class="built_in">local</span>/nexus</span><br><span class="line">sudo chown -R $(whoami):$(whoami) /usr/<span class="built_in">local</span>/nexus</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Windows点击<a href="http://download.sonatype.com/nexus/3/nexus-3.13.0-01-win64.zip" target="_blank" rel="noopener">http://download.sonatype.com/nexus/3/nexus-3.13.0-01-win64.zip</a>下载后解压到本地磁盘</p>
+</blockquote>
+<p>解压后，有<code>nexus-3.13.0-01</code>和<code>sonatype-work</code>两个目录：</p>
+<ol>
+<li><code>nexus-3.13.0-01</code>是软件目录，升级SonatypeNexus版本是只需要替换这个目录即可</li>
+<li><code>sonatype-work</code>是数据目录，所有配置信息，软件包都在这个目录</li>
+</ol>
+<h1 id="sonatypenexus的启动"><a class="markdownIt-Anchor" href="#sonatypenexus的启动"></a> SonatypeNexus的启动</h1>
+<p>进入到Nexus的安装目录<code>nexus-3.13.0-01/bin/nexus</code>, Linux执行<code>./nexus start</code>即可启动。查看启动日志在<code>tail -100f sonatype-work/nexus3/log/nexus.log</code>，当日志中出现如下的字样时表示nexus已经启动成功。</p>
+<blockquote>
+<p>Windows下执行<code>nexus.exe /run</code>即可启动。</p>
+</blockquote>
+<img src="/posts/技术文档/SonatypeNexus的安装与使用/2018-10-02-20-27-22.png" title="[blog.ruanxinyu.cn]">
+<p>默认情况下，Nexus监听的端口号为<code>8081</code>，我们通过浏览器访问就可以看到Nexus的页面，默认的用户名为<code>admin</code>，密码为<code>admin123</code>。</p>
+<img src="/posts/技术文档/SonatypeNexus的安装与使用/2018-10-02-20-33-44.png" title="[blog.ruanxinyu.cn]">
+<h1 id="系统服务与开机启动"><a class="markdownIt-Anchor" href="#系统服务与开机启动"></a> 系统服务与开机启动</h1>
+<p>我们还是采用systemd的方式添加到系统服务，执行如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">(</span><br><span class="line">cat &lt;&lt;EOF</span><br><span class="line">[Unit]</span><br><span class="line">Description=Sonatyp Nexus Daemon</span><br><span class="line">After=network.target</span><br><span class="line">Wants=network-online.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">LimitNOFILE=65536</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/nexus/nexus-3.13.0-01/bin/nexus start</span><br><span class="line">ExecStop=/usr/<span class="built_in">local</span>/nexus/nexus-3.13.0-01/bin/nexus stop</span><br><span class="line">User=$(whoami)</span><br><span class="line">Restart=on-abort</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">EOF</span><br><span class="line">) &gt; nexus.service</span><br><span class="line"></span><br><span class="line">sudo cp -a nexus.service /lib/systemd/system/nexus.service</span><br><span class="line">sudo ln -s /lib/systemd/system/nexus.service /etc/systemd/system/multi-user.target.wants/nexus.service</span><br></pre></td></tr></table></figure>
+<p>然后启动并添加为开机启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start nexus</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> nexus</span><br></pre></td></tr></table></figure>
+<p><strong>Nexus启动不起来的可能原因:</strong></p>
+<ol>
+<li>没有安装java，可以通过<code>java -version</code>进行测试</li>
+<li>当前用户没有nexus所在目录的权限，可以在执行用户下执行<code>sudo chown -R $(whoami):$(whoami) /usr/local/nexus</code></li>
+</ol>
+<h1 id="sonatypenexus的配置"><a class="markdownIt-Anchor" href="#sonatypenexus的配置"></a> SonatypeNexus的配置</h1>
+<h2 id="配置最大文件句柄数"><a class="markdownIt-Anchor" href="#配置最大文件句柄数"></a> 配置最大文件句柄数</h2>
+<p>在Nexus的界面中可以看到提示<a href="https://help.sonatype.com/repomanager3/system-requirements#filehandles" target="_blank" rel="noopener"><code>System Requirement: max file descriptors [4096] likely too low, increase to at least [65536].</code></a>，点击进去可以看到具体的设置方式，如果采用上文中的systemd的方式启动nexus，则不存在这个问题，因为我们已经在<code>nexus.service</code>中设置最大文件句柄数<code>LimitNOFILE=65536</code>。</p>
+<p>**注意：**设置完该参数后需要重新启动进程才可以生效。</p>
+
+
+
+    <div class="row border-top pre-next-link">
+        <div class="col-6">
+            上一篇：
+            
+            <a href="/posts/技术文档/Jenkins的安装与使用/"><h6 class="d-inline">Jenkins的安装与使用</h6></a>
+            
+        </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/技术文档/Ubuntu下Nginx的安装与配置/"><h6 class="d-inline">Ubuntu下Nginx的安装与配置</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sonatypenexus的介绍"><span class="toc-text"> SonatypeNexus的介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sonatypenexus的安装"><span class="toc-text"> SonatypeNexus的安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sonatypenexus的启动"><span class="toc-text"> SonatypeNexus的启动</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#系统服务与开机启动"><span class="toc-text"> 系统服务与开机启动</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sonatypenexus的配置"><span class="toc-text"> SonatypeNexus的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置最大文件句柄数"><span class="toc-text"> 配置最大文件句柄数</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </main>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/crypto-js.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="阮新宇的成长记录">
+    <meta name="author" content="阮新宇">
+    <meta name="keywords" content="环境搭建">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+
+    <meta name="description" content="Mysql复制模式及原理 Mysql内建的复制功能是构建大型，高性能应用程序的基础。Mysql将数据库的更改写入到二进制日志文件，而复制功能就是基于该日志完成的。Mysql的二进制日志格式也有三种：STATEMENT，ROW，MIXED。对应的是Mysql的三种复制模式.  复制原理 master服务器将数据的改变记录二进制binlog日志，当master上的数据发生改变时，则将其改变写入二进制">
+<meta name="keywords" content="环境搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建">
+<meta property="og:url" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/index.html">
+<meta property="og:site_name" content="RuanXinYu&#39;s Blog">
+<meta property="og:description" content="Mysql复制模式及原理 Mysql内建的复制功能是构建大型，高性能应用程序的基础。Mysql将数据库的更改写入到二进制日志文件，而复制功能就是基于该日志完成的。Mysql的二进制日志格式也有三种：STATEMENT，ROW，MIXED。对应的是Mysql的三种复制模式.  复制原理 master服务器将数据的改变记录二进制binlog日志，当master上的数据发生改变时，则将其改变写入二进制">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-04-20-43-35.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-05-19-29-21.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-05-21-11-21.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-05-21-31-11.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-05-20-57-56.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-05-22-29-06.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-05-22-53-36.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-05-22-59-11.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-05-23-09-29.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-05-23-12-07.png">
+<meta property="og:updated_time" content="2018-10-05T15:15:52.834Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建">
+<meta name="twitter:description" content="Mysql复制模式及原理 Mysql内建的复制功能是构建大型，高性能应用程序的基础。Mysql将数据库的更改写入到二进制日志文件，而复制功能就是基于该日志完成的。Mysql的二进制日志格式也有三种：STATEMENT，ROW，MIXED。对应的是Mysql的三种复制模式.  复制原理 master服务器将数据的改变记录二进制binlog日志，当master上的数据发生改变时，则将其改变写入二进制">
+<meta name="twitter:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-04-20-43-35.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/avatar.png">
+</head>
+<body class="bg-white">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="url_for('/')">
+        <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/"  >主页</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/inbox"  >收集箱</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/questions"  >速查表</a>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">项目</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/posts/VirtualBox安装Ubuntu教程/?project=Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统"  >Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/tags"  >标签</a>
+                        
+                        <a class="dropdown-item" href="/categories"  >分类</a>
+                        
+                        <a class="dropdown-item" href="/archives"  >归档</a>
+                        
+                        <a class="dropdown-item" href="/pages/bookmarks"  >书签收藏</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">关于</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/pages/about"  >规划介绍</a>
+                        
+                        <a class="dropdown-item" href="https://github.com/RuanXinyu" target="_blank" >github</a>
+                        
+                    </div>
+                </li>
+            
+        
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="速查表搜索" autofocus="autofocus" aria-label="Search" id="global_search_text">
+          <button class="btn my-2 my-sm-0" type="submit" id="global_search">搜索</button>
+        </form>
+    </div>
+</nav>
+    <main role="main" class="container-fluid mt-5">
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+    <div class="row">
+        <div class="col-10 col-content border-left border-right">
+            <div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            
+                <li class="breadcrumb-item"><a href="/categories/环境搭建/" class="font-weight-bold text-primary">环境搭建</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-10-04 12:50:27</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="mysql复制模式及原理"><a class="markdownIt-Anchor" href="#mysql复制模式及原理"></a> Mysql复制模式及原理</h1>
+<p>Mysql内建的复制功能是构建大型，高性能应用程序的基础。Mysql将数据库的更改写入到二进制日志文件，而复制功能就是基于该日志完成的。Mysql的二进制日志格式也有三种：STATEMENT，ROW，MIXED。对应的是Mysql的三种复制模式.</p>
+<h2 id="复制原理"><a class="markdownIt-Anchor" href="#复制原理"></a> 复制原理</h2>
+<p>master服务器将数据的改变记录二进制binlog日志，当master上的数据发生改变时，则将其改变写入二进制日志中；salve服务器会在一定时间间隔内对master二进制日志进行探测其是否发生改变，如果发生改变，则开始一个I/OThread请求master二进制事件，同时主节点为每个I/O线程启动一个dump线程，用于向其发送二进制事件，并保存至从节点本地的中继日志中，从节点将启动SQL线程从中继日志中读取二进制日志，在本地重放，使得其数据和主节点的保持一致，最后I/OThread和SQLThread将进入睡眠状态，等待下一次被唤醒。过程如下：</p>
+<img src="/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-04-20-43-35.png" title="[blog.ruanxinyu.cn]">
+<p>注意几点：</p>
+<ul>
+<li>master将操作语句记录到binlog日志中，然后授予slave远程连接的权限（master一定要开启binlog二进制日志功能；通常为了数据安全考虑，slave也开启binlog功能）。</li>
+<li>slave开启两个线程：IO线程和SQL线程。其中：IO线程负责读取master的binlog内容到中继日志relay log里；SQL线程负责从relay log日志里读出binlog内容，并更新到slave的数据库里，这样就能保证slave数据和master数据保持一致了。</li>
+<li>Mysql复制至少需要两个Mysql的服务，当然Mysql服务可以分布在不同的服务器上，也可以在一台服务器上启动多个服务。</li>
+<li>Mysql复制最好确保master和slave服务器上的Mysql版本相同（如果不能满足版本一致，那么要保证master主节点的版本低于slave从节点的版本）</li>
+<li>master和slave两节点间时间需同步</li>
+<li>主服务写入日志和从数据库回访日志都是串行的</li>
+</ul>
+<blockquote>
+<p>注意：所有对表的操作都需要在主服务器上操作，否则会造成数据冲突</p>
+</blockquote>
+<h2 id="基于sql语句的复制sbr"><a class="markdownIt-Anchor" href="#基于sql语句的复制sbr"></a> 基于SQL语句的复制(SBR)</h2>
+<p>基于SQL语句的复制(statement-based replication, SBR)的优点有：</p>
+<ol>
+<li>产生的binlog文件较小，比较节省空间</li>
+<li>binlog既可以用来复制，也可以用于实时的还原</li>
+<li>主从版本可以不一样，从服务器版本可以比主服务器版本高。</li>
+</ol>
+<p>缺点有：</p>
+<ol>
+<li>不是所有的UPDATE语句都能被复制，尤其是包含不确定操作的时候。</li>
+<li>调用具有不确定因素的 UDF 时复制也可能出问题，比如<code>LOAD_FILE()</code>，<code>UUID()</code>，<code>USER()</code>，<code>FOUND_ROWS()</code>，<code>SYSDATE()</code></li>
+<li><code>INSERT ... SELECT</code> 会产生比 RBR 更多的行级锁</li>
+</ol>
+<h2 id="基于行的复制rbr"><a class="markdownIt-Anchor" href="#基于行的复制rbr"></a> 基于行的复制(RBR)</h2>
+<p>基于行的复制(row-based replication, RBR)的优点有：</p>
+<ol>
+<li>任何情况都可以被复制，这对复制来说是最安全可靠的</li>
+<li>多数情况下，从服务器上的表如果有主键的话，复制就会快了很多</li>
+<li>执行 INSERT，UPDATE，DELETE 语句时锁更少</li>
+<li>从服务器上采用多线程来执行复制成为可能</li>
+</ol>
+<p>缺点有：</p>
+<ol>
+<li>binlog 文件太大</li>
+<li>复杂的回滚时 binlog 中会包含大量的数据</li>
+<li>主服务器上执行 UPDATE 语句时，所有发生变化的记录都会写到 binlog 中，而 SBR 只会写一次，这会导致频繁发生 binlog 的并发写问题</li>
+<li>UDF 产生的大 BLOB 值会导致复制变慢</li>
+<li>无法从 binlog 中看到都复制了写什么语句，无法进行审计</li>
+</ol>
+<h2 id="混合模式复制mbr"><a class="markdownIt-Anchor" href="#混合模式复制mbr"></a> 混合模式复制(MBR)</h2>
+<p>混合模式复制(mixed-based replication, MBR)</p>
+<h2 id="解决的问题"><a class="markdownIt-Anchor" href="#解决的问题"></a> 解决的问题</h2>
+<p>Mysql支持主从复制模式和主主复制模式，能够解决以下的问题：</p>
+<ol>
+<li>数据分布 (Data distribution )</li>
+<li>负载平衡(load balancing)</li>
+<li>数据备份(Backups) ，保证数据安全</li>
+<li>高可用性和容错行(High availability and failover)</li>
+<li>实现读写分离，缓解数据库压力</li>
+</ol>
+<h1 id="基础环境说明"><a class="markdownIt-Anchor" href="#基础环境说明"></a> 基础环境说明</h1>
+<p>本次教程搭建的架构图如下所示，通过Mysql的主从同步实现数据的同步，通过KeepAlived实现Mysql的故障时的自动切换，其中为<code>192.168.1.132</code>和<code>192.168.1.133</code>，VIP为<code>192.168.1.134</code>。</p>
+<img src="/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-05-19-29-21.png" title="[blog.ruanxinyu.cn]">
+<ol>
+<li>使用的Ubuntu是<code>18.04.1</code>版本：</li>
+<li>使用的Mysql是<code>8.0.12</code>版本：</li>
+<li>使用的KeepAlived是<code>2.0.7</code>版本：</li>
+</ol>
+<h1 id="mysql的主从同步设置"><a class="markdownIt-Anchor" href="#mysql的主从同步设置"></a> Mysql的主从同步设置</h1>
+<ol>
+<li>用户配置文件位置：<code>/etc/mysql/my.cnf</code></li>
+<li>pid文件位置：<code>/var/run/mysqld/mysqld.pid</code></li>
+<li>socket文件位置：<code>/var/run/mysqld/mysqld.sock</code></li>
+<li>数据目录： <code>/var/lib/mysql</code></li>
+<li>错误日志文件： <code>/var/log/mysql/error.log</code></li>
+</ol>
+<h2 id="配置mycnf文件"><a class="markdownIt-Anchor" href="#配置mycnf文件"></a> 配置my.cnf文件</h2>
+<p>Mysql_01(<code>192.168.1.132</code>)编辑<code>sudo vim /etc/mysql/my.cnf</code>文件，添加如下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line"><span class="built_in">log</span>-bin=mysql-bin</span><br><span class="line">relay_log=mysql-relay-bin</span><br><span class="line">server-id=1</span><br><span class="line">log_slave_updates=1</span><br></pre></td></tr></table></figure>
+<p>Mysql_02(<code>192.168.1.133</code>)编辑<code>sudo vim /etc/mysql/my.cnf</code>文件，添加如下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line"><span class="built_in">log</span>-bin=mysql-bin</span><br><span class="line">relay_log=mysql-relay-bin</span><br><span class="line">server-id=2</span><br><span class="line">log_slave_updates=1</span><br></pre></td></tr></table></figure>
+<p>上述配置mysql的二进制日志的名称为<code>mysql-bin</code>，采用的是相对目录，具体绝对目录可以通过执行<code>show variables like 'log_%';</code>得到，如下所示</p>
+<img src="/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-05-21-11-21.png" title="[blog.ruanxinyu.cn]">
+<p>如上述配置指定了<code>relay_log</code>的值，否则mysql会自动根据主机的hostname命名，如果修改hostname的话可能就会出问题，在error.log中也可以看到对应的警告：</p>
+<img src="/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-05-21-31-11.png" title="[blog.ruanxinyu.cn]">
+<h2 id="创建复制用户"><a class="markdownIt-Anchor" href="#创建复制用户"></a> 创建复制用户</h2>
+<p>Mysql_01(<code>192.168.1.132</code>)中执行<code>mysql -u root -p</code>进入到mysql的控制台执行如下语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'repl'</span>@<span class="string">'192.168.1.133'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'mysql'</span>;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">REPLICATION</span> <span class="keyword">SLAVE</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'repl'</span>@<span class="string">'192.168.1.133'</span>;</span><br><span class="line"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span><br></pre></td></tr></table></figure>
+<p>Mysql_02(<code>192.168.1.133</code>)中执行<code>mysql -u root -p</code>进入到mysql的控制台执行如下语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'repl'</span>@<span class="string">'192.168.1.132'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'mysql'</span>;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">REPLICATION</span> <span class="keyword">SLAVE</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'repl'</span>@<span class="string">'192.168.1.132'</span>;</span><br><span class="line"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span><br></pre></td></tr></table></figure>
+<img src="/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-05-20-57-56.png" title="[blog.ruanxinyu.cn]">
+<h2 id="执行change-master-to语句"><a class="markdownIt-Anchor" href="#执行change-master-to语句"></a> 执行CHANGE MASTER TO语句</h2>
+<p>Mysql_01(<code>192.168.1.132</code>)中执行<code>mysql -u root -p</code>进入到mysql的控制台执行如下语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CHANGE</span> <span class="keyword">MASTER</span> <span class="keyword">TO</span></span><br><span class="line">  MASTER_HOST=<span class="string">'192.168.1.133'</span>,</span><br><span class="line">  MASTER_USER=<span class="string">'repl'</span>,</span><br><span class="line">  MASTER_PASSWORD=<span class="string">'mysql'</span>,</span><br><span class="line">  MASTER_LOG_FILE=<span class="string">'mysql-bin.000001'</span>,</span><br><span class="line">  MASTER_LOG_POS=<span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>Mysql_02(<code>192.168.1.133</code>)中执执行<code>mysql -u root -p</code>进入到mysql的控制台执行如下语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CHANGE</span> <span class="keyword">MASTER</span> <span class="keyword">TO</span></span><br><span class="line">  MASTER_HOST=<span class="string">'192.168.1.132'</span>,</span><br><span class="line">  MASTER_USER=<span class="string">'repl'</span>,</span><br><span class="line">  MASTER_PASSWORD=<span class="string">'mysql'</span>,</span><br><span class="line">  MASTER_LOG_FILE=<span class="string">'mysql-bin.000001'</span>,</span><br><span class="line">  MASTER_LOG_POS=<span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p><code>MASTER_LOG_FILE</code>用来指定初始复制时的mysql1中的binlog文件， <code>MASTER_LOG_POS</code>用来指定初始复制时binlog文件的位置</p>
+<h2 id="重启并查看同步状态"><a class="markdownIt-Anchor" href="#重启并查看同步状态"></a> 重启并查看同步状态</h2>
+<ol>
+<li><code>sudo systemctl restart mysql.service</code>重启mysql</li>
+<li><code>mysql -u root -p</code>进入到mysql的控制台执行<code>start slave;</code></li>
+<li>通过<code>show slave status\G;</code>查看启动状态，如果出现下面的内容则表示成功</li>
+</ol>
+<img src="/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-05-22-29-06.png" title="[blog.ruanxinyu.cn]">
+<h1 id="keepalived的配置"><a class="markdownIt-Anchor" href="#keepalived的配置"></a> KeepAlived的配置</h1>
+<p>Keepalived的安装请参考：。配置文件主要有如下几点变化：</p>
+<ol>
+<li>两台机器的<code>state</code>都设置为<code>BACKUP</code>，同时<code>nopreempt</code>配置，可以防止切换到从库后，主keepalived恢复后自动切换回主库</li>
+<li><code>virtual_ipaddress</code>改为<code>192.168.1.134</code></li>
+<li><code>vrrp_script</code>中的命令改为<code>netstat -na | grep LISTEN | grep 3306 || killall keepalived</code></li>
+</ol>
+<p>**特别说明: **</p>
+<blockquote>
+<p>此处仅仅简单的通过检查<code>33060</code>端口来判断mysql是否正常。你可以可以根据自己的需求，将该脚本设计的更复杂一些。比如根据数据库的插入、删除等是否可用、主从线程是否开启等进行细分。提高检测的精准度。</p>
+</blockquote>
+<p>Mysql_01(<code>192.168.1.132</code>)中KeepAlived的配置如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">vrrp_script chk_service_ok &#123;</span><br><span class="line">       script <span class="string">"netstat -na | grep LISTEN | grep 3306 || killall keepalived"</span></span><br><span class="line">       interval 2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    interface enp0s3</span><br><span class="line">    state BACKUP    <span class="comment"># 通过下面的priority来区分MASTER和BACKUP，也只有如此，底下的nopreempt才有效</span></span><br><span class="line">    virtual_router_id 51</span><br><span class="line">    priority 100</span><br><span class="line">    nopreempt   <span class="comment"># 防止切换到从库后，主keepalived恢复后自动切换回主库</span></span><br><span class="line"></span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        192.168.1.134/24</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    track_script &#123;</span><br><span class="line">       chk_service_ok</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Mysql_02(<code>192.168.1.133</code>)中KeepAlived的配置如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">vrrp_script chk_service_ok &#123;</span><br><span class="line">       script <span class="string">"netstat -na | grep LISTEN | grep 3306 || killall keepalived"</span></span><br><span class="line">       interval 2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    interface enp0s3</span><br><span class="line">    state BACKUP    <span class="comment"># 通过下面的priority来区分MASTER和BACKUP，也只有如此，底下的nopreempt才有效</span></span><br><span class="line">    virtual_router_id 51</span><br><span class="line">    priority 80</span><br><span class="line">    nopreempt   <span class="comment"># 防止切换到从库后，主keepalived恢复后自动切换回主库</span></span><br><span class="line"></span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        192.168.1.134/24</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    track_script &#123;</span><br><span class="line">       chk_service_ok</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置完毕之后执行<code>sudo systemctl restart keepalived</code>重新启动keepalived。</p>
+<h1 id="功能验证"><a class="markdownIt-Anchor" href="#功能验证"></a> 功能验证</h1>
+<h2 id="正常情况下的验证"><a class="markdownIt-Anchor" href="#正常情况下的验证"></a> 正常情况下的验证</h2>
+<p>首先，通过<code>ip a</code>可以看到VIP在Mysql_01(<code>192.168.1.132</code>)上：</p>
+<img src="/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-05-22-53-36.png" title="[blog.ruanxinyu.cn]">
+<p>在Mysql_01(<code>192.168.1.132</code>)上执行<code>mysql -u root -p</code>进入到mysql的控制台， 创建数据库<code>create database database_01;</code>;<br>
+在Mysql_02(<code>192.168.1.133</code>)上执行<code>mysql -u root -p</code>进入到mysql的控制台， 创建数据库<code>create database database_02;</code>;</p>
+<p>然后分别在两台机器上执行<code>show databases；</code>，可以看到两台mysql中都包含<code>database_01</code>和<code>database_02</code>，说明mysql的主主同步生效。</p>
+<img src="/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-05-22-59-11.png" title="[blog.ruanxinyu.cn]">
+<h2 id="异常恢复下的验证"><a class="markdownIt-Anchor" href="#异常恢复下的验证"></a> 异常恢复下的验证</h2>
+<p>Mysql_01(<code>192.168.1.132</code>)上执行<code>sudo systemctl stop mysql.service</code>停止mysql以模拟故障，此时可以看到VIP(<code>192.168.1.134</code>)已经漂移到mysql_02上，我们ssh连接VIP并往数据库中创建一个数据库<code>create database database_vip;</code>，可以看到是可以正常创建的，说明keepalived已经能保证mysql的高可用。</p>
+<img src="/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-05-23-09-29.png" title="[blog.ruanxinyu.cn]">
+<p>此时我们重新启动Mysql_01(<code>192.168.1.132</code>)以模拟故障恢复，此时发现VIP还在mysql_02上，同时Mysql_01的数据库中也已经存在<code>database_vip</code>数据库。说明故障恢复后数据仍旧能够正常同步。</p>
+<img src="/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/2018-10-05-23-12-07.png" title="[blog.ruanxinyu.cn]">
+<h1 id="常见操作说明"><a class="markdownIt-Anchor" href="#常见操作说明"></a> 常见操作说明</h1>
+<h2 id="彻底解除主从复制关系"><a class="markdownIt-Anchor" href="#彻底解除主从复制关系"></a> 彻底解除主从复制关系</h2>
+<ol>
+<li><code>stop slave</code></li>
+<li><code>reset slave</code>; 或直接删除<code>master.info</code>和<code>relay-log.info</code>这两个文件</li>
+<li>修改<code>my.cnf</code>删除主从相关配置参数</li>
+</ol>
+<h2 id="让slave不随mysql自动启动"><a class="markdownIt-Anchor" href="#让slave不随mysql自动启动"></a> 让slave不随MySQL自动启动</h2>
+<p>修改<code>my.cnf</code>, 在<code>[mysqld]</code>中增加<code>skip-slave-start</code>选项</p>
+<h2 id="数据备份的快速恢复"><a class="markdownIt-Anchor" href="#数据备份的快速恢复"></a> 数据备份的快速恢复</h2>
+<p>执行如下命令备份，可以保留 <code>file</code> 和 <code>position</code> 的信息，在新搭建一个slave的时候，还原完数据库， <code>file</code> 和 <code>position</code> 的信息也随之更新，接着再<code>start slave</code> 就可以很迅速的完成增量同步：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump <span class="comment">--master-data --single-transaction --user=username --password=password dbname&gt; dumpfilename</span></span><br></pre></td></tr></table></figure>
+<h2 id="如何限制复制哪些数据库"><a class="markdownIt-Anchor" href="#如何限制复制哪些数据库"></a> 如何限制复制哪些数据库</h2>
+<ol>
+<li>在执行<code>grant</code>授权的时候就限定数据库</li>
+<li>在主服务器上限定<code>binlog_do_db = 数据库名</code></li>
+<li>主服务器上不限定数据库，在从服务器上限定<code>replicate-do-db = 数据库名</code></li>
+</ol>
+<h2 id="修改log-bin和relay_log后重启报错"><a class="markdownIt-Anchor" href="#修改log-bin和relay_log后重启报错"></a> 修改<code>log-bin</code>和<code>relay_log</code>后重启报错</h2>
+<p>先执行<code>reset slave</code>，然后执行<code>start slave</code>即可。</p>
+<h2 id="日志出现warning-ip-address-xxxx-could-not-be-resolved-name-or-service-not-known"><a class="markdownIt-Anchor" href="#日志出现warning-ip-address-xxxx-could-not-be-resolved-name-or-service-not-known"></a> 日志出现<code>[Warning] IP address 'xxxx' could not be resolved: Name or service not known</code></h2>
+<p>mysql默认会反向解析DNS，对于访问者Mysql不会判断是hosts还是ip都会进行dns反向解析，我们可以通过在<code>my.cnf</code>中添加<code>skip-name-resolve</code>禁用dns反查即可。</p>
+<h2 id="主备同步报fatal-error-the-slave-io-thread-stops-because-master-and-slave-have-equal-mysql-server-uuids"><a class="markdownIt-Anchor" href="#主备同步报fatal-error-the-slave-io-thread-stops-because-master-and-slave-have-equal-mysql-server-uuids"></a> 主备同步报：<code>Fatal error: The slave I/O thread stops because master and slave have equal MySQL server UUIDs</code></h2>
+<p>是因为数据目录下的<code>/var/lib/mysql/auto.cnf</code>文件是一样导致的，我们可以删除备机上的该文件，然后重启mysql</p>
+
+
+
+    <div class="row border-top pre-next-link">
+        <div class="col-6">
+            上一篇：
+            
+            <a href="/posts/技术文档/Git常见问题操作指导/"><h6 class="d-inline">Git常见问题操作指导</h6></a>
+            
+        </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/技术文档/TypeScript学习记录-1/"><h6 class="d-inline">TypeScript学习记录-1</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql复制模式及原理"><span class="toc-text"> Mysql复制模式及原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复制原理"><span class="toc-text"> 复制原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于sql语句的复制sbr"><span class="toc-text"> 基于SQL语句的复制(SBR)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于行的复制rbr"><span class="toc-text"> 基于行的复制(RBR)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#混合模式复制mbr"><span class="toc-text"> 混合模式复制(MBR)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决的问题"><span class="toc-text"> 解决的问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基础环境说明"><span class="toc-text"> 基础环境说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql的主从同步设置"><span class="toc-text"> Mysql的主从同步设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置mycnf文件"><span class="toc-text"> 配置my.cnf文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建复制用户"><span class="toc-text"> 创建复制用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行change-master-to语句"><span class="toc-text"> 执行CHANGE MASTER TO语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重启并查看同步状态"><span class="toc-text"> 重启并查看同步状态</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#keepalived的配置"><span class="toc-text"> KeepAlived的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#功能验证"><span class="toc-text"> 功能验证</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正常情况下的验证"><span class="toc-text"> 正常情况下的验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异常恢复下的验证"><span class="toc-text"> 异常恢复下的验证</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常见操作说明"><span class="toc-text"> 常见操作说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#彻底解除主从复制关系"><span class="toc-text"> 彻底解除主从复制关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#让slave不随mysql自动启动"><span class="toc-text"> 让slave不随MySQL自动启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据备份的快速恢复"><span class="toc-text"> 数据备份的快速恢复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何限制复制哪些数据库"><span class="toc-text"> 如何限制复制哪些数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改log-bin和relay_log后重启报错"><span class="toc-text"> 修改log-bin和relay_log后重启报错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日志出现warning-ip-address-xxxx-could-not-be-resolved-name-or-service-not-known"><span class="toc-text"> 日志出现[Warning] IP address &#39;xxxx&#39; could not be resolved: Name or service not known</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主备同步报fatal-error-the-slave-io-thread-stops-because-master-and-slave-have-equal-mysql-server-uuids"><span class="toc-text"> 主备同步报：Fatal error: The slave I/O thread stops because master and slave have equal MySQL server UUIDs</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </main>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/crypto-js.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="阮新宇的成长记录">
+    <meta name="author" content="阮新宇">
+    <meta name="keywords" content="飞行手册">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Mysql常见问题操作指导 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+
+    <meta name="description" content="快速查询目录  启动  windows如何启动mysql 执行net start mysql80（需要用管理员权限启动，否则会报拒绝访问错误），或者通过如下方式：   windows下mysq的数据和配置文件存放位置 默认是在C:\ProgramData\MySQL\目录下  windows启动mysql报拒绝访问错误 使用管理员权限启动即可，net start mysql80  windows">
+<meta name="keywords" content="飞行手册">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mysql常见问题操作指导">
+<meta property="og:url" content="http://ruanxinyu.github.io/posts/技术文档/Mysql常见问题操作指导/index.html">
+<meta property="og:site_name" content="RuanXinYu&#39;s Blog">
+<meta property="og:description" content="快速查询目录  启动  windows如何启动mysql 执行net start mysql80（需要用管理员权限启动，否则会报拒绝访问错误），或者通过如下方式：   windows下mysq的数据和配置文件存放位置 默认是在C:\ProgramData\MySQL\目录下  windows启动mysql报拒绝访问错误 使用管理员权限启动即可，net start mysql80  windows">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Mysql常见问题操作指导/2018-10-06-11-16-52.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Mysql常见问题操作指导/2018-10-06-11-41-08.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Mysql常见问题操作指导/2018-10-06-11-46-31.png">
+<meta property="og:updated_time" content="2018-10-17T12:11:09.243Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mysql常见问题操作指导">
+<meta name="twitter:description" content="快速查询目录  启动  windows如何启动mysql 执行net start mysql80（需要用管理员权限启动，否则会报拒绝访问错误），或者通过如下方式：   windows下mysq的数据和配置文件存放位置 默认是在C:\ProgramData\MySQL\目录下  windows启动mysql报拒绝访问错误 使用管理员权限启动即可，net start mysql80  windows">
+<meta name="twitter:image" content="http://ruanxinyu.github.io/posts/技术文档/Mysql常见问题操作指导/2018-10-06-11-16-52.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/avatar.png">
+</head>
+<body class="bg-white">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="url_for('/')">
+        <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/"  >主页</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/inbox"  >收集箱</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/questions"  >速查表</a>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">项目</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/posts/VirtualBox安装Ubuntu教程/?project=Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统"  >Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/tags"  >标签</a>
+                        
+                        <a class="dropdown-item" href="/categories"  >分类</a>
+                        
+                        <a class="dropdown-item" href="/archives"  >归档</a>
+                        
+                        <a class="dropdown-item" href="/pages/bookmarks"  >书签收藏</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">关于</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/pages/about"  >规划介绍</a>
+                        
+                        <a class="dropdown-item" href="https://github.com/RuanXinyu" target="_blank" >github</a>
+                        
+                    </div>
+                </li>
+            
+        
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="速查表搜索" autofocus="autofocus" aria-label="Search" id="global_search_text">
+          <button class="btn my-2 my-sm-0" type="submit" id="global_search">搜索</button>
+        </form>
+    </div>
+</nav>
+    <main role="main" class="container-fluid mt-5">
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+    <div class="row">
+        <div class="col-10 col-content border-left border-right">
+            <div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            
+                <li class="breadcrumb-item"><a href="/categories/飞行手册/" class="font-weight-bold text-primary">飞行手册</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">Mysql常见问题操作指导</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/飞行手册/" class="font-weight-bold text-danger">飞行手册</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-10-06 09:39:34</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="快速查询目录"><a class="markdownIt-Anchor" href="#快速查询目录"></a> 快速查询目录</h1>
+<h1 id="启动"><a class="markdownIt-Anchor" href="#启动"></a> 启动</h1>
+<h2 id="windows如何启动mysql"><a class="markdownIt-Anchor" href="#windows如何启动mysql"></a> windows如何启动mysql</h2>
+<p>执行<code>net start mysql80</code>（需要用管理员权限启动，否则会报拒绝访问错误），或者通过如下方式：</p>
+<img src="/posts/技术文档/Mysql常见问题操作指导/2018-10-06-11-16-52.png" title="[blog.ruanxinyu.cn]">
+<h2 id="windows下mysq的数据和配置文件存放位置"><a class="markdownIt-Anchor" href="#windows下mysq的数据和配置文件存放位置"></a> windows下mysq的数据和配置文件存放位置</h2>
+<p>默认是在<code>C:\ProgramData\MySQL\</code>目录下</p>
+<h2 id="windows启动mysql报拒绝访问错误"><a class="markdownIt-Anchor" href="#windows启动mysql报拒绝访问错误"></a> windows启动mysql报拒绝访问错误</h2>
+<p>使用管理员权限启动即可，<code>net start mysql80</code></p>
+<h2 id="windows下mysql的日志位置"><a class="markdownIt-Anchor" href="#windows下mysql的日志位置"></a> windows下mysql的日志位置</h2>
+<p>在<code>C:\ProgramData\MySQL\MySQL Server 8.0\Data\</code>下，可以通过<code>C:\ProgramData\MySQL\MySQL Server 8.0\my.ini</code>看到具体的文件名称：</p>
+<img src="/posts/技术文档/Mysql常见问题操作指导/2018-10-06-11-41-08.png" title="[blog.ruanxinyu.cn]">
+<h2 id="windows下mysql启动失败"><a class="markdownIt-Anchor" href="#windows下mysql启动失败"></a> windows下mysql启动失败</h2>
+<p>查看mysql的错误日志发现如下内容<code>TCP/IP, --shared-memory, or --named-pipe should be configured on NT OS</code>。</p>
+<p>有两种解决方式，一种是取消注释<code>enable-named-pipe</code>， 二是取消注释<code>shared-memory</code>。这两个参数在<code>my.ini</code>的位置是在一起的，如下所示：</p>
+<img src="/posts/技术文档/Mysql常见问题操作指导/2018-10-06-11-46-31.png" title="[blog.ruanxinyu.cn]">
+<h1 id="权限"><a class="markdownIt-Anchor" href="#权限"></a> 权限</h1>
+<h2 id="如何添加用户权限"><a class="markdownIt-Anchor" href="#如何添加用户权限"></a> 如何添加用户权限</h2>
+<p><strong>老版本</strong><br>
+授权格式：<code>grant 权限 on 数据库.* to 用户名@登录主机 identified by &quot;密码&quot;;</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> all <span class="keyword">privileges</span> <span class="keyword">on</span> mall.* <span class="keyword">to</span> <span class="string">'malluser'</span>@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'mall@123'</span>;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
+<p>** 8.0版本: **<br>
+创建账户和赋予权限分开，如果采用上面的方式会提示<code>Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IDENTIFIED BY 'mall@1234''</code>,，因此需要采用下面的方式：</p>
+<p>创建账户: <code>create user '用户名'@'访问主机' identified by '密码';</code></p>
+<p>赋予权限: <code>grant 权限列表 on 数据库 to '用户名'@'访问主机';</code>（修改权限时在后面加<code>with grant option</code>）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> malluser@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'mall@123'</span>;</span><br><span class="line"><span class="keyword">grant</span> all <span class="keyword">privileges</span> <span class="keyword">on</span> mall.* <span class="keyword">to</span> <span class="string">'malluser'</span>@<span class="string">'%'</span> <span class="keyword">with</span> <span class="keyword">grant</span> <span class="keyword">option</span>;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="忘记root的密码"><a class="markdownIt-Anchor" href="#忘记root的密码"></a> 忘记root的密码</h2>
+<p>首先，编辑<code>sudo vim /etc/mysql/my.cnf</code>，在<code>[mysqld]</code>下添加<code>skip-grant-tables</code>，然后重启<code>sudo systemctl restart mysql.service</code>，然后就可以通过<code>mysql -u root</code>进入到mysql的控制台。</p>
+<p>执行<code>mysql</code>命令进入到mysql的控制台，执行如下命令修改密码：</p>
+<p><strong>mysql 5.7.9版本之前</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> mysql;</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> <span class="keyword">Password</span> = <span class="keyword">password</span> ( <span class="string">'new-password'</span> ) <span class="keyword">where</span> <span class="keyword">User</span> = <span class="string">'root'</span>;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>mysql 5.7.9版本之后</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> mysql;</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> authentication_string=<span class="string">''</span> <span class="keyword">where</span> <span class="keyword">user</span>=<span class="string">'root'</span>;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">user</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'root@123'</span>;</span><br></pre></td></tr></table></figure>
+<p>最后，删除<code>skip-grant-tables</code>配置并重启mysql即可完成密码的修改。</p>
+<h2 id="修改权限提示skip-grant-tables下不能执行该操作"><a class="markdownIt-Anchor" href="#修改权限提示skip-grant-tables下不能执行该操作"></a> 修改权限提示–skip-grant-tables下不能执行该操作</h2>
+<p>提示<code>The MySQL server is running with the --skip-grant-tables option so it cannot execute this statement</code>，在执行之前执行一下<code>flush privileges;</code>即可。</p>
+
+
+
+    <div class="row border-top pre-next-link">
+        <div class="col-6">
+            上一篇：
+            
+            <a href="/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/"><h6 class="d-inline">基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能</h6></a>
+            
+        </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/技术文档/Ubuntu常见问题操作指导/"><h6 class="d-inline">Ubuntu常见问题操作指导</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#快速查询目录"><span class="toc-text"> 快速查询目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#启动"><span class="toc-text"> 启动</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#windows如何启动mysql"><span class="toc-text"> windows如何启动mysql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows下mysq的数据和配置文件存放位置"><span class="toc-text"> windows下mysq的数据和配置文件存放位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows启动mysql报拒绝访问错误"><span class="toc-text"> windows启动mysql报拒绝访问错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows下mysql的日志位置"><span class="toc-text"> windows下mysql的日志位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows下mysql启动失败"><span class="toc-text"> windows下mysql启动失败</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#权限"><span class="toc-text"> 权限</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何添加用户权限"><span class="toc-text"> 如何添加用户权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#忘记root的密码"><span class="toc-text"> 忘记root的密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改权限提示skip-grant-tables下不能执行该操作"><span class="toc-text"> 修改权限提示–skip-grant-tables下不能执行该操作</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </main>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/crypto-js.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="阮新宇的成长记录">
+    <meta name="author" content="阮新宇">
+    <meta name="keywords" content="环境搭建">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Maven安装教程 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+
+    <meta name="description" content="阮新宇的成长记录">
+<meta name="keywords" content="环境搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maven安装教程">
+<meta property="og:url" content="http://ruanxinyu.github.io/posts/技术文档/Maven安装教程/index.html">
+<meta property="og:site_name" content="RuanXinYu&#39;s Blog">
+<meta property="og:description" content="阮新宇的成长记录">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-21T03:27:56.945Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Maven安装教程">
+<meta name="twitter:description" content="阮新宇的成长记录">
+    
+        <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/avatar.png">
+</head>
+<body class="bg-white">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="url_for('/')">
+        <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/"  >主页</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/inbox"  >收集箱</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/questions"  >速查表</a>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">项目</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/posts/VirtualBox安装Ubuntu教程/?project=Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统"  >Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/tags"  >标签</a>
+                        
+                        <a class="dropdown-item" href="/categories"  >分类</a>
+                        
+                        <a class="dropdown-item" href="/archives"  >归档</a>
+                        
+                        <a class="dropdown-item" href="/pages/bookmarks"  >书签收藏</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">关于</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/pages/about"  >规划介绍</a>
+                        
+                        <a class="dropdown-item" href="https://github.com/RuanXinyu" target="_blank" >github</a>
+                        
+                    </div>
+                </li>
+            
+        
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="速查表搜索" autofocus="autofocus" aria-label="Search" id="global_search_text">
+          <button class="btn my-2 my-sm-0" type="submit" id="global_search">搜索</button>
+        </form>
+    </div>
+</nav>
+    <main role="main" class="container-fluid mt-5">
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+    <div class="row">
+        <div class="col-10 col-content border-left border-right">
+            <div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            
+                <li class="breadcrumb-item"><a href="/categories/环境搭建/" class="font-weight-bold text-primary">环境搭建</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">Maven安装教程</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-10-20 20:41:12</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    
+
+
+    <div class="row border-top pre-next-link">
+        <div class="col-6">
+            上一篇：
+            
+            <a href="/posts/如何阅读一本书/"><h6 class="d-inline">读书笔记：如何阅读一本书</h6></a>
+            
+        </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/博客/博客操作说明/"><h6 class="d-inline">博客操作说明</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        
+    
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </main>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/crypto-js.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

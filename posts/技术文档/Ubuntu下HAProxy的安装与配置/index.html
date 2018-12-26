@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="阮新宇的成长记录">
+    <meta name="author" content="阮新宇">
+    <meta name="keywords" content="环境搭建">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Ubuntu下HAProxy的安装与配置 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+
+    <meta name="description" content="HAProxy的简介 HAProxy是一款提供高可用性、负载均衡以及基于TCP（第四层）和HTTP（第七层）应用的代理软件，支持虚拟主机，它是免费、快速并且可靠的一种解决方案。 HAProxy实现了一种事件驱动、单一进程模型，此模型支持非常大的并发连接数，特别适用于那些负载特大的web站点，完全可以支持数以万计的并发连接，根据官方文档，haproxy可以跑满10Gbps。并且它的运行模式使得它可">
+<meta name="keywords" content="环境搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu下HAProxy的安装与配置">
+<meta property="og:url" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下HAProxy的安装与配置/index.html">
+<meta property="og:site_name" content="RuanXinYu&#39;s Blog">
+<meta property="og:description" content="HAProxy的简介 HAProxy是一款提供高可用性、负载均衡以及基于TCP（第四层）和HTTP（第七层）应用的代理软件，支持虚拟主机，它是免费、快速并且可靠的一种解决方案。 HAProxy实现了一种事件驱动、单一进程模型，此模型支持非常大的并发连接数，特别适用于那些负载特大的web站点，完全可以支持数以万计的并发连接，根据官方文档，haproxy可以跑满10Gbps。并且它的运行模式使得它可">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下HAProxy的安装与配置/2018-09-27-22-03-48.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下HAProxy的安装与配置/2018-09-26-15-08-13.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下HAProxy的安装与配置/2018-09-26-13-22-19.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下HAProxy的安装与配置/2018-09-27-22-18-00.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下HAProxy的安装与配置/2018-09-27-22-19-32.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下HAProxy的安装与配置/2018-09-27-22-20-09.png">
+<meta property="og:updated_time" content="2018-10-14T02:08:06.738Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu下HAProxy的安装与配置">
+<meta name="twitter:description" content="HAProxy的简介 HAProxy是一款提供高可用性、负载均衡以及基于TCP（第四层）和HTTP（第七层）应用的代理软件，支持虚拟主机，它是免费、快速并且可靠的一种解决方案。 HAProxy实现了一种事件驱动、单一进程模型，此模型支持非常大的并发连接数，特别适用于那些负载特大的web站点，完全可以支持数以万计的并发连接，根据官方文档，haproxy可以跑满10Gbps。并且它的运行模式使得它可">
+<meta name="twitter:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下HAProxy的安装与配置/2018-09-27-22-03-48.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/avatar.png">
+</head>
+<body class="bg-white">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="url_for('/')">
+        <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/"  >主页</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/inbox"  >收集箱</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/questions"  >速查表</a>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">项目</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/posts/VirtualBox安装Ubuntu教程/?project=Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统"  >Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/tags"  >标签</a>
+                        
+                        <a class="dropdown-item" href="/categories"  >分类</a>
+                        
+                        <a class="dropdown-item" href="/archives"  >归档</a>
+                        
+                        <a class="dropdown-item" href="/pages/bookmarks"  >书签收藏</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">关于</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/pages/about"  >规划介绍</a>
+                        
+                        <a class="dropdown-item" href="https://github.com/RuanXinyu" target="_blank" >github</a>
+                        
+                    </div>
+                </li>
+            
+        
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="速查表搜索" autofocus="autofocus" aria-label="Search" id="global_search_text">
+          <button class="btn my-2 my-sm-0" type="submit" id="global_search">搜索</button>
+        </form>
+    </div>
+</nav>
+    <main role="main" class="container-fluid mt-5">
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+    <div class="row">
+        <div class="col-10 col-content border-left border-right">
+            <div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            
+                <li class="breadcrumb-item"><a href="/categories/环境搭建/" class="font-weight-bold text-primary">环境搭建</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">Ubuntu下HAProxy的安装与配置</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-09-25 07:07:50</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="haproxy的简介"><a class="markdownIt-Anchor" href="#haproxy的简介"></a> HAProxy的简介</h1>
+<p>HAProxy是一款提供高可用性、负载均衡以及基于TCP（第四层）和HTTP（第七层）应用的代理软件，支持虚拟主机，它是免费、快速并且可靠的一种解决方案。</p>
+<p>HAProxy实现了一种事件驱动、单一进程模型，此模型支持非常大的并发连接数，特别适用于那些负载特大的web站点，完全可以支持数以万计的并发连接，根据官方文档，haproxy可以跑满10Gbps。并且它的运行模式使得它可以很简单安全的整合进您当前的架构中，同时可以保护你的web服务器不被暴露到网络上。</p>
+<p>HAProxy支持全透明代理，可以用客户端IP地址或者任何其他地址来连接后端服务器，同时提供连接拒绝功能，可以有效的限制攻击蠕虫。</p>
+<h1 id="haproxy的安装"><a class="markdownIt-Anchor" href="#haproxy的安装"></a> HAProxy的安装</h1>
+<p>该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参考。HAProxy可以直接通过apt-get安装，也可以通过源码编译安装。</p>
+<h2 id="apt-get安装"><a class="markdownIt-Anchor" href="#apt-get安装"></a> apt-get安装</h2>
+<p>Ubuntu下执行<code>sudo apt-get install haproxy</code>命令即可安装。</p>
+<p>通过<code>which haproxy</code>可以看到haproxy是安装在<code>/usr/sbin/haproxy</code>下，HAProxy的配置文件路径为：<code>/etc/haproxy/haproxy.cfg</code></p>
+<p>使用<code>sudo haproxy -f /etc/haproxy/haproxy.cfg</code>即可启动HAProxy。</p>
+<h2 id="源码编译安装"><a class="markdownIt-Anchor" href="#源码编译安装"></a> 源码编译安装</h2>
+<p>源码安装的脚本可以点击此处下载： <a href="/posts/技术文档/Ubuntu下HAProxy的安装与配置/haproxy_install.sh" title="haproxy_install.sh">haproxy_install.sh</a>，下面对安装过程做一下说明。</p>
+<p>一般源码安装目录为<code>/usr/local/haproxy</code>，在源码目录中的<code>README</code>文件有安装说明，下面罗列出几点内容：</p>
+<ol>
+<li>在执行make命令之前是不需要执行<code>./configure</code>命令的，因此执行的参数都在make命令中指定</li>
+<li>我们操作系统为Ubuntu 18.04.1，不涉及嵌入式编译，因此使用<code>TARGET=linux26 ARCH=x86_64</code>参数</li>
+<li>PCRE(Perl Compatible Regular Expressions)的速度是其他的2-10倍，因此添加<code>USE_PCRE=1</code>选项，但是前提需要安装<code>libpcre3 libpcre3-dev</code></li>
+<li>为支持HTTPS协议，我们需要添加<code>USE_OPENSSL=1</code>选项，但是前提需要安装<code>libssl-dev</code></li>
+<li>为支持HTTP的压缩功能，我们需要添加<code>USE_ZLIB=1</code>，但是前提需要安装<code>zlib1g-dev</code></li>
+<li>为了保证安装目录为<code>/usr/local/haproxy</code>，我们需要在<code>make install</code>命令中指定<code>PREFIX</code>参数</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential libssl-dev <span class="comment"># 安装编译工具和openssl依赖</span></span><br><span class="line">sudo apt-get install zlib1g-dev</span><br><span class="line">sudo apt-get install libpcre3 libpcre3-dev</span><br><span class="line">wget https://www.haproxy.org/download/1.8/src/haproxy-1.8.8.tar.gz <span class="comment"># 下载源码</span></span><br><span class="line">tar -zxvf haproxy-1.8.8.tar.gz <span class="comment"># 解压源码</span></span><br><span class="line"><span class="built_in">cd</span> haproxy-1.8.8/</span><br><span class="line">make TARGET=linux26 ARCH=x86_64 USE_PCRE=1 USE_OPENSSL=1 USE_ZLIB=1 <span class="comment"># 编译源码，从README中可以看出如何编译</span></span><br><span class="line">sudo make install PREFIX=/usr/<span class="built_in">local</span>/haproxy <span class="comment"># 安装到安装目录，需要使用root权限</span></span><br><span class="line"></span><br><span class="line">sudo mkdir -p /etc/haproxy</span><br><span class="line">sudo cp -a examples/transparent_proxy.cfg /etc/haproxy/haproxy.cfg</span><br></pre></td></tr></table></figure>
+<p>启动HAProxy: <code>sudo /usr/local/haproxy/sbin/haproxy -f /etc/haproxy/haproxy.cfg</code></p>
+<p><strong>可能遇到的问题</strong></p>
+<ol>
+<li>提示<code>make is not found</code></li>
+</ol>
+<blockquote>
+<p>源码安装需要安装编译器将源码转换为二进制可执行文件，因此执行<code>sudo apt-get install build-essential</code>安装编译器即可</p>
+</blockquote>
+<ol>
+<li>启动时提示<code>parsing [/etc/haproxy/haproxy.cfg:12] : unknown keyword 'ca-base' in 'global' section</code></li>
+</ol>
+<blockquote>
+<p>编译haproxy时没有使能openssl的支持，安装<code>libssl-dev</code>并在编译时指定<code>USE_OPENSSL=1</code>选项即可</p>
+</blockquote>
+<h2 id="开机启动"><a class="markdownIt-Anchor" href="#开机启动"></a> 开机启动</h2>
+<h3 id="方式1rclocal"><a class="markdownIt-Anchor" href="#方式1rclocal"></a> 方式1：rc.local</h3>
+<p>编辑<code>sudo vim /etc/rc.local</code>, 在最下面添加<code>sudo /usr/local/haproxy/sbin/haproxy -f /etc/haproxy/haproxy.cfg</code>语句即可。</p>
+<h3 id="方式2systemctl"><a class="markdownIt-Anchor" href="#方式2systemctl"></a> 方式2：systemctl</h3>
+<p>我们还是采用systemd的方式添加到系统服务，执行如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">(</span><br><span class="line">cat &lt;&lt;EOF</span><br><span class="line">[Unit]</span><br><span class="line">Description=HAproxy Daemon</span><br><span class="line">After=syslog.target network-online.target</span><br><span class="line">Wants=network-online.target</span><br><span class="line">ConditionFileNotEmpty=/etc/haproxy/haproxy.cfg</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">KillMode=process</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/haproxy/sbin/haproxy -f /etc/haproxy/haproxy.cfg</span><br><span class="line">ExecReload=/bin/<span class="built_in">kill</span> -HUP <span class="variable">$MAINPID</span></span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">EOF</span><br><span class="line">) &gt; haproxy.service</span><br><span class="line"></span><br><span class="line">sudo cp -a haproxy.service /lib/systemd/system/haproxy.service</span><br><span class="line">sudo ln -s /lib/systemd/system/haproxy.service /etc/systemd/system/multi-user.target.wants/haproxy.service</span><br></pre></td></tr></table></figure>
+<p>启动haproxy进程，并设置为开机启动，通过<code>sudo systemctl status haproxy</code>查看状态：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start haproxy  <span class="comment"># 注意： 如果配置文件不正确的话HPAProxy是启动不起来的</span></span><br><span class="line">sudo systemctl status haproxy</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> haproxy</span><br></pre></td></tr></table></figure>
+<h1 id="haproxy的配置"><a class="markdownIt-Anchor" href="#haproxy的配置"></a> HAProxy的配置</h1>
+<p>下面我们以一个最简单的用例说明如何配置HAProxy，架构图如下，<code>192.168.1.102</code>上安装有HAProxy, <code>8081</code>端口转向<code>192.168.1.106</code>服务器，<code>8082</code>端口转向<code>192.168.1.107</code>服务器。因为HAProxy是提供有统计功能的，因此打开该功能，并监听在<code>8083</code>端口。</p>
+<img src="/posts/技术文档/Ubuntu下HAProxy的安装与配置/2018-09-27-22-03-48.png" title="[blog.ruanxinyu.cn]">
+<h2 id="配置haproxy"><a class="markdownIt-Anchor" href="#配置haproxy"></a> 配置HAProxy</h2>
+<p>编辑<code>sudo vim /etc/haproxy/haproxy.cfg</code>文件，写入如下的内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">global</span><br><span class="line">    daemon                          <span class="comment"># 配置为后台启动</span></span><br><span class="line">defaults</span><br><span class="line">    mode http</span><br><span class="line">    timeout connect 30s             <span class="comment"># 连接超时</span></span><br><span class="line">    timeout client 30s              <span class="comment"># 客户端超时</span></span><br><span class="line">    timeout server 30s              <span class="comment"># 服务器超时</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###########################################################</span></span><br><span class="line">frontend app01</span><br><span class="line">    <span class="built_in">bind</span> *:8081                     <span class="comment"># 绑定端口</span></span><br><span class="line">    default_backend app01_backend   <span class="comment"># 默认的backend的名称</span></span><br><span class="line"></span><br><span class="line">backend app01_backend</span><br><span class="line">    server web1 192.168.1.106:80    <span class="comment"># 设置后端服务器</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###########################################################</span></span><br><span class="line">frontend app02</span><br><span class="line">    <span class="built_in">bind</span> *:8082                     <span class="comment"># 绑定端口</span></span><br><span class="line">    default_backend app02_backend   <span class="comment"># 默认的backend的名称</span></span><br><span class="line"></span><br><span class="line">backend app02_backend</span><br><span class="line">    server web1 192.168.1.107:80    <span class="comment"># 设置后端服务器</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###########################################################</span></span><br><span class="line">listen stats</span><br><span class="line">    <span class="built_in">bind</span> *:8083                     <span class="comment"># 设置监控组的名称</span></span><br><span class="line">    stats refresh 30s               <span class="comment"># 统计页面自动刷新时间</span></span><br><span class="line">    stats uri /stats                <span class="comment"># 统计页面url</span></span><br></pre></td></tr></table></figure>
+<p>然后执行<code>sudo /usr/local/haproxy/sbin/haproxy -f /etc/haproxy/haproxy.cfg</code>启动HAProxy，通过<code>sudo netstat -lntp | grep haproxy</code>，可以看出HAProxy已经监听配置文件中的三个端口：</p>
+<img src="/posts/技术文档/Ubuntu下HAProxy的安装与配置/2018-09-26-15-08-13.png" title="[blog.ruanxinyu.cn]">
+<p><strong>可能遇到的问题</strong></p>
+<ol>
+<li>启动时提示<code>unknown keyword</code>，如下所示：</li>
+</ol>
+<blockquote>
+<p>从错误信息中可以看出keyword前都多了好多空格，说明我们的配置文件没有正确的使用tab键</p>
+</blockquote>
+<img src="/posts/技术文档/Ubuntu下HAProxy的安装与配置/2018-09-26-13-22-19.png" title="[blog.ruanxinyu.cn]">
+<ol>
+<li>启动HAProxy后配置文件没有生效</li>
+</ol>
+<blockquote>
+<p>因为之前启动的HAProxy进程没有关闭，可以执行<code>sudo killall haproxy</code>关闭进程。</p>
+</blockquote>
+<h2 id="搭建apache服务器"><a class="markdownIt-Anchor" href="#搭建apache服务器"></a> 搭建Apache服务器</h2>
+<p>我们使用Apache服务器来模拟HAProxy后端的服务器，首先分别在<code>192.168.1.106</code>和<code>192.168.1.107</code>两台机器上执行<code>sudo apt-get install apache2</code>，完成后Apache会自动启动并监听80端口，此时在浏览器中访问对应机器，既可以看到Apache2的首页，默认使用的首页文件路径为<code>/var/www/html/index.html</code>。</p>
+<p>为了对两台机器做一下区分，我们做如下操作：</p>
+<ol>
+<li>在<code>192.168.1.106</code>执行<code>sudo sh -c 'echo &quot;This is apache server 01&quot; &gt; /var/www/html/index.html'</code></li>
+<li>在<code>192.168.1.107</code>执行<code>sudo sh -c 'echo &quot;This is apache server 02&quot; &gt; /var/www/html/index.html'</code></li>
+</ol>
+<p>此时分别访问<code>http://192.168.1.106/</code>和<code>http://192.168.1.107/</code>可以看到下面的界面：</p>
+<img src="/posts/技术文档/Ubuntu下HAProxy的安装与配置/2018-09-27-22-18-00.png" title="[blog.ruanxinyu.cn]">
+<h1 id="haproxy的验证"><a class="markdownIt-Anchor" href="#haproxy的验证"></a> HAProxy的验证</h1>
+<p>此时访问HAProxy（<code>192.168.1.102</code>）的<code>8081</code>和<code>8082</code>可以看到分别访问到后端的<code>192.168.1.106</code>和<code>192.168.1.107</code>的<code>80</code>端口，如下所示，说明HAProxy的功能已经生效。</p>
+<img src="/posts/技术文档/Ubuntu下HAProxy的安装与配置/2018-09-27-22-19-32.png" title="[blog.ruanxinyu.cn]">
+<p>访问HAProxy的<code>8083</code>端口：<code>http://192.168.1.102:8083/stats</code>，可以看到HAProxy自带的的统计数据页面，如下所示：</p>
+<img src="/posts/技术文档/Ubuntu下HAProxy的安装与配置/2018-09-27-22-20-09.png" title="[blog.ruanxinyu.cn]">
+<h1 id="haproxy详细配置说明高级"><a class="markdownIt-Anchor" href="#haproxy详细配置说明高级"></a> HAProxy详细配置说明（高级）</h1>
+<p>对于初级使用者可以不必详细掌握所有的配置，只需要在使用的时候能查到即可，因此将说明放置在此处，参数说明来源于<code>https://www.linuxidc.com/Linux/2012-07/65350.htm</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">####################全局配置信息########################</span></span><br><span class="line"><span class="comment">#######参数是进程级的，通常和操作系统（OS）相关#########</span></span><br><span class="line">global</span><br><span class="line">  maxconn 20480 <span class="comment">#默认最大连接数</span></span><br><span class="line">  <span class="built_in">log</span> 127.0.0.1 local3 <span class="comment">#[err warning info debug]</span></span><br><span class="line">  chroot /var/haproxy <span class="comment">#chroot运行的路径</span></span><br><span class="line">  uid 99 <span class="comment">#所属运行的用户uid</span></span><br><span class="line">  gid 99 <span class="comment">#所属运行的用户组</span></span><br><span class="line">  daemon <span class="comment">#以后台形式运行haproxy</span></span><br><span class="line">  nbproc 1 <span class="comment">#进程数量(可以设置多个进程提高性能)</span></span><br><span class="line">  pidfile /var/run/haproxy.pid <span class="comment">#haproxy的pid存放路径,启动进程的用户必须有权限访问此文件</span></span><br><span class="line">  <span class="built_in">ulimit</span>-n 65535 <span class="comment">#ulimit的数量限制</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#####################默认的全局设置######################</span></span><br><span class="line"><span class="comment">##这些参数可以被利用配置到frontend，backend，listen组件##</span></span><br><span class="line">defaults</span><br><span class="line">  <span class="built_in">log</span> global</span><br><span class="line">  mode http <span class="comment">#所处理的类别 (#7层 http;4层tcp )</span></span><br><span class="line">  maxconn 20480 <span class="comment">#最大连接数</span></span><br><span class="line">  option httplog <span class="comment">#日志类别http日志格式</span></span><br><span class="line">  option httpclose <span class="comment">#每次请求完毕后主动关闭http通道</span></span><br><span class="line">  option dontlognull <span class="comment">#不记录健康检查的日志信息</span></span><br><span class="line">  option forwardfor <span class="comment">#如果后端服务器需要获得客户端真实ip需要配置的参数，可以从Http Header中获得客户端ip</span></span><br><span class="line">  option redispatch <span class="comment">#serverId对应的服务器挂掉后,强制定向到其他健康的服务器</span></span><br><span class="line">  option abortonclose <span class="comment">#当服务器负载很高的时候，自动结束掉当前队列处理比较久的连接</span></span><br><span class="line">  stats refresh 30 <span class="comment">#统计页面刷新间隔</span></span><br><span class="line">  retries 3 <span class="comment">#3次连接失败就认为服务不可用，也可以通过后面设置</span></span><br><span class="line">  balance roundrobin <span class="comment">#默认的负载均衡的方式,轮询方式</span></span><br><span class="line">  <span class="comment"># balance source #默认的负载均衡的方式,类似nginx的ip_hash</span></span><br><span class="line">  <span class="comment"># balance leastconn #默认的负载均衡的方式,最小连接</span></span><br><span class="line">  contimeout 5000 <span class="comment">#连接超时</span></span><br><span class="line">  clitimeout 50000 <span class="comment">#客户端超时</span></span><br><span class="line">  srvtimeout 50000 <span class="comment">#服务器超时</span></span><br><span class="line">  timeout check 2000 <span class="comment">#心跳检测超时</span></span><br><span class="line"></span><br><span class="line"><span class="comment">####################监控页面的设置#######################</span></span><br><span class="line">listen admin_status <span class="comment">#Frontend和Backend的组合体,监控组的名称，按需自定义名称</span></span><br><span class="line">  <span class="built_in">bind</span> 0.0.0.0:65532 <span class="comment">#监听端口</span></span><br><span class="line">  mode http <span class="comment">#http的7层模式</span></span><br><span class="line">  <span class="built_in">log</span> 127.0.0.1 local3 err <span class="comment">#错误日志记录</span></span><br><span class="line">  stats refresh 5s <span class="comment">#每隔5秒自动刷新监控页面</span></span><br><span class="line">  stats uri /admin?stats <span class="comment">#监控页面的url</span></span><br><span class="line">  stats realm itnihao\ itnihao <span class="comment">#监控页面的提示信息</span></span><br><span class="line">  stats auth admin:admin <span class="comment">#监控页面的用户和密码admin,可以设置多个用户名</span></span><br><span class="line">  stats auth admin1:admin1 <span class="comment">#监控页面的用户和密码admin1</span></span><br><span class="line">  stats hide-version <span class="comment">#隐藏统计页面上的HAproxy版本信息</span></span><br><span class="line">  stats admin <span class="keyword">if</span> TRUE <span class="comment">#手工启用/禁用,后端服务器(haproxy-1.4.9以后版本)</span></span><br><span class="line"></span><br><span class="line">  rrorfile 403 /etc/haproxy/errorfiles/403.http</span><br><span class="line">  rrorfile 500 /etc/haproxy/errorfiles/500.http</span><br><span class="line">  rrorfile 502 /etc/haproxy/errorfiles/502.http</span><br><span class="line">  rrorfile 503 /etc/haproxy/errorfiles/503.http</span><br><span class="line">  rrorfile 504 /etc/haproxy/errorfiles/504.http</span><br><span class="line"></span><br><span class="line"><span class="comment">#################HAProxy的日志记录内容设置###################</span></span><br><span class="line">  capture request header Host len 40</span><br><span class="line">  capture request header Content-Length len 10</span><br><span class="line">  capture request header Referer len 200</span><br><span class="line">  capture response header Server len 40</span><br><span class="line">  capture response header Content-Length len 10</span><br><span class="line">  capture response header Cache-Control len 8</span><br><span class="line"></span><br><span class="line"><span class="comment">#######################网站监测listen配置#####################</span></span><br><span class="line"><span class="comment">###########此用法主要是监控haproxy后端服务器的监控状态############</span></span><br><span class="line">listen site_status</span><br><span class="line">  <span class="built_in">bind</span> 0.0.0.0:1081 <span class="comment">#监听端口</span></span><br><span class="line">  mode http <span class="comment">#http的7层模式</span></span><br><span class="line">  <span class="built_in">log</span> 127.0.0.1 local3 err <span class="comment">#[err warning info debug]</span></span><br><span class="line">  monitor-uri /site_status <span class="comment">#网站健康检测URL，用来检测HAProxy管理的网站是否可以用，正常返回200，不正常返回503</span></span><br><span class="line">  acl site_dead nbsrv(server_web) lt 2 <span class="comment">#定义网站down时的策略当挂在负载均衡上的指定backend的中有效机器数小于1台时返回true</span></span><br><span class="line">  acl site_dead nbsrv(server_blog) lt 2</span><br><span class="line">  acl site_dead nbsrv(server_bbs) lt 2</span><br><span class="line">  monitor fail <span class="keyword">if</span> site_dead <span class="comment">#当满足策略的时候返回503，网上文档说的是500，实际测试为503</span></span><br><span class="line">  monitor-net 192.168.16.2/32 <span class="comment">#来自192.168.16.2的日志信息不会被记录和转发</span></span><br><span class="line">  monitor-net 192.168.16.3/32</span><br><span class="line"></span><br><span class="line"><span class="comment">########frontend配置############</span></span><br><span class="line"><span class="comment">#####注意，frontend配置里面可以定义多个acl进行匹配操作########</span></span><br><span class="line">frontend http_80_in</span><br><span class="line">  <span class="built_in">bind</span> 0.0.0.0:80 <span class="comment">#监听端口，即haproxy提供web服务的端口，和lvs的vip端口类似</span></span><br><span class="line">  mode http <span class="comment">#http的7层模式</span></span><br><span class="line">  <span class="built_in">log</span> global <span class="comment">#应用全局的日志配置</span></span><br><span class="line">  option httplog <span class="comment">#启用http的log</span></span><br><span class="line">  option httpclose <span class="comment">#每次请求完毕后主动关闭http通道，HA-Proxy不支持keep-alive模式</span></span><br><span class="line">  option forwardfor <span class="comment">#如果后端服务器需要获得客户端的真实IP需要配置次参数，将可以从Http Header中获得客户端IP</span></span><br><span class="line">  <span class="comment">########acl策略配置#############</span></span><br><span class="line">  acl itnihao_web hdr_reg(host) -i ^(www.itnihao.cn|ww1.itnihao.cn)$</span><br><span class="line">  <span class="comment">#如果请求的域名满足正则表达式中的2个域名返回true -i是忽略大小写</span></span><br><span class="line">  acl itnihao_blog hdr_dom(host) -i blog.itnihao.cn</span><br><span class="line">  <span class="comment">#如果请求的域名满足www.itnihao.cn返回true -i是忽略大小写</span></span><br><span class="line">  <span class="comment">#acl itnihao hdr(host) -i itnihao.cn</span></span><br><span class="line">  <span class="comment">#如果请求的域名满足itnihao.cn返回true -i是忽略大小写</span></span><br><span class="line">  <span class="comment">#acl file_req url_sub -i killall=</span></span><br><span class="line">  <span class="comment">#在请求url中包含killall=，则此控制策略返回true,否则为false</span></span><br><span class="line">  <span class="comment">#acl dir_req url_dir -i allow</span></span><br><span class="line">  <span class="comment">#在请求url中存在allow作为部分地址路径，则此控制策略返回true,否则返回false</span></span><br><span class="line">  <span class="comment">#acl missing_cl hdr_cnt(Content-length) eq 0</span></span><br><span class="line">  <span class="comment">#当请求的header中Content-length等于0时返回true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">########acl策略匹配相应#############</span></span><br><span class="line">  <span class="comment">#block if missing_cl</span></span><br><span class="line">  <span class="comment">#当请求中header中Content-length等于0阻止请求返回403</span></span><br><span class="line">  <span class="comment">#block if !file_req || dir_req</span></span><br><span class="line">  <span class="comment">#block表示阻止请求，返回403错误，当前表示如果不满足策略file_req，或者满足策略dir_req，则阻止请求</span></span><br><span class="line">  use_backend server_web <span class="keyword">if</span> itnihao_web</span><br><span class="line">  <span class="comment">#当满足itnihao_web的策略时使用server_web的backend</span></span><br><span class="line">  use_backend server_blog <span class="keyword">if</span> itnihao_blog</span><br><span class="line">  <span class="comment">#当满足itnihao_blog的策略时使用server_blog的backend</span></span><br><span class="line">  <span class="comment">#redirect prefix http://blog.itniaho.cn code 301 if itnihao</span></span><br><span class="line">  <span class="comment">#当访问itnihao.cn的时候，用http的301挑转到http://192.168.16.3</span></span><br><span class="line">  default_backend server_bbs</span><br><span class="line">  <span class="comment">#以上都不满足的时候使用默认server_bbs的backend</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##########backend的设置##############</span></span><br><span class="line"><span class="comment">#下面我将设置三组服务器 server_web，server_blog，server_bbs</span></span><br><span class="line"><span class="comment">##################backend server_web####################</span></span><br><span class="line">backend server_web</span><br><span class="line">  mode http <span class="comment">#http的7层模式</span></span><br><span class="line">  balance roundrobin <span class="comment">#负载均衡的方式，roundrobin平均方式</span></span><br><span class="line">  cookie SERVERID <span class="comment">#允许插入serverid到cookie中，serverid后面可以定义</span></span><br><span class="line">  option httpchk GET /index.html <span class="comment">#心跳检测的文件</span></span><br><span class="line">  server web1 192.168.16.2:80 cookie web1 check inter 1500 rise 3 fall 3 weight 1</span><br><span class="line">  <span class="comment">#服务器定义，cookie 1表示serverid为web1，check inter 1500是检测心跳频率rise 3是3次正确认为服务器可用，</span></span><br><span class="line">  <span class="comment">#fall 3是3次失败认为服务器不可用，weight代表权重</span></span><br><span class="line">  server web2 192.168.16.3:80 cookie web2 check inter 1500 rise 3 fall 3 weight 2</span><br><span class="line">  <span class="comment">#服务器定义，cookie 1表示serverid为web2，check inter 1500是检测心跳频率rise 3是3次正确认为服务器可用，</span></span><br><span class="line">  <span class="comment">#fall 3是3次失败认为服务器不可用，weight代表权重</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###################backend server_blog######################</span></span><br><span class="line">backend server_blog</span><br><span class="line">  mode http <span class="comment">#http的7层模式</span></span><br><span class="line">  balance roundrobin <span class="comment">#负载均衡的方式，roundrobin平均方式</span></span><br><span class="line">  cookie SERVERID <span class="comment">#允许插入serverid到cookie中，serverid后面可以定义</span></span><br><span class="line">  option httpchk GET /index.html <span class="comment">#心跳检测的文件</span></span><br><span class="line">  server blog1 192.168.16.2:80 cookie blog1 check inter 1500 rise 3 fall 3 weight 1</span><br><span class="line">  <span class="comment">#服务器定义，cookie 1表示serverid为blog1，check inter 1500是检测心跳频率rise 3是3次正确认为服务器可用，fall 3是3次失败认为服务器不可用，weight代表权重</span></span><br><span class="line">  server blog2 192.168.16.3:80 cookie blog2 check inter 1500 rise 3 fall 3 weight 2</span><br><span class="line">  <span class="comment">#服务器定义，cookie 1表示serverid为blog2，check inter 1500是检测心跳频率rise 3是3次正确认为服务器可用，fall 3是3次失败认为服务器不可用，weight代表权重</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##################backend server_bbs########################</span></span><br><span class="line">backend server_bbs</span><br><span class="line">  mode http <span class="comment">#http的7层模式</span></span><br><span class="line">  balance roundrobin <span class="comment">#负载均衡的方式，roundrobin平均方式</span></span><br><span class="line">  cookie SERVERID <span class="comment">#允许插入serverid到cookie中，serverid后面可以定义</span></span><br><span class="line">  option httpchk GET /index.html <span class="comment">#心跳检测的文件</span></span><br><span class="line">  server bbs1 192.168.16.2:80 cookie bbs1 check inter 1500 rise 3 fall 3 weight 1</span><br><span class="line">  <span class="comment">#服务器定义，cookie 1表示serverid为bbs1，check inter 1500是检测心跳频率rise 3是3次正确认为服务器可用，fall 3是3次失败认为服务器不可用，weight代表权重</span></span><br><span class="line">  server bbs2 192.168.16.3:80 cookie bbs2 check inter 1500 rise 3 fall 3 weight 2</span><br><span class="line">  <span class="comment">#服务器定义，cookie 1表示serverid为bbs2，check inter 1500是检测心跳频率rise 3是3次正确认为服务器可用，fall 3是3次失败认为服务器不可用，weight代表权重</span></span><br></pre></td></tr></table></figure>
+
+
+    <div class="row border-top pre-next-link">
+        <div class="col-6">
+            上一篇：
+            
+            <a href="/posts/技术文档/Ubuntu下搭建HAProxy-KeepAlived高可用集群/"><h6 class="d-inline">Ubuntu下搭建HAProxy+KeepAlived高可用集群</h6></a>
+            
+        </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/技术文档/Linux初始化init系统/"><h6 class="d-inline">Linux初始化init系统：Sysvinit、Upstart和Systemd</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#haproxy的简介"><span class="toc-text"> HAProxy的简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#haproxy的安装"><span class="toc-text"> HAProxy的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#apt-get安装"><span class="toc-text"> apt-get安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码编译安装"><span class="toc-text"> 源码编译安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开机启动"><span class="toc-text"> 开机启动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方式1rclocal"><span class="toc-text"> 方式1：rc.local</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方式2systemctl"><span class="toc-text"> 方式2：systemctl</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#haproxy的配置"><span class="toc-text"> HAProxy的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置haproxy"><span class="toc-text"> 配置HAProxy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建apache服务器"><span class="toc-text"> 搭建Apache服务器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#haproxy的验证"><span class="toc-text"> HAProxy的验证</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#haproxy详细配置说明高级"><span class="toc-text"> HAProxy详细配置说明（高级）</span></a></li></ol>
+    
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </main>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/crypto-js.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

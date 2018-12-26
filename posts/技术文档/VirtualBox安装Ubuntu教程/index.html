@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="阮新宇的成长记录">
+    <meta name="author" content="阮新宇">
+    <meta name="keywords" content="环境搭建">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>VirtualBox安装Ubuntu教程 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+
+    <meta name="description" content="基础准备工作 本教程使用的VirtualBox版本为5.2.18，Ubuntu版本为server 18.04.1。 首先，下载Ubuntu Server镜像，本文以ubuntu-18.04.1为例，可以从华为开源镜像站提供加速下载，地址为： http://mirrors.huaweicloud.com/repository/ubuntu-releases/18.04.1/ubuntu-18.04">
+<meta name="keywords" content="环境搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VirtualBox安装Ubuntu教程">
+<meta property="og:url" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/index.html">
+<meta property="og:site_name" content="RuanXinYu&#39;s Blog">
+<meta property="og:description" content="基础准备工作 本教程使用的VirtualBox版本为5.2.18，Ubuntu版本为server 18.04.1。 首先，下载Ubuntu Server镜像，本文以ubuntu-18.04.1为例，可以从华为开源镜像站提供加速下载，地址为： http://mirrors.huaweicloud.com/repository/ubuntu-releases/18.04.1/ubuntu-18.04">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-20-11-35.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-20-14-32.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-20-18-22.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-20-26-02.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-20-30-36.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-22-53.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-20-35-30.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-20-55-08.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-20-55-47.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-20-58-24.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-02-30.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-03-45.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-06-02.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-08-19.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-09-27.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-15-58.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-17-37.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-26-23.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-29-57.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-34-53.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-26-15-33-38.png">
+<meta property="og:updated_time" content="2018-10-02T12:13:47.035Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VirtualBox安装Ubuntu教程">
+<meta name="twitter:description" content="基础准备工作 本教程使用的VirtualBox版本为5.2.18，Ubuntu版本为server 18.04.1。 首先，下载Ubuntu Server镜像，本文以ubuntu-18.04.1为例，可以从华为开源镜像站提供加速下载，地址为： http://mirrors.huaweicloud.com/repository/ubuntu-releases/18.04.1/ubuntu-18.04">
+<meta name="twitter:image" content="http://ruanxinyu.github.io/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-20-11-35.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/avatar.png">
+</head>
+<body class="bg-white">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="url_for('/')">
+        <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/"  >主页</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/inbox"  >收集箱</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/questions"  >速查表</a>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">项目</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/posts/VirtualBox安装Ubuntu教程/?project=Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统"  >Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/tags"  >标签</a>
+                        
+                        <a class="dropdown-item" href="/categories"  >分类</a>
+                        
+                        <a class="dropdown-item" href="/archives"  >归档</a>
+                        
+                        <a class="dropdown-item" href="/pages/bookmarks"  >书签收藏</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">关于</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/pages/about"  >规划介绍</a>
+                        
+                        <a class="dropdown-item" href="https://github.com/RuanXinyu" target="_blank" >github</a>
+                        
+                    </div>
+                </li>
+            
+        
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="速查表搜索" autofocus="autofocus" aria-label="Search" id="global_search_text">
+          <button class="btn my-2 my-sm-0" type="submit" id="global_search">搜索</button>
+        </form>
+    </div>
+</nav>
+    <main role="main" class="container-fluid mt-5">
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+    <div class="row">
+        <div class="col-10 col-content border-left border-right">
+            <div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            
+                <li class="breadcrumb-item"><a href="/categories/环境搭建/" class="font-weight-bold text-primary">环境搭建</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">VirtualBox安装Ubuntu教程</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-09-16 19:59:38</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="基础准备工作"><a class="markdownIt-Anchor" href="#基础准备工作"></a> 基础准备工作</h1>
+<p>本教程使用的VirtualBox版本为<code>5.2.18</code>，Ubuntu版本为<code>server 18.04.1</code>。</p>
+<p>首先，下载Ubuntu Server镜像，本文以ubuntu-18.04.1为例，可以从华为开源镜像站提供加速下载，地址为： <a href="http://mirrors.huaweicloud.com/repository/ubuntu-releases/18.04.1/ubuntu-18.04.1-live-server-amd64.iso" target="_blank" rel="noopener">http://mirrors.huaweicloud.com/repository/ubuntu-releases/18.04.1/ubuntu-18.04.1-live-server-amd64.iso</a></p>
+<p>下载并安装VirtualBox，下载地址为: <a href="https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-Win.exe" target="_blank" rel="noopener">https://download.virtualbox.org/virtualbox/5.2.18/VirtualBox-5.2.18-124319-Win.exe</a></p>
+<h1 id="创建虚拟机"><a class="markdownIt-Anchor" href="#创建虚拟机"></a> 创建虚拟机</h1>
+<ol>
+<li>打开VirtualBox，点击<code>新建</code>, 输入名称，比如叫做<code>UbuntuTemplate</code>，之所以叫这个名称是因为如果后续需要多个Ubuntu虚拟机的话，可以直接复制该虚拟机，这样每次都可以有一个全新的虚拟机。操作系统版本选择<code>Ubuntu(64bit)</code>, 点击下一步，内存选择512M或者1024M都可以，因为我们下载的镜像是没有桌面的，因此对内存要求没有那么大。</li>
+</ol>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-20-11-35.png" title="[blog.ruanxinyu.cn]">
+<ol start="2">
+<li>选择<code>现在创建虚拟磁盘</code>，当然，如果也可以使用已经存在的磁盘，下一步，磁盘类型我更愿意用<code>VMDK(虚拟机磁盘)</code>，因此该磁盘VMWare也是可以使用的，磁盘大小选择<code>动态分配大小</code>。</li>
+</ol>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-20-14-32.png" title="[blog.ruanxinyu.cn]">
+<ol start="3">
+<li>此处有两个地方需要注意一下：</li>
+</ol>
+<blockquote>
+<ol>
+<li>选择磁盘的保存位置默认为虚拟机名称，这个时候是保存在用户目录下的，也就是C盘，因此<strong>最好是自己选择路径保存到其他目录</strong>，以免占用过多的C盘空间。</li>
+<li>此处设置的其实是磁盘的最大大小，默认的10G肯定是太小了，可以直接改成<code>100G</code>, 这个是最大值，不是立即分配这么大的磁盘空间。</li>
+</ol>
+</blockquote>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-20-18-22.png" title="[blog.ruanxinyu.cn]">
+<h1 id="设置虚拟机"><a class="markdownIt-Anchor" href="#设置虚拟机"></a> 设置虚拟机</h1>
+<h2 id="设置粘贴板"><a class="markdownIt-Anchor" href="#设置粘贴板"></a> 设置粘贴板</h2>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-20-26-02.png" title="[blog.ruanxinyu.cn]">
+<h2 id="导入操作系统镜像"><a class="markdownIt-Anchor" href="#导入操作系统镜像"></a> 导入操作系统镜像</h2>
+<p>从设置的系统标签页中可以看出系统的启动顺序是“软驱”-&gt;“光驱”-&gt;“硬盘”，因此只要在光驱中导入刚刚下载的操作系统镜像，启动的虚拟机的时候就会开始安装操作系统。</p>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-20-30-36.png" title="[blog.ruanxinyu.cn]">
+<h2 id="设置虚拟机网络"><a class="markdownIt-Anchor" href="#设置虚拟机网络"></a> 设置虚拟机网络</h2>
+<p>虚拟机的网络连接方式有很多中，因为涉及到很多网络知识，总结起来就是一张表，如下所示：</p>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-22-53.png" title="[blog.ruanxinyu.cn]">
+<p>因为在做实验的情况下，默认都是希望虚拟机能够访问外网，虚拟机与虚拟机之间，虚拟机与宿主机之间也是可以相互访问的，因此选择桥接模式，网卡选择你当前正在使用的网卡，这样你的虚拟机就相当于是另外与宿主机相同的电脑。</p>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-20-35-30.png" title="[blog.ruanxinyu.cn]">
+<h1 id="安装ubuntu"><a class="markdownIt-Anchor" href="#安装ubuntu"></a> 安装Ubuntu</h1>
+<blockquote>
+<p>通过方向键移动，回车确认，如果发现鼠标在虚拟机捕获出不来了，可以按键盘右边的<code>CTRL</code>键</p>
+</blockquote>
+<p>启动虚拟机，语言选择英文，然后选择<code>Install Ubuntu</code>。</p>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-20-55-08.png" title="[blog.ruanxinyu.cn]">
+<p>如果你的宿主机连接的是路由器，那么一般都是通过DHCP自动分配的IP地址，这样的话虚拟机也能通过DHCP自动获取IP地址，从下图中可以看出对应的IP。</p>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-20-55-47.png" title="[blog.ruanxinyu.cn]">
+<p>如果你的宿主机能够正常上网就不需要配置proxy，直接回车确认下一步就可以。</p>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-20-58-24.png" title="[blog.ruanxinyu.cn]">
+<p>配置Ubuntu的源，也就是安装软件的默认下载地址，为了提高下载速度，我一般使用华为开源镜像站的源：<a href="https://mirrors.huaweicloud.com/ubuntu/" target="_blank" rel="noopener">https://mirrors.huaweicloud.com/ubuntu/</a></p>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-02-30.png" title="[blog.ruanxinyu.cn]">
+<p>我们可以手动对磁盘进行分区，但是这个需要对Linux很熟悉，因此此处我们直接选择<code>Use An Entre Disk</code>，让操作系统自动分区。</p>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-03-45.png" title="[blog.ruanxinyu.cn]">
+<p>接下来会让你确认磁盘和分区信息，我们继续就可以。</p>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-06-02.png" title="[blog.ruanxinyu.cn]">
+<p>然后输入你的主机名和密码等信息，<code>ssh identify</code>是用于免密码登陆linux的，一般不需要设置。</p>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-08-19.png" title="[blog.ruanxinyu.cn]">
+<p>接下来会让你安装一些默认的应用程序，也可以什么都不装，保持一个最纯净的系统。</p>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-09-27.png" title="[blog.ruanxinyu.cn]">
+<p>等待安装完毕，就可以开开心心重启了，</p>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-15-58.png" title="[blog.ruanxinyu.cn]">
+<p>重启的过程中VirtualBox会提示你是否将光驱中的镜像移除掉，直接回车就可以移除就剋有了，这样就可以直接从磁盘启动你刚刚安装的系统，否则还是会从光驱中启动。</p>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-17-37.png" title="[blog.ruanxinyu.cn]">
+<p>启动后输入用户名密码，输入<code>ip a</code>命令可以看到虚拟机的IP地址:</p>
+<blockquote>
+<p>由于Ubuntu自带的控制台使用不是很方便，因此可以直接通过xshell连接该虚拟机</p>
+</blockquote>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-26-23.png" title="[blog.ruanxinyu.cn]">
+<h1 id="virtualbox的使用说明"><a class="markdownIt-Anchor" href="#virtualbox的使用说明"></a> VirtualBox的使用说明</h1>
+<h2 id="鼠标捕获"><a class="markdownIt-Anchor" href="#鼠标捕获"></a> 鼠标捕获</h2>
+<p>如果发现鼠标在虚拟机捕获出不来了，可以按键盘右边的<code>CTRL</code>键</p>
+<h2 id="保存快照"><a class="markdownIt-Anchor" href="#保存快照"></a> 保存快照</h2>
+<p>如下所示，一般第一次安装的时候都做一次快照，因此这样即使后续做了破坏性的操作也可以快速还原。</p>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-29-57.png" title="[blog.ruanxinyu.cn]">
+<h2 id="快速保存并恢复"><a class="markdownIt-Anchor" href="#快速保存并恢复"></a> 快速保存并恢复</h2>
+<p>关闭虚拟机时可以选择<code>快速休眠</code>，下次启动的时候就可以快速从将虚拟机从当前状态恢复。</p>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-16-21-34-53.png" title="[blog.ruanxinyu.cn]">
+<h2 id="复制虚拟机"><a class="markdownIt-Anchor" href="#复制虚拟机"></a> 复制虚拟机</h2>
+<p>在做实验的时候需要使用多个虚拟机，不用重新安装，直接复制虚拟机即可，在对应的虚拟机上右键就可以，需要在关机的状态下才能复制。但是在复制虚拟机之后最后刷新一下网卡的MAC地址，否则可能会出现相同MAC地址的情况。</p>
+<img src="/posts/技术文档/VirtualBox安装Ubuntu教程/2018-09-26-15-33-38.png" title="[blog.ruanxinyu.cn]">
+
+
+
+    <div class="row border-top pre-next-link">
+        <div class="col-6">
+            上一篇：
+            
+            <a href="/posts/技术文档/Ubuntu下KeepAlived的安装与配置/"><h6 class="d-inline">Ubuntu下KeepAlived的安装与配置</h6></a>
+            
+        </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/每天学习一个Linux命令/每天学习一个Linux命令（3）：echo命令/"><h6 class="d-inline">每天学习一个Linux命令（3）：echo命令</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础准备工作"><span class="toc-text"> 基础准备工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建虚拟机"><span class="toc-text"> 创建虚拟机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设置虚拟机"><span class="toc-text"> 设置虚拟机</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置粘贴板"><span class="toc-text"> 设置粘贴板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#导入操作系统镜像"><span class="toc-text"> 导入操作系统镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置虚拟机网络"><span class="toc-text"> 设置虚拟机网络</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装ubuntu"><span class="toc-text"> 安装Ubuntu</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#virtualbox的使用说明"><span class="toc-text"> VirtualBox的使用说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#鼠标捕获"><span class="toc-text"> 鼠标捕获</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#保存快照"><span class="toc-text"> 保存快照</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速保存并恢复"><span class="toc-text"> 快速保存并恢复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复制虚拟机"><span class="toc-text"> 复制虚拟机</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </main>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/crypto-js.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

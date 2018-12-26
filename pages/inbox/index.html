@@ -11,19 +11,19 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <title>碎片知识收集箱 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
 
-    <meta name="description" content="hexo不同的页面如何使用不同的layout？ 参见：https://github.com/hexojs/hexo/issues/959">
+    <meta name="description" content="hexo不同的页面如何使用不同的layout？ 参见：https://github.com/hexojs/hexo/issues/959    SpringCloud使用Mybatis提示Invalid bound statement(not found)  从target或者jar包中检查xml文件是否正确的打包，IDEA需要将xml文件放到resource目录下，并且该目录需要标记为reso">
 <meta name="keywords" content="Ruandy">
 <meta property="og:type" content="website">
 <meta property="og:title" content="碎片知识收集箱">
 <meta property="og:url" content="http://ruanxinyu.github.io/pages/inbox/index.html">
 <meta property="og:site_name" content="RuanXinYu&#39;s Blog">
-<meta property="og:description" content="hexo不同的页面如何使用不同的layout？ 参见：https://github.com/hexojs/hexo/issues/959">
+<meta property="og:description" content="hexo不同的页面如何使用不同的layout？ 参见：https://github.com/hexojs/hexo/issues/959    SpringCloud使用Mybatis提示Invalid bound statement(not found)  从target或者jar包中检查xml文件是否正确的打包，IDEA需要将xml文件放到resource目录下，并且该目录需要标记为reso">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ruanxinyu.github.io/pages/inbox/index/2018-10-15-12-53-02.png">
-<meta property="og:updated_time" content="2018-10-15T05:33:04.455Z">
+<meta property="og:updated_time" content="2018-10-23T02:06:39.780Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="碎片知识收集箱">
-<meta name="twitter:description" content="hexo不同的页面如何使用不同的layout？ 参见：https://github.com/hexojs/hexo/issues/959">
+<meta name="twitter:description" content="hexo不同的页面如何使用不同的layout？ 参见：https://github.com/hexojs/hexo/issues/959    SpringCloud使用Mybatis提示Invalid bound statement(not found)  从target或者jar包中检查xml文件是否正确的打包，IDEA需要将xml文件放到resource目录下，并且该目录需要标记为reso">
 <meta name="twitter:image" content="http://ruanxinyu.github.io/pages/inbox/index/2018-10-15-12-53-02.png">
     
         <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
@@ -133,6 +133,20 @@
 <p>参见：<a href="https://github.com/hexojs/hexo/issues/959" target="_blank" rel="noopener">https://github.com/hexojs/hexo/issues/959</a></p>
 <p><img src="index/2018-10-15-12-53-02.png" alt="2018-10-15-12-53-02.png"></p>
 
+<h1 id="springcloud使用mybatis提示invalid-bound-statementnot-found"><a class="markdownIt-Anchor" href="#springcloud使用mybatis提示invalid-bound-statementnot-found"></a> SpringCloud使用Mybatis提示<code>Invalid bound statement(not found)</code></h1>
+<ol>
+<li>从target或者jar包中检查xml文件是否正确的打包，IDEA需要将xml文件放到resource目录下，并且该目录需要标记为resource目录</li>
+<li>检查interface上是否增加了<code>@Mapper</code>的注解，或者已经使用<code>@mapperscan</code>注解指定interface的位置</li>
+<li>检查xml文件所在的包名与interface所在的包名是否一样，建议直接在检查文件夹，因为IDEA创建<code>xx.xx.xx</code>文件夹其实是一个文件夹</li>
+<li>检查xml文件名是否与interface的文件名一致</li>
+<li>检查xml的namespace与interface的路径是否一致</li>
+<li>检查函数名称及函数参数是否一致</li>
+<li>检查xml文件中是否有中文注释</li>
+<li>xml中增加空格并保存触发自动编译</li>
+</ol>
+<h1 id="idea启动调试速度慢"><a class="markdownIt-Anchor" href="#idea启动调试速度慢"></a> IDEA启动调试速度慢</h1>
+<p>去掉所有的端点，也许是因为断点打在了函数名上</p>
+
 
 
     <div class="row border-top pre-next-link">
@@ -152,7 +166,7 @@
     <div class="my-3 bg-white rounded box-shadow post-toc">
     
         <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#hexo不同的页面如何使用不同的layout"><span class="toc-text"> hexo不同的页面如何使用不同的layout？</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#hexo不同的页面如何使用不同的layout"><span class="toc-text"> hexo不同的页面如何使用不同的layout？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#springcloud使用mybatis提示invalid-bound-statementnot-found"><span class="toc-text"> SpringCloud使用Mybatis提示Invalid bound statement(not found)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#idea启动调试速度慢"><span class="toc-text"> IDEA启动调试速度慢</span></a></li></ol>
     
     </div>
 </div>

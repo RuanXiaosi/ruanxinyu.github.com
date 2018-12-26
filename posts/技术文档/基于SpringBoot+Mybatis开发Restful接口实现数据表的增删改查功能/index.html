@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="阮新宇的成长记录">
+    <meta name="author" content="阮新宇">
+    <meta name="keywords" content="Java">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+
+    <meta name="description" content="基础环境说明 本教程使用Maven管理依赖，使用IDEA进行开发，在开始之前，请按照下面教程安装好JDK和Mysql:  JDK的安装请参考： Mysql的安装请参考：   本教程的代码地址为：https://github.com/RuanXinyu/springcloud-demo/tree/master/productionservice  初始化数据库 首先创建一个数据库和一个用户，并分配">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能">
+<meta property="og:url" content="http://ruanxinyu.github.io/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/index.html">
+<meta property="og:site_name" content="RuanXinYu&#39;s Blog">
+<meta property="og:description" content="基础环境说明 本教程使用Maven管理依赖，使用IDEA进行开发，在开始之前，请按照下面教程安装好JDK和Mysql:  JDK的安装请参考： Mysql的安装请参考：   本教程的代码地址为：https://github.com/RuanXinyu/springcloud-demo/tree/master/productionservice  初始化数据库 首先创建一个数据库和一个用户，并分配">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-16-37-05.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-20-10-48.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-16-48-32.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-16-43-49.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-17-17-28.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-19-58-44.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-20-04-24.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-20-09-48.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-20-18-41.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-20-37-04.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-20-48-41.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-20-55-57.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-21-00-23.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-21-02-17.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-21-04-18.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-21-05-33.png">
+<meta property="og:updated_time" content="2018-10-06T13:50:42.119Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能">
+<meta name="twitter:description" content="基础环境说明 本教程使用Maven管理依赖，使用IDEA进行开发，在开始之前，请按照下面教程安装好JDK和Mysql:  JDK的安装请参考： Mysql的安装请参考：   本教程的代码地址为：https://github.com/RuanXinyu/springcloud-demo/tree/master/productionservice  初始化数据库 首先创建一个数据库和一个用户，并分配">
+<meta name="twitter:image" content="http://ruanxinyu.github.io/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-16-37-05.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/avatar.png">
+</head>
+<body class="bg-white">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="url_for('/')">
+        <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/"  >主页</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/inbox"  >收集箱</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/questions"  >速查表</a>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">项目</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/posts/VirtualBox安装Ubuntu教程/?project=Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统"  >Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/tags"  >标签</a>
+                        
+                        <a class="dropdown-item" href="/categories"  >分类</a>
+                        
+                        <a class="dropdown-item" href="/archives"  >归档</a>
+                        
+                        <a class="dropdown-item" href="/pages/bookmarks"  >书签收藏</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">关于</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/pages/about"  >规划介绍</a>
+                        
+                        <a class="dropdown-item" href="https://github.com/RuanXinyu" target="_blank" >github</a>
+                        
+                    </div>
+                </li>
+            
+        
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="速查表搜索" autofocus="autofocus" aria-label="Search" id="global_search_text">
+          <button class="btn my-2 my-sm-0" type="submit" id="global_search">搜索</button>
+        </form>
+    </div>
+</nav>
+    <main role="main" class="container-fluid mt-5">
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+    <div class="row">
+        <div class="col-10 col-content border-left border-right">
+            <div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            
+                <li class="breadcrumb-item"><a href="/categories/技术分享/" class="font-weight-bold text-primary">技术分享</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/Java/" class="font-weight-bold text-danger">Java</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-10-06 15:29:04</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="基础环境说明"><a class="markdownIt-Anchor" href="#基础环境说明"></a> 基础环境说明</h1>
+<p>本教程使用Maven管理依赖，使用IDEA进行开发，在开始之前，请按照下面教程安装好JDK和Mysql:</p>
+<ul>
+<li>JDK的安装请参考：</li>
+<li>Mysql的安装请参考： </li>
+</ul>
+<p>本教程的代码地址为：<a href="https://github.com/RuanXinyu/springcloud-demo/tree/master/productionservice" target="_blank" rel="noopener">https://github.com/RuanXinyu/springcloud-demo/tree/master/productionservice</a></p>
+<h1 id="初始化数据库"><a class="markdownIt-Anchor" href="#初始化数据库"></a> 初始化数据库</h1>
+<p>首先创建一个数据库和一个用户，并分配相应的权限：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建数据库</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> mall;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建用户并分配权限，8.0版本需要采用该方式</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> malluser@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'mall@123'</span>;</span><br><span class="line"><span class="keyword">grant</span> all <span class="keyword">privileges</span> <span class="keyword">on</span> mall.* <span class="keyword">to</span> <span class="string">'malluser'</span>@<span class="string">'%'</span> <span class="keyword">with</span> <span class="keyword">grant</span> <span class="keyword">option</span>;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
+<p>然后在<code>mall</code>数据库中创建一张表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`mall`</span>.<span class="string">`t_production`</span> (</span><br><span class="line">  <span class="string">`uuid`</span> <span class="built_in">CHAR</span>(<span class="number">32</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`name`</span> <span class="built_in">VARCHAR</span>(<span class="number">128</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`price`</span> <span class="built_in">DECIMAL</span>(<span class="number">12</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`description`</span> <span class="built_in">VARCHAR</span>(<span class="number">4094</span>) <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`create_time`</span> DATETIME <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`uuid`</span>));</span><br></pre></td></tr></table></figure>
+<h1 id="通过idea生成基础代码"><a class="markdownIt-Anchor" href="#通过idea生成基础代码"></a> 通过IDEA生成基础代码</h1>
+<p>选择<code>Spring Initializr</code>来创建工程：</p>
+<img src="/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-16-37-05.png" title="[blog.ruanxinyu.cn]">
+<p>指定maven的GAV参数，我们组件名称叫<code>productionservice</code>，同时选择<code>jar</code>包启动的方式：</p>
+<img src="/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-20-10-48.png" title="[blog.ruanxinyu.cn]">
+<p>Spring组件我们仅选择<code>Web</code>下的<code>Web</code>，<code>SQL</code>下的<code>MySQL</code>和<code>Mybatis</code>:</p>
+<img src="/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-16-48-32.png" title="[blog.ruanxinyu.cn]">
+<p>最后生成的代码目录结构如下：</p>
+<img src="/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-16-43-49.png" title="[blog.ruanxinyu.cn]">
+<h1 id="使用mybatisgenerator生成代码"><a class="markdownIt-Anchor" href="#使用mybatisgenerator生成代码"></a> 使用MybatisGenerator生成代码</h1>
+<h2 id="pomxml"><a class="markdownIt-Anchor" href="#pomxml"></a> pom.xml</h2>
+<p>首先在pom文件中增加<code>mybatis-generator-maven-plugin</code>插件，如下所示:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.generator<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-generator-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">configurationFile</span>&gt;</span>$&#123;basedir&#125;/src/main/resources/generator/mybatis_generator.xml<span class="tag">&lt;/<span class="name">configurationFile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">overwrite</span>&gt;</span>true<span class="tag">&lt;/<span class="name">overwrite</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">verbose</span>&gt;</span>true<span class="tag">&lt;/<span class="name">verbose</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<img src="/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-17-17-28.png" title="[blog.ruanxinyu.cn]">
+<h2 id="mybatis_generatorxml"><a class="markdownIt-Anchor" href="#mybatis_generatorxml"></a> mybatis_generator.xml</h2>
+<p>在<code>src/main/resources/</code>目录下创建<code>generator</code>文件夹，并创建<code>mybatis_generator.xml</code>文件</p>
+<img src="/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-19-58-44.png" title="[blog.ruanxinyu.cn]">
+<p>写入如下的内容：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE generatorConfiguration</span></span><br><span class="line"><span class="meta">        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"</span></span><br><span class="line"><span class="meta">        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">generatorConfiguration</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 数据库驱动:选择你的本地硬盘上面的数据库驱动包--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">classPathEntry</span>  <span class="attr">location</span>=<span class="string">"D:\.m2\mysql\mysql-connector-java\5.1.47\mysql-connector-java-5.1.47.jar"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context</span> <span class="attr">id</span>=<span class="string">"DB2Tables"</span>  <span class="attr">targetRuntime</span>=<span class="string">"MyBatis3"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">commentGenerator</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suppressDate"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 是否去除自动生成的注释 true：是 ： false:否 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suppressAllComments"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">commentGenerator</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--数据库链接URL，用户名、密码 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">jdbcConnection</span> <span class="attr">driverClass</span>=<span class="string">"com.mysql.jdbc.Driver"</span> <span class="attr">connectionURL</span>=<span class="string">"jdbc:mysql://127.0.0.1/mall"</span> <span class="attr">userId</span>=<span class="string">"malluser"</span> <span class="attr">password</span>=<span class="string">"mall@123"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">jdbcConnection</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">javaTypeResolver</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"forceBigDecimals"</span> <span class="attr">value</span>=<span class="string">"false"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">javaTypeResolver</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 生成模型的包名和位置--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">javaModelGenerator</span> <span class="attr">targetPackage</span>=<span class="string">"com.ruan.productionservice.model"</span> <span class="attr">targetProject</span>=<span class="string">"src/main/java"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"enableSubPackages"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"trimStrings"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">javaModelGenerator</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 生成映射文件的包名和位置--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">sqlMapGenerator</span> <span class="attr">targetPackage</span>=<span class="string">"com.ruan.productionservice.mapper"</span> <span class="attr">targetProject</span>=<span class="string">"src/main/resources"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"enableSubPackages"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">sqlMapGenerator</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 生成DAO的包名和位置--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">javaClientGenerator</span> <span class="attr">type</span>=<span class="string">"XMLMAPPER"</span> <span class="attr">targetPackage</span>=<span class="string">"com.ruan.productionservice.mapper"</span> <span class="attr">targetProject</span>=<span class="string">"src/main/java"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"enableSubPackages"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">javaClientGenerator</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">table</span> <span class="attr">tableName</span>=<span class="string">"t_production"</span> <span class="attr">domainObjectName</span>=<span class="string">"Production"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">enableCountByExample</span>=<span class="string">"false"</span> <span class="attr">enableUpdateByExample</span>=<span class="string">"false"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">enableDeleteByExample</span>=<span class="string">"false"</span> <span class="attr">enableSelectByExample</span>=<span class="string">"false"</span> <span class="attr">selectByExampleQueryId</span>=<span class="string">"false"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">generatorConfiguration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>做几点说明：</p>
+<ol>
+<li><code>&lt;classPathEntry location=&quot;D:\.m2\mysql\mysql-connector-java\5.1.47\mysql-connector-java-5.1.47.jar&quot;/&gt;</code>中的路径可以从maven的缓存目录中找到</li>
+<li><code>&lt;jdbcConnection driverClass=&quot;com.mysql.jdbc.Driver&quot; connectionURL=&quot;jdbc:mysql://127.0.0.1/mall&quot; userId=&quot;malluser&quot; password=&quot;mall@123&quot;&gt;</code>需要正确填写数据库的数据库名称，用户名，密码和表名称</li>
+<li><code>targetPackage=</code>要修改为对应的包路径</li>
+<li><code>&lt;table tableName=&quot;t_production&quot; domainObjectName=&quot;Production&quot;</code>需要正确填写和实体类名</li>
+</ol>
+<h2 id="mybatis-generatorgenerate"><a class="markdownIt-Anchor" href="#mybatis-generatorgenerate"></a> mybatis-generator:generate</h2>
+<p>最后双击右侧maven窗口中的<code>plugins</code>-&gt;<code>mybatis-generator:generate</code>即可生成代码。</p>
+<blockquote>
+<p>注意不要多次生成，否则xml中可能会生成重复的内容，从而造成启动报错，可以删除文件再生成</p>
+</blockquote>
+<img src="/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-20-04-24.png" title="[blog.ruanxinyu.cn]">
+<p>最终生成的代码结构如下：</p>
+<img src="/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-20-09-48.png" title="[blog.ruanxinyu.cn]">
+<h1 id="添加查询数据列表接口"><a class="markdownIt-Anchor" href="#添加查询数据列表接口"></a> 添加查询数据列表接口</h1>
+<p>从MybatisGenerator生成的代码中可以看出已经生成了增删改查的接口，我们在此基础之上增加一个查询列表的接口<code>ArrayList&lt;Production&gt; selectAll()</code>。</p>
+<h2 id="productionmapperxml"><a class="markdownIt-Anchor" href="#productionmapperxml"></a> ProductionMapper.xml</h2>
+<p>在文件中增加一个<code>selectAll</code>对应的查询语句：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectAll"</span> <span class="attr">resultMap</span>=<span class="string">"BaseResultMap"</span>&gt;</span></span><br><span class="line">  select</span><br><span class="line">  <span class="tag">&lt;<span class="name">include</span> <span class="attr">refid</span>=<span class="string">"Base_Column_List"</span> /&gt;</span></span><br><span class="line">  from t_production</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如下所示：</p>
+<img src="/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-20-18-41.png" title="[blog.ruanxinyu.cn]">
+<h2 id="productionmapperjava"><a class="markdownIt-Anchor" href="#productionmapperjava"></a> ProductionMapper.java</h2>
+<p>在接口中增加<code>ArrayList&lt;Production&gt; selectAll();</code>接口声明</p>
+<h1 id="增加mapper注解"><a class="markdownIt-Anchor" href="#增加mapper注解"></a> 增加@Mapper注解</h1>
+<p>MybatisGenerator自动生成的接口<code>ProductionMapper</code>接口默认是没有注解的，需要我们手动增加<code>@Mapper</code>注解，否则启动时会报错。</p>
+<p><strong>注意：</strong> 每次重新生成代码后都需要重新手动修改</p>
+<h1 id="增加service层代码"><a class="markdownIt-Anchor" href="#增加service层代码"></a> 增加service层代码</h1>
+<p>在<code>com.ruan.productionservice.service</code>下创建<code>ProductionService</code>接口，在<code>com.ruan.productionservice.service.impl</code>下创建<code>ProductionServiceImpl</code>类实现<code>ProductionService</code>，如下所示：</p>
+<img src="/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-20-37-04.png" title="[blog.ruanxinyu.cn]">
+<h2 id="productionservicejava"><a class="markdownIt-Anchor" href="#productionservicejava"></a> ProductionService.java</h2>
+<p>接口中声明5个接口函数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ProductionService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">delete</span><span class="params">(String uuid)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">save</span><span class="params">(Production record)</span></span>;</span><br><span class="line">    <span class="function">Production <span class="title">get</span><span class="params">(String uuid)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">update</span><span class="params">(Production record)</span></span>;</span><br><span class="line">    <span class="function">ArrayList&lt;Production&gt; <span class="title">list</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="productionserviceimpljava"><a class="markdownIt-Anchor" href="#productionserviceimpljava"></a> ProductionServiceImpl.java</h2>
+<p>实现类<code>ProductionServiceImpl</code>需要加<code>@Service</code>注解， 在保存记录的接口中自动生成主键和创建时间</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductionServiceImpl</span> <span class="keyword">implements</span> <span class="title">ProductionService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    ProductionMapper mapper;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">delete</span><span class="params">(String uuid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mapper.deleteByPrimaryKey(uuid);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">save</span><span class="params">(Production production)</span> </span>&#123;</span><br><span class="line">        production.setUuid(UUID.randomUUID().toString().replace(<span class="string">"-"</span>, <span class="string">""</span>).toLowerCase());</span><br><span class="line">        production.setCreateTime(<span class="keyword">new</span> Date());</span><br><span class="line">        <span class="keyword">return</span> mapper.insert(production);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">update</span><span class="params">(Production production)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mapper.updateByPrimaryKeySelective(production);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Production <span class="title">get</span><span class="params">(String uuid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mapper.selectByPrimaryKey(uuid);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Production&gt; <span class="title">list</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mapper.selectAll();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="增加controller层代码"><a class="markdownIt-Anchor" href="#增加controller层代码"></a> 增加controller层代码</h1>
+<h2 id="productioncontrollerjava"><a class="markdownIt-Anchor" href="#productioncontrollerjava"></a> ProductionController.java</h2>
+<p>在<code>com.ruan.productionservice.controller</code>下创建<code>ProductionController</code>类，在类上指定<code>@RestController</code>注解，然后实现5个Restful接口，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/mall/production"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductionController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    ProductionService productionService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/save"</span>, method = RequestMethod.POST)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">save</span><span class="params">(Production production)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> productionService.save(production);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/update"</span>, method = RequestMethod.POST)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">update</span><span class="params">(Production production)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> productionService.update(production);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/delete/&#123;id&#125;"</span>, method = RequestMethod.POST)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">delete</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> String id)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> productionService.delete(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/get/&#123;id&#125;"</span>, method = RequestMethod.GET)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Production <span class="title">get</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> String id)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> productionService.get(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/list"</span>, method = RequestMethod.GET)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Production&gt; <span class="title">list</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> productionService.list();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="配置applicationproperties"><a class="markdownIt-Anchor" href="#配置applicationproperties"></a> 配置application.properties</h1>
+<p><code>application.properties</code>中包含应用的配置信息，我们只需要配置JDBC的内容即可，如下所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.url=jdbc:mysql://localhost:3306/mall</span><br><span class="line">spring.datasource.driver-class-name=com.mysql.jdbc.Driver</span><br><span class="line">spring.datasource.username=malluser</span><br><span class="line">spring.datasource.password=mall@123</span><br></pre></td></tr></table></figure>
+<h1 id="启动应用程序"><a class="markdownIt-Anchor" href="#启动应用程序"></a> 启动应用程序</h1>
+<p>在IDEA中进去到<code>ProductionserviceApplication</code>类中，然后就可以启动程序，如下所示：</p>
+<img src="/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-20-48-41.png" title="[blog.ruanxinyu.cn]">
+<h1 id="postman验证接口"><a class="markdownIt-Anchor" href="#postman验证接口"></a> PostMan验证接口</h1>
+<p>启动后，我们通过PostMan进行接口的验证。</p>
+<h2 id="mallproductionsave"><a class="markdownIt-Anchor" href="#mallproductionsave"></a> /mall/production/save</h2>
+<p>创建一条数据，返回<code>1</code>，表示插入数据库成功。</p>
+<img src="/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-20-55-57.png" title="[blog.ruanxinyu.cn]">
+<h2 id="mallproductionlist"><a class="markdownIt-Anchor" href="#mallproductionlist"></a> /mall/production/list</h2>
+<p>通过list接口可以看到插入的内容，并且可以看到对应数据的<code>uuid</code>，用来调用其他接口</p>
+<img src="/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-21-00-23.png" title="[blog.ruanxinyu.cn]">
+<h2 id="mallproductionupdate"><a class="markdownIt-Anchor" href="#mallproductionupdate"></a> /mall/production/update</h2>
+<p>通过上面获取到的uuid修改数据，如下，返回<code>1</code>表示数据库修改成功。</p>
+<img src="/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-21-02-17.png" title="[blog.ruanxinyu.cn]">
+<h2 id="mallproductiongetid"><a class="markdownIt-Anchor" href="#mallproductiongetid"></a> /mall/production/get/{id}</h2>
+<p>通过上面获取到的uuid获取数据详情，此时uuid是在网址中，发现<code>price</code>已经修改为<code>35</code>。</p>
+<img src="/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-21-04-18.png" title="[blog.ruanxinyu.cn]">
+<h2 id="mallproductiondeleteid"><a class="markdownIt-Anchor" href="#mallproductiondeleteid"></a> /mall/production/delete/{id}</h2>
+<p>最后通过delete接口删除数据</p>
+<img src="/posts/技术文档/基于SpringBoot+Mybatis开发Restful接口实现数据表的增删改查功能/2018-10-06-21-05-33.png" title="[blog.ruanxinyu.cn]">
+<h1 id="可能遇到的问题"><a class="markdownIt-Anchor" href="#可能遇到的问题"></a> 可能遇到的问题</h1>
+<h2 id="启动时提示自动加载productionmapper失败"><a class="markdownIt-Anchor" href="#启动时提示自动加载productionmapper失败"></a> 启动时提示自动加载ProductionMapper失败</h2>
+<p>如果在启动过程中提示<code>No qualifying bean of type 'com.ruan.productionservice.mapper.ProductionMapper' available: expected at least 1 bean which qualifies as autowire candidate.</code>，则说明<code>ProductionMapper</code>没有添加<code>@Mapper</code>注解，该文件是Mybatis Generator自动生成的，需要手动添加该注解。</p>
+<h2 id="启动时提示result-maps错误"><a class="markdownIt-Anchor" href="#启动时提示result-maps错误"></a> 启动时提示Result Maps错误</h2>
+<p>启动报错提示<code>java.lang.IllegalArgumentException: Result Maps collection already contains value for com.ruan.productionservice.mapper.ProductionMapper.BaseResultMap</code>，是因为多次使用Mybatis Generator生成代码，造成<code>ProductionMapper.xml</code>文件中存在重复的内容，删除掉该文件重新生成即可。</p>
+
+
+
+    <div class="row border-top pre-next-link">
+        <div class="col-6">
+            上一篇：
+            
+            <a href="/posts/技术文档/AngularJS学习记录-1/"><h6 class="d-inline">AngularJS学习记录-1</h6></a>
+            
+        </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/技术文档/Mysql常见问题操作指导/"><h6 class="d-inline">Mysql常见问题操作指导</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础环境说明"><span class="toc-text"> 基础环境说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#初始化数据库"><span class="toc-text"> 初始化数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#通过idea生成基础代码"><span class="toc-text"> 通过IDEA生成基础代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用mybatisgenerator生成代码"><span class="toc-text"> 使用MybatisGenerator生成代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pomxml"><span class="toc-text"> pom.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mybatis_generatorxml"><span class="toc-text"> mybatis_generator.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mybatis-generatorgenerate"><span class="toc-text"> mybatis-generator:generate</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加查询数据列表接口"><span class="toc-text"> 添加查询数据列表接口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#productionmapperxml"><span class="toc-text"> ProductionMapper.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#productionmapperjava"><span class="toc-text"> ProductionMapper.java</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#增加mapper注解"><span class="toc-text"> 增加@Mapper注解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#增加service层代码"><span class="toc-text"> 增加service层代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#productionservicejava"><span class="toc-text"> ProductionService.java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#productionserviceimpljava"><span class="toc-text"> ProductionServiceImpl.java</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#增加controller层代码"><span class="toc-text"> 增加controller层代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#productioncontrollerjava"><span class="toc-text"> ProductionController.java</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置applicationproperties"><span class="toc-text"> 配置application.properties</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#启动应用程序"><span class="toc-text"> 启动应用程序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#postman验证接口"><span class="toc-text"> PostMan验证接口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mallproductionsave"><span class="toc-text"> /mall/production/save</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mallproductionlist"><span class="toc-text"> /mall/production/list</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mallproductionupdate"><span class="toc-text"> /mall/production/update</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mallproductiongetid"><span class="toc-text"> /mall/production/get/{id}</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mallproductiondeleteid"><span class="toc-text"> /mall/production/delete/{id}</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#可能遇到的问题"><span class="toc-text"> 可能遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启动时提示自动加载productionmapper失败"><span class="toc-text"> 启动时提示自动加载ProductionMapper失败</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动时提示result-maps错误"><span class="toc-text"> 启动时提示Result Maps错误</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </main>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/crypto-js.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

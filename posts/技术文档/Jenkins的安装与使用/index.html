@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="阮新宇的成长记录">
+    <meta name="author" content="阮新宇">
+    <meta name="keywords" content="环境搭建">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Jenkins的安装与使用 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+
+    <meta name="description" content="Jenkins的介绍 官方地址为：https://jenkins.io/。Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。  Jenkins的安装  在启动之前需要先安装java环境，具体可以参考教程：。该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参考。  具体的">
+<meta name="keywords" content="环境搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jenkins的安装与使用">
+<meta property="og:url" content="http://ruanxinyu.github.io/posts/技术文档/Jenkins的安装与使用/index.html">
+<meta property="og:site_name" content="RuanXinYu&#39;s Blog">
+<meta property="og:description" content="Jenkins的介绍 官方地址为：https://jenkins.io/。Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。  Jenkins的安装  在启动之前需要先安装java环境，具体可以参考教程：。该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参考。  具体的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Jenkins的安装与使用/2018-10-03-17-27-12.png">
+<meta property="og:updated_time" content="2018-10-20T14:15:05.960Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jenkins的安装与使用">
+<meta name="twitter:description" content="Jenkins的介绍 官方地址为：https://jenkins.io/。Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。  Jenkins的安装  在启动之前需要先安装java环境，具体可以参考教程：。该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参考。  具体的">
+<meta name="twitter:image" content="http://ruanxinyu.github.io/posts/技术文档/Jenkins的安装与使用/2018-10-03-17-27-12.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/avatar.png">
+</head>
+<body class="bg-white">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="url_for('/')">
+        <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/"  >主页</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/inbox"  >收集箱</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/questions"  >速查表</a>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">项目</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/posts/VirtualBox安装Ubuntu教程/?project=Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统"  >Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/tags"  >标签</a>
+                        
+                        <a class="dropdown-item" href="/categories"  >分类</a>
+                        
+                        <a class="dropdown-item" href="/archives"  >归档</a>
+                        
+                        <a class="dropdown-item" href="/pages/bookmarks"  >书签收藏</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">关于</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/pages/about"  >规划介绍</a>
+                        
+                        <a class="dropdown-item" href="https://github.com/RuanXinyu" target="_blank" >github</a>
+                        
+                    </div>
+                </li>
+            
+        
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="速查表搜索" autofocus="autofocus" aria-label="Search" id="global_search_text">
+          <button class="btn my-2 my-sm-0" type="submit" id="global_search">搜索</button>
+        </form>
+    </div>
+</nav>
+    <main role="main" class="container-fluid mt-5">
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+    <div class="row">
+        <div class="col-10 col-content border-left border-right">
+            <div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            
+                <li class="breadcrumb-item"><a href="/categories/环境搭建/" class="font-weight-bold text-primary">环境搭建</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">Jenkins的安装与使用</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-10-03 17:01:53</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="jenkins的介绍"><a class="markdownIt-Anchor" href="#jenkins的介绍"></a> Jenkins的介绍</h1>
+<p>官方地址为：<a href="https://jenkins.io/" target="_blank" rel="noopener">https://jenkins.io/</a>。Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。</p>
+<h1 id="jenkins的安装"><a class="markdownIt-Anchor" href="#jenkins的安装"></a> Jenkins的安装</h1>
+<blockquote>
+<p>在启动之前需要先安装java环境，具体可以参考教程：。该教程使用的Ubuntu版本是18.04.1版本，Ubuntu的安装教程参考。</p>
+</blockquote>
+<p>具体的安装文档可以参考：<a href="https://jenkins.io/doc/book/installing/" target="_blank" rel="noopener">https://jenkins.io/doc/book/installing/</a>。</p>
+<blockquote>
+<p>文档中直接通过<code>sudo apt-get install jenkins</code>的方式安装会报错，不兼容最新版本的Ubuntu系统，因此下文采用直接下载软件包安装的过程。</p>
+</blockquote>
+<ul>
+<li>
+<p>首先下载<code>http://mirrors.jenkins.io/war-stable/latest/jenkins.war</code>软件包，然后执行<code>java -jar jenkins.war</code>即可启动Jenkins。默认情况下Jenkins会监听<code>8080</code>端口，我们可以通过如下命令修改端口号<code>java -jar jenkins.war --httpPort=9090</code>。</p>
+</li>
+<li>
+<p>访问<code>http://192.168.1.108:8080/</code>，可以看到如下的页面，提示输入密码，可以从界面中找到密码所在的文件路径，或者从启动日志中也可以看到。</p>
+</li>
+</ul>
+<img src="/posts/技术文档/Jenkins的安装与使用/2018-10-03-17-27-12.png" title="[blog.ruanxinyu.cn]">
+<h1 id="修改jenkins的主目录"><a class="markdownIt-Anchor" href="#修改jenkins的主目录"></a> 修改Jenkins的主目录</h1>
+<p>从Jenkins的启动日志中可以看出Jenkins默认的主目录为<code>$user.home/.jenkins</code>，我们在此将其主目录更改至<code>/usr/local/jenkins/.jenkins</code>，只需要导出环境<code>JENKINS_HOME</code>环境变量<code>export JENKINS_HOME=/usr/local/jenkins/.jenkins</code>，然后启动Jenkins即可，或者通过<code>-D</code>指定<code>java -DJENKINS_HOME=/usr/local/jenkins/.jenkins -jar /usr/local/jenkins/jenkins.war --httpPort=8080</code></p>
+<h1 id="开机启动"><a class="markdownIt-Anchor" href="#开机启动"></a> 开机启动</h1>
+<p>编辑<code>sudo vim /etc/rc.local</code>, 在最下面添加<code>sudo java -DJENKINS_HOME=/usr/local/jenkins/.jenkins -jar /usr/local/jenkins/jenkins.war --httpPort=8080 &amp;</code>语句即可。</p>
+<blockquote>
+<p>如下方式采用systemd的方式添加到系统服务启动报<code>Job for jenkins.service failed because a timeout was exceeded</code>错误，尚未调通。</p>
+</blockquote>
+
+
+
+    <div class="row border-top pre-next-link">
+        <div class="col-6">
+            上一篇：
+            
+            <a href="/posts/技术文档/TypeScript学习记录-1/"><h6 class="d-inline">TypeScript学习记录-1</h6></a>
+            
+        </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/技术文档/SonatypeNexus的安装与使用/"><h6 class="d-inline">SonatypeNexus的安装与使用</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jenkins的介绍"><span class="toc-text"> Jenkins的介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jenkins的安装"><span class="toc-text"> Jenkins的安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改jenkins的主目录"><span class="toc-text"> 修改Jenkins的主目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开机启动"><span class="toc-text"> 开机启动</span></a></li></ol>
+    
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </main>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/crypto-js.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

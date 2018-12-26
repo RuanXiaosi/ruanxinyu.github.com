@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="阮新宇的成长记录">
+    <meta name="author" content="阮新宇">
+    <meta name="keywords" content="环境搭建">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Ubuntu下Mysql的安装与验证 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+
+    <meta name="description" content="apt方式安装  Ubuntu 18.04.1版本下，如果直接使用sudo apt-get install mysql-server安装的是5.9版本，我们要安装最新的8.0版本。  首先进去到https://dev.mysql.com/downloads/repo/apt/页面，下载deb包  点击下载按钮后，我们也可以页面中获取下载地址，然后通过wget下载：  通过wget下载后通过执行d">
+<meta name="keywords" content="环境搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu下Mysql的安装与验证">
+<meta property="og:url" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下Mysql的安装与验证/index.html">
+<meta property="og:site_name" content="RuanXinYu&#39;s Blog">
+<meta property="og:description" content="apt方式安装  Ubuntu 18.04.1版本下，如果直接使用sudo apt-get install mysql-server安装的是5.9版本，我们要安装最新的8.0版本。  首先进去到https://dev.mysql.com/downloads/repo/apt/页面，下载deb包  点击下载按钮后，我们也可以页面中获取下载地址，然后通过wget下载：  通过wget下载后通过执行d">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下Mysql的安装与验证/2018-10-05-16-32-48.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下Mysql的安装与验证/2018-10-05-16-35-06.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下Mysql的安装与验证/2018-10-05-16-38-20.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下Mysql的安装与验证/2018-10-05-17-05-49.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下Mysql的安装与验证/2018-10-05-18-58-08.png">
+<meta property="og:updated_time" content="2018-10-05T12:53:21.936Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu下Mysql的安装与验证">
+<meta name="twitter:description" content="apt方式安装  Ubuntu 18.04.1版本下，如果直接使用sudo apt-get install mysql-server安装的是5.9版本，我们要安装最新的8.0版本。  首先进去到https://dev.mysql.com/downloads/repo/apt/页面，下载deb包  点击下载按钮后，我们也可以页面中获取下载地址，然后通过wget下载：  通过wget下载后通过执行d">
+<meta name="twitter:image" content="http://ruanxinyu.github.io/posts/技术文档/Ubuntu下Mysql的安装与验证/2018-10-05-16-32-48.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/avatar.png">
+</head>
+<body class="bg-white">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="url_for('/')">
+        <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/"  >主页</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/inbox"  >收集箱</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/questions"  >速查表</a>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">项目</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/posts/VirtualBox安装Ubuntu教程/?project=Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统"  >Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/tags"  >标签</a>
+                        
+                        <a class="dropdown-item" href="/categories"  >分类</a>
+                        
+                        <a class="dropdown-item" href="/archives"  >归档</a>
+                        
+                        <a class="dropdown-item" href="/pages/bookmarks"  >书签收藏</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">关于</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/pages/about"  >规划介绍</a>
+                        
+                        <a class="dropdown-item" href="https://github.com/RuanXinyu" target="_blank" >github</a>
+                        
+                    </div>
+                </li>
+            
+        
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="速查表搜索" autofocus="autofocus" aria-label="Search" id="global_search_text">
+          <button class="btn my-2 my-sm-0" type="submit" id="global_search">搜索</button>
+        </form>
+    </div>
+</nav>
+    <main role="main" class="container-fluid mt-5">
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+    <div class="row">
+        <div class="col-10 col-content border-left border-right">
+            <div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            
+                <li class="breadcrumb-item"><a href="/categories/环境搭建/" class="font-weight-bold text-primary">环境搭建</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">Ubuntu下Mysql的安装与验证</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/环境搭建/" class="font-weight-bold text-danger">环境搭建</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-10-04 21:21:18</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="apt方式安装"><a class="markdownIt-Anchor" href="#apt方式安装"></a> apt方式安装</h1>
+<blockquote>
+<p>Ubuntu 18.04.1版本下，如果直接使用<code>sudo apt-get install mysql-server</code>安装的是<code>5.9</code>版本，我们要安装最新的<code>8.0</code>版本。</p>
+</blockquote>
+<p>首先进去到<a href="https://dev.mysql.com/downloads/repo/apt/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/repo/apt/</a>页面，下载deb包</p>
+<img src="/posts/技术文档/Ubuntu下Mysql的安装与验证/2018-10-05-16-32-48.png" title="[blog.ruanxinyu.cn]">
+<p>点击下载按钮后，我们也可以页面中获取下载地址，然后通过wget下载：</p>
+<img src="/posts/技术文档/Ubuntu下Mysql的安装与验证/2018-10-05-16-35-06.png" title="[blog.ruanxinyu.cn]">
+<p>通过wget下载后通过执行<code>dpkg</code>命令安装deb包，并且在弹出的框中我们选择8.0版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/mysql-apt-config_0.8.10-1_all.deb</span><br><span class="line">sudo dpkg -i mysql-apt-config_0.8.10-1_all.deb <span class="comment"># 在弹出的框中我们选择8.0版本</span></span><br></pre></td></tr></table></figure>
+<img src="/posts/技术文档/Ubuntu下Mysql的安装与验证/2018-10-05-16-38-20.png" title="[blog.ruanxinyu.cn]">
+<p>由于安装过程中需要使用到<code>libmecab2</code>包，所以也需要提前安装好，否则会提示<code>Depends: mysql-community-server (= 8.0.12-1ubuntu18.04) but it is not going to be installed</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://security.ubuntu.com/ubuntu/pool/universe/m/mecab/libmecab2_0.996-5_amd64.deb</span><br><span class="line">sudo dpkg -i libmecab2_0.996-5_amd64.deb</span><br></pre></td></tr></table></figure>
+<p>安装好<code>libmecab2</code>后就可以安装<code>mysql-server</code>了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install mysql-server</span><br></pre></td></tr></table></figure>
+<p>安装过程中会提示用户选择密码的加密方式，由于<code>Mysql 8.0</code>开始支持更加安全的基于SHA256的加密方式，但是老的驱动是不支持该加密方式，所以如果已经有其他程序使用该Mysql，需要保持兼容，则选择兼容模式，否则推荐使用最一种模式。</p>
+<img src="/posts/技术文档/Ubuntu下Mysql的安装与验证/2018-10-05-17-05-49.png" title="[blog.ruanxinyu.cn]">
+<h1 id="启动与开机启动"><a class="markdownIt-Anchor" href="#启动与开机启动"></a> 启动与开机启动</h1>
+<p>安装完成后mysql自动已经起来，可以通过<code>systemctl</code>命令启动，停止和查看mysql，并且加入到开机启动。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl stop mysql.service</span><br><span class="line">sudo systemctl start mysql.service</span><br><span class="line">sudo systemctl status mysql.service</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> mysql.service</span><br></pre></td></tr></table></figure>
+<p>mysql的相关目录及文件位置说明：</p>
+<ol>
+<li>用户配置文件位置：<code>/etc/mysql/my.cnf</code></li>
+<li>pid文件位置：<code>/var/run/mysqld/mysqld.pid</code></li>
+<li>socket文件位置：<code>/var/run/mysqld/mysqld.sock</code></li>
+<li>数据目录： <code>/var/lib/mysql</code></li>
+<li>错误日志文件： <code>/var/log/mysql/error.log</code></li>
+</ol>
+<p>在控制台执行<code>mysql -u root -p</code>，输入密码就可以进入</p>
+<img src="/posts/技术文档/Ubuntu下Mysql的安装与验证/2018-10-05-18-58-08.png" title="[blog.ruanxinyu.cn]">
+
+
+
+    <div class="row border-top pre-next-link">
+        <div class="col-6">
+            上一篇：
+            
+            <a href="/posts/技术文档/Ubuntu常见问题操作指导/"><h6 class="d-inline">Ubuntu常见问题操作指导</h6></a>
+            
+        </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/技术文档/Git常见问题操作指导/"><h6 class="d-inline">Git常见问题操作指导</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#apt方式安装"><span class="toc-text"> apt方式安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#启动与开机启动"><span class="toc-text"> 启动与开机启动</span></a></li></ol>
+    
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </main>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/crypto-js.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="阮新宇的成长记录">
+    <meta name="author" content="阮新宇">
+    <meta name="keywords" content="学习记录">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>TypeScript学习记录-1 | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+
+    <meta name="description" content="安装和编译 使用npm进行安装： 1npm install -g typescript 使用tsc可以将ts文件编译为js文件： 1tsc greeter.ts  变量类型 官方文档地址为：http://www.typescriptlang.org/docs/handbook/basic-types.html。基本的数据类型及使用如下所示： 123456789101112131415161718">
+<meta name="keywords" content="学习记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TypeScript学习记录-1">
+<meta property="og:url" content="http://ruanxinyu.github.io/posts/技术文档/TypeScript学习记录-1/index.html">
+<meta property="og:site_name" content="RuanXinYu&#39;s Blog">
+<meta property="og:description" content="安装和编译 使用npm进行安装： 1npm install -g typescript 使用tsc可以将ts文件编译为js文件： 1tsc greeter.ts  变量类型 官方文档地址为：http://www.typescriptlang.org/docs/handbook/basic-types.html。基本的数据类型及使用如下所示： 123456789101112131415161718">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-14T09:09:44.388Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TypeScript学习记录-1">
+<meta name="twitter:description" content="安装和编译 使用npm进行安装： 1npm install -g typescript 使用tsc可以将ts文件编译为js文件： 1tsc greeter.ts  变量类型 官方文档地址为：http://www.typescriptlang.org/docs/handbook/basic-types.html。基本的数据类型及使用如下所示： 123456789101112131415161718">
+    
+        <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/avatar.png">
+</head>
+<body class="bg-white">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="url_for('/')">
+        <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/"  >主页</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/inbox"  >收集箱</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/questions"  >速查表</a>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">项目</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/posts/VirtualBox安装Ubuntu教程/?project=Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统"  >Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/tags"  >标签</a>
+                        
+                        <a class="dropdown-item" href="/categories"  >分类</a>
+                        
+                        <a class="dropdown-item" href="/archives"  >归档</a>
+                        
+                        <a class="dropdown-item" href="/pages/bookmarks"  >书签收藏</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">关于</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/pages/about"  >规划介绍</a>
+                        
+                        <a class="dropdown-item" href="https://github.com/RuanXinyu" target="_blank" >github</a>
+                        
+                    </div>
+                </li>
+            
+        
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="速查表搜索" autofocus="autofocus" aria-label="Search" id="global_search_text">
+          <button class="btn my-2 my-sm-0" type="submit" id="global_search">搜索</button>
+        </form>
+    </div>
+</nav>
+    <main role="main" class="container-fluid mt-5">
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+    <div class="row">
+        <div class="col-10 col-content border-left border-right">
+            <div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            
+                <li class="breadcrumb-item"><a href="/categories/学习记录/" class="font-weight-bold text-primary">学习记录</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">TypeScript学习记录-1</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/学习记录/" class="font-weight-bold text-danger">学习记录</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2018-10-04 10:08:09</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <h1 id="安装和编译"><a class="markdownIt-Anchor" href="#安装和编译"></a> 安装和编译</h1>
+<p>使用npm进行安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g typescript</span><br></pre></td></tr></table></figure>
+<p>使用<code>tsc</code>可以将ts文件编译为js文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tsc greeter.ts</span><br></pre></td></tr></table></figure>
+<h1 id="变量类型"><a class="markdownIt-Anchor" href="#变量类型"></a> 变量类型</h1>
+<p>官方文档地址为：<a href="http://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" rel="noopener">http://www.typescriptlang.org/docs/handbook/basic-types.html</a>。基本的数据类型及使用如下所示：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// boolean</span></span><br><span class="line"><span class="keyword">let</span> isDone: <span class="built_in">boolean</span> = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// number</span></span><br><span class="line"><span class="keyword">let</span> decimal: <span class="built_in">number</span> = <span class="number">6</span>;</span><br><span class="line"><span class="keyword">let</span> hex: <span class="built_in">number</span> = <span class="number">0xf00d</span>;</span><br><span class="line"><span class="keyword">let</span> binary: <span class="built_in">number</span> = <span class="number">0b1010</span>;</span><br><span class="line"><span class="keyword">let</span> octal: <span class="built_in">number</span> = <span class="number">0o744</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串即字符串中的变量引用</span></span><br><span class="line"><span class="keyword">let</span> fullName: <span class="built_in">string</span> = <span class="string">`Bob Bobbington`</span>;</span><br><span class="line"><span class="keyword">let</span> age: <span class="built_in">number</span> = <span class="number">37</span>;</span><br><span class="line"><span class="keyword">let</span> sentence: <span class="built_in">string</span> = <span class="string">`Hello, my name is <span class="subst">$&#123; fullName &#125;</span>.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">I'll be <span class="subst">$&#123; age + 1 &#125;</span> years old next month.`</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组</span></span><br><span class="line"><span class="keyword">let</span> list: <span class="built_in">number</span>[] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> list: <span class="built_in">Array</span>&lt;<span class="built_in">number</span>&gt; = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 元组</span></span><br><span class="line"><span class="keyword">let</span> x: [<span class="built_in">string</span>, <span class="built_in">number</span>] = [<span class="string">"hello"</span>, <span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 枚举</span></span><br><span class="line"><span class="keyword">enum</span> Color &#123;Red = <span class="number">1</span>, Green, Blue&#125;</span><br><span class="line"><span class="keyword">let</span> c: Color = Color.Green;</span><br></pre></td></tr></table></figure>
+<p>还有其他的类型包括：<code>any</code>, <code>void</code>, <code>null</code>, <code>undifined</code>, <code>never</code>, <code>object</code>。</p>
+<h1 id="变量声明"><a class="markdownIt-Anchor" href="#变量声明"></a> 变量声明</h1>
+<p>变量的声明有3个关键字<code>var</code>, <code>let</code>, <code>const</code>。</p>
+<ul>
+<li>定义要尽可能使用<code>let</code>，而不是<code>var</code></li>
+<li><code>const</code>是针对不可以重新复制的变量</li>
+<li><code>object</code>的声明与json的定义方式是一样的</li>
+</ul>
+<h2 id="默认值"><a class="markdownIt-Anchor" href="#默认值"></a> 默认值</h2>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">keepWholeObject</span>(<span class="params">wholeObject: &#123; a: <span class="built_in">string</span>, b?: <span class="built_in">number</span> &#125;</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> &#123; a, b = <span class="number">1001</span> &#125; = wholeObject;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="函数声明"><a class="markdownIt-Anchor" href="#函数声明"></a> 函数声明</h2>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> C = &#123; a: <span class="built_in">string</span>, b?: <span class="built_in">number</span> &#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">&#123; a, b &#125;: C</span>): <span class="title">void</span> </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function f(&#123; a, b = 0 &#125; = &#123; a: "" &#125;): void &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line">f(&#123; a: <span class="string">"yes"</span> &#125;); <span class="comment">// ok, default b = 0</span></span><br><span class="line">f(); <span class="comment">// ok, default to &#123; a: "" &#125;, which then defaults b = 0</span></span><br><span class="line">f(&#123;&#125;); <span class="comment">// error, 'a' is required if you supply an argument</span></span><br></pre></td></tr></table></figure>
+<h2 id="spread"><a class="markdownIt-Anchor" href="#spread"></a> Spread</h2>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 数组</span></span><br><span class="line"><span class="keyword">let</span> first = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">let</span> second = [<span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> bothPlus = [<span class="number">0</span>, ...first, ...second, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象</span></span><br><span class="line"><span class="keyword">let</span> defaults = &#123; food: <span class="string">"spicy"</span>, price: <span class="string">"$$"</span>, ambiance: <span class="string">"noisy"</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> search = &#123; ...defaults, food: <span class="string">"rich"</span> &#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="接口"><a class="markdownIt-Anchor" href="#接口"></a> 接口</h1>
+<p>通过<code>interface</code>定义接口，只要校验传进来的参数是否包含接口中的变量，则认为传进来的参数与接口是兼容的。可以通过<code>?</code>来指定是否是函数的可选参数，通过<code>readonly</code>来指定参数是只读的。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> SquareConfig &#123;</span><br><span class="line">    color?: <span class="built_in">string</span>;</span><br><span class="line">    width?: <span class="built_in">number</span>;</span><br><span class="line">    readonly height?: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createSquare</span>(<span class="params">config: SquareConfig</span>): </span>&#123; color: <span class="built_in">string</span>; area: <span class="built_in">number</span> &#125; &#123;</span><br><span class="line">    <span class="keyword">let</span> newSquare = &#123;color: <span class="string">"white"</span>, area: <span class="number">100</span>&#125;;</span><br><span class="line">    <span class="keyword">if</span> (config.clor) &#123;</span><br><span class="line">        <span class="comment">// Error: Property 'clor' does not exist on type 'SquareConfig'</span></span><br><span class="line">        newSquare.color = config.clor;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (config.width) &#123;</span><br><span class="line">        newSquare.area = config.width * config.width;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newSquare;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> mySquare = createSquare(&#123;color: <span class="string">"black"</span>&#125;);</span><br><span class="line">Readonly properties</span><br></pre></td></tr></table></figure>
+<p>接口中也是可以定义函数的。</p>
+<p>接口可以通过<code>extends</code>来继承</p>
+<h1 id="类"><a class="markdownIt-Anchor" href="#类"></a> 类</h1>
+<ul>
+<li>通过<code>class</code>定义类，通过<code>implements</code>实现接口</li>
+<li>通过<code>constructor</code>来定义构造函数</li>
+<li>支持getter/setter方法</li>
+<li>支持<code>static</code>关键字</li>
+<li>支持<code>abstract</code>关键字</li>
+</ul>
+<h1 id="函数"><a class="markdownIt-Anchor" href="#函数"></a> 函数</h1>
+<p>多参数支持</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">buildName</span>(<span class="params">firstName: <span class="built_in">string</span>, ...restOfName: <span class="built_in">string</span>[]</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> firstName + <span class="string">" "</span> + restOfName.join(<span class="string">" "</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> employeeName = buildName(<span class="string">"Joseph"</span>, <span class="string">"Samuel"</span>, <span class="string">"Lucas"</span>, <span class="string">"MacKinzie"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="this和箭头函数"><a class="markdownIt-Anchor" href="#this和箭头函数"></a> this和箭头函数</h2>
+<p><strong>Arrow functions capture the this where the function is created rather than where it is invoked.</strong> 所以在定义函数的时候尽量使用箭头函数，如果使用this的时候提示是<code>any</code>类型，可以显性的传入this变量</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Card &#123;</span><br><span class="line">    suit: <span class="built_in">string</span>;</span><br><span class="line">    card: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">interface</span> Deck &#123;</span><br><span class="line">    suits: <span class="built_in">string</span>[];</span><br><span class="line">    cards: <span class="built_in">number</span>[];</span><br><span class="line">    createCardPicker(<span class="keyword">this</span>: Deck): <span class="function"><span class="params">()</span> =&gt;</span> Card;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> deck: Deck = &#123;</span><br><span class="line">    suits: [<span class="string">"hearts"</span>, <span class="string">"spades"</span>, <span class="string">"clubs"</span>, <span class="string">"diamonds"</span>],</span><br><span class="line">    cards: <span class="built_in">Array</span>(<span class="number">52</span>),</span><br><span class="line">    <span class="comment">// 显性的传入this</span></span><br><span class="line">    createCardPicker: <span class="function"><span class="keyword">function</span>(<span class="params"><span class="keyword">this</span>: Deck</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 是哟弄个箭头函数</span></span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> pickedCard = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">52</span>);</span><br><span class="line">            <span class="keyword">let</span> pickedSuit = <span class="built_in">Math</span>.floor(pickedCard / <span class="number">13</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> &#123;suit: <span class="keyword">this</span>.suits[pickedSuit], card: pickedCard % <span class="number">13</span>&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> cardPicker = deck.createCardPicker();</span><br><span class="line"><span class="keyword">let</span> pickedCard = cardPicker();</span><br><span class="line"></span><br><span class="line">alert(<span class="string">"card: "</span> + pickedCard.card + <span class="string">" of "</span> + pickedCard.suit);</span><br></pre></td></tr></table></figure>
+<h1 id="泛型"><a class="markdownIt-Anchor" href="#泛型"></a> 泛型</h1>
+<p>函数</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">identity</span>&lt;<span class="title">T</span>&gt;(<span class="params">arg: T</span>): <span class="title">T</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arg;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myIdentity: &#123;&lt;T&gt;(arg: T): T&#125; = identity;</span><br></pre></td></tr></table></figure>
+<p>// 类</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> GenericNumber&lt;T&gt; &#123;</span><br><span class="line">    zeroValue: T;</span><br><span class="line">    add: <span class="function">(<span class="params">x: T, y: T</span>) =&gt;</span> T;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myGenericNumber = <span class="keyword">new</span> GenericNumber&lt;<span class="built_in">number</span>&gt;();</span><br></pre></td></tr></table></figure>
+<p>类继承</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Lengthwise &#123;</span><br><span class="line">    length: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loggingIdentity</span>&lt;<span class="title">T</span> <span class="title">extends</span> <span class="title">Lengthwise</span>&gt;(<span class="params">arg: T</span>): <span class="title">T</span> </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arg.length);  <span class="comment">// Now we know it has a .length property, so no more error</span></span><br><span class="line">    <span class="keyword">return</span> arg;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    <div class="row border-top pre-next-link">
+        <div class="col-6">
+            上一篇：
+            
+            <a href="/posts/技术文档/Ubuntu下Mysql-Keepalived双主热备高可用环境的搭建/"><h6 class="d-inline">Ubuntu下Mysql+Keepalived双主热备高可用环境的搭建</h6></a>
+            
+        </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/技术文档/Jenkins的安装与使用/"><h6 class="d-inline">Jenkins的安装与使用</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装和编译"><span class="toc-text"> 安装和编译</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#变量类型"><span class="toc-text"> 变量类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#变量声明"><span class="toc-text"> 变量声明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#默认值"><span class="toc-text"> 默认值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数声明"><span class="toc-text"> 函数声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#spread"><span class="toc-text"> Spread</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#接口"><span class="toc-text"> 接口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类"><span class="toc-text"> 类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数"><span class="toc-text"> 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#this和箭头函数"><span class="toc-text"> this和箭头函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#泛型"><span class="toc-text"> 泛型</span></a></li></ol>
+    
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </main>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/crypto-js.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
