@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ruanxinyu.github.io/"/>
-  <updated>2019-01-12T15:43:29.278Z</updated>
+  <updated>2019-01-24T13:56:43.883Z</updated>
   <id>http://ruanxinyu.github.io/</id>
   
   <author>
@@ -17,34 +17,28 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2019目标达成记-005</title>
-    <link href="http://ruanxinyu.github.io/posts/2019%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90%E8%AE%B0/2019%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90%E8%AE%B0-005/"/>
-    <id>http://ruanxinyu.github.io/posts/2019目标达成记/2019目标达成记-005/</id>
-    <published>2019-01-12T14:35:37.000Z</published>
-    <updated>2019-01-12T15:43:29.278Z</updated>
+    <title>读书笔记：子弹笔记</title>
+    <link href="http://ruanxinyu.github.io/posts/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%AD%90%E5%BC%B9%E7%AC%94%E8%AE%B0/"/>
+    <id>http://ruanxinyu.github.io/posts/读书笔记/子弹笔记/</id>
+    <published>2019-01-24T03:04:43.000Z</published>
+    <updated>2019-01-24T13:56:43.883Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="目标的完成状态"><a class="markdownIt-Anchor" href="#目标的完成状态"></a> 目标的完成状态</h1><table><thead><tr><th>目标</th><th>完成度</th></tr></thead><tbody><tr><td>跑步</td><td>今天不涉及</td></tr><tr><td>健身</td><td>未完成，早晨没起床，罪过</td></tr><tr><td>冥想</td><td>完成，2次</td></tr><tr><td>读书</td><td>因为昨晚睡得太晚，上午一直睡觉了，所以造成没有了阅读时间</td></tr><tr><td>得到课程</td><td>今天不涉及</td></tr><tr><td>得到听书</td><td>未完成</td></tr></tbody></table><h1 id="今日回顾"><a class="markdownIt-Anchor" href="#今日回顾"></a> 今日回顾</h1><blockquote><p>记录最值得记录的3件事，回顾哪些做得好，哪些做得不好</p></blockquote><ol><li>和陈家鹏一起初步完成了3D打印网站的初稿</li><li>晚上回来后虽然头疼，但是还是坚持完成了今天要做的事情，冥想，输出《睡眠革命》读书笔记，签到，没破罐子破摔</li></ol><p>积极主动很关键，先去完成最终要的事情，而不是等，一拖可能就会进入恶性循环。接受自己，如果之前做的不好，那么从现在这一刻开始，去做，去改变。</p><h1 id="明天规划"><a class="markdownIt-Anchor" href="#明天规划"></a> 明天规划</h1><blockquote><p>明天要做哪些事情，完成这些事情有哪些难度，提前想好解决方法</p></blockquote><ol><li>早晨六点起床，健身，能量词，冥想，跑步，阅读《如何想到又能做到》</li><li>去广州拜访，看看是否可以有什么机会</li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="内容概述"><a class="markdownIt-Anchor" href="#内容概述"></a> 内容概述</h1><p>作者主要从作用，结构和实践三部分描述子弹笔记。整理自己的想法到每日记录，阅读记录和未来记录等不同的集子，同时说明清单条目是如何在集子之间流转，如何更好的实现自己的目标。</p><h1 id="文章剖析"><a class="markdownIt-Anchor" href="#文章剖析"></a> 文章剖析</h1><p>子弹笔记术的使命是帮助人们认识自己应该如何利用生命中最宝贵的人生资源，时间和精力，剔除无意义的事，从而专注于有意义。</p><p>子弹笔记术能够帮助我们整理思绪，然后从客观的角度审视自己的想法，确定什么才是最重要的事情，并且便于以后的回顾。</p><p>剔除没有价值的事情之后，剩下的事情可以大致分为两类，需要做的事和想要做的事，一个是你的责任，一个是你的目标。</p><p>真正的效率，无关速度，而在于为真正重要的事情留出了多长时间，这便是子弹笔记的要义所在。</p><h2 id="快速记录"><a class="markdownIt-Anchor" href="#快速记录"></a> 快速记录</h2><p>记录的内容包括：<code>笔记</code>，<code>任务</code>和<code>事件</code>。也就是说子弹笔记中不仅包含你要做的事情，还包含了你生活的记录，这样便于后续反思回顾。</p><p>为什么用点表示任务呢，因为点可以轻松的转化为其他的标记。语句要简短明了，子弹语句。</p><p>可以通过*等特殊符号来标记，但是尽量少用以避免增加复杂度。</p><ol><li><code>-</code> 笔记</li><li><code>。</code>事件</li><li><code>▪</code> 任务</li><li><code>x</code> 完成的任务</li><li><code>&gt;</code> 迁移的任务</li><li><code>&lt;</code> 计划中的任务</li></ol><h2 id="集子"><a class="markdownIt-Anchor" href="#集子"></a> 集子</h2><p>为了归类以便管理，子弹笔记有四个集子：</p><ol><li><code>索引</code>：利用标题和页码定位内容</li><li><code>每日记录</code>：用于快速记录每一天的所有想法</li><li><code>月度记录</code>：本月时间安排和任务</li><li><code>未来记录</code>：本月意外的任务和事件</li></ol><p>月度记录可以记录每天的主要内容（日历页），也可以记录该月的目标（任务页）</p><p>未来记录的内容来自每日记录，需要每个月审视从而挪到月度记录中以便于实施落地。</p><p>任务迁移可以帮助我们停下来思考每个任务是不是有必要做以及优先级是什么，过滤掉无用的任务。</p><p>任务迁移主要是月底你准备好创建新的月度记录时进行。</p><h1 id="行为指南"><a class="markdownIt-Anchor" href="#行为指南"></a> 行为指南</h1><p>清单的作用不言而喻，重点在于如何管理自己的清单，本书给我最大的帮助是确定了一种比较好的标记和迁移方式，这个值得尝试一下。</p><p>对于清单是用app还是本子，我个人的看法是对于生活中的清单用app，因为没有固定的场所，更便于记录和查看；而对于工作，场所固定，我更建议使用本子，因为手抄写能能促进思考，能够更好的审视自己所做的事情。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;目标的完成状态&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#目标的完成状态&quot;&gt;&lt;/a&gt; 目标的完成状态&lt;/h1&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;目标&lt;/th&gt;
-&lt;th&gt;完成度&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
+        &lt;h1 id=&quot;内容概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#内容概述&quot;&gt;&lt;/a&gt; 内容概述&lt;/h1&gt;
+&lt;p&gt;作者主要从作用，结构和实践三部分描述子弹笔记。整理自己的想法到每日记录，阅读记录和未来记录等不同的集子，同时说明清单条目是如何在集子
       
     
     </summary>
     
-      <category term="目标达成" scheme="http://ruanxinyu.github.io/categories/%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90/"/>
+      <category term="读书笔记" scheme="http://ruanxinyu.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="目标达成" scheme="http://ruanxinyu.github.io/tags/%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90/"/>
+      <category term="读书笔记" scheme="http://ruanxinyu.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -75,70 +69,6 @@
   </entry>
   
   <entry>
-    <title>2019目标达成记-004</title>
-    <link href="http://ruanxinyu.github.io/posts/2019%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90%E8%AE%B0/2019%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90%E8%AE%B0-004/"/>
-    <id>http://ruanxinyu.github.io/posts/2019目标达成记/2019目标达成记-004/</id>
-    <published>2019-01-11T14:35:37.000Z</published>
-    <updated>2019-01-12T15:36:24.488Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="目标的完成状态"><a class="markdownIt-Anchor" href="#目标的完成状态"></a> 目标的完成状态</h1><table><thead><tr><th>目标</th><th>完成度</th></tr></thead><tbody><tr><td>跑步</td><td>今天</td></tr><tr><td>健身</td><td>完成</td></tr><tr><td>冥想</td><td>完成，2次</td></tr><tr><td>读书</td><td>睡眠革命</td></tr><tr><td>得到课程</td><td>今天不涉及</td></tr><tr><td>得到听书</td><td>未完成</td></tr></tbody></table><h1 id="今日回顾"><a class="markdownIt-Anchor" href="#今日回顾"></a> 今日回顾</h1><blockquote><p>记录最值得记录的3件事，回顾哪些做得好，哪些做得不好</p></blockquote><ol><li>晚上浪费大把的时间在电视剧上，放纵自己了</li><li>完成了睡眠革命的阅读</li></ol><p>松懈了，总觉得可以等一等，只要目标没有完成，先完成目标再去做其他的事情，如果觉得累，那么就冥想或者休息30分钟。</p><h1 id="明天规划"><a class="markdownIt-Anchor" href="#明天规划"></a> 明天规划</h1><blockquote><p>明天要做哪些事情，完成这些事情有哪些难度，提前想好解决方法</p></blockquote><ol><li>早晨六点起床，健身，能量词，冥想，读书笔记</li><li>约陈家鹏谈3D的事情</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;目标的完成状态&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#目标的完成状态&quot;&gt;&lt;/a&gt; 目标的完成状态&lt;/h1&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;目标&lt;/th&gt;
-&lt;th&gt;完成度&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-      
-    
-    </summary>
-    
-      <category term="目标达成" scheme="http://ruanxinyu.github.io/categories/%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90/"/>
-    
-    
-      <category term="目标达成" scheme="http://ruanxinyu.github.io/tags/%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2019目标达成记-003</title>
-    <link href="http://ruanxinyu.github.io/posts/2019%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90%E8%AE%B0/2019%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90%E8%AE%B0-003/"/>
-    <id>http://ruanxinyu.github.io/posts/2019目标达成记/2019目标达成记-003/</id>
-    <published>2019-01-10T14:35:37.000Z</published>
-    <updated>2019-01-10T17:24:35.759Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="目标的完成状态"><a class="markdownIt-Anchor" href="#目标的完成状态"></a> 目标的完成状态</h1><table><thead><tr><th>目标</th><th>完成度</th></tr></thead><tbody><tr><td>跑步</td><td>今天不涉及</td></tr><tr><td>健身</td><td>未完成，早晨没起床，晚上去爱彼</td></tr><tr><td>冥想</td><td>完成，三次</td></tr><tr><td>读书</td><td>完成区块链的读书笔记，但是没有阅读量</td></tr><tr><td>得到课程</td><td>今天不涉及</td></tr><tr><td>得到听书</td><td>完成，2666</td></tr></tbody></table><h1 id="今日回顾"><a class="markdownIt-Anchor" href="#今日回顾"></a> 今日回顾</h1><blockquote><p>记录最值得记录的3件事，回顾哪些做得好，哪些做得不好</p></blockquote><ol><li>早晨没有六点起床，达目标有人鼓励我早起，并推荐了《睡眠革命》这本书，并且与他有了互动</li><li>回来的很晚，但是还是坚持完成读书笔记和每日记录</li></ol><p>睡眠时可以调整的，当你困了自然就知道早睡，所以不用因为晚睡而放弃阅读和早起，我既然将阅读和运动当做了今天的重点工作，就需要运用一切手段达到目标，这才是优先级的体现。当然晚睡并不是什么值得赞赏的事情，这个也需要调整规避，不要让阅读成为了晚睡的借口。</p><h1 id="明天规划"><a class="markdownIt-Anchor" href="#明天规划"></a> 明天规划</h1><blockquote><p>明天要做哪些事情，完成这些事情有哪些难度，提前想好解决方法</p></blockquote><ol><li>早晨六点起床，健身，能量词，冥想，跑步，阅读《睡眠革命》</li><li>《睡眠革命》读书笔记</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;目标的完成状态&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#目标的完成状态&quot;&gt;&lt;/a&gt; 目标的完成状态&lt;/h1&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;目标&lt;/th&gt;
-&lt;th&gt;完成度&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-      
-    
-    </summary>
-    
-      <category term="目标达成" scheme="http://ruanxinyu.github.io/categories/%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90/"/>
-    
-    
-      <category term="目标达成" scheme="http://ruanxinyu.github.io/tags/%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90/"/>
-    
-  </entry>
-  
-  <entry>
     <title>得到听书记录</title>
     <link href="http://ruanxinyu.github.io/posts/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%BE%97%E5%88%B0%E5%90%AC%E4%B9%A6%E8%AE%B0%E5%BD%95/"/>
     <id>http://ruanxinyu.github.io/posts/读书笔记/得到听书记录/</id>
@@ -161,38 +91,6 @@
     
     
       <category term="读书笔记" scheme="http://ruanxinyu.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2019目标达成记-002</title>
-    <link href="http://ruanxinyu.github.io/posts/2019%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90%E8%AE%B0/2019%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90%E8%AE%B0-002/"/>
-    <id>http://ruanxinyu.github.io/posts/2019目标达成记/2019目标达成记-002/</id>
-    <published>2019-01-09T14:35:37.000Z</published>
-    <updated>2019-01-10T17:17:40.658Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="目标的完成状态"><a class="markdownIt-Anchor" href="#目标的完成状态"></a> 目标的完成状态</h1><table><thead><tr><th>目标</th><th>完成度</th></tr></thead><tbody><tr><td>跑步</td><td>完成，早晨2.5公里</td></tr><tr><td>健身</td><td>完成</td></tr><tr><td>冥想</td><td>完成，三次</td></tr><tr><td>读书</td><td>未完成，要完成的事情太多，有点超负荷的感觉，需要调整策略</td></tr><tr><td>得到课程</td><td>完成香帅的一周课程</td></tr><tr><td>得到听书</td><td>完成，黑石的选择</td></tr></tbody></table><h1 id="今日回顾"><a class="markdownIt-Anchor" href="#今日回顾"></a> 今日回顾</h1><blockquote><p>记录最值得记录的3件事，回顾哪些做得好，哪些做得不好</p></blockquote><ol><li>早晨6点起床并完成了开合跳，冥想，能量词，读书笔记，跑步</li><li>下午花时间在香帅的金融学课上，保证今天的任务基本完成</li><li>和袁超讨论前途的问题，但是我觉得不应该跟同事讨论更多的这方面内容，而是应该聚焦于积累上</li></ol><p>目标是完成了，但是很艰难，实际上是利用了很大一部分的工作时间来完成的，这个必然不是长久之计。之前想着是阅读，得到课程和听书每天坚持，但是今天尝试发现很容易对自己造成压力，让人有点顾不上的感觉，今天在完成香帅的课程其实是搞定了一周的内容，分开倒觉得太零散，太占脑子了。</p><p>所以需要调整策略，保证一周中六天完成三本书和读书笔记，一天时间用于输出听书内容和香帅的内容，即根据内容来安排时间。</p><p>另外，六点起床，白天确实犯困，这个需要解决一下，中午和晚上是不是都要小憩一下恢复精力</p><h1 id="明天规划"><a class="markdownIt-Anchor" href="#明天规划"></a> 明天规划</h1><blockquote><p>明天要做哪些事情，完成这些事情有哪些难度，提前想好解决方法</p></blockquote><ol><li>早晨六点起床，健身，能量词，冥想，区块链的读书笔记</li><li>阅读完《不抱怨的世界》并开始写读书笔记</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;目标的完成状态&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#目标的完成状态&quot;&gt;&lt;/a&gt; 目标的完成状态&lt;/h1&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;目标&lt;/th&gt;
-&lt;th&gt;完成度&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-      
-    
-    </summary>
-    
-      <category term="目标达成" scheme="http://ruanxinyu.github.io/categories/%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90/"/>
-    
-    
-      <category term="目标达成" scheme="http://ruanxinyu.github.io/tags/%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90/"/>
     
   </entry>
   
@@ -243,33 +141,6 @@
     
     
       <category term="读书笔记" scheme="http://ruanxinyu.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2019目标达成记-001</title>
-    <link href="http://ruanxinyu.github.io/posts/2019%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90%E8%AE%B0/2019%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90%E8%AE%B0-001/"/>
-    <id>http://ruanxinyu.github.io/posts/2019目标达成记/2019目标达成记-001/</id>
-    <published>2019-01-08T14:35:37.000Z</published>
-    <updated>2019-01-10T17:24:38.403Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="目标的完成状态"><a class="markdownIt-Anchor" href="#目标的完成状态"></a> 目标的完成状态</h1><blockquote><p>今天是第一天，确认今年的目标只包含两点：运动与读书。基于这两点目标做了细致的剖析，以便于后续更容易的达成目标。</p></blockquote><table><thead><tr><th>目标</th><th>完成度</th></tr></thead><tbody><tr><td>跑步</td><td>不涉及</td></tr><tr><td>健身</td><td>完成</td></tr><tr><td>冥想</td><td>完成</td></tr><tr><td>读书</td><td>未完成，今天完成目标定制，明天开始阅读计划</td></tr><tr><td>得到课程</td><td>未完成，同上</td></tr><tr><td>得到听书</td><td>未完成，同上</td></tr></tbody></table><h1 id="今日回顾"><a class="markdownIt-Anchor" href="#今日回顾"></a> 今日回顾</h1><blockquote><p>记录最值得记录的3件事，回顾哪些做得好，哪些做得不好</p></blockquote><ol><li>早晨7点起床确定了能量词，并且做了运动和冥想</li><li>确定2019年的目标，并且制定详细的计划</li><li>组织会议讨论看板服务的相关细节</li></ol><p>今天在个人目标上做了挺多的工作，是一种进步，就应该在自己的身上花更多的时间，定制详细的计划，然后落实。</p><h1 id="明天规划"><a class="markdownIt-Anchor" href="#明天规划"></a> 明天规划</h1><blockquote><p>明天要做哪些事情，完成这些事情有哪些难度，提前想好解决方法</p></blockquote><ol><li>早晨六点起床，健身，能量词，冥想，区块链的读书笔记</li><li>阅读《不抱怨的世界》至少150页（晚上）</li><li>香帅的课程一篇（中午）</li><li>得到听书一篇（早晨上班）</li><li>去方舟实验室看看，确认一下情况</li></ol><p>可能会出现的问题包括：</p><ol><li>找不着方舟实验室，另外明天晚上是否需要与陈家鹏见面</li><li>阅读的时间不够，因此需要下午上班抽点时间，因为这本书已经看过了，所以加快阅读速度</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;目标的完成状态&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#目标的完成状态&quot;&gt;&lt;/a&gt; 目标的完成状态&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;今天是第一天，确认今年的目标只包含两点：运动与读书。基于这两点目标做了细致的剖析，以便于
-      
-    
-    </summary>
-    
-      <category term="目标达成" scheme="http://ruanxinyu.github.io/categories/%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90/"/>
-    
-    
-      <category term="目标达成" scheme="http://ruanxinyu.github.io/tags/%E7%9B%AE%E6%A0%87%E8%BE%BE%E6%88%90/"/>
     
   </entry>
   
