@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="阮新宇的成长记录">
+    <meta name="author" content="阮新宇">
+    <meta name="keywords" content="读书笔记">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>002：如何设计一个休眠仓让你看看亿年之后的世界？ | RuanXinYu&#39;s Blog | 路漫漫其修远兮，吾将上下而求索</title>
+
+    <meta name="description" content="今天我们来做一个思想实验：假如你想亲自看看一亿年之后的地球是什么样子，你会如何去做呢？ 现在能想到的办法是：设计一个休眠仓，保护自己，然后再一亿年之后醒过来。 看似很简单的一个问题，其实没有那么简单。难点在于，休眠舱需要经受一亿年考验，要保证能源供给不断，要能经得起环境灾变，万一受损还得自我修复，数不清的考验它都得能应付，任何一点出错都会导致你醒不过来。 我们无法为休眠仓选择一个固定的位置，因为">
+<meta name="keywords" content="读书笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="002：如何设计一个休眠仓让你看看亿年之后的世界？">
+<meta property="og:url" content="http://ruanxinyu.github.io/posts/认知训练营/002-如何设计一个休眠仓让你看看亿年之后的世界/index.html">
+<meta property="og:site_name" content="RuanXinYu&#39;s Blog">
+<meta property="og:description" content="今天我们来做一个思想实验：假如你想亲自看看一亿年之后的地球是什么样子，你会如何去做呢？ 现在能想到的办法是：设计一个休眠仓，保护自己，然后再一亿年之后醒过来。 看似很简单的一个问题，其实没有那么简单。难点在于，休眠舱需要经受一亿年考验，要保证能源供给不断，要能经得起环境灾变，万一受损还得自我修复，数不清的考验它都得能应付，任何一点出错都会导致你醒不过来。 我们无法为休眠仓选择一个固定的位置，因为">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/认知训练营/002-如何设计一个休眠仓让你看看亿年之后的世界/2019-03-30-21-18-03.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/认知训练营/002-如何设计一个休眠仓让你看看亿年之后的世界/2019-03-30-21-19-34.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/认知训练营/002-如何设计一个休眠仓让你看看亿年之后的世界/2019-03-30-21-18-41.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/认知训练营/002-如何设计一个休眠仓让你看看亿年之后的世界/2019-03-30-21-28-47.png">
+<meta property="og:image" content="http://ruanxinyu.github.io/posts/认知训练营/002-如何设计一个休眠仓让你看看亿年之后的世界/2019-03-30-20-35-49.png">
+<meta property="og:updated_time" content="2019-03-30T13:29:02.774Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="002：如何设计一个休眠仓让你看看亿年之后的世界？">
+<meta name="twitter:description" content="今天我们来做一个思想实验：假如你想亲自看看一亿年之后的地球是什么样子，你会如何去做呢？ 现在能想到的办法是：设计一个休眠仓，保护自己，然后再一亿年之后醒过来。 看似很简单的一个问题，其实没有那么简单。难点在于，休眠舱需要经受一亿年考验，要保证能源供给不断，要能经得起环境灾变，万一受损还得自我修复，数不清的考验它都得能应付，任何一点出错都会导致你醒不过来。 我们无法为休眠仓选择一个固定的位置，因为">
+<meta name="twitter:image" content="http://ruanxinyu.github.io/posts/认知训练营/002-如何设计一个休眠仓让你看看亿年之后的世界/2019-03-30-21-18-03.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="RuanXinYu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/avatar.png">
+</head>
+<body class="bg-white">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="url_for('/')">
+        <img src="/img/avatar.png" width="30" height="30" style="border-radius:5px;" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/"  >主页</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/inbox"  >收集箱</a>
+                </li>
+            
+        
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/questions"  >速查表</a>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">项目</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/posts/VirtualBox安装Ubuntu教程/?project=Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统"  >Nginx-HAProxy-KeepAlived-Tomcat-MySQL等搭建高可用系统</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">博文</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/tags"  >标签</a>
+                        
+                        <a class="dropdown-item" href="/categories"  >分类</a>
+                        
+                        <a class="dropdown-item" href="/archives"  >归档</a>
+                        
+                        <a class="dropdown-item" href="/pages/bookmarks"  >书签收藏</a>
+                        
+                    </div>
+                </li>
+            
+        
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">关于</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        
+                        <a class="dropdown-item" href="/posts/成长记录/我的能量词/"  >能量词</a>
+                        
+                        <a class="dropdown-item" href="/posts/成长记录/我的2019年目标/"  >2019年目标</a>
+                        
+                        <a class="dropdown-item" href="/posts/成长记录/我的2019年目标跟踪记录/"  >2019年目标跟踪</a>
+                        
+                        <a class="dropdown-item" href="/pages/about"  >关于博客</a>
+                        
+                        <a class="dropdown-item" href="https://github.com/RuanXinyu" target="_blank" >github</a>
+                        
+                    </div>
+                </li>
+            
+        
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="速查表搜索" autofocus="autofocus" aria-label="Search" id="global_search_text">
+          <button class="btn my-2 my-sm-0" type="submit" id="global_search">搜索</button>
+        </form>
+    </div>
+</nav>
+    <main role="main" class="container-fluid mt-5">
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+    <div class="row">
+        <div class="col-10 col-content border-left border-right">
+            <div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            
+                <li class="breadcrumb-item"><a href="/categories/读书笔记/" class="font-weight-bold text-primary">读书笔记</a></li>
+            
+                <li class="breadcrumb-item"><a href="/categories/读书笔记/30天认知训练营2018/" class="font-weight-bold text-primary">30天认知训练营2018</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">002：如何设计一个休眠仓让你看看亿年之后的世界？</li>
+            <div class="ml-2">
+                (
+                
+                        <a href="/tags/读书笔记/" class="font-weight-bold text-danger">读书笔记</a> | 
+                
+                <span class="font-weight-bold text-success mr-2"> 2019-03-25 12:45:12</span><span>)</span>
+            </div>
+        </ol>
+    </nav>
+</div>
+<div class="my-3 bg-white rounded box-shadow post-content">
+
+    <img src="/posts/认知训练营/002-如何设计一个休眠仓让你看看亿年之后的世界/2019-03-30-21-18-03.png" title="[blog.ruanxinyu.cn]">
+<p>今天我们来做一个思想实验：<code>假如你想亲自看看一亿年之后的地球是什么样子，你会如何去做呢？</code></p>
+<p>现在能想到的办法是：<strong>设计一个休眠仓，保护自己，然后再一亿年之后醒过来</strong>。</p>
+<p>看似很简单的一个问题，其实没有那么简单。难点在于，休眠舱需要经受一亿年考验，要保证能源供给不断，要能经得起环境灾变，万一受损还得自我修复，数不清的考验它都得能应付，任何一点出错都会导致你醒不过来。</p>
+<p>我们无法为休眠仓选择一个固定的位置，因为一亿年之间，任何事情都有可能发生，曾经的山川可能会变成大海，曾经的大海可能会干枯，陨石撞击地球，海啸地震随时都有可能降临，未来不可预测，千年一遇的事情其实每天都在发生。</p>
+<img src="/posts/认知训练营/002-如何设计一个休眠仓让你看看亿年之后的世界/2019-03-30-21-19-34.png" title="[blog.ruanxinyu.cn]">
+<p>所以这个休眠仓必须要能够感知环境，回避风险，让自己在动态的环境中活下来。说到这里，你应该明白点了。不动，能动，是从自然界复制而来的两个策略，前者是植物策略，后者是动物策略。</p>
+<p>既然是能动以适应环境，那么就一定需要消耗能量，所以必须能够主动的寻找和汲取能量，并且根据资源来修复自己的损耗。</p>
+<p>由于你是休眠状态，无法亲自指导睡眠舱，你只能在睡下之前告诉机睡眠舱：“<strong>保护我一亿年，然后唤醒我</strong>”。</p>
+<p>你不可能提前为休眠仓设计好所有策略，因为未来你无法现象，你可以想象一下春秋战国和现在的区别，而这仅仅才几千年。所以睡眠舱必须能够自己<code>制定策略，指导如何去寻找资源，如何转移到安全地带，如何预判和回避危险</code>。</p>
+<p>挑战不止于此。未来一亿年不会只有你的那个机器人，可能有许多机器人，彼此<code>竞争、合作</code>。你的机器人得具备合纵连横的能力，需求层层嵌套。</p>
+<p>如果你的机器人最终不辱使命，将你保存到一亿年之后，那么它多半发展出了自运行的能力。你在休眠中，不能实时控制，机器人在保存你生命的最终目标之下，根据环境变迁，会自己衍生出许多次生目标。这是天大的事：衍生就意味着脱离，脱离于当初的目标。</p>
+<p><strong>不忘初心，何其之难。允许机器有相机决策自主权，那么自主决策的进程一定会超越你的预想范围，这就叫失控</strong>。</p>
+<img src="/posts/认知训练营/002-如何设计一个休眠仓让你看看亿年之后的世界/2019-03-30-21-18-41.png" title="[blog.ruanxinyu.cn]">
+<p>也许你已经猜到，这个睡眠舱就是人类自己。在演化中，基因创造出人来做它们的机器人，以保护它们在人类身体深处漫漫休眠。人是基因为了自己永生而造出来的机器人，但在基因不得不让渡的自主决策空间中，人类演化出了自由意志。</p>
+<p><strong>我们作为人的利益，与“造物主”基因的利益，走上岔路。从基因不得不赋予人类学习能力，授权自主决策的那一天起，基因失控，人类自立，就成为注定的结果</strong>。</p>
+<p>一语点醒梦中人，现在大家都在谈人工智能，既然人本来是机器，那机器何尝不能是人？</p>
+<img src="/posts/认知训练营/002-如何设计一个休眠仓让你看看亿年之后的世界/2019-03-30-21-28-47.png" title="[blog.ruanxinyu.cn]">
+<h1 id="课程原文"><a class="markdownIt-Anchor" href="#课程原文"></a> 课程原文</h1>
+<!-- encrypt start -->
+<img src="/posts/认知训练营/002-如何设计一个休眠仓让你看看亿年之后的世界/2019-03-30-20-35-49.png" title="[blog.ruanxinyu.cn]">
+<!-- encrypt end -->
+
+
+
+    <div class="row border-top pre-next-link pt-4 mt-4">
+        <div class="col-6">
+            上一篇：
+            
+            <a href="/posts/简书文章/如何花一个尊享会员的钱买到8723简书钻/"><h6 class="d-inline">如何花一个尊享会员的钱买到8723简书钻！</h6></a>
+            
+        </div>
+        <div class="col-6 text-right">
+            下一篇：
+            
+            <a href="/posts/认知训练营/001-什么是查理芒格的人生开关/"><h6 class="d-inline">001：芒格的误判心理学，25个开关，你今天按了几个？</h6></a>
+            
+        </div>
+    </div>
+
+</div>
+        </div>
+        <div class="col-2 offset-10 pl-0 position-fixed col-toc" style="overflow-y:auto; height:100%; width:100%">
+    <div class="my-3 bg-white rounded box-shadow post-toc">
+    
+        <a href="/"><h6 class="text-success">目录：</h6></a><hr class="mt-0">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#课程原文"><span class="toc-text"> 课程原文</span></a></li></ol>
+    
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </main>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/crypto-js.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
